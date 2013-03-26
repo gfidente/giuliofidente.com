@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Giulio Fidente (aka Giulivo Navigante)</title><link href="http://www.giuliofidente.im/" rel="alternate"></link><link href="http://www.giuliofidente.im/feeds/tag/transcoding.atom.xml" rel="self"></link><id>http://www.giuliofidente.im/</id><updated>2009-08-25T00:00:00+02:00</updated><entry><title>Audio extraction from DVDs</title><link href="http://www.giuliofidente.im/2009/08/audio-extraction-from-dvds.html" rel="alternate"></link><updated>2009-08-25T00:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2009-08-25:2009/08/audio-extraction-from-dvds.html</id><summary type="html">&lt;p&gt;I recently bought some dvds and they don't contain films but concerts so after the few plays I decided to extract the audio tracks, possibly keeping the highest audio quality permitted, to convert them later into mp3, ogg or flac as needed. I want to discuss the process.&lt;/p&gt;
+&lt;p&gt;The first tool I found useful was &lt;a class="reference external" href="http://untrepid.com/acidrip/lsdvd.html"&gt;lsdvd&lt;/a&gt;, it tells you the number and length of titles, chapters and angles available on the dvd, which is important stuff to go further. Then I picked &lt;a class="reference external" href="http://tcforge.berlios.de/"&gt;transcode&lt;/a&gt; to extract the actual audio data, because it can write audio on disk in raw PCM format (lossless) and because it's very flexible. Here is how to extract the audio from a single chapter (which you can put in a for loop) using transcode:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ transcode -i /dev/dvd -x null,dvd -T 1,1,1 -a 0 -y null,tcaud -N 0x1 -m track1.pcm
+&lt;/pre&gt;
+&lt;p&gt;Where arguments for -T are title, chapter and angle of the track you want to extract and argument for -N is the audio output format (0x1 is raw PCM). After that, you'll have to convert your PCM files into a more practical format ... mp3 for example, here is how I did it:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ lame -r -s 48 --preset extreme track1.pcm
+&lt;/pre&gt;
+&lt;p&gt;You can use any other lame option, just keep in mind that -r is important, it tells lame that your input file is in raw format (as in fact, we wanted it to be). Giving a look at the lame man page you'll notice it also says that -r expects you to define manually the sampling rate, mode and bitwidth of the input data; you can safely omit mode (which will be joint stereo by default) and the bitwidth (which will be 16) but you'll need to specify the sampling rate. 48KHz is most likely what you'll get on a regulard dvd, lame would otherwise assume it's 44.1KHz.&lt;/p&gt;
+&lt;p&gt;Something similar could be used to encode your raw files into the ogg format (oggenc is part of the vorbis-tools package); in my case 8 as quality is chosen to get the output files comparable in size with mp3:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ oggenc -r -R 48000 -q 8 track1.pcm -o track1.pcm.ogg
+&lt;/pre&gt;
+&lt;p&gt;On a side node, if you want to get your mp3 files all rolled in just one step, you may want to try the transcode's encoding:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ transcode -i /dev/dvd -x dvd -T 1,1,1 -a 0 -y null,tcaud --lame_preset extreme -m track1.mp3
+&lt;/pre&gt;
+&lt;p&gt;Enjoy :)&lt;/p&gt;
+</summary><category term="transcoding"></category><category term="dvd audio extraction"></category></entry></feed>

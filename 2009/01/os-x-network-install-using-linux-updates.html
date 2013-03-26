@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet/less" type="text/css" href="../../theme/css/style.less">
+  <script src="../../theme/js/less-1.3.3.min.js" type="text/javascript"></script>
+
+  <link rel="stylesheet" type="text/css" href="../../theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <title>Giulio Fidente (aka Giulivo Navigante) - OS X Network Install using Linux (updates)</title>
+  <meta charset="utf-8" />
+    <link href="http://www.giuliofidente.im/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Giulio Fidente (aka Giulivo Navigante) Full Atom Feed" />
+        </head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="../.."><img src="../../theme/images/gravatar_to192.png" alt="logo"></a>
+      <h1><a href="../..">Giulio Fidente</a></h1>
+      <h2>Only those so crazy to believe they can change the world, will change it.</h2>
+      <ul>
+                                                <li><a href="http://www.linkedin.com/in/gfidente" target="_blank">linkedin</a></li>
+                <li><a href="https://github.com/giulivo" target="_blank">github</a></li>
+                <li><a href="https://code.google.com/p/mlapd/" target="_blank">mlapd</a></li>
+                        <li><a href="http://www.reddit.com/user/giulivo" target="_blank">reddit</a></li>
+                <li><a href="http://news.ycombinator.com/user?id=giulivo" target="_blank">hn</a></li>
+                <li><a href="https://coderwall.com/gfidente" target="_blank">coderwall</a></li>
+                <li><a href="http://identi.ca/giulivo" target="_blank">identi.ca</a></li>
+                <li><a href="https://github.com/giulivo/pelican-svbhack" target="_blank">blog template</a></li>
+              </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+  <h3>Posted on Tue 06 January 2009</h3>
+</header>
+<article>
+  <h1 id="article_title">
+    <a href="../../2009/01/os-x-network-install-using-linux-updates.html" rel="bookmark" title="Permalink to OS X Network Install using Linux (updates)">OS X Network Install using Linux (updates)</a>
+  </h1>
+
+  <div id="article_text">
+    <p>Do you still remember <a class="reference external" href="../../2006/11/os-x-network-install-using-linux.html">this</a>? It was a good post about the OS X install via the network using a GNU/Linux install server. I went back to read and use it after a few days to install the version 10.5 (leopard) of OS X and it worked well but there's a couple of things missing in that post which I'd like to share here.</p>
+<p>The problems were mainly in mounting the leopard disc. If you try to do that on a GNU/Linux system you should only see some files about bootcamp, it is indeed a double format dvd which includes two sections, one is iso9660 formatted and another is hfs+ formatted. To find the files I mentioned, you'll have to mount the hfs+ formatted section ... which is hidden but you can find it using this very helpful link: <a class="reference external" href="http://www.64lines.com/mounting-hfs-plus">Mounting HFS+ Hybrid Disks on Linux</a>.</p>
+<p>Also, because of the additional steps, when you're at this:</p>
+<pre class="literal-block">
+dd if=/dev/hdc of=/tftpboot/macosx.img
+</pre>
+<p>you'll have to replace /dev/hdc with the /dev/loop0 device created by the instructions linked before.</p>
+
+  </div>
+
+  <div id="article_meta">
+    <p>Category: <a href="../../category/techie.html">techie</a></p>
+        <p>Tags:
+            <a href="../../tag/osx-network-install.html">osx network install</a>,            <a href="../../tag/linux-network-install.html">linux network install</a>,            <a href="../../tag/leopard-network-install.html">leopard network install</a>,            <a href="../../tag/fedoraplanet.html">fedoraplanet</a>          </p>
+      </div>
+</article>
+<footer>
+  <a href="../../" class="button_accent">&larr; Index</a>
+</footer>
+  </main>
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-39216528-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

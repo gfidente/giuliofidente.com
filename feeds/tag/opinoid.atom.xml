@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Giulio Fidente (aka Giulivo Navigante)</title><link href="http://www.giuliofidente.im/" rel="alternate"></link><link href="http://www.giuliofidente.im/feeds/tag/opinoid.atom.xml" rel="self"></link><id>http://www.giuliofidente.im/</id><updated>2013-01-03T00:00:00+01:00</updated><entry><title>Pretotyping</title><link href="http://www.giuliofidente.im/2013/01/pretotyping.html" rel="alternate"></link><updated>2013-01-03T00:00:00+01:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2013-01-03:2013/01/pretotyping.html</id><summary type="html">&lt;p&gt;I recently come across the concept of pretotyping. It isn't a misspell, I really meant pretotyping and not prototyping. A formal definition from the book:&lt;/p&gt;
+&lt;blockquote&gt;
+Testing the initial appeal and actual usage of a potential new product by simulating its core experience with the smallest possible investment of time and money.&lt;/blockquote&gt;
+&lt;p&gt;A less formal definition:&lt;/p&gt;
+&lt;blockquote&gt;
+Make sure as quickly and as cheaply as you can that you are building the right it before you build it right.&lt;/blockquote&gt;
+&lt;p&gt;I should have read that before start working on &lt;a class="reference external" href="http://opinoid.com/"&gt;Opinoid&lt;/a&gt;. Still, it's not too late to rework it. I think the book is worth reading by everyone working on new ideas and you can get it for free or for very cheap money from Amazon or at &lt;a class="reference external" href="http://www.pretotyping.org/pretotype-it---the-book"&gt;http://www.pretotyping.org/pretotype-it---the-book&lt;/a&gt;&lt;/p&gt;
+</summary><category term="opinoid"></category><category term="pretotyping"></category></entry></feed>

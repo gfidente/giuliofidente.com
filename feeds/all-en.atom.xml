@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Giulio Fidente (aka Giulivo Navigante)</title><link href="http://www.giuliofidente.im/" rel="alternate"></link><link href="http://www.giuliofidente.im/feeds/all-en.atom.xml" rel="self"></link><id>http://www.giuliofidente.im/</id><updated>2013-03-10T00:00:00+01:00</updated><entry><title>Tumultuos</title><link href="http://www.giuliofidente.im/2013/03/tumultuos.html" rel="alternate"></link><updated>2013-03-10T00:00:00+01:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2013-03-10:2013/03/tumultuos.html</id><summary type="html">&lt;p&gt;A tumultuous post, written on a rush and with many external references... but worth sharing I thought.&lt;/p&gt;
+&lt;p&gt;While working to port (or reinit) this blog over to&amp;nbsp;&lt;a class="reference external" href="http://getpelican.com/"&gt;Pelican&lt;/a&gt;, we in Italy had the elections. Not a word that I know describes how disgusted I am to learn that I share this country with a 25% circa of people who still voted for Berlusconi.&lt;/p&gt;
+&lt;p&gt;At least I found a good documentary (one more?) on this &amp;quot;Italian times&amp;quot; and it is called &lt;a class="reference external" href="http://girlfriendinacoma.eu/"&gt;Girlfriend in a Coma&lt;/a&gt;. Most of it is discussed by &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Bill_Emmott"&gt;Bill Emmott&lt;/a&gt; and that is indeed what makes it so interesting. I share his view on the actual result coming from the elections. I suggest you to read his article on &lt;a class="reference external" href="http://www.independent.co.uk/voices/comment/this-weeks-big-questions-are-the-italian-election-results-disastrous-or-hopeful-8517186.html"&gt;the Independent&lt;/a&gt; also to get a meaningful wrap up on the status quo, it includes comments for both Bersani and Grillo indeed.&lt;/p&gt;
+&lt;p&gt;And I'm not finished yet with the changes, I'm also getting my hands dirty on &lt;a class="reference external" href="https://openstack.org/"&gt;OpenStack&lt;/a&gt; (starting with &lt;a class="reference external" href="https://github.com/cinder/Cinder"&gt;Cinder&lt;/a&gt; and &lt;a class="reference external" href="https://github.com/cinder/Tempest"&gt;Tempest&lt;/a&gt;)! Things at &lt;a class="reference external" href="https://www.redhat.com/openstack/"&gt;RHOS&lt;/a&gt; are going well and it is good fun to work on this stuff, plus the block volumes management in the cloud really is area of big challenges. To my joyness.&lt;/p&gt;
+&lt;p&gt;Talk to you soon.&lt;/p&gt;
+</summary><category term="openstack"></category><category term="grillo"></category><category term="berlusconi"></category><category term="rhos"></category><category term="bill emmott"></category><category term="bersani"></category><category term="pelican"></category><category term="girlfriend in a coma"></category></entry><entry><title>One more for Aaron</title><link href="http://www.giuliofidente.im/2013/01/one-more-for-aaron.html" rel="alternate"></link><updated>2013-01-13T00:00:00+01:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2013-01-13:2013/01/one-more-for-aaron.html</id><summary type="html">&lt;p&gt;Yes, Aaron was the co-founder of Reddit and Avaaz. Aaron edited and contributed to the RSS specifications when he was 14. But that isn't the best part. Even for people like me, who only met Aaron on the internet, he was a lot more. From &lt;a class="reference external" href="http://rememberaaronsw.tumblr.com/post/40372208044/official-statement-from-the-family-and-partner-of-aaron"&gt;Remember Aaron&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+Aaron's commitment to social justice was profound, and defined his life. He was instrumental to the defeat of an Internet censorship bill; he fought for a more democratic, open, and accountable political system; and he helped to create, build, and preserve a dizzying range of scholarly projects that extended the scope and accessibility of human knowledge.
+He used his prodigious skills as a programmer and technologist not to enrich himself but to make the Internet and the world a fairer, better place. His deeply humane writing touched minds and hearts across generations and continents.
+He earned the friendship of thousands and the respect and support of millions more. Aaron's death is not simply a personal tragedy. It is the product of a criminal justice system rife with intimidation and prosecutorial overreach.&lt;/blockquote&gt;
+&lt;p&gt;I think it's worth repeat those words again: &lt;em&gt;used his prodigious skills as a programmer and technologist not to enrich himself but to make the Internet and the world a fairer, better place.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://lessig.tumblr.com/post/40347463044/prosecutor-as-bully"&gt;Lawrence Lessig has called&lt;/a&gt; for this tragedy to be a basis for reform of computer crime laws, and the overzealous prosecutors who use them. You can read more about Aaron and the case also in the &lt;a class="reference external" href="https://www.eff.org/deeplinks/2013/01/farewell-aaron-swartz"&gt;EFF's farewell&lt;/a&gt;.&lt;/p&gt;
+</summary><category term="aaron swartz"></category></entry><entry><title>Pretotyping</title><link href="http://www.giuliofidente.im/2013/01/pretotyping.html" rel="alternate"></link><updated>2013-01-03T00:00:00+01:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2013-01-03:2013/01/pretotyping.html</id><summary type="html">&lt;p&gt;I recently come across the concept of pretotyping. It isn't a misspell, I really meant pretotyping and not prototyping. A formal definition from the book:&lt;/p&gt;
+&lt;blockquote&gt;
+Testing the initial appeal and actual usage of a potential new product by simulating its core experience with the smallest possible investment of time and money.&lt;/blockquote&gt;
+&lt;p&gt;A less formal definition:&lt;/p&gt;
+&lt;blockquote&gt;
+Make sure as quickly and as cheaply as you can that you are building the right it before you build it right.&lt;/blockquote&gt;
+&lt;p&gt;I should have read that before start working on &lt;a class="reference external" href="http://opinoid.com/"&gt;Opinoid&lt;/a&gt;. Still, it's not too late to rework it. I think the book is worth reading by everyone working on new ideas and you can get it for free or for very cheap money from Amazon or at &lt;a class="reference external" href="http://www.pretotyping.org/pretotype-it---the-book"&gt;http://www.pretotyping.org/pretotype-it---the-book&lt;/a&gt;&lt;/p&gt;
+</summary><category term="opinoid"></category><category term="pretotyping"></category></entry><entry><title>Open Hybrid PaaS with OpenShift Origin, Katello, and Aeolus</title><link href="http://www.giuliofidente.im/2012/10/open-hybrid-paas-with-openshift-origin-katello-and-aeolus.html" rel="alternate"></link><updated>2012-10-17T00:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2012-10-17:2012/10/open-hybrid-paas-with-openshift-origin-katello-and-aeolus.html</id><summary type="html">&lt;p&gt;I found a great post on how to get a working PaaS cloud using only open source technologies. It goes trough &lt;a class="reference external" href="https://openshift.redhat.com/community/open-source"&gt;OpenShift&lt;/a&gt;, &lt;a class="reference external" href="http://www.katello.org/"&gt;Katello&lt;/a&gt;, &lt;a class="reference external" href="http://aeolusproject.org/"&gt;Aeolus&lt;/a&gt; and &lt;a class="reference external" href="http://www.ovirt.org/"&gt;oVirt&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+it's always fun to see what technology can do, and if we don't tinker we'll never drive vision to reality&lt;/blockquote&gt;
+&lt;p&gt;See it by yourself: &lt;a class="reference external" href="http://allthingsopen.com/2012/10/16/open-hybrid-paas/"&gt;http://allthingsopen.com/2012/10/16/open-hybrid-paas/&lt;/a&gt;&lt;/p&gt;
+</summary><category term="katello"></category><category term="cloud"></category><category term="paas"></category><category term="aeolus"></category><category term="ovirt"></category><category term="openshift"></category></entry><entry><title>1366x768 is not allowed in the EDID block. Here's how to write your XOrg modeline.</title><link href="http://www.giuliofidente.im/2012/10/1366x768-is-not-allowed-in-the-edid-block-heres-how-to-write-your-xorg-modeline.html" rel="alternate"></link><updated>2012-10-09T00:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2012-10-09:2012/10/1366x768-is-not-allowed-in-the-edid-block-heres-how-to-write-your-xorg-modeline.html</id><summary type="html">&lt;p&gt;Looks like there are many LCD panels/TVs out there with a native resolution of 1366x768. That is indeed a very close approximation to the expected 16:9 rectangle, except XOrg keeps showing you a resolution of 1360x768 (or 1368x768) instead of the native 1366x768. Why? Because 1366 is not divisible by 8 and that's not valid in an EDID block. &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Extended_display_identification_data#Limitations"&gt;Learn more on wikipedia&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You need a custom &lt;a class="reference external" href="http://en.wikipedia.org/wiki/XFree86_Modeline"&gt;modeline in your xorg.conf&lt;/a&gt; file for that. The NVIDIA drivers also have some &lt;a class="reference external" href="http://us.download.nvidia.com/XFree86/Linux-x86_64/304.43/README/xconfigoptions.html"&gt;ModeValidation&lt;/a&gt; setting which needs some attention. Let's start with the last one, you need to add the following (in the Screen section):&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+Option &amp;quot;ModeValidation&amp;quot; &amp;quot;AllowNonEdidModes, NoWidthAlignmentCheck&amp;quot;
+&lt;/pre&gt;
+&lt;p&gt;To make XOrg log files more verbose, you may also want to add the following:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+Option &amp;quot;ModeDebug&amp;quot; &amp;quot;True&amp;quot;
+&lt;/pre&gt;
+&lt;p&gt;And what about the modeline? So &lt;a class="reference external" href="http://howto-pages.org/ModeLines/"&gt;this guy wrote a lot about it&lt;/a&gt; but for our purposes, let's just start with &lt;a class="reference external" href="http://www.xfree86.org/current/xvidtune.1.html"&gt;xvidtune&lt;/a&gt; to check for the current settings:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ xvidtune -show
+&amp;quot;1360x768&amp;quot; 84.75 1360 1432 1568 1776 768 771 776 798 -hsync +vsync
+&lt;/pre&gt;
+&lt;p&gt;After the modeline 'description' (whis is 1360x768), the first number you see represents the pixel clock speed. The remaining eight numbers are two groups of four numbers intended to set the horizontal and vertical resolution. The interesting thing is that you can get your hrefresh and vrefresh value with a simple formula: &lt;code&gt;hrefresh = 84.75/1776&lt;/code&gt; and &lt;code&gt;vrefresh = 84.75/(1776*798)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Now, on my LCD manual I had the following valuable informations:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;1360*768 47.72 59.8 84.75&lt;/p&gt;
+&lt;p&gt;1366*768 47.56 59.6 84.75&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Those are hrefresh, vrefresh and pixel clock. Let's put those in the modeline adding some more small changes:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+&amp;quot;1366x768&amp;quot; 84.75 1366 1438 1574 1782 768 771 776 798 -hsync +vsync
+&lt;/pre&gt;
+&lt;p&gt;Now here is how the new numbers were found:&lt;/p&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;84.75&lt;/dt&gt;
+&lt;dd&gt;is the pixel clock and remains the same as per service manual&lt;/dd&gt;
+&lt;dt&gt;1360 became 1366&lt;/dt&gt;
+&lt;dd&gt;that's the hresolution we want&lt;/dd&gt;
+&lt;dt&gt;1776 became 1782&lt;/dt&gt;
+&lt;dd&gt;that is what we need to get the 47.56 hrefresh and 59.6 vrefresh values indicated in the service manual, check yourself with the formula &lt;code&gt;84.75/1782 ~= 47.56&lt;/code&gt; and &lt;code&gt;84.75/(1782\*798) ~= 59.6&lt;/code&gt;&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;Also, from the initial xvidtune output, the numbers 1432 and 1568 represent some delay, measured in pixels pictured past the viewable area, at the defined pixel clock speed. They are used to set &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Analog_television"&gt;front porch, sync pulse and back porch&lt;/a&gt;; by using 1360 as the number of horizontal pixels you get the following:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+(1432-1360)/84.75 = 0.84us black on right side
+(1568-1432)/84.75 = 1.60us sync pulse width
+(1776-1568)/84.75 = 2.54us black on left side
+&lt;/pre&gt;
+&lt;p&gt;Now use 1366 as the number of horizontal pixels and keep the delay unchanged:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+(1438-1366)/84.75 = 0.84us black on right side
+(1574-1438)/84.75 = 1.60us sync pulse width
+(1782-1574)/84.75 = 2.54us black on left side
+&lt;/pre&gt;
+&lt;p&gt;Finally, for this blog post all the values I'm using refer to the LG 37LG3000. Enjoy!&lt;/p&gt;
+</summary><category term="1366x768"></category><category term="xorg modeline"></category><category term="linux"></category><category term="fedoraplanet"></category><category term="nvidia"></category></entry><entry><title>Long Life to Red Hat</title><link href="http://www.giuliofidente.im/2012/09/long-life-to-red-hat.html" rel="alternate"></link><updated>2012-09-29T00:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2012-09-29:2012/09/long-life-to-red-hat.html</id><summary type="html">&lt;p&gt;Sometimes a job is just a way to earn some money. Rarely it is also fun. Sometimes it is fun instead but not suiting very well your principles and culture.&lt;/p&gt;
+&lt;p&gt;But I'm a very lucky guy as I've got them all. And no it is not of Google that I'm talking about, this is &lt;strong&gt;better!&lt;/strong&gt;. It's &lt;strong&gt;better&lt;/strong&gt; because I've got many of the same benefits, including a thriving tech culture and a nice kitchen with free food and I've also got to work on open source and free software.&lt;/p&gt;
+&lt;p&gt;Free software! I mean free as in speech not as in beer. Software which can be reused, changed, improved, shared with and by other people and is not intended to hurt your privacy. To me that looks great, it is the living vision of the same people who brought to you (many years ago) the best-in-class OS, which also Google runs!&lt;/p&gt;
+&lt;p&gt;So, long life to Red Hat!&lt;/p&gt;
+</summary><category term="red hat"></category></entry><entry><title>UNIX Style, or cat -v Considered Harmful</title><link href="http://www.giuliofidente.im/2012/08/unix-style-or-cat-v-considered-harmful.html" rel="alternate"></link><updated>2012-08-30T00:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2012-08-30:2012/08/unix-style-or-cat-v-considered-harmful.html</id><summary type="html">&lt;p&gt;After I got to know &lt;a class="reference external" href="http://harmful.cat-v.org/cat-v/"&gt;cat-v.org&lt;/a&gt;, I read &lt;a class="reference external" href="http://harmful.cat-v.org/cat-v/unix_prog_design.pdf"&gt;Program Design in the UNIX Environment&lt;/a&gt;. A refreshing reading, despite its age.&lt;/p&gt;
+&lt;blockquote&gt;
+cat isn't for printing files with line numbers, it isn't for compressing multiple blank lines, it's not for looking at non-printing ASCII characters, it's for concatenating files&lt;/blockquote&gt;
+</summary><category term="cat"></category><category term="unix"></category></entry><entry><title>Computer Science at Khan Academy</title><link href="http://www.giuliofidente.im/2012/08/computer-science-at-khan-academy.html" rel="alternate"></link><updated>2012-08-20T00:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2012-08-20:2012/08/computer-science-at-khan-academy.html</id><summary type="html">&lt;p&gt;Introduction to programming and computer science from &lt;a class="reference external" href="http://www.khanacademy.com"&gt;Khan Academy&lt;/a&gt; at &lt;a class="reference external" href="http://www.khanacademy.org/science/computer-science"&gt;http://www.khanacademy.org/science/computer-science&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The best thing about it is that on Khan you get the tools to coach, not only the chance to learn. Empowers communities.&lt;/p&gt;
+</summary><category term="khan academy"></category><category term="computer science"></category></entry><entry><title>My attempts at MapReduce with MongoDB</title><link href="http://www.giuliofidente.im/2012/06/my-attempts-at-mapreduce-with-mongodb.html" rel="alternate"></link><updated>2012-06-14T00:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2012-06-14:2012/06/my-attempts-at-mapreduce-with-mongodb.html</id><summary type="html">&lt;p&gt;I was sorting a tree in my (python) webapp instead of having the database to do it for me. This is how I moved it back to the database by using a &lt;a class="reference external" href="http://en.wikipedia.org/wiki/MapReduce"&gt;MapReduce&lt;/a&gt; job. I had a collection structured like the following:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;quot;_id&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="err"&gt;...&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;quot;feed_oid&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;4fd268d2ab87b2d8927d7eee&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;quot;title&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;blah blah&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;quot;updated&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1339702524&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;quot;watchers&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;4fd276fc66224c1ee8000006&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Such a collection is called &lt;code&gt;articles&lt;/code&gt; and in there I get a document for every article published by an rss feed. &lt;code&gt;feed_oid&lt;/code&gt; is an identifier I assign to every rss feed that I'm crawling and &lt;code&gt;watchers&lt;/code&gt; contains a list of identifiers assigned to the people voting on such an article.&lt;/p&gt;
+&lt;p&gt;I wanted to find out the number of times a particular watcher appeared in the full list of articles and than, group that by the rss feed, so that I could end up with the number of times a person voted on articles published by the same feed.&lt;/p&gt;
+&lt;p&gt;The following are my map and reduce functions:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nx"&gt;m&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="nx"&gt;emit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;feed_oid&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nx"&gt;r&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;oids&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;vals&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;sum&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;v&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="nx"&gt;vals&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nx"&gt;sum&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="nx"&gt;vals&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;v&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The map function is called for every object matching the query filter, so it gets access to 'this'. The reduce function receives an array of values (all set to 1, by my map function) for every feed_oid emitted.&lt;/p&gt;
+&lt;p&gt;Here is how I spawn the MapReduce job (querying by the watcher id):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nx"&gt;res&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;db&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;articles&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;mapReduce&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;m&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;r&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="nx"&gt;query&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nx"&gt;watchers&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;4fd276fc66224c1ee8000006&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+  &lt;span class="nx"&gt;out&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;mapreduceout&amp;quot;&lt;/span&gt;
+&lt;span class="p"&gt;});&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The results:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nx"&gt;db&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;mapreduceout&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;find&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;_id&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;4fd268d2ab87b2d8927d7eea&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;value&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;_id&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;4fd268d2ab87b2d8927d7eee&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;value&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Looks like this guy voted 4 times on articles appeared on the feed 4fd268d2ab87b2d8927d7eee and 1 4fd268d2ab87b2d8927d7eea :P&lt;/p&gt;
+</summary><category term="mapreduce"></category><category term="fedoraplanet"></category><category term="mongodb"></category></entry><entry><title>Aeolus</title><link href="http://www.giuliofidente.im/2012/06/aeolus.html" rel="alternate"></link><updated>2012-06-08T00:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2012-06-08:2012/06/aeolus.html</id><summary type="html">&lt;p&gt;This isn't going to be a real presentation of the &lt;cite&gt;aeolus project&lt;/cite&gt; but I'm currently QAing it and I'd like to to discuss some use cases as there seems to be a lot of confusion around the cloud term these days. Firstly, what is aeolus? It is a collection of tools, you have the full listing at &lt;a class="reference external" href="http://www.aeolusproject.org/projects.html"&gt;http://www.aeolusproject.org/projects.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Basically it allows you to automate the build of your 'template' images and distribute them across different cloud providers, both on premises and hosted. It takes care of stuff like per provider basis image customizations or per arch basis. It manages your &amp;quot;application deployments&amp;quot; rather than instances deployment as it will instantiate more than a single instance and configure them accordingly to provide the cloud user with a, say, wordpress installation distributed across two systems: a web server and a db server.&lt;/p&gt;
+&lt;p&gt;Thanks to little things like &lt;a class="reference external" href="http://aeolusproject.org/audrey.html"&gt;audrey&lt;/a&gt; it allows for the image customization not only at build time but also at deployment time and yes, you can pass any data to the scripts running on your guests at deployment time.&lt;/p&gt;
+&lt;p&gt;Stay tuned, in the meantime enjoy the demo video: &lt;a class="reference external" href="http://www.redhat.com/resourcelibrary/videos/red-hat-cloudforms-build-cloud-demo-video"&gt;http://www.redhat.com/resourcelibrary/videos/red-hat-cloudforms-build-cloud-demo-video&lt;/a&gt;&lt;/p&gt;
+</summary><category term="aeolus"></category><category term="conductor"></category><category term="imagefactory"></category><category term="deltacloud"></category></entry><entry><title>What every programmer should know about memory</title><link href="http://www.giuliofidente.im/2012/05/what-every-programmer-should-know-about-memory.html" rel="alternate"></link><updated>2012-05-02T00:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2012-05-02:2012/05/what-every-programmer-should-know-about-memory.html</id><summary type="html">&lt;p&gt;This was a series of posts appeared on LWN, a while ago. A precious document from &lt;a class="reference external" href="http://udrepper.livejournal.com/"&gt;Ulrich Drepper&lt;/a&gt; which have been brought back recently to great attention to me from a post on HN. Thanks Ulrich, LWN and HN:&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://lwn.net/Articles/250967/"&gt;Part 1&lt;/a&gt; ()
+&lt;a class="reference external" href="http://lwn.net/Articles/252125/"&gt;Part 2&lt;/a&gt; (CPU caches)
+&lt;a class="reference external" href="http://lwn.net/Articles/253361/"&gt;Part 3&lt;/a&gt; (Virtual memory)
+&lt;a class="reference external" href="http://lwn.net/Articles/254445/"&gt;Part 4&lt;/a&gt; (NUMA systems)
+&lt;a class="reference external" href="http://lwn.net/Articles/255364/"&gt;Part 5&lt;/a&gt; (What programmers can do - cache optimization)
+&lt;a class="reference external" href="http://lwn.net/Articles/256433/"&gt;Part 6&lt;/a&gt; (What programmers can do - multi-threaded optimizations)
+&lt;a class="reference external" href="http://lwn.net/Articles/257209/"&gt;Part 7&lt;/a&gt; (Memory performance tools)
+&lt;a class="reference external" href="http://lwn.net/Articles/258154/"&gt;Part 8&lt;/a&gt; (Future technologies)
+&lt;a class="reference external" href="http://lwn.net/Articles/258188/"&gt;Part 9&lt;/a&gt; (Appendices and bibliography)&lt;/p&gt;
+</summary><category term="linux"></category><category term="memory"></category></entry><entry><title>YUM history (!)</title><link href="http://www.giuliofidente.im/2012/04/yum-history.html" rel="alternate"></link><updated>2012-04-26T00:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2012-04-26:2012/04/yum-history.html</id><summary type="html">&lt;p&gt;While browsing the &lt;a class="reference external" href="http://yum.baseurl.org/"&gt;YUM&lt;/a&gt; man page for some details about the query command I happened to find one of my most wanted feature in a package manager! YUM has some &lt;a class="reference external" href="http://docs.fedoraproject.org/en-US/Fedora/16/html/System_Administrators_Guide/sec-Yum-Transaction_History.html"&gt;history&lt;/a&gt; command which allows for investigation of past transactions and even &lt;strong&gt;undo&lt;/strong&gt; or &lt;strong&gt;rollback&lt;/strong&gt; actions. Epic. I frequently find myself going through install/uninstall steps which not only mess around but I tend to forget about the installed and now unneeded deps.&lt;/p&gt;
+&lt;p&gt;I'll go through a basic &lt;code&gt;history&lt;/code&gt; usage example but there is a lot more to discover. Consider the following command:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+# yum install anjuta
+...
+Installed:
+ anjuta.i686 1:3.2.0-1.fc16
+
+Dependency Installed:
+ apr.i686 0:1.4.6-1.fc16
+ apr-util.i686 0:1.3.12-1.fc16
+ autogen.i686 0:5.9.4-8.fc15
+ autogen-libopts.i686 0:5.9.4-8.fc15
+ devhelp.i686 1:3.2.0-1.fc16
+ glade3-libgladeui.i686 1:3.10.0-6.fc16
+ guile.i686 5:1.8.8-3.fc16
+ libgda.i686 1:4.2.8-2.fc16
+ libgda-sqlite.i686 1:4.2.8-2.fc16
+ libgdl.i686 1:3.2.0-1.fc16
+ sqlite-devel.i686 0:3.7.7.1-1.fc16
+ subversion-libs.i686 0:1.6.17-5.fc16
+ vala.i686 0:0.14.2-3.fc16
+&lt;/pre&gt;
+&lt;p&gt;Many dependencies have been installed and you surely won't remember all of them when later removing anjuta. You could go through some cleaning session using &lt;code&gt;package-cleanup&lt;/code&gt;, from
+&lt;a class="reference external" href="http://yum.baseurl.org/wiki/YumUtils"&gt;yum-utils&lt;/a&gt; but that isn't really intended to revert back your system status, it will just help you remove unneeded packages. Here's instead what &lt;code&gt;history&lt;/code&gt; can do for you:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+# yum history list anjuta
+Loaded plugins: downloadonly, langpacks, presto, refresh-packagekit
+ID   | Command line       | Date and time    | Action(s)  | Altered
+-------------------------------------------------------------------
+ 172 | install anjuta     | 2012-04-26 09:02 | Install    |   14
+
+# yum history info 172
+Loaded plugins: downloadonly, langpacks, presto, refresh-packagekit
+Transaction ID : 172
+Begin time     : Thu Apr 26 09:02:57 2012
+Begin rpmdb    : 1225:459cfe1ee50fe38d585386f265e6647ab8d4b5a9
+End time       :            09:03:19 2012 (22 seconds)
+End rpmdb      : 1239:9784f29b6dff78d982e401bfa5e4cbd9620c47ed
+User           : Giulio Fidente
+Return-Code    : Success
+Command Line   : install anjuta
+Transaction performed with:
+    Installed     rpm-4.9.1.3-1.fc16.i686               &amp;#64;updates
+    Installed     yum-3.4.3-23.fc16.noarch              &amp;#64;updates
+    Installed     yum-metadata-parser-1.1.4-5.fc16.i686 &amp;#64;koji-overrides
+Packages Altered:
+    Install     anjuta-1:3.2.0-1.fc16.i686             &amp;#64;fedora
+    Dep-Install apr-1.4.6-1.fc16.i686                  &amp;#64;updates
+    Dep-Install apr-util-1.3.12-1.fc16.i686            &amp;#64;fedora
+    Dep-Install autogen-5.9.4-8.fc15.i686              &amp;#64;fedora
+    Dep-Install autogen-libopts-5.9.4-8.fc15.i686      &amp;#64;fedora
+    Dep-Install devhelp-1:3.2.0-1.fc16.i686            &amp;#64;fedora
+    Dep-Install glade3-libgladeui-1:3.10.0-6.fc16.i686 &amp;#64;updates
+    Dep-Install guile-5:1.8.8-3.fc16.i686              &amp;#64;fedora
+    Dep-Install libgda-1:4.2.8-2.fc16.i686             &amp;#64;updates
+    Dep-Install libgda-sqlite-1:4.2.8-2.fc16.i686      &amp;#64;updates
+    Dep-Install libgdl-1:3.2.0-1.fc16.i686             &amp;#64;fedora
+    Dep-Install sqlite-devel-3.7.7.1-1.fc16.i686       &amp;#64;fedora
+    Dep-Install subversion-libs-1.6.17-5.fc16.i686     &amp;#64;fedora
+    Dep-Install vala-0.14.2-3.fc16.i686                &amp;#64;updates
+
+# yum history undo 172
+...
+Removed:
+ anjuta.i686 1:3.2.0-1.fc16
+ apr.i686 0:1.4.6-1.fc16
+ apr-util.i686 0:1.3.12-1.fc16
+ autogen.i686 0:5.9.4-8.fc15
+ autogen-libopts.i686 0:5.9.4-8.fc15
+ devhelp.i686 1:3.2.0-1.fc16
+ glade3-libgladeui.i686 1:3.10.0-6.f16
+ guile.i686 5:1.8.8-3.fc16
+ libgda.i686 1:4.2.8-2.fc16
+ libgda-sqlite.i686 1:4.2.8-2.fc16
+ libgdl.i686 1:3.2.0-1.fc16
+ sqlite-devel.i686 0:3.7.7.1-1.fc16
+ subversion-libs.i686 0:1.6.17-5.fc16
+ vala.i686 0:0.14.2-3.fc16
+&lt;/pre&gt;
+&lt;p&gt;Great isn't it? And there is a lot more! The &lt;code&gt;rollback&lt;/code&gt; command will revert back the status of the &lt;strong&gt;whole&lt;/strong&gt; software packages installed at the time of the transaction ID.&lt;/p&gt;
+</summary><category term="fedora"></category><category term="fedoraplanet"></category><category term="yum"></category></entry><entry><title>Jenkins on OpenShift</title><link href="http://www.giuliofidente.im/2012/04/jenkins-on-openshift.html" rel="alternate"></link><updated>2012-04-19T00:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2012-04-19:2012/04/jenkins-on-openshift.html</id><summary type="html">&lt;p&gt;How about &lt;a class="reference external" href="http://jenkins-ci.org/"&gt;Jenkins&lt;/a&gt; on &lt;a class="reference external" href="http://openshift.redhat.com/"&gt;OpenShift&lt;/a&gt;? Let's give this a try. Keep in mind that by default you've got only 3 gears on OpenShift and we'll need to use all of them for this tutorial:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;1 will be used by the live app&lt;/li&gt;
+&lt;li&gt;1 will be used by the jenkins deployment&lt;/li&gt;
+&lt;li&gt;1 will be used by the jenkins builds&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;First, create your jenkins deployment:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ rhc app create -a jenkins -t jenkins-1.4
+&lt;/pre&gt;
+&lt;p&gt;Then create your app (I'm using the DIY cartridge, but this will work with all other types too):&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ rhc app create -a hellojenkins -t diy-0.1
+&lt;/pre&gt;
+&lt;p&gt;And add to it the jenkins-client cartridge:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ rhc app cartridge add -a hello -c jenkins-client-1.4
+&lt;/pre&gt;
+&lt;p&gt;Now, change your app build file into something useful and push it:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ cd hellojenkins
+$ echo env &amp;gt;&amp;gt; .openshift/action_hooks/build
+$ git commit -a
+$ git push
+&lt;/pre&gt;
+&lt;p&gt;Hurry up checking your build on jenkins: &lt;a class="reference external" href="https://jenkins-$USERNAME.rhcloud.com/job/hellojenkins-build/"&gt;https://jenkins-$USERNAME.rhcloud.com/job/hellojenkins-build/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Wow. That was easy! Now imagine what you could do in your pre_build/build/post_deploy scripts with jenkins.&lt;/p&gt;
+</summary><category term="jenkins"></category><category term="openshift"></category></entry><entry><title>Napoli (Silicon Dust)</title><link href="http://www.giuliofidente.im/2012/04/napoli-silicon-dust.html" rel="alternate"></link><updated>2012-04-08T00:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2012-04-08:2012/04/napoli-silicon-dust.html</id><summary type="html">&lt;iframe width="640" height="360" src="http://www.youtube.com/embed/LemIPWHMbxc?rel=0" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="silicon dust"></category><category term="napoli"></category></entry><entry><title>Free is too expensive, says The Economist</title><link href="http://www.giuliofidente.im/2012/04/free-is-too-expensive-says-the-economist.html" rel="alternate"></link><updated>2012-04-02T00:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2012-04-02:2012/04/free-is-too-expensive-says-the-economist.html</id><summary type="html">&lt;p&gt;The Economist on the Desktop Linux: &lt;a class="reference external" href="http://www.economist.com/blogs/babbage/2012/03/desktop-linux"&gt;Free is too expensive&lt;/a&gt;. An interesting reading.&lt;/p&gt;
+&lt;blockquote&gt;
+To succeed on the desktop, Linux needs to penetrate the office. Unfortunately, there is no such thing as a single Linux to go up against Windows 7. What there is instead is a fragmented field of hundreds of different Linuxes, each with its own learning curve, skill set and maintenance needs. Even the top five distributions (Linux Mint, Ubuntu, Fedora, openSuSE and Debian) cannot offer a big enough user base to attract adequate support. That is what is wrong with desktop Linux. Hobbyists and enthusiasts may be willing to invest their own time and effort to keep a desktop Linux running. But the corporate world cannot afford such luxuries. In business, the biggest single computing cost is not software licenses, but the salaries of the support staff. And as far as licensing fees are concerned, the biggest single cost by far is not for operating systems but for enterprise applications.&lt;/blockquote&gt;
+&lt;p&gt;I'm not sure the community around fedora or ubuntu (etc.) is willing to provide support; they surely can't make up the level of support needed by enterprises so I wouldn't blame much the size of the user base.&lt;/p&gt;
+&lt;p&gt;Desktop Linux, IMHO, should just get easier for desktop users. OSX for example is &lt;strong&gt;just&lt;/strong&gt; simpler.&lt;/p&gt;
+</summary><category term="linux"></category><category term="desktop linux"></category><category term="economist"></category></entry><entry><title>TornadoWeb on OpenShift (updates)</title><link href="http://www.giuliofidente.im/2012/04/tornadoweb-on-openshift-updates.html" rel="alternate"></link><updated>2012-04-02T00:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2012-04-02:2012/04/tornadoweb-on-openshift-updates.html</id><summary type="html">&lt;p&gt;&lt;a class="reference external" href="http://openshift.redhat.com"&gt;OpenShift&lt;/a&gt; recently introduced a new &lt;a class="reference external" href="https://www.redhat.com/openshift/community/blogs/new-openshift-release-march-22-2012-nodejs-diy-cartridge-new-website-and-more"&gt;DIY cartridge&lt;/a&gt; which allows for execution of any HTTP server.  Some nice features of &lt;a class="reference external" href="http://www.tornadoweb.org"&gt;TornadoWeb&lt;/a&gt; (like the auth modules) are not available when running as WSGI, as that doesn't permit ASYNC requests so I decided to &lt;a class="reference external" href="https://github.com/giulivo/openshift-hellotornado"&gt;update the past HOWTO&lt;/a&gt; documenting how to deploy it using the new DIY cartridge. Enjoy!&lt;/p&gt;
+</summary><category term="tornado"></category><category term="openshift"></category></entry><entry><title>Migrate NIS to FreeIPA</title><link href="http://www.giuliofidente.im/2012/03/migrate-nis-to-freeipa.html" rel="alternate"></link><updated>2012-03-04T00:00:00+01:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2012-03-04:2012/03/migrate-nis-to-freeipa.html</id><summary type="html">&lt;p&gt;I've prepared a quick HOWTO on how to migrate a legacy NIS environment to FreeIPA (ldap/kerberos). I hope it will be useful to some: &lt;a class="reference external" href="http://freeipa.org/page/NIS_accounts_migration_preserving_Passwords"&gt;http://freeipa.org/page/NIS_accounts_migration_preserving_Passwords&lt;/a&gt;&lt;/p&gt;
+</summary><category term="freeipa"></category><category term="kerberos"></category><category term="ldap"></category><category term="nis"></category><category term="ipa"></category></entry><entry><title>A quickstart guide to the command line OpenShift client</title><link href="http://www.giuliofidente.im/2012/02/a-quickstart-guide-to-the-command-line-openshift-client.html" rel="alternate"></link><updated>2012-02-24T00:00:00+01:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2012-02-24:2012/02/a-quickstart-guide-to-the-command-line-openshift-client.html</id><summary type="html">&lt;p&gt;I've published a little guide to the rhc command line tool, that is the command line tool (ruby gem) needed to deploy your apps on &lt;a class="reference external" href="http://openshift.redhat.com"&gt;OpenShift&lt;/a&gt;. You can find it here: &lt;a class="reference external" href="https://github.com/giulivo/openshift-rhc-quickstart"&gt;https://github.com/giulivo/openshift-rhc-quickstart&lt;/a&gt;&lt;/p&gt;
+</summary><category term="red hat"></category><category term="openshift"></category></entry><entry><title>Flask, jQuery Mobile and MongoDB on OpenShift</title><link href="http://www.giuliofidente.im/2012/02/flask-jquery-mobile-and-mongodb-on-openshift.html" rel="alternate"></link><updated>2012-02-23T00:00:00+01:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2012-02-23:2012/02/flask-jquery-mobile-and-mongodb-on-openshift.html</id><summary type="html">&lt;p&gt;I've published a demo webapp for mobiles written using &lt;a class="reference external" href="http://flask.pocoo.org/"&gt;Flask&lt;/a&gt; and &lt;a class="reference external" href="http://jquerymobile.com/"&gt;jQuery Mobile&lt;/a&gt;. The backend storage is &lt;a class="reference external" href="http://www.mongodb.org/"&gt;MongoDB&lt;/a&gt;. The app allows you to check and edit a shopping lists from your mobile phone so that if your fellow file the list from home, you'll have it at your finger tips later, when at the mall!&lt;/p&gt;
+&lt;p&gt;This has been deployed on &lt;a class="reference external" href="http://openshift.redhat.com/"&gt;OpenShift&lt;/a&gt; which offers MongoDB instances for free, as well as support for any Python WSGI app. Flask is installed using virtualenv, see &lt;a class="reference external" href="https://github.com/giulivo/openshift-myshoppinglist"&gt;https://github.com/giulivo/openshift-myshoppinglist&lt;/a&gt; for it and enjoy!&lt;/p&gt;
+</summary><category term="flask"></category><category term="mongodb"></category><category term="openshift"></category><category term="jquery mobile"></category></entry><entry><title>TornadoWeb on OpenShift</title><link href="http://www.giuliofidente.im/2012/02/tornadoweb-on-openshift.html" rel="alternate"></link><updated>2012-02-17T00:00:00+01:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2012-02-17:2012/02/tornadoweb-on-openshift.html</id><summary type="html">&lt;p&gt;I've published a some notes on how to deploy a &lt;a class="reference external" href="http://www.tornadoweb.org"&gt;TornadoWeb&lt;/a&gt; based app on &lt;a class="reference external" href="http://openshift.redhat.com"&gt;OpenShift&lt;/a&gt;, here they are including the demo app: &lt;a class="reference external" href="https://github.com/giulivo/openshift-hellotornado"&gt;https://github.com/giulivo/openshift-hellotornado&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Hop you'll fork it and have much fun, as I did.&lt;/p&gt;
+</summary><category term="tornado"></category><category term="openshift"></category></entry><entry><title>DNS Classless IN-ADDR.ARPA delegation</title><link href="http://www.giuliofidente.im/2012/01/dns-classless-in-addrarpa-delegation.html" rel="alternate"></link><updated>2012-01-19T00:00:00+01:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2012-01-19:2012/01/dns-classless-in-addrarpa-delegation.html</id><summary type="html">&lt;p&gt;The following is mostly taken from &lt;a class="reference external" href="http://tools.ietf.org/html/rfc2317"&gt;http://tools.ietf.org/html/rfc2317&lt;/a&gt; but it is so good I wanted to share it here. Basically this allows for DNS delegation of the reverse zone for address spaces covering fewer than 256 addresses. Let us assume we have assigned the address spaces to three different parties as follows:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+192.0.2.0/25 to organization A
+192.0.2.128/26 to organization B
+192.0.2.192/26 to organization C
+&lt;/pre&gt;
+&lt;p&gt;In the classical approach, this would lead to a single zone like this:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ORIGIN 2.0.192.in-addr.arpa.
+;
+1               PTR     host1.A.domain.
+2               PTR     host2.A.domain.
+3               PTR     host3.A.domain.
+;
+129             PTR     host1.B.domain.
+130             PTR     host2.B.domain.
+131             PTR     host3.B.domain.
+;
+193             PTR     host1.C.domain.
+194             PTR     host2.C.domain.
+195             PTR     host3.C.domain.
+&lt;/pre&gt;
+&lt;p&gt;The administration of this zone is problematic. Authority for this zone can only be delegated once, and this usually translates into &amp;quot;this zone can only be administered by one organization.&amp;quot; The other organizations with address space that corresponds to entries in this zone would thus have to depend on another organization for their address to name translation. With the proposed method, this potential problem can be avoided. Since a single zone can only be delegated once, we need more points to do delegation on to solve the problem above. These extra points of delegation can be introduced by extending the IN-ADDR.ARPA tree downwards, e.g. by using the first address or the first address and the network mask length (as shown below) in the corresponding address space to form the the first component in the name for the zones. The following four zone files show how the problem in the motivation section could be solved using this method.:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ORIGIN 2.0.192.in-addr.arpa.
+&amp;#64;       IN      SOA     my-ns.my.domain. hostmaster.my.domain. (...)
+;...
+;  &amp;lt;&amp;lt;0-127&amp;gt;&amp;gt; /25
+0/25            NS      ns.A.domain.
+0/25            NS      some.other.name.server.
+;
+1               CNAME   1.0/25.2.0.192.in-addr.arpa.
+2               CNAME   2.0/25.2.0.192.in-addr.arpa.
+3               CNAME   3.0/25.2.0.192.in-addr.arpa.
+;
+;  &amp;lt;&amp;lt;128-191&amp;gt;&amp;gt; /26
+128/26          NS      ns.B.domain.
+128/26          NS      some.other.name.server.too.
+;
+129             CNAME   129.128/26.2.0.192.in-addr.arpa.
+130             CNAME   130.128/26.2.0.192.in-addr.arpa.
+131             CNAME   131.128/26.2.0.192.in-addr.arpa.
+;
+;  &amp;lt;&amp;lt;192-255&amp;gt;&amp;gt; /26
+192/26          NS      ns.C.domain.
+192/26          NS      some.other.third.name.server.
+;
+193             CNAME   193.192/26.2.0.192.in-addr.arpa.
+194             CNAME   194.192/26.2.0.192.in-addr.arpa.
+195             CNAME   195.192/26.2.0.192.in-addr.arpa.
+
+$ORIGIN 0/25.2.0.192.in-addr.arpa.
+&amp;#64;       IN      SOA     ns.A.domain. hostmaster.A.domain. (...)
+&amp;#64;               NS      ns.A.domain.
+&amp;#64;               NS      some.other.name.server.
+;
+1               PTR     host1.A.domain.
+2               PTR     host2.A.domain.
+3               PTR     host3.A.domain.
+$ORIGIN 128/26.2.0.192.in-addr.arpa.
+&amp;#64;       IN      SOA     ns.B.domain. hostmaster.B.domain. (...)
+&amp;#64;               NS      ns.B.domain.
+&amp;#64;               NS      some.other.name.server.too.
+;
+129             PTR     host1.B.domain.
+130             PTR     host2.B.domain.
+131             PTR     host3.B.domain.
+$ORIGIN 192/26.2.0.192.in-addr.arpa.
+&amp;#64;       IN      SOA     ns.C.domain. hostmaster.C.domain. (...)
+&amp;#64;               NS      ns.C.domain.
+&amp;#64;               NS      some.other.third.name.server.
+;
+193             PTR     host1.C.domain.
+194             PTR     host2.C.domain.
+195             PTR     host3.C.domain.
+&lt;/pre&gt;
+</summary><category term="dns"></category><category term="classless reverse zone delegation"></category></entry><entry><title>Instant CSS, JS, HTML or DOM documentation</title><link href="http://www.giuliofidente.im/2011/12/instant-css-js-html-or-dom-documentation.html" rel="alternate"></link><updated>2011-12-07T00:00:00+01:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2011-12-07:2011/12/instant-css-js-html-or-dom-documentation.html</id><summary type="html">&lt;p&gt;Worth sharing: &lt;a class="reference external" href="http://dochub.io/"&gt;http://dochub.io/&lt;/a&gt;&lt;/p&gt;
+</summary><category term="hacker news"></category><category term="documentation"></category></entry><entry><title>Stallman su Steve Jobs</title><link href="http://www.giuliofidente.im/2011/10/stallman-su-steve-jobs.html" rel="alternate"></link><updated>2011-10-07T00:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2011-10-07:2011/10/stallman-su-steve-jobs.html</id><summary type="html">&lt;p&gt;Nel caso in cui vi siate imbattuti in &lt;a class="reference external" href="http://www.repubblica.it/tecnologia/2011/10/07/news/stallman_jobs-22869523/"&gt;questo pessimo articolo di repubblica.it&lt;/a&gt;, dove si parla di Stallman e di cio' che avrebbe commentato al riguardo della morte di Steve Jobs, ebbene io vorrei dirvi allora che &lt;a class="reference external" href="http://www.stallman.org/archives/2011-jul-oct.html#06_October_2011_%28Steve_Jobs%29"&gt;quel che ha commentato Stallman&lt;/a&gt; e' un po' diverso da quanto e' stato scritto.&lt;/p&gt;
+&lt;p&gt;In particolare, la frase che compare nel titolo dell'articolo e' questa:&lt;/p&gt;
+&lt;blockquote&gt;
+Contento che se ne sia andato&lt;/blockquote&gt;
+&lt;p&gt;Ecco invece cosa ha detto Stallman:&lt;/p&gt;
+&lt;blockquote&gt;
+I'm not glad he's dead, but I'm glad he's gone. Nobody deserves to have to die - not Jobs, not Mr. Bill, not even people guilty of bigger evils than theirs. But we all deserve the end of Jobs' malign influence on people's computing. Unfortunately, that influence continues despite his absence. We can only hope his successors, as they attempt to carry on his legacy, will be less effective.&lt;/blockquote&gt;
+</summary><category term="stallman"></category><category term="steve jobs"></category></entry><entry><title>Red Hat Enterprise Virtualization is oVirt</title><link href="http://www.giuliofidente.im/2011/09/red-hat-enterprise-virtualization-is-ovirt.html" rel="alternate"></link><updated>2011-09-23T00:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2011-09-23:2011/09/red-hat-enterprise-virtualization-is-ovirt.html</id><summary type="html">&lt;p&gt;Red Hat Enterprise Virtualization &lt;a class="reference external" href="http://www.ovirt.org/news-and-events/workshop/"&gt;going open source&lt;/a&gt; as oVirt [relaunched]. There will be a workshop in November, open to all who want to use, get involved or learn about the comprehensive open virtualization management platform. The sessions will cover the technical projects details, governance, getting involved, usage and much more.&lt;/p&gt;
+&lt;p&gt;Full GIT repos (source), site, forums will be launched at the event!&lt;/p&gt;
+</summary><category term="rhev"></category><category term="ovirt"></category><category term="red hat enterprise virtualization"></category><category term="rhev"></category></entry><entry><title>From beef to vegetables</title><link href="http://www.giuliofidente.im/2011/06/from-beef-to-vegetables.html" rel="alternate"></link><updated>2011-06-20T00:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2011-06-20:2011/06/from-beef-to-vegetables.html</id><summary type="html">&lt;p&gt;Shifting from beef to vegetables for even a single day a week would in fact be more helpful in reducing greenhouse gases than shifting the entirety of one's diet to exclusively locally produced sources. See &lt;a class="reference external" href="http://www.criticalanimalstudies.org/wp-content/uploads/2009/09/2-JCAS-Vol-VIII-Issue-I-and-II-2010-Essay-GREEN-EGGS-AND-HAM-pp-8-32.doc"&gt;GREEN-EGGS-AND-HAM&lt;/a&gt;&lt;/p&gt;
+</summary><category term="vegetables"></category><category term="beef"></category><category term="vegetarianism"></category></entry><entry><title>Wojtyla beatificato (!?)</title><link href="http://www.giuliofidente.im/2011/05/wojtyla-beatificato.html" rel="alternate"></link><updated>2011-05-01T00:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2011-05-01:2011/05/wojtyla-beatificato.html</id><summary type="html">&lt;p&gt;Wojtyla, beatificato prima di Maria Teresa di Calcutta, ha dato copertura al dittatore Augusto Pinochet, cui ha stretto la mano durante il viaggio nel martoriato paese sudamericano, nelle cui carceri venivano straziati migliaia di oppositori politici; sostenne e giustifico' le guerre che hanno insanguinato la ex Jugoslavia; ha fatto santo Stepinac, il cardinale che a fianco dei fascisti croati si schiero' con Hitler, &amp;quot;inviato da Dio&amp;quot; e benedisse le innumerevoli atrocita' perpetrate dagli ustascia con la complicita' delle truppe di occupazione italiane; ha protetto e sostenuto il cardinale Pio Laghi, gia' nunzio apostolico in Argentina ai tempi della dittatura che massacro' 30.000 persone. Laghi benedisse e copri' i torturatori e gli assassini.&lt;/p&gt;
+&lt;p&gt;Non solo &lt;a class="reference external" href="http://www.cristianesimo.it/controkarol.htm"&gt;http://www.cristianesimo.it/controkarol.htm&lt;/a&gt; , &lt;a class="reference external" href="http://www.chiarelettere.it/libro/principio-attivo/wojtyla-segreto.php"&gt;http://www.chiarelettere.it/libro/principio-attivo/wojtyla-segreto.php&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Non facciamoci ingannare, oggi, 1 maggio, e' la festa dei lavoratori&lt;/p&gt;
+</summary><category term="primo maggio"></category><category term="wojtyla"></category></entry><entry><title>On geeks, nerds, dorks, dweebs!</title><link href="http://www.giuliofidente.im/2010/12/on-geeks-nerds-dorks-dweebs.html" rel="alternate"></link><updated>2010-12-03T00:00:00+01:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2010-12-03:2010/12/on-geeks-nerds-dorks-dweebs.html</id><summary type="html">&lt;img alt="|filename|/files/venndiagram.jpg" src="http://www.giuliofidente.im/images/venndiagram.jpg" /&gt;
+</summary><category term="dweeb"></category><category term="dork"></category><category term="nerd"></category><category term="geek"></category></entry><entry><title>Discorso agli Ateniesi, 461 aC</title><link href="http://www.giuliofidente.im/2010/11/discorso-agli-ateniesi-461-ac.html" rel="alternate"></link><updated>2010-11-18T00:00:00+01:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2010-11-18:2010/11/discorso-agli-ateniesi-461-ac.html</id><summary type="html">&lt;p&gt;Qui ad Atene noi facciamo cosi'.
+Qui il nostro governo favorisce i molti invece dei pochi: e per questo viene chiamato democrazia.&lt;/p&gt;
+&lt;p&gt;Qui ad Atene noi facciamo cosi'.
+Le leggi qui assicurano una giustizia eguale per tutti nelle loro dispute private, ma noi non ignoriamo mai i meriti dell'eccellenza. Quando un cittadino si distingue, allora esso sarà, a preferenza di altri, chiamato a servire lo Stato, ma non come un atto di privilegio, come una ricompensa al merito, e la poverta' non costituisce un impedimento.&lt;/p&gt;
+&lt;p&gt;Qui ad Atene noi facciamo cosi'.
+La liberta' di cui godiamo si estende anche alla vita quotidiana; noi non siamo sospettosi l'uno dell'altro e non infastidiamo mai il nostro prossimo se al nostro prossimo piace vivere a modo suo. Noi siamo liberi, liberi di vivere proprio come ci piace e tuttavia siamo sempre pronti a fronteggiare qualsiasi pericolo. Un cittadino ateniese non trascura i pubblici affari quando attende alle proprie faccende private, ma soprattutto non si occupa dei pubblici affari per risolvere le sue questioni private.&lt;/p&gt;
+&lt;p&gt;Qui ad Atene noi facciamo cosi'.
+Ci e' stato insegnato di rispettare i magistrati, e ci e' stato insegnato anche di rispettare le leggi e di non dimenticare mai che dobbiamo proteggere coloro che ricevono offesa. E ci e' stato anche insegnato di rispettare quelle leggi non scritte che risiedono nell'universale sentimento di cio' che e' giusto e di cio' che e' buon senso.&lt;/p&gt;
+&lt;p&gt;Qui ad Atene noi facciamo cosi'.
+Un uomo che non si interessa allo Stato noi non lo consideriamo innocuo, ma inutile; e benche' in pochi siano in grado di dare vita ad una politica, beh tutti qui ad Atene siamo in grado di giudicarla. Noi non consideriamo la discussione come un ostacolo sulla via della democrazia. Noi crediamo che la felicita' sia il frutto della liberta', ma la liberta' sia solo il frutto del valore. Insomma, io proclamo che Atene e' la scuola dell'Ellade e che ogni ateniese cresce sviluppando in se' una felice versalita', la fiducia in se stesso, la prontezza a fronteggiare qualsiasi situazione ed e' per questo che la nostra citta' e' aperta al mondo e noi non cacciamo mai uno straniero.&lt;/p&gt;
+&lt;p&gt;Qui ad Atene noi facciamo cosi'.&lt;/p&gt;
+</summary><category term="atene"></category><category term="pericle"></category></entry><entry><title>Ieranto</title><link href="http://www.giuliofidente.im/2010/08/ieranto.html" rel="alternate"></link><updated>2010-08-18T00:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2010-08-18:2010/08/ieranto.html</id><summary type="html">&lt;p&gt;Un'area naturale protetta della Campania istituita nel 1997. Occupa una superficie di 49,50 ha nella provincia di Napoli. E' gestita dal Fondo per l'Ambiente Italiano (FAI).&lt;/p&gt;
+&lt;img alt="|filename|/files/DSCN1707.JPG" src="http://www.giuliofidente.im/images/DSCN1707.JPG" /&gt;
+</summary><category term="ieranto"></category></entry><entry><title>The IP header, using Lego bricks</title><link href="http://www.giuliofidente.im/2010/07/the-ip-header-using-lego-bricks.html" rel="alternate"></link><updated>2010-07-22T00:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2010-07-22:2010/07/the-ip-header-using-lego-bricks.html</id><summary type="html">&lt;p&gt;This came from &lt;a class="reference external" href="http://www.reddit.com"&gt;reddit&lt;/a&gt;, can you guess what this is? (possibly without scrolling immediately down the page to read the response)&lt;/p&gt;
+&lt;img alt="|filename|/files/legoip.jpg" src="http://www.giuliofidente.im/images/legoip.jpg" /&gt;
+&lt;p&gt;Just &lt;a class="reference external" href="http://www.lego.com"&gt;LEGO&lt;/a&gt; bricks you say? This is the &lt;a class="reference external" href="http://en.wikipedia.org/wiki/IPv4_header#Header"&gt;IP header&lt;/a&gt; made up with such bricks! How can you &lt;strong&gt;not&lt;/strong&gt; like it?&lt;/p&gt;
+</summary><category term="lego"></category><category term="tcp"></category><category term="ip"></category><category term="tcp/ip"></category></entry><entry><title>Plutonomy</title><link href="http://www.giuliofidente.im/2010/04/plutonomy.html" rel="alternate"></link><updated>2010-04-20T00:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2010-04-20:2010/04/plutonomy.html</id><summary type="html">&lt;dl class="docutils"&gt;
+&lt;dt&gt;Plutonomy&lt;/dt&gt;
+&lt;dd&gt;An economy that is significantly influenced by the very wealthy. A buzz word initially coined by analysts at Citigroup in 2005 to describe the incredible growth of the U.S. economy during that period despite increasing interest rates, commodity prices and an inflated national debt. Citigroup analysts argued that as such an economy continues to grow in the face of contradictory elements, the more important the society's ultra rich become to maintaining such growth. The analysts also believed that in addition to the U.S., Canada, Great Britain and China are also becoming plutonomies.&lt;/dd&gt;
+&lt;dt&gt;Backlash&lt;/dt&gt;
+&lt;dd&gt;An antagonistic reaction to a trend, development, or event.&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;Citigroup, &lt;a class="reference external" href="http://docs.google.com/fileview?id=0B_X5-DCw4b_zY2ZmNTEwNmMtNTMyNS00Yzc5LWI3MzktZDRiZDExMjc3YjVk"&gt;in un documento del 2005&lt;/a&gt;, inventa il termine plutonomy e ne studia i backlash. Da pagina 25 cerca di identificare quali fenomeni possono mettere in crisi il sistema e ne denuncia qualcuno. Uno di questi e' la riposta politica ai fenomeni di outsourcing e di insourcing applicati in modo massivo.&lt;/p&gt;
+&lt;blockquote&gt;
+Low-end developed market labor might not have much economic power, but it does have equal voting power with the rich. We see plenty of examples of the outsourcing or offshoring of labor being attacked as &amp;quot;unpatriotic&amp;quot; or plain unfair. This tends to lead to calls for protectionism to save the low-skilled domestic jobs being lost. This is a cause championed, generally, by left-wing politicians. At the other extreme, insourcing, or allowing mass immigration, which might price domestic workers out of jobs, leads to calls for anti-immigration policies, at worst championed by those on the far right.&lt;/blockquote&gt;
+&lt;p&gt;L'outsourcing, giudicato poco patriottico o sleale, demanda alla politica un protezionismo che generalmente viene appoggiato dalle sinisitre; al contrario l'insourcing, che viene visto come una causa della perdita del posto di lavoro, demanda alla politica regole di anti-immigrazione generalmente appoggiate dalle destre. Il report si spinge oltre anzi, a dire il vero, quello che c'e' scritto dopo e' ancora piu' interessante perche' delinea un secondo &amp;quot;pericolo&amp;quot; per il sistema che non ha a che fare direttamente con la politica locale.&lt;/p&gt;
+&lt;blockquote&gt;
+To use Rawls-ian analysis, the invisible hand stops working. Perhaps one reason that societies allow plutonomy, is because enough of the electorate believe they have a chance of becoming a Pluto-participant. Why kill it off, if you can join it? In a sense this is the embodiment of the &amp;quot;American dream&amp;quot;. But if voters feel they cannot participate, they are more likely to divide up the wealth pie, rather than aspire to being truly rich. Could the plutonomies die because the dream is dead, because enough of society does not believe they can participate? The answer is of course yes. But we suspect this is a threat more clearly felt during recessions, and periods of falling wealth, than when average citizens feel that they are better off. There are signs around the world that society is unhappy with plutonomy - judging by how tight electoral races are. But as yet, there seems little political fight being born out on this battleground. Our overall conclusion is that a backlash against plutonomy is probable at some point. However, that point is not now. So long as economies continue to grow, and enough of the electorates feel that they are benefiting and getting rich in absolute terms, even if they are less well off in relative terms, there is little threat to Plutonomy in the U.S., UK, etc.&lt;/blockquote&gt;
+&lt;p&gt;Dunque, secondo citigroup, la plutonomia resistera' fino a quanto gli aventi diritto al voto saranno convinti di avere un ruolo nel sistema tale da consentirgli di rientrare nella fascia piu' alta del benessere ed indica anche un modo semplice con cui questo e' possibile: misurando la loro ricchezza in termini assoluti, invece che relativi a chi davvero e' nella fascia alta del benessere. Sembrano cose assolutamente esatte eppure su &lt;a class="reference external" href="http://www.ilmanifesto.it"&gt;il manifesto&lt;/a&gt;, riguardo le elezioni a Pomigliano, oggi leggo questo:&lt;/p&gt;
+&lt;blockquote&gt;
+Buio a Mezzogiorno, buio a Pomigliano d'Arco o forse luce, almeno per quel 55% di elettori che hanno premiato Raffaele Russo, detto Lello, e con lui eletto il centrodestra a guidare il comune, facendo crollare un altro mito della sinistra, la Stalingrado del Sud. Dopo 15 anni di amministrazione rossa ecco come finisce: Onofrio Piccolo, il delfino di Michele Caiazzo (sindaco per 10 anni, seguito da Antonio Della Ratta per gli ultimi cinque), precipita e questa e' un'altra Mantova. O per certi aspetti e' ancor peggio perche' la citta' della Fiat, la stessa protagonista delle lotte operaie degli anni '70 e '80, si &amp;quot;imberlusconisce&amp;quot;.&lt;/blockquote&gt;
+&lt;p&gt;A questo punto c'e' qualcosa che non capisco. Per quale motivo, i lavoratori di Pomigliano dovrebbero riporre la loro fiducia in una destra che si presenta nelle stesse forme e con le stesse intenzioni del sistema stesso che li sta ammazzando? Sarei tentato di rispondermi un forte desiderio di cambiamento, dettato probabilmente dalla percezione di un intreccio piu' o meno nascosto tra politica ed interessi economici. Come dire, siccome tutti rubano e tutti (o quasi) in politica hanno i loro interessi economici personali da realizzare, se con la dirigenza (o governanza) attuale non va bene, allora la cambio. Di questo nel report pero' non mi sembra si parli e si tratta invece di un buon metodo per salvare la plutonomia, ammesso che si possa garantire
+il benessere ad entrambe le due parti politiche coinvolte. Un metodo che puo' togliere alla gente il potere di voto, pericoloso per una vera plutonomia, senza impedirgli di votare. Oppure sono io che sono pazzo?&lt;/p&gt;
+</summary><category term="citigroup"></category><category term="fiat"></category><category term="plutonomy"></category><category term="il manifesto"></category></entry><entry><title>World brewing convention</title><link href="http://www.giuliofidente.im/2010/03/world-brewing-convention.html" rel="alternate"></link><updated>2010-03-17T00:00:00+01:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2010-03-17:2010/03/world-brewing-convention.html</id><summary type="html">&lt;p&gt;After the first day of a world brewing convention in the states, the CEO's of various brewing organisations retire to the bar.&lt;/p&gt;
+&lt;p&gt;Bruce, the CEO of Fosters, shouts to the barman: &amp;quot;In 'Straiyla, we make the best beer in the world, so pour me a Fosters mate.&amp;quot;&lt;/p&gt;
+&lt;p&gt;Bob, CEO of Budweiser calls out next: &amp;quot;In the States we brew the finest beer known to mankind and i make the king of them all. Gimme a Bud.&amp;quot;&lt;/p&gt;
+&lt;p&gt;Hans steps up next: &amp;quot;In Germany we invented das beer. Give me ein Becks, der real King of beers.&amp;quot;&lt;/p&gt;
+&lt;p&gt;Paddy, CEO of Guinness steps forward: &amp;quot;Barman give me a diet coke with ice and lemon please.&amp;quot;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;The others stare at him in stunned silence, amazement written over their faces.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Eventually Bruce asks: &amp;quot;Are you not going to have a Guinness Pat?&amp;quot;&lt;/p&gt;
+&lt;p&gt;Paddy replies: &amp;quot;Well, if you pussies aren't drinking, then neither am I.&amp;quot;&lt;/p&gt;
+</summary><category term="guinness"></category><category term="ireland"></category></entry><entry><title>Sokkomb</title><link href="http://www.giuliofidente.im/2010/01/sokkomb.html" rel="alternate"></link><updated>2010-01-28T00:00:00+01:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2010-01-28:2010/01/sokkomb.html</id><summary type="html">&lt;p&gt;&lt;a class="reference external" href="http://www.sokkomb.com/"&gt;SOKKOMB&lt;/a&gt; is a new low-cost product designed specifically for all those citizens who are interested in Do-It-Yourself justice.&lt;/p&gt;
+</summary><category term="sokkomb"></category></entry><entry><title>Tenacious D</title><link href="http://www.giuliofidente.im/2010/01/tenacious-d.html" rel="alternate"></link><updated>2010-01-23T00:00:00+01:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2010-01-23:2010/01/tenacious-d.html</id><summary type="html">&lt;p&gt;[Jack] The most powerful tool in singing technology since yodeling, dude. Oh, my god, inward singing!&lt;/p&gt;
+&lt;p&gt;[Kage] What?&lt;/p&gt;
+&lt;p&gt;[Jack] Check it out. It's an invention and it makes non-stop rocking possible. Think about it, man! Rock singers are only rockin you half the time, the other time they're... they're... they're... they're... breathing in but not any more baby! HAHAHA... not with inward singing. Check it out...&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Jack breathing&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;[Singing] And then I start some lyrics and you&lt;/p&gt;
+&lt;p&gt;[Inward Singing] Can't believe I'm singing&lt;/p&gt;
+&lt;p&gt;[Singing] And I'm never fucking stopping and I'm&lt;/p&gt;
+&lt;p&gt;[Inward Singing] Always fucking singing&lt;/p&gt;
+&lt;p&gt;[Singing] Now you know that I will never&lt;/p&gt;
+&lt;p&gt;[Inward Singing] Stop the fucking singing&lt;/p&gt;
+&lt;p&gt;[Singing] I'm like a fucking one man band, I'm like a fucking one man&lt;/p&gt;
+&lt;p&gt;[Inward Singing] Band!&lt;/p&gt;
+&lt;p&gt;[Jack] And I can sing like that all fuckin night...&lt;/p&gt;
+&lt;p&gt;[Kage] Wow... it wasn't really non-stop though. There was a slight...&lt;/p&gt;
+&lt;p&gt;[Jack] AHH shut up! It is non stop and the other thing is that when I'm fucking singing in it sounds even BETTER than when I'm singing out! Shut up! Fuck you! You fuckin dick! Always ney saying everything I create! You piece of shit, you create something like inward singing! You fucking shit you fucking sit in your tower...&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Kage Laughing&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;[Jack] ...and fucking nap... what's funny? You fucking bitch!&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Kage Continues To Laugh&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;[Jack] Fuckin, fuck yeah, fuckin... cockass! [long pause] You're fired from the band.&lt;/p&gt;
+</summary><category term="great ideas"></category><category term="inward singing"></category><category term="tenacious d"></category></entry><entry><title>Audio extraction from DVDs</title><link href="http://www.giuliofidente.im/2009/08/audio-extraction-from-dvds.html" rel="alternate"></link><updated>2009-08-25T00:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2009-08-25:2009/08/audio-extraction-from-dvds.html</id><summary type="html">&lt;p&gt;I recently bought some dvds and they don't contain films but concerts so after the few plays I decided to extract the audio tracks, possibly keeping the highest audio quality permitted, to convert them later into mp3, ogg or flac as needed. I want to discuss the process.&lt;/p&gt;
+&lt;p&gt;The first tool I found useful was &lt;a class="reference external" href="http://untrepid.com/acidrip/lsdvd.html"&gt;lsdvd&lt;/a&gt;, it tells you the number and length of titles, chapters and angles available on the dvd, which is important stuff to go further. Then I picked &lt;a class="reference external" href="http://tcforge.berlios.de/"&gt;transcode&lt;/a&gt; to extract the actual audio data, because it can write audio on disk in raw PCM format (lossless) and because it's very flexible. Here is how to extract the audio from a single chapter (which you can put in a for loop) using transcode:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ transcode -i /dev/dvd -x null,dvd -T 1,1,1 -a 0 -y null,tcaud -N 0x1 -m track1.pcm
+&lt;/pre&gt;
+&lt;p&gt;Where arguments for -T are title, chapter and angle of the track you want to extract and argument for -N is the audio output format (0x1 is raw PCM). After that, you'll have to convert your PCM files into a more practical format ... mp3 for example, here is how I did it:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ lame -r -s 48 --preset extreme track1.pcm
+&lt;/pre&gt;
+&lt;p&gt;You can use any other lame option, just keep in mind that -r is important, it tells lame that your input file is in raw format (as in fact, we wanted it to be). Giving a look at the lame man page you'll notice it also says that -r expects you to define manually the sampling rate, mode and bitwidth of the input data; you can safely omit mode (which will be joint stereo by default) and the bitwidth (which will be 16) but you'll need to specify the sampling rate. 48KHz is most likely what you'll get on a regulard dvd, lame would otherwise assume it's 44.1KHz.&lt;/p&gt;
+&lt;p&gt;Something similar could be used to encode your raw files into the ogg format (oggenc is part of the vorbis-tools package); in my case 8 as quality is chosen to get the output files comparable in size with mp3:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ oggenc -r -R 48000 -q 8 track1.pcm -o track1.pcm.ogg
+&lt;/pre&gt;
+&lt;p&gt;On a side node, if you want to get your mp3 files all rolled in just one step, you may want to try the transcode's encoding:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ transcode -i /dev/dvd -x dvd -T 1,1,1 -a 0 -y null,tcaud --lame_preset extreme -m track1.mp3
+&lt;/pre&gt;
+&lt;p&gt;Enjoy :)&lt;/p&gt;
+</summary><category term="transcoding"></category><category term="dvd audio extraction"></category></entry><entry><title>TPB @ Biennale di Venezia</title><link href="http://www.giuliofidente.im/2009/05/tpb-biennale-di-venezia.html" rel="alternate"></link><updated>2009-05-16T00:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2009-05-16:2009/05/tpb-biennale-di-venezia.html</id><summary type="html">&lt;p&gt;The guys at &lt;a class="reference external" href="http://thepiratebay.org"&gt;TPB&lt;/a&gt; and &lt;a class="reference external" href="http://www.kopimi.com/kopimi/"&gt;Kopimi&lt;/a&gt; have got a great idea. You'll find them at the &lt;a class="reference external" href="http://it.wikipedia.org/wiki/Biennale_di_Venezia"&gt;Biennale di Venezia&lt;/a&gt; in the new &lt;a class="reference external" href="http://www.padiglioneinternet.com/"&gt;Padiglione Internet&lt;/a&gt;. At the moment they just seem to &lt;a class="reference external" href="http://embassyofpiracy.org/2009/05/italy-we-need-hosting/"&gt;need hosting&lt;/a&gt;, but there is much more, so please give a look at the &lt;a class="reference external" href="http://embassyofpiracy.org/"&gt;embassyofpiracy&lt;/a&gt; website and hurry up to &lt;a class="reference external" href="http://embassyofpiracy.org/2009/04/diy-cut-and-past/"&gt;build your own&lt;/a&gt; ... you can get the &amp;quot;template&amp;quot; to print it &lt;a class="reference external" href="http://embassyofpiracy.org/print/"&gt;here&lt;/a&gt;. There are already a lot of photos in &lt;a class="reference external" href="http://embassyofpiracy.org/gallery/"&gt;the gallery&lt;/a&gt;!! Oh and keep in mind that even if it sounds funny, this has already put them into some &lt;a class="reference external" href="http://embassyofpiracy.org/2009/05/breaking-news-rome-vs-internet/"&gt;troubles&lt;/a&gt;&lt;/p&gt;
+</summary><category term="kopimi"></category><category term="embassy of piracy"></category><category term="the pirate bay"></category><category term="biennale di venezia"></category></entry><entry><title>Learned helplessness</title><link href="http://www.giuliofidente.im/2009/02/learned-helplessness.html" rel="alternate"></link><updated>2009-02-16T00:00:00+01:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2009-02-16:2009/02/learned-helplessness.html</id><summary type="html">&lt;p&gt;Learned helplessness is a psychological condition in which a human being or an animal has learned to act or behave helpless in a particular situation, even when it has the power to change its unpleasant or even harmful circumstance.&lt;/p&gt;
+&lt;p&gt;Learned helplessness theory is the view that clinical depression and related mental illnesses result from a perceived absence of control over the outcome of a situation (Seligman, 1975).&lt;/p&gt;
+&lt;p&gt;Interesting? Continue on &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Learned_helplessness"&gt;wikipedia&lt;/a&gt;&lt;/p&gt;
+</summary><category term="learned helplessness"></category></entry><entry><title>OS X Network Install using Linux (updates)</title><link href="http://www.giuliofidente.im/2009/01/os-x-network-install-using-linux-updates.html" rel="alternate"></link><updated>2009-01-06T00:00:00+01:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2009-01-06:2009/01/os-x-network-install-using-linux-updates.html</id><summary type="html">&lt;p&gt;Do you still remember &lt;a class="reference external" href="http://www.giuliofidente.im/2006/11/os-x-network-install-using-linux.html"&gt;this&lt;/a&gt;? It was a good post about the OS X install via the network using a GNU/Linux install server. I went back to read and use it after a few days to install the version 10.5 (leopard) of OS X and it worked well but there's a couple of things missing in that post which I'd like to share here.&lt;/p&gt;
+&lt;p&gt;The problems were mainly in mounting the leopard disc. If you try to do that on a GNU/Linux system you should only see some files about bootcamp, it is indeed a double format dvd which includes two sections, one is iso9660 formatted and another is hfs+ formatted. To find the files I mentioned, you'll have to mount the hfs+ formatted section ... which is hidden but you can find it using this very helpful link: &lt;a class="reference external" href="http://www.64lines.com/mounting-hfs-plus"&gt;Mounting HFS+ Hybrid Disks on Linux&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Also, because of the additional steps, when you're at this:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+dd if=/dev/hdc of=/tftpboot/macosx.img
+&lt;/pre&gt;
+&lt;p&gt;you'll have to replace /dev/hdc with the /dev/loop0 device created by the instructions linked before.&lt;/p&gt;
+</summary><category term="osx network install"></category><category term="linux network install"></category><category term="leopard network install"></category><category term="fedoraplanet"></category></entry><entry><title>A small portion of extra time</title><link href="http://www.giuliofidente.im/2008/12/a-small-portion-of-extra-time.html" rel="alternate"></link><updated>2008-12-31T00:00:00+01:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2008-12-31:2008/12/a-small-portion-of-extra-time.html</id><summary type="html">&lt;p&gt;For three years it was possible to do without it. But now it's become necessary again. This coming New Year's Eve, the radio controlled clocks will, after 0:59:59, instead of jumping to 1 o'clock at the next tick of the second, pause shortly in order to insert a small portion of extra time: a leap second.&lt;/p&gt;
+&lt;p&gt;The International Earth Rotation Service (IERS) in Paris has prescribed this addition to coordinated universal time (UTC), as our Earth is again too much out of sync. The Earth lags behind atomic clock time, whose ticking seconds do not pay attention to any earthly fluctuation. This leap second will be dispensed to the German clocks by the Physikalisch-Technische Bundesanstalt (PTB) in Braunschweig.&lt;/p&gt;
+&lt;p&gt;Find all answers to your questions about time at &lt;a class="reference external" href="http://www.ptb.de/en/wegweiser/infoszurzeit/index.html"&gt;http://www.ptb.de/en/wegweiser/infoszurzeit/index.html&lt;/a&gt;&lt;/p&gt;
+</summary><category term="new year's eve"></category><category term="extra time"></category></entry><entry><title>Telnet Star Wars</title><link href="http://www.giuliofidente.im/2008/10/telnet-star-wars.html" rel="alternate"></link><updated>2008-10-24T00:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2008-10-24:2008/10/telnet-star-wars.html</id><summary type="html">&lt;p&gt;Now just open a terminal and enter this:&lt;/p&gt;
+&lt;blockquote&gt;
+telnet 193.202.115.241&lt;/blockquote&gt;
+&lt;p&gt;enjoy!&lt;/p&gt;
+</summary><category term="star wars"></category><category term="telnet"></category></entry><entry><title>RHEL5, GFS2 and DRBD8</title><link href="http://www.giuliofidente.im/2007/04/rhel5-gfs2-and-drbd8.html" rel="alternate"></link><updated>2007-04-03T00:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2007-04-03:2007/04/rhel5-gfs2-and-drbd8.html</id><summary type="html">&lt;p&gt;I've finally built my first &lt;a class="reference external" href="http://sourceware.org/cluster/"&gt;cluster&lt;/a&gt; on &lt;a class="reference external" href="http://www.redhat.com/rhel/"&gt;rhel5&lt;/a&gt; using &lt;a class="reference external" href="http://sourceware.org/cluster/"&gt;gfs2&lt;/a&gt; and &lt;a class="reference external" href="http://www.drbd.org/"&gt;drbd8&lt;/a&gt; :-D&lt;/p&gt;
+&lt;p&gt;drbd makes a network raid1 between two physical distinguished block devices (eg. internal disks of two servers) and from the release 8.0 it supports the active/active configuration.&lt;/p&gt;
+&lt;p&gt;gfs2 permits to the two server machines a concurrent mount of the network replicated drbd device.&lt;/p&gt;
+&lt;p&gt;rhel5 is the OS I've installed on the two machines.&lt;/p&gt;
+&lt;p&gt;Practically with this stuff the servers share the same &amp;quot;storage&amp;quot;. Here is a sample config file for drbd:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;common&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="err"&gt;syncer&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt; &lt;span class="err"&gt;rate&lt;/span&gt; &lt;span class="err"&gt;100M;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="err"&gt;}&lt;/span&gt;
+&lt;span class="err"&gt;resource&lt;/span&gt; &lt;span class="err"&gt;r&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="err"&gt;protocol&lt;/span&gt; &lt;span class="err"&gt;C;&lt;/span&gt;
+  &lt;span class="err"&gt;disk&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt; &lt;span class="err"&gt;on-io-error&lt;/span&gt; &lt;span class="err"&gt;pass_on;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+  &lt;span class="err"&gt;net&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="err"&gt;allow-two-primaries;&lt;/span&gt;
+    &lt;span class="err"&gt;after-sb-0pri&lt;/span&gt; &lt;span class="err"&gt;discard-least-changes;&lt;/span&gt;
+    &lt;span class="err"&gt;after-sb-1pri&lt;/span&gt; &lt;span class="err"&gt;discard-secondary;&lt;/span&gt;
+    &lt;span class="err"&gt;after-sb-2pri&lt;/span&gt; &lt;span class="err"&gt;violently-as0p;&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+  &lt;span class="err"&gt;on&lt;/span&gt; &lt;span class="err"&gt;bsvm&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="err"&gt;.babel.int&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="err"&gt;address&lt;/span&gt; &lt;span class="err"&gt;192.168.1.1:7790;&lt;/span&gt;
+    &lt;span class="err"&gt;disk&lt;/span&gt; &lt;span class="err"&gt;/dev/mapper/ddf1_ld0p5;&lt;/span&gt;
+    &lt;span class="err"&gt;device&lt;/span&gt; &lt;span class="err"&gt;/dev/drbd0;&lt;/span&gt;
+    &lt;span class="err"&gt;meta-disk&lt;/span&gt; &lt;span class="nt"&gt;&amp;quot;internal&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;;&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+  &lt;span class="err"&gt;on&lt;/span&gt; &lt;span class="err"&gt;bsvm&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="err"&gt;.babel.int&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="err"&gt;address&lt;/span&gt; &lt;span class="err"&gt;192.168.1.2:7790;&lt;/span&gt;
+    &lt;span class="err"&gt;disk&lt;/span&gt; &lt;span class="err"&gt;/dev/mapper/ddf1_ld0p5;&lt;/span&gt;
+    &lt;span class="err"&gt;device&lt;/span&gt; &lt;span class="err"&gt;/dev/drbd0;&lt;/span&gt;
+    &lt;span class="err"&gt;meta-disk&lt;/span&gt; &lt;span class="nt"&gt;&amp;quot;internal&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;;&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Want to give it a try? Configure your cluster.xml file, start the drbd and cman services, create the filesystem on the drbd device and ... have fun!!&lt;/p&gt;
+</summary><category term="gfs"></category><category term="rhel"></category><category term="drbd"></category></entry><entry><title>Fluendo on PPC</title><link href="http://www.giuliofidente.im/2006/11/fluendo-on-ppc.html" rel="alternate"></link><updated>2006-11-04T00:00:00+01:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2006-11-04:2006/11/fluendo-on-ppc.html</id><summary type="html">&lt;p&gt;Unfortunately my GNU/Linux box is a PowerPC and I had the privilege of finding all sort of strange Fluendo bugs... but apart from bugs, the gstreamer0.10-fluendo-mp3 plugin consumes much more CPU (about 22% against 7%) than the standard mad plugin for gstreamer (found in gstreamer0.10-plugins-ugly collection) and fluendo-mp3 is licensed under the MIT license while the mad library is instead GPL. Last but not least, I've no data to show that but it seems to me that also the audio quality is better with mad!&lt;/p&gt;
+&lt;p&gt;MAD better than FLUENDO on PPC!&lt;/p&gt;
+</summary><category term="fluendo"></category><category term="ppc"></category></entry><entry><title>OS X Network Install using Linux</title><link href="http://www.giuliofidente.im/2006/11/os-x-network-install-using-linux.html" rel="alternate"></link><updated>2006-11-01T00:00:00+01:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2006-11-01:2006/11/os-x-network-install-using-linux.html</id><summary type="html">&lt;p&gt;The title says it all. We're going to install an OS X client via network using a GNU/Linux box as DHCP/TFTP/NFS server.&lt;/p&gt;
+&lt;p&gt;First you'll want to setup your DHCP, TFTP and NFS server.&lt;/p&gt;
+&lt;p&gt;The default location for the TFTP server root on my system was &lt;code&gt;/tftpboot&lt;/code&gt;. It may be different on other distro so change at will. This directory is where we're going to put all the important files. Three files come from the OS X disc (although you'll have to rename two of them) and the fourth is a simple image of the OS X disc itself.&lt;/p&gt;
+&lt;p&gt;Mount the Mac OS X disc and copy and rename the following files into your TFTP server root&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+cp /cdrom/System/Library/CoreServices/BootX /tftpboot/BootX
+cp /cdrom/mach\_kernel /tftpboot/mach.macosx
+cp /cdrom/System/Library/Extensions.mkext /tftpboot/mach.macosx.mkext
+&lt;/pre&gt;
+&lt;p&gt;Unmount and make an image of the install disc in the TFTP server root&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+dd if=/dev/hdc of=/tftpboot/macosx.img
+&lt;/pre&gt;
+&lt;p&gt;On your NFS server, you'll want to modify &lt;code&gt;/etc/exports&lt;/code&gt; to include something like the following&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+/tftpboot/ mac-ip-address(ro,insecure)
+&lt;/pre&gt;
+&lt;p&gt;where mac-ip-address is the mac address assigned to your mac manually (see step 7) or by the DHCP server.&lt;/p&gt;
+&lt;p&gt;At this point you'll want to start the TFTP server and NFS services.&lt;/p&gt;
+&lt;p&gt;Boot into the open firmware (by holding command+option+O+F) and issue the following commands&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+setenv boot-device enet:ip-address-of-linux-server,BootX
+setenv boot-args rp=nfs:ip-address-of-linux-server:/tftpboot/:macosx.img
+boot
+&lt;/pre&gt;
+&lt;p&gt;where ip-address-of-linux-server is... self-explanatory.&lt;/p&gt;
+&lt;p&gt;The well familiar Mac boot sequence should start except now you have a little spinning world as logo while it tries to make a connection to the Linux server. You'll probably want to hold command+V while booting the Mac to see what's actually happening and to ensure the whole process is going smoothly.&lt;/p&gt;
+&lt;p&gt;I hope it helped!&lt;/p&gt;
+</summary><category term="osx network install"></category><category term="linux network install"></category><category term="leopard network install"></category><category term="fedoraplanet"></category></entry></feed>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Giulio Fidente (aka Giulivo Navigante)</title><link href="http://www.giuliofidente.im/" rel="alternate"></link><link href="http://www.giuliofidente.im/feeds/tag/rhel.atom.xml" rel="self"></link><id>http://www.giuliofidente.im/</id><updated>2007-04-03T00:00:00+02:00</updated><entry><title>RHEL5, GFS2 and DRBD8</title><link href="http://www.giuliofidente.im/2007/04/rhel5-gfs2-and-drbd8.html" rel="alternate"></link><updated>2007-04-03T00:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2007-04-03:2007/04/rhel5-gfs2-and-drbd8.html</id><summary type="html">&lt;p&gt;I've finally built my first &lt;a class="reference external" href="http://sourceware.org/cluster/"&gt;cluster&lt;/a&gt; on &lt;a class="reference external" href="http://www.redhat.com/rhel/"&gt;rhel5&lt;/a&gt; using &lt;a class="reference external" href="http://sourceware.org/cluster/"&gt;gfs2&lt;/a&gt; and &lt;a class="reference external" href="http://www.drbd.org/"&gt;drbd8&lt;/a&gt; :-D&lt;/p&gt;
+&lt;p&gt;drbd makes a network raid1 between two physical distinguished block devices (eg. internal disks of two servers) and from the release 8.0 it supports the active/active configuration.&lt;/p&gt;
+&lt;p&gt;gfs2 permits to the two server machines a concurrent mount of the network replicated drbd device.&lt;/p&gt;
+&lt;p&gt;rhel5 is the OS I've installed on the two machines.&lt;/p&gt;
+&lt;p&gt;Practically with this stuff the servers share the same &amp;quot;storage&amp;quot;. Here is a sample config file for drbd:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;common&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="err"&gt;syncer&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt; &lt;span class="err"&gt;rate&lt;/span&gt; &lt;span class="err"&gt;100M;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="err"&gt;}&lt;/span&gt;
+&lt;span class="err"&gt;resource&lt;/span&gt; &lt;span class="err"&gt;r&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="err"&gt;protocol&lt;/span&gt; &lt;span class="err"&gt;C;&lt;/span&gt;
+  &lt;span class="err"&gt;disk&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt; &lt;span class="err"&gt;on-io-error&lt;/span&gt; &lt;span class="err"&gt;pass_on;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+  &lt;span class="err"&gt;net&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="err"&gt;allow-two-primaries;&lt;/span&gt;
+    &lt;span class="err"&gt;after-sb-0pri&lt;/span&gt; &lt;span class="err"&gt;discard-least-changes;&lt;/span&gt;
+    &lt;span class="err"&gt;after-sb-1pri&lt;/span&gt; &lt;span class="err"&gt;discard-secondary;&lt;/span&gt;
+    &lt;span class="err"&gt;after-sb-2pri&lt;/span&gt; &lt;span class="err"&gt;violently-as0p;&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+  &lt;span class="err"&gt;on&lt;/span&gt; &lt;span class="err"&gt;bsvm&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="err"&gt;.babel.int&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="err"&gt;address&lt;/span&gt; &lt;span class="err"&gt;192.168.1.1:7790;&lt;/span&gt;
+    &lt;span class="err"&gt;disk&lt;/span&gt; &lt;span class="err"&gt;/dev/mapper/ddf1_ld0p5;&lt;/span&gt;
+    &lt;span class="err"&gt;device&lt;/span&gt; &lt;span class="err"&gt;/dev/drbd0;&lt;/span&gt;
+    &lt;span class="err"&gt;meta-disk&lt;/span&gt; &lt;span class="nt"&gt;&amp;quot;internal&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;;&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+  &lt;span class="err"&gt;on&lt;/span&gt; &lt;span class="err"&gt;bsvm&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="err"&gt;.babel.int&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="err"&gt;address&lt;/span&gt; &lt;span class="err"&gt;192.168.1.2:7790;&lt;/span&gt;
+    &lt;span class="err"&gt;disk&lt;/span&gt; &lt;span class="err"&gt;/dev/mapper/ddf1_ld0p5;&lt;/span&gt;
+    &lt;span class="err"&gt;device&lt;/span&gt; &lt;span class="err"&gt;/dev/drbd0;&lt;/span&gt;
+    &lt;span class="err"&gt;meta-disk&lt;/span&gt; &lt;span class="nt"&gt;&amp;quot;internal&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;;&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Want to give it a try? Configure your cluster.xml file, start the drbd and cman services, create the filesystem on the drbd device and ... have fun!!&lt;/p&gt;
+</summary><category term="gfs"></category><category term="rhel"></category><category term="drbd"></category></entry></feed>

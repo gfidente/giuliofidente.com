@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet/less" type="text/css" href="../../theme/css/style.less">
+  <script src="../../theme/js/less-1.3.3.min.js" type="text/javascript"></script>
+
+  <link rel="stylesheet" type="text/css" href="../../theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <title>Giulio Fidente (aka Giulivo Navigante) - Audio extraction from DVDs</title>
+  <meta charset="utf-8" />
+    <link href="http://www.giuliofidente.im/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Giulio Fidente (aka Giulivo Navigante) Full Atom Feed" />
+        </head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="../.."><img src="../../theme/images/gravatar_to192.png" alt="logo"></a>
+      <h1><a href="../..">Giulio Fidente</a></h1>
+      <h2>Only those so crazy to believe they can change the world, will change it.</h2>
+      <ul>
+                                                <li><a href="http://www.linkedin.com/in/gfidente" target="_blank">linkedin</a></li>
+                <li><a href="https://github.com/giulivo" target="_blank">github</a></li>
+                <li><a href="https://code.google.com/p/mlapd/" target="_blank">mlapd</a></li>
+                        <li><a href="http://www.reddit.com/user/giulivo" target="_blank">reddit</a></li>
+                <li><a href="http://news.ycombinator.com/user?id=giulivo" target="_blank">hn</a></li>
+                <li><a href="https://coderwall.com/gfidente" target="_blank">coderwall</a></li>
+                <li><a href="http://identi.ca/giulivo" target="_blank">identi.ca</a></li>
+                <li><a href="https://github.com/giulivo/pelican-svbhack" target="_blank">blog template</a></li>
+              </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+  <h3>Posted on Tue 25 August 2009</h3>
+</header>
+<article>
+  <h1 id="article_title">
+    <a href="../../2009/08/audio-extraction-from-dvds.html" rel="bookmark" title="Permalink to Audio extraction from DVDs">Audio extraction from DVDs</a>
+  </h1>
+
+  <div id="article_text">
+    <p>I recently bought some dvds and they don't contain films but concerts so after the few plays I decided to extract the audio tracks, possibly keeping the highest audio quality permitted, to convert them later into mp3, ogg or flac as needed. I want to discuss the process.</p>
+<p>The first tool I found useful was <a class="reference external" href="http://untrepid.com/acidrip/lsdvd.html">lsdvd</a>, it tells you the number and length of titles, chapters and angles available on the dvd, which is important stuff to go further. Then I picked <a class="reference external" href="http://tcforge.berlios.de/">transcode</a> to extract the actual audio data, because it can write audio on disk in raw PCM format (lossless) and because it's very flexible. Here is how to extract the audio from a single chapter (which you can put in a for loop) using transcode:</p>
+<pre class="literal-block">
+$ transcode -i /dev/dvd -x null,dvd -T 1,1,1 -a 0 -y null,tcaud -N 0x1 -m track1.pcm
+</pre>
+<p>Where arguments for -T are title, chapter and angle of the track you want to extract and argument for -N is the audio output format (0x1 is raw PCM). After that, you'll have to convert your PCM files into a more practical format ... mp3 for example, here is how I did it:</p>
+<pre class="literal-block">
+$ lame -r -s 48 --preset extreme track1.pcm
+</pre>
+<p>You can use any other lame option, just keep in mind that -r is important, it tells lame that your input file is in raw format (as in fact, we wanted it to be). Giving a look at the lame man page you'll notice it also says that -r expects you to define manually the sampling rate, mode and bitwidth of the input data; you can safely omit mode (which will be joint stereo by default) and the bitwidth (which will be 16) but you'll need to specify the sampling rate. 48KHz is most likely what you'll get on a regulard dvd, lame would otherwise assume it's 44.1KHz.</p>
+<p>Something similar could be used to encode your raw files into the ogg format (oggenc is part of the vorbis-tools package); in my case 8 as quality is chosen to get the output files comparable in size with mp3:</p>
+<pre class="literal-block">
+$ oggenc -r -R 48000 -q 8 track1.pcm -o track1.pcm.ogg
+</pre>
+<p>On a side node, if you want to get your mp3 files all rolled in just one step, you may want to try the transcode's encoding:</p>
+<pre class="literal-block">
+$ transcode -i /dev/dvd -x dvd -T 1,1,1 -a 0 -y null,tcaud --lame_preset extreme -m track1.mp3
+</pre>
+<p>Enjoy :)</p>
+
+  </div>
+
+  <div id="article_meta">
+    <p>Category: <a href="../../category/techie.html">techie</a></p>
+        <p>Tags:
+            <a href="../../tag/transcoding.html">transcoding</a>,            <a href="../../tag/dvd-audio-extraction.html">dvd audio extraction</a>          </p>
+      </div>
+</article>
+<footer>
+  <a href="../../" class="button_accent">&larr; Index</a>
+</footer>
+  </main>
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-39216528-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

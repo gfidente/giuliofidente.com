@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Giulio Fidente (aka Giulivo Navigante)</title><link href="http://www.giuliofidente.im/" rel="alternate"></link><link href="http://www.giuliofidente.im/feeds/tag/fedoraplanet.atom.xml" rel="self"></link><id>http://www.giuliofidente.im/</id><updated>2012-10-09T00:00:00+02:00</updated><entry><title>1366x768 is not allowed in the EDID block. Here's how to write your XOrg modeline.</title><link href="http://www.giuliofidente.im/2012/10/1366x768-is-not-allowed-in-the-edid-block-heres-how-to-write-your-xorg-modeline.html" rel="alternate"></link><updated>2012-10-09T00:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2012-10-09:2012/10/1366x768-is-not-allowed-in-the-edid-block-heres-how-to-write-your-xorg-modeline.html</id><summary type="html">&lt;p&gt;Looks like there are many LCD panels/TVs out there with a native resolution of 1366x768. That is indeed a very close approximation to the expected 16:9 rectangle, except XOrg keeps showing you a resolution of 1360x768 (or 1368x768) instead of the native 1366x768. Why? Because 1366 is not divisible by 8 and that's not valid in an EDID block. &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Extended_display_identification_data#Limitations"&gt;Learn more on wikipedia&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You need a custom &lt;a class="reference external" href="http://en.wikipedia.org/wiki/XFree86_Modeline"&gt;modeline in your xorg.conf&lt;/a&gt; file for that. The NVIDIA drivers also have some &lt;a class="reference external" href="http://us.download.nvidia.com/XFree86/Linux-x86_64/304.43/README/xconfigoptions.html"&gt;ModeValidation&lt;/a&gt; setting which needs some attention. Let's start with the last one, you need to add the following (in the Screen section):&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+Option &amp;quot;ModeValidation&amp;quot; &amp;quot;AllowNonEdidModes, NoWidthAlignmentCheck&amp;quot;
+&lt;/pre&gt;
+&lt;p&gt;To make XOrg log files more verbose, you may also want to add the following:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+Option &amp;quot;ModeDebug&amp;quot; &amp;quot;True&amp;quot;
+&lt;/pre&gt;
+&lt;p&gt;And what about the modeline? So &lt;a class="reference external" href="http://howto-pages.org/ModeLines/"&gt;this guy wrote a lot about it&lt;/a&gt; but for our purposes, let's just start with &lt;a class="reference external" href="http://www.xfree86.org/current/xvidtune.1.html"&gt;xvidtune&lt;/a&gt; to check for the current settings:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ xvidtune -show
+&amp;quot;1360x768&amp;quot; 84.75 1360 1432 1568 1776 768 771 776 798 -hsync +vsync
+&lt;/pre&gt;
+&lt;p&gt;After the modeline 'description' (whis is 1360x768), the first number you see represents the pixel clock speed. The remaining eight numbers are two groups of four numbers intended to set the horizontal and vertical resolution. The interesting thing is that you can get your hrefresh and vrefresh value with a simple formula: &lt;code&gt;hrefresh = 84.75/1776&lt;/code&gt; and &lt;code&gt;vrefresh = 84.75/(1776*798)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Now, on my LCD manual I had the following valuable informations:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;1360*768 47.72 59.8 84.75&lt;/p&gt;
+&lt;p&gt;1366*768 47.56 59.6 84.75&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Those are hrefresh, vrefresh and pixel clock. Let's put those in the modeline adding some more small changes:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+&amp;quot;1366x768&amp;quot; 84.75 1366 1438 1574 1782 768 771 776 798 -hsync +vsync
+&lt;/pre&gt;
+&lt;p&gt;Now here is how the new numbers were found:&lt;/p&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;84.75&lt;/dt&gt;
+&lt;dd&gt;is the pixel clock and remains the same as per service manual&lt;/dd&gt;
+&lt;dt&gt;1360 became 1366&lt;/dt&gt;
+&lt;dd&gt;that's the hresolution we want&lt;/dd&gt;
+&lt;dt&gt;1776 became 1782&lt;/dt&gt;
+&lt;dd&gt;that is what we need to get the 47.56 hrefresh and 59.6 vrefresh values indicated in the service manual, check yourself with the formula &lt;code&gt;84.75/1782 ~= 47.56&lt;/code&gt; and &lt;code&gt;84.75/(1782\*798) ~= 59.6&lt;/code&gt;&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;Also, from the initial xvidtune output, the numbers 1432 and 1568 represent some delay, measured in pixels pictured past the viewable area, at the defined pixel clock speed. They are used to set &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Analog_television"&gt;front porch, sync pulse and back porch&lt;/a&gt;; by using 1360 as the number of horizontal pixels you get the following:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+(1432-1360)/84.75 = 0.84us black on right side
+(1568-1432)/84.75 = 1.60us sync pulse width
+(1776-1568)/84.75 = 2.54us black on left side
+&lt;/pre&gt;
+&lt;p&gt;Now use 1366 as the number of horizontal pixels and keep the delay unchanged:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+(1438-1366)/84.75 = 0.84us black on right side
+(1574-1438)/84.75 = 1.60us sync pulse width
+(1782-1574)/84.75 = 2.54us black on left side
+&lt;/pre&gt;
+&lt;p&gt;Finally, for this blog post all the values I'm using refer to the LG 37LG3000. Enjoy!&lt;/p&gt;
+</summary><category term="1366x768"></category><category term="xorg modeline"></category><category term="linux"></category><category term="fedoraplanet"></category><category term="nvidia"></category></entry><entry><title>My attempts at MapReduce with MongoDB</title><link href="http://www.giuliofidente.im/2012/06/my-attempts-at-mapreduce-with-mongodb.html" rel="alternate"></link><updated>2012-06-14T00:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2012-06-14:2012/06/my-attempts-at-mapreduce-with-mongodb.html</id><summary type="html">&lt;p&gt;I was sorting a tree in my (python) webapp instead of having the database to do it for me. This is how I moved it back to the database by using a &lt;a class="reference external" href="http://en.wikipedia.org/wiki/MapReduce"&gt;MapReduce&lt;/a&gt; job. I had a collection structured like the following:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;quot;_id&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="err"&gt;...&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;quot;feed_oid&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;4fd268d2ab87b2d8927d7eee&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;quot;title&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;blah blah&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;quot;updated&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1339702524&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;quot;watchers&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;4fd276fc66224c1ee8000006&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Such a collection is called &lt;code&gt;articles&lt;/code&gt; and in there I get a document for every article published by an rss feed. &lt;code&gt;feed_oid&lt;/code&gt; is an identifier I assign to every rss feed that I'm crawling and &lt;code&gt;watchers&lt;/code&gt; contains a list of identifiers assigned to the people voting on such an article.&lt;/p&gt;
+&lt;p&gt;I wanted to find out the number of times a particular watcher appeared in the full list of articles and than, group that by the rss feed, so that I could end up with the number of times a person voted on articles published by the same feed.&lt;/p&gt;
+&lt;p&gt;The following are my map and reduce functions:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nx"&gt;m&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="nx"&gt;emit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;feed_oid&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nx"&gt;r&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;oids&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;vals&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;sum&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;v&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="nx"&gt;vals&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nx"&gt;sum&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="nx"&gt;vals&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;v&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The map function is called for every object matching the query filter, so it gets access to 'this'. The reduce function receives an array of values (all set to 1, by my map function) for every feed_oid emitted.&lt;/p&gt;
+&lt;p&gt;Here is how I spawn the MapReduce job (querying by the watcher id):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nx"&gt;res&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;db&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;articles&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;mapReduce&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;m&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;r&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="nx"&gt;query&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nx"&gt;watchers&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;4fd276fc66224c1ee8000006&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+  &lt;span class="nx"&gt;out&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;mapreduceout&amp;quot;&lt;/span&gt;
+&lt;span class="p"&gt;});&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The results:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nx"&gt;db&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;mapreduceout&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;find&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;_id&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;4fd268d2ab87b2d8927d7eea&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;value&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;_id&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;4fd268d2ab87b2d8927d7eee&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;value&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Looks like this guy voted 4 times on articles appeared on the feed 4fd268d2ab87b2d8927d7eee and 1 4fd268d2ab87b2d8927d7eea :P&lt;/p&gt;
+</summary><category term="mapreduce"></category><category term="fedoraplanet"></category><category term="mongodb"></category></entry><entry><title>YUM history (!)</title><link href="http://www.giuliofidente.im/2012/04/yum-history.html" rel="alternate"></link><updated>2012-04-26T00:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2012-04-26:2012/04/yum-history.html</id><summary type="html">&lt;p&gt;While browsing the &lt;a class="reference external" href="http://yum.baseurl.org/"&gt;YUM&lt;/a&gt; man page for some details about the query command I happened to find one of my most wanted feature in a package manager! YUM has some &lt;a class="reference external" href="http://docs.fedoraproject.org/en-US/Fedora/16/html/System_Administrators_Guide/sec-Yum-Transaction_History.html"&gt;history&lt;/a&gt; command which allows for investigation of past transactions and even &lt;strong&gt;undo&lt;/strong&gt; or &lt;strong&gt;rollback&lt;/strong&gt; actions. Epic. I frequently find myself going through install/uninstall steps which not only mess around but I tend to forget about the installed and now unneeded deps.&lt;/p&gt;
+&lt;p&gt;I'll go through a basic &lt;code&gt;history&lt;/code&gt; usage example but there is a lot more to discover. Consider the following command:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+# yum install anjuta
+...
+Installed:
+ anjuta.i686 1:3.2.0-1.fc16
+
+Dependency Installed:
+ apr.i686 0:1.4.6-1.fc16
+ apr-util.i686 0:1.3.12-1.fc16
+ autogen.i686 0:5.9.4-8.fc15
+ autogen-libopts.i686 0:5.9.4-8.fc15
+ devhelp.i686 1:3.2.0-1.fc16
+ glade3-libgladeui.i686 1:3.10.0-6.fc16
+ guile.i686 5:1.8.8-3.fc16
+ libgda.i686 1:4.2.8-2.fc16
+ libgda-sqlite.i686 1:4.2.8-2.fc16
+ libgdl.i686 1:3.2.0-1.fc16
+ sqlite-devel.i686 0:3.7.7.1-1.fc16
+ subversion-libs.i686 0:1.6.17-5.fc16
+ vala.i686 0:0.14.2-3.fc16
+&lt;/pre&gt;
+&lt;p&gt;Many dependencies have been installed and you surely won't remember all of them when later removing anjuta. You could go through some cleaning session using &lt;code&gt;package-cleanup&lt;/code&gt;, from
+&lt;a class="reference external" href="http://yum.baseurl.org/wiki/YumUtils"&gt;yum-utils&lt;/a&gt; but that isn't really intended to revert back your system status, it will just help you remove unneeded packages. Here's instead what &lt;code&gt;history&lt;/code&gt; can do for you:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+# yum history list anjuta
+Loaded plugins: downloadonly, langpacks, presto, refresh-packagekit
+ID   | Command line       | Date and time    | Action(s)  | Altered
+-------------------------------------------------------------------
+ 172 | install anjuta     | 2012-04-26 09:02 | Install    |   14
+
+# yum history info 172
+Loaded plugins: downloadonly, langpacks, presto, refresh-packagekit
+Transaction ID : 172
+Begin time     : Thu Apr 26 09:02:57 2012
+Begin rpmdb    : 1225:459cfe1ee50fe38d585386f265e6647ab8d4b5a9
+End time       :            09:03:19 2012 (22 seconds)
+End rpmdb      : 1239:9784f29b6dff78d982e401bfa5e4cbd9620c47ed
+User           : Giulio Fidente
+Return-Code    : Success
+Command Line   : install anjuta
+Transaction performed with:
+    Installed     rpm-4.9.1.3-1.fc16.i686               &amp;#64;updates
+    Installed     yum-3.4.3-23.fc16.noarch              &amp;#64;updates
+    Installed     yum-metadata-parser-1.1.4-5.fc16.i686 &amp;#64;koji-overrides
+Packages Altered:
+    Install     anjuta-1:3.2.0-1.fc16.i686             &amp;#64;fedora
+    Dep-Install apr-1.4.6-1.fc16.i686                  &amp;#64;updates
+    Dep-Install apr-util-1.3.12-1.fc16.i686            &amp;#64;fedora
+    Dep-Install autogen-5.9.4-8.fc15.i686              &amp;#64;fedora
+    Dep-Install autogen-libopts-5.9.4-8.fc15.i686      &amp;#64;fedora
+    Dep-Install devhelp-1:3.2.0-1.fc16.i686            &amp;#64;fedora
+    Dep-Install glade3-libgladeui-1:3.10.0-6.fc16.i686 &amp;#64;updates
+    Dep-Install guile-5:1.8.8-3.fc16.i686              &amp;#64;fedora
+    Dep-Install libgda-1:4.2.8-2.fc16.i686             &amp;#64;updates
+    Dep-Install libgda-sqlite-1:4.2.8-2.fc16.i686      &amp;#64;updates
+    Dep-Install libgdl-1:3.2.0-1.fc16.i686             &amp;#64;fedora
+    Dep-Install sqlite-devel-3.7.7.1-1.fc16.i686       &amp;#64;fedora
+    Dep-Install subversion-libs-1.6.17-5.fc16.i686     &amp;#64;fedora
+    Dep-Install vala-0.14.2-3.fc16.i686                &amp;#64;updates
+
+# yum history undo 172
+...
+Removed:
+ anjuta.i686 1:3.2.0-1.fc16
+ apr.i686 0:1.4.6-1.fc16
+ apr-util.i686 0:1.3.12-1.fc16
+ autogen.i686 0:5.9.4-8.fc15
+ autogen-libopts.i686 0:5.9.4-8.fc15
+ devhelp.i686 1:3.2.0-1.fc16
+ glade3-libgladeui.i686 1:3.10.0-6.f16
+ guile.i686 5:1.8.8-3.fc16
+ libgda.i686 1:4.2.8-2.fc16
+ libgda-sqlite.i686 1:4.2.8-2.fc16
+ libgdl.i686 1:3.2.0-1.fc16
+ sqlite-devel.i686 0:3.7.7.1-1.fc16
+ subversion-libs.i686 0:1.6.17-5.fc16
+ vala.i686 0:0.14.2-3.fc16
+&lt;/pre&gt;
+&lt;p&gt;Great isn't it? And there is a lot more! The &lt;code&gt;rollback&lt;/code&gt; command will revert back the status of the &lt;strong&gt;whole&lt;/strong&gt; software packages installed at the time of the transaction ID.&lt;/p&gt;
+</summary><category term="fedora"></category><category term="fedoraplanet"></category><category term="yum"></category></entry><entry><title>OS X Network Install using Linux (updates)</title><link href="http://www.giuliofidente.im/2009/01/os-x-network-install-using-linux-updates.html" rel="alternate"></link><updated>2009-01-06T00:00:00+01:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2009-01-06:2009/01/os-x-network-install-using-linux-updates.html</id><summary type="html">&lt;p&gt;Do you still remember &lt;a class="reference external" href="http://www.giuliofidente.im/2006/11/os-x-network-install-using-linux.html"&gt;this&lt;/a&gt;? It was a good post about the OS X install via the network using a GNU/Linux install server. I went back to read and use it after a few days to install the version 10.5 (leopard) of OS X and it worked well but there's a couple of things missing in that post which I'd like to share here.&lt;/p&gt;
+&lt;p&gt;The problems were mainly in mounting the leopard disc. If you try to do that on a GNU/Linux system you should only see some files about bootcamp, it is indeed a double format dvd which includes two sections, one is iso9660 formatted and another is hfs+ formatted. To find the files I mentioned, you'll have to mount the hfs+ formatted section ... which is hidden but you can find it using this very helpful link: &lt;a class="reference external" href="http://www.64lines.com/mounting-hfs-plus"&gt;Mounting HFS+ Hybrid Disks on Linux&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Also, because of the additional steps, when you're at this:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+dd if=/dev/hdc of=/tftpboot/macosx.img
+&lt;/pre&gt;
+&lt;p&gt;you'll have to replace /dev/hdc with the /dev/loop0 device created by the instructions linked before.&lt;/p&gt;
+</summary><category term="osx network install"></category><category term="linux network install"></category><category term="leopard network install"></category><category term="fedoraplanet"></category></entry><entry><title>OS X Network Install using Linux</title><link href="http://www.giuliofidente.im/2006/11/os-x-network-install-using-linux.html" rel="alternate"></link><updated>2006-11-01T00:00:00+01:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2006-11-01:2006/11/os-x-network-install-using-linux.html</id><summary type="html">&lt;p&gt;The title says it all. We're going to install an OS X client via network using a GNU/Linux box as DHCP/TFTP/NFS server.&lt;/p&gt;
+&lt;p&gt;First you'll want to setup your DHCP, TFTP and NFS server.&lt;/p&gt;
+&lt;p&gt;The default location for the TFTP server root on my system was &lt;code&gt;/tftpboot&lt;/code&gt;. It may be different on other distro so change at will. This directory is where we're going to put all the important files. Three files come from the OS X disc (although you'll have to rename two of them) and the fourth is a simple image of the OS X disc itself.&lt;/p&gt;
+&lt;p&gt;Mount the Mac OS X disc and copy and rename the following files into your TFTP server root&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+cp /cdrom/System/Library/CoreServices/BootX /tftpboot/BootX
+cp /cdrom/mach\_kernel /tftpboot/mach.macosx
+cp /cdrom/System/Library/Extensions.mkext /tftpboot/mach.macosx.mkext
+&lt;/pre&gt;
+&lt;p&gt;Unmount and make an image of the install disc in the TFTP server root&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+dd if=/dev/hdc of=/tftpboot/macosx.img
+&lt;/pre&gt;
+&lt;p&gt;On your NFS server, you'll want to modify &lt;code&gt;/etc/exports&lt;/code&gt; to include something like the following&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+/tftpboot/ mac-ip-address(ro,insecure)
+&lt;/pre&gt;
+&lt;p&gt;where mac-ip-address is the mac address assigned to your mac manually (see step 7) or by the DHCP server.&lt;/p&gt;
+&lt;p&gt;At this point you'll want to start the TFTP server and NFS services.&lt;/p&gt;
+&lt;p&gt;Boot into the open firmware (by holding command+option+O+F) and issue the following commands&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+setenv boot-device enet:ip-address-of-linux-server,BootX
+setenv boot-args rp=nfs:ip-address-of-linux-server:/tftpboot/:macosx.img
+boot
+&lt;/pre&gt;
+&lt;p&gt;where ip-address-of-linux-server is... self-explanatory.&lt;/p&gt;
+&lt;p&gt;The well familiar Mac boot sequence should start except now you have a little spinning world as logo while it tries to make a connection to the Linux server. You'll probably want to hold command+V while booting the Mac to see what's actually happening and to ensure the whole process is going smoothly.&lt;/p&gt;
+&lt;p&gt;I hope it helped!&lt;/p&gt;
+</summary><category term="osx network install"></category><category term="linux network install"></category><category term="leopard network install"></category><category term="fedoraplanet"></category></entry></feed>

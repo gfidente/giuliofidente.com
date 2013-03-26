@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Giulio Fidente (aka Giulivo Navigante)</title><link href="http://www.giuliofidente.im/" rel="alternate"></link><link href="http://www.giuliofidente.im/feeds/tag/jenkins.atom.xml" rel="self"></link><id>http://www.giuliofidente.im/</id><updated>2012-04-19T00:00:00+02:00</updated><entry><title>Jenkins on OpenShift</title><link href="http://www.giuliofidente.im/2012/04/jenkins-on-openshift.html" rel="alternate"></link><updated>2012-04-19T00:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2012-04-19:2012/04/jenkins-on-openshift.html</id><summary type="html">&lt;p&gt;How about &lt;a class="reference external" href="http://jenkins-ci.org/"&gt;Jenkins&lt;/a&gt; on &lt;a class="reference external" href="http://openshift.redhat.com/"&gt;OpenShift&lt;/a&gt;? Let's give this a try. Keep in mind that by default you've got only 3 gears on OpenShift and we'll need to use all of them for this tutorial:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;1 will be used by the live app&lt;/li&gt;
+&lt;li&gt;1 will be used by the jenkins deployment&lt;/li&gt;
+&lt;li&gt;1 will be used by the jenkins builds&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;First, create your jenkins deployment:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ rhc app create -a jenkins -t jenkins-1.4
+&lt;/pre&gt;
+&lt;p&gt;Then create your app (I'm using the DIY cartridge, but this will work with all other types too):&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ rhc app create -a hellojenkins -t diy-0.1
+&lt;/pre&gt;
+&lt;p&gt;And add to it the jenkins-client cartridge:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ rhc app cartridge add -a hello -c jenkins-client-1.4
+&lt;/pre&gt;
+&lt;p&gt;Now, change your app build file into something useful and push it:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ cd hellojenkins
+$ echo env &amp;gt;&amp;gt; .openshift/action_hooks/build
+$ git commit -a
+$ git push
+&lt;/pre&gt;
+&lt;p&gt;Hurry up checking your build on jenkins: &lt;a class="reference external" href="https://jenkins-$USERNAME.rhcloud.com/job/hellojenkins-build/"&gt;https://jenkins-$USERNAME.rhcloud.com/job/hellojenkins-build/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Wow. That was easy! Now imagine what you could do in your pre_build/build/post_deploy scripts with jenkins.&lt;/p&gt;
+</summary><category term="jenkins"></category><category term="openshift"></category></entry></feed>

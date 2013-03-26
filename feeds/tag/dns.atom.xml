@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Giulio Fidente (aka Giulivo Navigante)</title><link href="http://www.giuliofidente.im/" rel="alternate"></link><link href="http://www.giuliofidente.im/feeds/tag/dns.atom.xml" rel="self"></link><id>http://www.giuliofidente.im/</id><updated>2012-01-19T00:00:00+01:00</updated><entry><title>DNS Classless IN-ADDR.ARPA delegation</title><link href="http://www.giuliofidente.im/2012/01/dns-classless-in-addrarpa-delegation.html" rel="alternate"></link><updated>2012-01-19T00:00:00+01:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2012-01-19:2012/01/dns-classless-in-addrarpa-delegation.html</id><summary type="html">&lt;p&gt;The following is mostly taken from &lt;a class="reference external" href="http://tools.ietf.org/html/rfc2317"&gt;http://tools.ietf.org/html/rfc2317&lt;/a&gt; but it is so good I wanted to share it here. Basically this allows for DNS delegation of the reverse zone for address spaces covering fewer than 256 addresses. Let us assume we have assigned the address spaces to three different parties as follows:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+192.0.2.0/25 to organization A
+192.0.2.128/26 to organization B
+192.0.2.192/26 to organization C
+&lt;/pre&gt;
+&lt;p&gt;In the classical approach, this would lead to a single zone like this:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ORIGIN 2.0.192.in-addr.arpa.
+;
+1               PTR     host1.A.domain.
+2               PTR     host2.A.domain.
+3               PTR     host3.A.domain.
+;
+129             PTR     host1.B.domain.
+130             PTR     host2.B.domain.
+131             PTR     host3.B.domain.
+;
+193             PTR     host1.C.domain.
+194             PTR     host2.C.domain.
+195             PTR     host3.C.domain.
+&lt;/pre&gt;
+&lt;p&gt;The administration of this zone is problematic. Authority for this zone can only be delegated once, and this usually translates into &amp;quot;this zone can only be administered by one organization.&amp;quot; The other organizations with address space that corresponds to entries in this zone would thus have to depend on another organization for their address to name translation. With the proposed method, this potential problem can be avoided. Since a single zone can only be delegated once, we need more points to do delegation on to solve the problem above. These extra points of delegation can be introduced by extending the IN-ADDR.ARPA tree downwards, e.g. by using the first address or the first address and the network mask length (as shown below) in the corresponding address space to form the the first component in the name for the zones. The following four zone files show how the problem in the motivation section could be solved using this method.:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ORIGIN 2.0.192.in-addr.arpa.
+&amp;#64;       IN      SOA     my-ns.my.domain. hostmaster.my.domain. (...)
+;...
+;  &amp;lt;&amp;lt;0-127&amp;gt;&amp;gt; /25
+0/25            NS      ns.A.domain.
+0/25            NS      some.other.name.server.
+;
+1               CNAME   1.0/25.2.0.192.in-addr.arpa.
+2               CNAME   2.0/25.2.0.192.in-addr.arpa.
+3               CNAME   3.0/25.2.0.192.in-addr.arpa.
+;
+;  &amp;lt;&amp;lt;128-191&amp;gt;&amp;gt; /26
+128/26          NS      ns.B.domain.
+128/26          NS      some.other.name.server.too.
+;
+129             CNAME   129.128/26.2.0.192.in-addr.arpa.
+130             CNAME   130.128/26.2.0.192.in-addr.arpa.
+131             CNAME   131.128/26.2.0.192.in-addr.arpa.
+;
+;  &amp;lt;&amp;lt;192-255&amp;gt;&amp;gt; /26
+192/26          NS      ns.C.domain.
+192/26          NS      some.other.third.name.server.
+;
+193             CNAME   193.192/26.2.0.192.in-addr.arpa.
+194             CNAME   194.192/26.2.0.192.in-addr.arpa.
+195             CNAME   195.192/26.2.0.192.in-addr.arpa.
+
+$ORIGIN 0/25.2.0.192.in-addr.arpa.
+&amp;#64;       IN      SOA     ns.A.domain. hostmaster.A.domain. (...)
+&amp;#64;               NS      ns.A.domain.
+&amp;#64;               NS      some.other.name.server.
+;
+1               PTR     host1.A.domain.
+2               PTR     host2.A.domain.
+3               PTR     host3.A.domain.
+$ORIGIN 128/26.2.0.192.in-addr.arpa.
+&amp;#64;       IN      SOA     ns.B.domain. hostmaster.B.domain. (...)
+&amp;#64;               NS      ns.B.domain.
+&amp;#64;               NS      some.other.name.server.too.
+;
+129             PTR     host1.B.domain.
+130             PTR     host2.B.domain.
+131             PTR     host3.B.domain.
+$ORIGIN 192/26.2.0.192.in-addr.arpa.
+&amp;#64;       IN      SOA     ns.C.domain. hostmaster.C.domain. (...)
+&amp;#64;               NS      ns.C.domain.
+&amp;#64;               NS      some.other.third.name.server.
+;
+193             PTR     host1.C.domain.
+194             PTR     host2.C.domain.
+195             PTR     host3.C.domain.
+&lt;/pre&gt;
+</summary><category term="dns"></category><category term="classless reverse zone delegation"></category></entry></feed>

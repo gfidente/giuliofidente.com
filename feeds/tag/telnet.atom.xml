@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Giulio Fidente (aka Giulivo Navigante)</title><link href="http://www.giuliofidente.im/" rel="alternate"></link><link href="http://www.giuliofidente.im/feeds/tag/telnet.atom.xml" rel="self"></link><id>http://www.giuliofidente.im/</id><updated>2008-10-24T00:00:00+02:00</updated><entry><title>Telnet Star Wars</title><link href="http://www.giuliofidente.im/2008/10/telnet-star-wars.html" rel="alternate"></link><updated>2008-10-24T00:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2008-10-24:2008/10/telnet-star-wars.html</id><summary type="html">&lt;p&gt;Now just open a terminal and enter this:&lt;/p&gt;
+&lt;blockquote&gt;
+telnet 193.202.115.241&lt;/blockquote&gt;
+&lt;p&gt;enjoy!&lt;/p&gt;
+</summary><category term="star wars"></category><category term="telnet"></category></entry></feed>

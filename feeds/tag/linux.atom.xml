@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Giulio Fidente (aka Giulivo Navigante)</title><link href="http://www.giuliofidente.im/" rel="alternate"></link><link href="http://www.giuliofidente.im/feeds/tag/linux.atom.xml" rel="self"></link><id>http://www.giuliofidente.im/</id><updated>2012-10-09T00:00:00+02:00</updated><entry><title>1366x768 is not allowed in the EDID block. Here's how to write your XOrg modeline.</title><link href="http://www.giuliofidente.im/2012/10/1366x768-is-not-allowed-in-the-edid-block-heres-how-to-write-your-xorg-modeline.html" rel="alternate"></link><updated>2012-10-09T00:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2012-10-09:2012/10/1366x768-is-not-allowed-in-the-edid-block-heres-how-to-write-your-xorg-modeline.html</id><summary type="html">&lt;p&gt;Looks like there are many LCD panels/TVs out there with a native resolution of 1366x768. That is indeed a very close approximation to the expected 16:9 rectangle, except XOrg keeps showing you a resolution of 1360x768 (or 1368x768) instead of the native 1366x768. Why? Because 1366 is not divisible by 8 and that's not valid in an EDID block. &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Extended_display_identification_data#Limitations"&gt;Learn more on wikipedia&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You need a custom &lt;a class="reference external" href="http://en.wikipedia.org/wiki/XFree86_Modeline"&gt;modeline in your xorg.conf&lt;/a&gt; file for that. The NVIDIA drivers also have some &lt;a class="reference external" href="http://us.download.nvidia.com/XFree86/Linux-x86_64/304.43/README/xconfigoptions.html"&gt;ModeValidation&lt;/a&gt; setting which needs some attention. Let's start with the last one, you need to add the following (in the Screen section):&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+Option &amp;quot;ModeValidation&amp;quot; &amp;quot;AllowNonEdidModes, NoWidthAlignmentCheck&amp;quot;
+&lt;/pre&gt;
+&lt;p&gt;To make XOrg log files more verbose, you may also want to add the following:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+Option &amp;quot;ModeDebug&amp;quot; &amp;quot;True&amp;quot;
+&lt;/pre&gt;
+&lt;p&gt;And what about the modeline? So &lt;a class="reference external" href="http://howto-pages.org/ModeLines/"&gt;this guy wrote a lot about it&lt;/a&gt; but for our purposes, let's just start with &lt;a class="reference external" href="http://www.xfree86.org/current/xvidtune.1.html"&gt;xvidtune&lt;/a&gt; to check for the current settings:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ xvidtune -show
+&amp;quot;1360x768&amp;quot; 84.75 1360 1432 1568 1776 768 771 776 798 -hsync +vsync
+&lt;/pre&gt;
+&lt;p&gt;After the modeline 'description' (whis is 1360x768), the first number you see represents the pixel clock speed. The remaining eight numbers are two groups of four numbers intended to set the horizontal and vertical resolution. The interesting thing is that you can get your hrefresh and vrefresh value with a simple formula: &lt;code&gt;hrefresh = 84.75/1776&lt;/code&gt; and &lt;code&gt;vrefresh = 84.75/(1776*798)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Now, on my LCD manual I had the following valuable informations:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;1360*768 47.72 59.8 84.75&lt;/p&gt;
+&lt;p&gt;1366*768 47.56 59.6 84.75&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Those are hrefresh, vrefresh and pixel clock. Let's put those in the modeline adding some more small changes:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+&amp;quot;1366x768&amp;quot; 84.75 1366 1438 1574 1782 768 771 776 798 -hsync +vsync
+&lt;/pre&gt;
+&lt;p&gt;Now here is how the new numbers were found:&lt;/p&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;84.75&lt;/dt&gt;
+&lt;dd&gt;is the pixel clock and remains the same as per service manual&lt;/dd&gt;
+&lt;dt&gt;1360 became 1366&lt;/dt&gt;
+&lt;dd&gt;that's the hresolution we want&lt;/dd&gt;
+&lt;dt&gt;1776 became 1782&lt;/dt&gt;
+&lt;dd&gt;that is what we need to get the 47.56 hrefresh and 59.6 vrefresh values indicated in the service manual, check yourself with the formula &lt;code&gt;84.75/1782 ~= 47.56&lt;/code&gt; and &lt;code&gt;84.75/(1782\*798) ~= 59.6&lt;/code&gt;&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;Also, from the initial xvidtune output, the numbers 1432 and 1568 represent some delay, measured in pixels pictured past the viewable area, at the defined pixel clock speed. They are used to set &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Analog_television"&gt;front porch, sync pulse and back porch&lt;/a&gt;; by using 1360 as the number of horizontal pixels you get the following:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+(1432-1360)/84.75 = 0.84us black on right side
+(1568-1432)/84.75 = 1.60us sync pulse width
+(1776-1568)/84.75 = 2.54us black on left side
+&lt;/pre&gt;
+&lt;p&gt;Now use 1366 as the number of horizontal pixels and keep the delay unchanged:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+(1438-1366)/84.75 = 0.84us black on right side
+(1574-1438)/84.75 = 1.60us sync pulse width
+(1782-1574)/84.75 = 2.54us black on left side
+&lt;/pre&gt;
+&lt;p&gt;Finally, for this blog post all the values I'm using refer to the LG 37LG3000. Enjoy!&lt;/p&gt;
+</summary><category term="1366x768"></category><category term="xorg modeline"></category><category term="linux"></category><category term="fedoraplanet"></category><category term="nvidia"></category></entry><entry><title>What every programmer should know about memory</title><link href="http://www.giuliofidente.im/2012/05/what-every-programmer-should-know-about-memory.html" rel="alternate"></link><updated>2012-05-02T00:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2012-05-02:2012/05/what-every-programmer-should-know-about-memory.html</id><summary type="html">&lt;p&gt;This was a series of posts appeared on LWN, a while ago. A precious document from &lt;a class="reference external" href="http://udrepper.livejournal.com/"&gt;Ulrich Drepper&lt;/a&gt; which have been brought back recently to great attention to me from a post on HN. Thanks Ulrich, LWN and HN:&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://lwn.net/Articles/250967/"&gt;Part 1&lt;/a&gt; ()
+&lt;a class="reference external" href="http://lwn.net/Articles/252125/"&gt;Part 2&lt;/a&gt; (CPU caches)
+&lt;a class="reference external" href="http://lwn.net/Articles/253361/"&gt;Part 3&lt;/a&gt; (Virtual memory)
+&lt;a class="reference external" href="http://lwn.net/Articles/254445/"&gt;Part 4&lt;/a&gt; (NUMA systems)
+&lt;a class="reference external" href="http://lwn.net/Articles/255364/"&gt;Part 5&lt;/a&gt; (What programmers can do - cache optimization)
+&lt;a class="reference external" href="http://lwn.net/Articles/256433/"&gt;Part 6&lt;/a&gt; (What programmers can do - multi-threaded optimizations)
+&lt;a class="reference external" href="http://lwn.net/Articles/257209/"&gt;Part 7&lt;/a&gt; (Memory performance tools)
+&lt;a class="reference external" href="http://lwn.net/Articles/258154/"&gt;Part 8&lt;/a&gt; (Future technologies)
+&lt;a class="reference external" href="http://lwn.net/Articles/258188/"&gt;Part 9&lt;/a&gt; (Appendices and bibliography)&lt;/p&gt;
+</summary><category term="linux"></category><category term="memory"></category></entry><entry><title>Free is too expensive, says The Economist</title><link href="http://www.giuliofidente.im/2012/04/free-is-too-expensive-says-the-economist.html" rel="alternate"></link><updated>2012-04-02T00:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.im,2012-04-02:2012/04/free-is-too-expensive-says-the-economist.html</id><summary type="html">&lt;p&gt;The Economist on the Desktop Linux: &lt;a class="reference external" href="http://www.economist.com/blogs/babbage/2012/03/desktop-linux"&gt;Free is too expensive&lt;/a&gt;. An interesting reading.&lt;/p&gt;
+&lt;blockquote&gt;
+To succeed on the desktop, Linux needs to penetrate the office. Unfortunately, there is no such thing as a single Linux to go up against Windows 7. What there is instead is a fragmented field of hundreds of different Linuxes, each with its own learning curve, skill set and maintenance needs. Even the top five distributions (Linux Mint, Ubuntu, Fedora, openSuSE and Debian) cannot offer a big enough user base to attract adequate support. That is what is wrong with desktop Linux. Hobbyists and enthusiasts may be willing to invest their own time and effort to keep a desktop Linux running. But the corporate world cannot afford such luxuries. In business, the biggest single computing cost is not software licenses, but the salaries of the support staff. And as far as licensing fees are concerned, the biggest single cost by far is not for operating systems but for enterprise applications.&lt;/blockquote&gt;
+&lt;p&gt;I'm not sure the community around fedora or ubuntu (etc.) is willing to provide support; they surely can't make up the level of support needed by enterprises so I wouldn't blame much the size of the user base.&lt;/p&gt;
+&lt;p&gt;Desktop Linux, IMHO, should just get easier for desktop users. OSX for example is &lt;strong&gt;just&lt;/strong&gt; simpler.&lt;/p&gt;
+</summary><category term="linux"></category><category term="desktop linux"></category><category term="economist"></category></entry></feed>
