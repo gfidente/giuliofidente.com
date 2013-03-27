@@ -4,1093 +4,1093 @@ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitem
 xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
-<loc>http://www.giuliofidente.im/index.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/index.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/archives.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/archives.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tags.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tags.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/categories.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/categories.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2013/03/my-svbtle-inspired-pelican-theme.html</loc>
+<loc>http://www.giuliofidente.com/2013/03/my-svbtle-inspired-pelican-theme.html</loc>
 <lastmod>2013-03-27T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2013/03/tumultuos.html</loc>
+<loc>http://www.giuliofidente.com/2013/03/tumultuos.html</loc>
 <lastmod>2013-03-10T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2013/01/one-more-for-aaron.html</loc>
+<loc>http://www.giuliofidente.com/2013/01/one-more-for-aaron.html</loc>
 <lastmod>2013-01-13T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2013/01/pretotyping.html</loc>
+<loc>http://www.giuliofidente.com/2013/01/pretotyping.html</loc>
 <lastmod>2013-01-03T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2012/10/open-hybrid-paas-with-openshift-origin-katello-and-aeolus.html</loc>
+<loc>http://www.giuliofidente.com/2012/10/open-hybrid-paas-with-openshift-origin-katello-and-aeolus.html</loc>
 <lastmod>2012-10-17T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2012/10/1366x768-is-not-allowed-in-the-edid-block-heres-how-to-write-your-xorg-modeline.html</loc>
+<loc>http://www.giuliofidente.com/2012/10/1366x768-is-not-allowed-in-the-edid-block-heres-how-to-write-your-xorg-modeline.html</loc>
 <lastmod>2012-10-09T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2012/09/long-life-to-red-hat.html</loc>
+<loc>http://www.giuliofidente.com/2012/09/long-life-to-red-hat.html</loc>
 <lastmod>2012-09-29T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2012/08/unix-style-or-cat-v-considered-harmful.html</loc>
+<loc>http://www.giuliofidente.com/2012/08/unix-style-or-cat-v-considered-harmful.html</loc>
 <lastmod>2012-08-30T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2012/08/computer-science-at-khan-academy.html</loc>
+<loc>http://www.giuliofidente.com/2012/08/computer-science-at-khan-academy.html</loc>
 <lastmod>2012-08-20T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2012/06/my-attempts-at-mapreduce-using-mongodb.html</loc>
+<loc>http://www.giuliofidente.com/2012/06/my-attempts-at-mapreduce-using-mongodb.html</loc>
 <lastmod>2012-06-14T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2012/06/aeolus.html</loc>
+<loc>http://www.giuliofidente.com/2012/06/aeolus.html</loc>
 <lastmod>2012-06-08T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2012/05/what-every-programmer-should-know-about-memory.html</loc>
+<loc>http://www.giuliofidente.com/2012/05/what-every-programmer-should-know-about-memory.html</loc>
 <lastmod>2012-05-02T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2012/04/yum-history.html</loc>
+<loc>http://www.giuliofidente.com/2012/04/yum-history.html</loc>
 <lastmod>2012-04-26T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2012/04/jenkins-on-openshift.html</loc>
+<loc>http://www.giuliofidente.com/2012/04/jenkins-on-openshift.html</loc>
 <lastmod>2012-04-19T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2012/04/napoli-silicon-dust.html</loc>
+<loc>http://www.giuliofidente.com/2012/04/napoli-silicon-dust.html</loc>
 <lastmod>2012-04-08T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2012/04/free-is-too-expensive-says-the-economist.html</loc>
+<loc>http://www.giuliofidente.com/2012/04/free-is-too-expensive-says-the-economist.html</loc>
 <lastmod>2012-04-02T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2012/04/tornadoweb-on-openshift-updates.html</loc>
+<loc>http://www.giuliofidente.com/2012/04/tornadoweb-on-openshift-updates.html</loc>
 <lastmod>2012-04-02T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2012/03/migrate-nis-to-freeipa.html</loc>
+<loc>http://www.giuliofidente.com/2012/03/migrate-nis-to-freeipa.html</loc>
 <lastmod>2012-03-04T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2012/02/a-quickstart-guide-to-the-command-line-openshift-client.html</loc>
+<loc>http://www.giuliofidente.com/2012/02/a-quickstart-guide-to-the-command-line-openshift-client.html</loc>
 <lastmod>2012-02-24T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2012/02/flask-jquery-mobile-and-mongodb-on-openshift.html</loc>
+<loc>http://www.giuliofidente.com/2012/02/flask-jquery-mobile-and-mongodb-on-openshift.html</loc>
 <lastmod>2012-02-23T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2012/02/tornadoweb-on-openshift.html</loc>
+<loc>http://www.giuliofidente.com/2012/02/tornadoweb-on-openshift.html</loc>
 <lastmod>2012-02-17T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2012/01/dns-classless-in-addrarpa-delegation.html</loc>
+<loc>http://www.giuliofidente.com/2012/01/dns-classless-in-addrarpa-delegation.html</loc>
 <lastmod>2012-01-19T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2011/12/instant-css-js-html-or-dom-documentation.html</loc>
+<loc>http://www.giuliofidente.com/2011/12/instant-css-js-html-or-dom-documentation.html</loc>
 <lastmod>2011-12-07T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2011/10/stallman-su-steve-jobs.html</loc>
+<loc>http://www.giuliofidente.com/2011/10/stallman-su-steve-jobs.html</loc>
 <lastmod>2011-10-07T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2011/09/red-hat-enterprise-virtualization-is-ovirt.html</loc>
+<loc>http://www.giuliofidente.com/2011/09/red-hat-enterprise-virtualization-is-ovirt.html</loc>
 <lastmod>2011-09-23T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2011/06/from-beef-to-vegetables.html</loc>
+<loc>http://www.giuliofidente.com/2011/06/from-beef-to-vegetables.html</loc>
 <lastmod>2011-06-20T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2011/05/wojtyla-beatificato.html</loc>
+<loc>http://www.giuliofidente.com/2011/05/wojtyla-beatificato.html</loc>
 <lastmod>2011-05-01T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2010/12/on-geeks-nerds-dorks-dweebs.html</loc>
+<loc>http://www.giuliofidente.com/2010/12/on-geeks-nerds-dorks-dweebs.html</loc>
 <lastmod>2010-12-03T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2010/11/discorso-agli-ateniesi-461-ac.html</loc>
+<loc>http://www.giuliofidente.com/2010/11/discorso-agli-ateniesi-461-ac.html</loc>
 <lastmod>2010-11-18T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2010/08/ieranto.html</loc>
+<loc>http://www.giuliofidente.com/2010/08/ieranto.html</loc>
 <lastmod>2010-08-18T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2010/07/the-ip-header-using-lego-bricks.html</loc>
+<loc>http://www.giuliofidente.com/2010/07/the-ip-header-using-lego-bricks.html</loc>
 <lastmod>2010-07-22T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2010/04/plutonomy.html</loc>
+<loc>http://www.giuliofidente.com/2010/04/plutonomy.html</loc>
 <lastmod>2010-04-20T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2010/03/world-brewing-convention.html</loc>
+<loc>http://www.giuliofidente.com/2010/03/world-brewing-convention.html</loc>
 <lastmod>2010-03-17T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2010/01/sokkomb.html</loc>
+<loc>http://www.giuliofidente.com/2010/01/sokkomb.html</loc>
 <lastmod>2010-01-28T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2010/01/tenacious-d.html</loc>
+<loc>http://www.giuliofidente.com/2010/01/tenacious-d.html</loc>
 <lastmod>2010-01-23T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2009/08/audio-extraction-from-dvds.html</loc>
+<loc>http://www.giuliofidente.com/2009/08/audio-extraction-from-dvds.html</loc>
 <lastmod>2009-08-25T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2009/05/tpb-biennale-di-venezia.html</loc>
+<loc>http://www.giuliofidente.com/2009/05/tpb-biennale-di-venezia.html</loc>
 <lastmod>2009-05-16T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2009/02/learned-helplessness.html</loc>
+<loc>http://www.giuliofidente.com/2009/02/learned-helplessness.html</loc>
 <lastmod>2009-02-16T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2009/01/os-x-network-install-using-linux-updates.html</loc>
+<loc>http://www.giuliofidente.com/2009/01/os-x-network-install-using-linux-updates.html</loc>
 <lastmod>2009-01-06T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2008/12/a-small-portion-of-extra-time.html</loc>
+<loc>http://www.giuliofidente.com/2008/12/a-small-portion-of-extra-time.html</loc>
 <lastmod>2008-12-31T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2008/10/telnet-star-wars.html</loc>
+<loc>http://www.giuliofidente.com/2008/10/telnet-star-wars.html</loc>
 <lastmod>2008-10-24T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2007/04/rhel5-gfs2-and-drbd8.html</loc>
+<loc>http://www.giuliofidente.com/2007/04/rhel5-gfs2-and-drbd8.html</loc>
 <lastmod>2007-04-03T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2006/11/fluendo-on-ppc.html</loc>
+<loc>http://www.giuliofidente.com/2006/11/fluendo-on-ppc.html</loc>
 <lastmod>2006-11-04T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/2006/11/os-x-network-install-using-linux.html</loc>
+<loc>http://www.giuliofidente.com/2006/11/os-x-network-install-using-linux.html</loc>
 <lastmod>2006-11-01T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/category/fun.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/category/fun.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/category/misc.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/category/misc.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/category/politics.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/category/politics.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/category/techie.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/category/techie.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/khan-academy.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/khan-academy.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/jquery-mobile.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/jquery-mobile.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/deltacloud.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/deltacloud.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/steve-jobs.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/steve-jobs.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/tcp.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/tcp.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/aeolus.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/aeolus.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/economist.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/economist.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/tenacious-d.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/tenacious-d.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/ovirt.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/ovirt.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/flask.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/flask.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/red-hat-enterprise-virtualization.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/red-hat-enterprise-virtualization.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/classless-reverse-zone-delegation.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/classless-reverse-zone-delegation.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/ldap.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/ldap.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/citigroup.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/citigroup.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/bill-emmott.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/bill-emmott.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/fedoraplanet.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/fedoraplanet.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/geek.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/geek.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/girlfriend-in-a-coma.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/girlfriend-in-a-coma.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/pericle.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/pericle.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/wojtyla.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/wojtyla.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/mapreduce.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/mapreduce.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/silicon-dust.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/silicon-dust.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/svbhack.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/svbhack.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/inward-singing.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/inward-singing.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/xorg-modeline.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/xorg-modeline.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/kopimi.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/kopimi.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/drbd.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/drbd.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/gfs.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/gfs.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/embassy-of-piracy.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/embassy-of-piracy.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/great-ideas.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/great-ideas.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/openstack.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/openstack.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/transcoding.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/transcoding.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/rhos.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/rhos.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/aaron-swartz.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/aaron-swartz.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/pretotyping.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/pretotyping.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/vegetarianism.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/vegetarianism.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/dork.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/dork.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/fiat.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/fiat.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/katello.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/katello.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/napoli.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/napoli.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/yum.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/yum.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/primo-maggio.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/primo-maggio.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/svbtle.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/svbtle.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/berlusconi.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/berlusconi.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/ppc.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/ppc.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/pelican.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/pelican.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/ipa.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/ipa.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/unix.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/unix.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/sokkomb.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/sokkomb.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/linux.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/linux.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/cloud.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/cloud.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/new-years-eve.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/new-years-eve.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/star-wars.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/star-wars.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/tcpip.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/tcpip.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/beef.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/beef.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/lego.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/lego.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/guinness.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/guinness.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/vegetables.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/vegetables.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/rhev.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/rhev.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/rhel.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/rhel.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/dns.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/dns.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/memory.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/memory.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/stallman.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/stallman.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/ireland.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/ireland.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/conductor.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/conductor.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/learned-helplessness.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/learned-helplessness.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/kerberos.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/kerberos.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/telnet.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/telnet.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/fluendo.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/fluendo.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/leopard-network-install.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/leopard-network-install.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/biennale-di-venezia.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/biennale-di-venezia.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/dvd-audio-extraction.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/dvd-audio-extraction.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/hacker-news.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/hacker-news.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/il-manifesto.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/il-manifesto.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/cat.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/cat.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/opinoid.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/opinoid.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/plutonomy.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/plutonomy.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/red-hat.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/red-hat.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/ip.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/ip.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/atene.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/atene.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/the-pirate-bay.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/the-pirate-bay.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/freeipa.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/freeipa.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/nerd.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/nerd.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/grillo.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/grillo.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/fedora.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/fedora.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/computer-science.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/computer-science.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/desktop-linux.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/desktop-linux.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/jenkins.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/jenkins.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/imagefactory.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/imagefactory.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/openshift.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/openshift.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/bersani.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/bersani.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/1366x768.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/1366x768.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/tornado.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/tornado.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/mongodb.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/mongodb.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/dweeb.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/dweeb.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/osx-network-install.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/osx-network-install.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/nis.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/nis.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/paas.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/paas.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/linux-network-install.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/linux-network-install.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/documentation.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/documentation.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/nvidia.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/nvidia.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/ieranto.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/ieranto.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/tag/extra-time.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/tag/extra-time.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.giuliofidente.im/author/giulio-fidente.html</loc>
-<lastmod>2013-03-27T12:37:29-00:00</lastmod>
+<loc>http://www.giuliofidente.com/author/giulio-fidente.html</loc>
+<lastmod>2013-03-27T12:45:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
