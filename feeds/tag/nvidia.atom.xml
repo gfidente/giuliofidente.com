@@ -15,10 +15,12 @@ $ xvidtune -show
 &lt;/pre&gt;
 &lt;p&gt;After the modeline 'description' (whis is 1360x768), the first number you see represents the pixel clock speed. The remaining eight numbers are two groups of four numbers intended to set the horizontal and vertical resolution. The interesting thing is that you can get your hrefresh and vrefresh value with a simple formula: &lt;code&gt;hrefresh = 84.75/1776&lt;/code&gt; and &lt;code&gt;vrefresh = 84.75/(1776*798)&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Now, on my LCD manual I had the following valuable informations:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;1360*768 47.72 59.8 84.75&lt;/p&gt;
-&lt;p&gt;1366*768 47.56 59.6 84.75&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;1360*768&lt;/dt&gt;
+&lt;dd&gt;47.72 59.8 84.75&lt;/dd&gt;
+&lt;dt&gt;1366*768&lt;/dt&gt;
+&lt;dd&gt;47.56 59.6 84.75&lt;/dd&gt;
+&lt;/dl&gt;
 &lt;p&gt;Those are hrefresh, vrefresh and pixel clock. Let's put those in the modeline adding some more small changes:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 &amp;quot;1366x768&amp;quot; 84.75 1366 1438 1574 1782 768 771 776 798 -hsync +vsync

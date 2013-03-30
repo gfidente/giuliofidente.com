@@ -24,7 +24,7 @@
                 <img src="http://www.giuliofidente.com/static/images/gravatar_to140.png" alt="logo">
               </a>
       <h1><a href="../..">Giulio Fidente</a></h1>
-      <h2>Only those so crazy to believe they can change the world, will change it.</h2>
+      <p>Only those so crazy to believe they can change the world, will change it.</p>
       <ul>
                                                 <li><a href="http://www.linkedin.com/in/gfidente" target="_blank">linkedin</a></li>
                 <li><a href="https://github.com/giulivo" target="_blank">github</a></li>
@@ -38,14 +38,14 @@
 
   <main>
     <header>
-      <h3>
+      <p>
         Posted on Tue 09 October 2012
-      </h3>
+      </p>
     </header>
 
     <article>
   <div id="article_title">
-    <a href="../../2012/10/1366x768-is-not-allowed-in-the-edid-block-heres-how-to-write-your-xorg-modeline.html" rel="bookmark" title="Permalink to 1366x768 is not allowed in the EDID block. Here's how to write your XOrg modeline.">1366x768 is not allowed in the EDID block. Here's how to write your XOrg modeline.</a>
+    <h2><a href="../../2012/10/1366x768-is-not-allowed-in-the-edid-block-heres-how-to-write-your-xorg-modeline.html" rel="bookmark" title="Permalink to 1366x768 is not allowed in the EDID block. Here's how to write your XOrg modeline.">1366x768 is not allowed in the EDID block. Here's how to write your XOrg modeline.</a></h2>
   </div>
 
   <div id="article_text">
@@ -65,10 +65,12 @@ $ xvidtune -show
 </pre>
 <p>After the modeline 'description' (whis is 1360x768), the first number you see represents the pixel clock speed. The remaining eight numbers are two groups of four numbers intended to set the horizontal and vertical resolution. The interesting thing is that you can get your hrefresh and vrefresh value with a simple formula: <code>hrefresh = 84.75/1776</code> and <code>vrefresh = 84.75/(1776*798)</code></p>
 <p>Now, on my LCD manual I had the following valuable informations:</p>
-<blockquote>
-<p>1360*768 47.72 59.8 84.75</p>
-<p>1366*768 47.56 59.6 84.75</p>
-</blockquote>
+<dl class="docutils">
+<dt>1360*768</dt>
+<dd>47.72 59.8 84.75</dd>
+<dt>1366*768</dt>
+<dd>47.56 59.6 84.75</dd>
+</dl>
 <p>Those are hrefresh, vrefresh and pixel clock. Let's put those in the modeline adding some more small changes:</p>
 <pre class="literal-block">
 &quot;1366x768&quot; 84.75 1366 1438 1574 1782 768 771 776 798 -hsync +vsync
