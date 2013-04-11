@@ -122,15 +122,17 @@ cat isn't for printing files with line numbers, it isn't for compressing multipl
 &lt;p&gt;Thanks to little things like &lt;a class="reference external" href="http://aeolusproject.org/audrey.html"&gt;audrey&lt;/a&gt; it allows for the image customization not only at build time but also at deployment time and yes, you can pass any data to the scripts running on your guests at deployment time.&lt;/p&gt;
 &lt;p&gt;Stay tuned, in the meantime enjoy the demo video: &lt;a class="reference external" href="http://www.redhat.com/resourcelibrary/videos/red-hat-cloudforms-build-cloud-demo-video"&gt;http://www.redhat.com/resourcelibrary/videos/red-hat-cloudforms-build-cloud-demo-video&lt;/a&gt;&lt;/p&gt;
 </summary><category term="aeolus"></category><category term="conductor"></category><category term="imagefactory"></category><category term="deltacloud"></category></entry><entry><title>What every programmer should know about memory</title><link href="http://www.giuliofidente.com/2012/05/what-every-programmer-should-know-about-memory.html" rel="alternate"></link><updated>2012-05-02T00:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.com,2012-05-02:2012/05/what-every-programmer-should-know-about-memory.html</id><summary type="html">&lt;p&gt;This was a series of posts appeared on LWN, a while ago. A precious document from &lt;a class="reference external" href="http://udrepper.livejournal.com/"&gt;Ulrich Drepper&lt;/a&gt; which have been brought back recently to great attention to me from a post on HN. Thanks Ulrich, LWN and HN:&lt;/p&gt;
-&lt;p&gt;&lt;a class="reference external" href="http://lwn.net/Articles/250967/"&gt;Part 1&lt;/a&gt; ()
-&lt;a class="reference external" href="http://lwn.net/Articles/252125/"&gt;Part 2&lt;/a&gt; (CPU caches)
-&lt;a class="reference external" href="http://lwn.net/Articles/253361/"&gt;Part 3&lt;/a&gt; (Virtual memory)
-&lt;a class="reference external" href="http://lwn.net/Articles/254445/"&gt;Part 4&lt;/a&gt; (NUMA systems)
-&lt;a class="reference external" href="http://lwn.net/Articles/255364/"&gt;Part 5&lt;/a&gt; (What programmers can do - cache optimization)
-&lt;a class="reference external" href="http://lwn.net/Articles/256433/"&gt;Part 6&lt;/a&gt; (What programmers can do - multi-threaded optimizations)
-&lt;a class="reference external" href="http://lwn.net/Articles/257209/"&gt;Part 7&lt;/a&gt; (Memory performance tools)
-&lt;a class="reference external" href="http://lwn.net/Articles/258154/"&gt;Part 8&lt;/a&gt; (Future technologies)
-&lt;a class="reference external" href="http://lwn.net/Articles/258188/"&gt;Part 9&lt;/a&gt; (Appendices and bibliography)&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://lwn.net/Articles/250967/"&gt;Part 1&lt;/a&gt; (Introduction)&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://lwn.net/Articles/252125/"&gt;Part 2&lt;/a&gt; (CPU caches)&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://lwn.net/Articles/253361/"&gt;Part 3&lt;/a&gt; (Virtual memory)&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://lwn.net/Articles/254445/"&gt;Part 4&lt;/a&gt; (NUMA systems)&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://lwn.net/Articles/255364/"&gt;Part 5&lt;/a&gt; (What programmers can do - cache optimization)&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://lwn.net/Articles/256433/"&gt;Part 6&lt;/a&gt; (What programmers can do - multi-threaded optimizations)&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://lwn.net/Articles/257209/"&gt;Part 7&lt;/a&gt; (Memory performance tools)&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://lwn.net/Articles/258154/"&gt;Part 8&lt;/a&gt; (Future technologies)&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://lwn.net/Articles/258188/"&gt;Part 9&lt;/a&gt; (Appendices and bibliography)&lt;/li&gt;
+&lt;/ul&gt;
 </summary><category term="linux"></category><category term="memory"></category></entry><entry><title>YUM history (!)</title><link href="http://www.giuliofidente.com/2012/04/yum-history.html" rel="alternate"></link><updated>2012-04-26T00:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.com,2012-04-26:2012/04/yum-history.html</id><summary type="html">&lt;p&gt;While browsing the &lt;a class="reference external" href="http://yum.baseurl.org/"&gt;YUM&lt;/a&gt; man page for some details about the query command I happened to find one of my most wanted feature in a package manager! YUM has some &lt;a class="reference external" href="http://docs.fedoraproject.org/en-US/Fedora/16/html/System_Administrators_Guide/sec-Yum-Transaction_History.html"&gt;history&lt;/a&gt; command which allows for investigation of past transactions and even &lt;strong&gt;undo&lt;/strong&gt; or &lt;strong&gt;rollback&lt;/strong&gt; actions. Epic. I frequently find myself going through install/uninstall steps which not only mess around but I tend to forget about the installed and now unneeded deps.&lt;/p&gt;
 &lt;p&gt;I'll go through a basic &lt;code&gt;history&lt;/code&gt; usage example but there is a lot more to discover. Consider the following command:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
