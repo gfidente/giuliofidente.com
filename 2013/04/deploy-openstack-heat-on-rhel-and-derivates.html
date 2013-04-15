@@ -61,10 +61,10 @@
   </div>
 
   <div id="article_text">
-    <p><a class="reference external" href="http://wiki.openstack.org/wiki/Heat">Heat</a> is an incubated project of <a class="reference external" href="http://www.openstack.org">OpenStack</a>. Its development cycle has been integrated with <a class="reference external" href="http://www.openstack.org">OpenStack</a> from the H release and, with the recent G release, it's got more mature. I want to go trough the steps needed to install and configure it as the <a class="reference external" href="http://docs.openstack.org">official documentation</a> is still scarce on the matter. Firstly, what can I use <a class="reference external" href="http://wiki.openstack.org/wiki/Heat">Heat</a> for?</p>
+    <p><a class="reference external" href="http://wiki.openstack.org/wiki/Heat">Heat</a> provides orchestration of composite cloud applications using the CloudFormation API and templates; it is an incubated project of <a class="reference external" href="http://www.openstack.org">OpenStack</a>. Its development cycle has been integrated with <a class="reference external" href="http://www.openstack.org">OpenStack</a> from the H release and, with the recent G release, it's got more mature. I want to go trough the steps needed to install and configure it as the <a class="reference external" href="http://docs.openstack.org">official documentation</a> is still scarce on the matter. Firstly, what it does?</p>
 <blockquote>
 Heat is a service to orchestrate multiple composite cloud applications using the AWS CloudFormation template format, through both an OpenStack-native ReST API and a CloudFormation-compatible Query API.</blockquote>
-<p>So we're going to deploy a composite application on our virtualization infrastructure rather than just a preconfigured VM but, before start, some assumptions are needed:</p>
+<p>So you're going to deploy a composite application (made up of more than a single instance) on the cloud infrastructure, this also involves launchtime customizations of the VMs but before start, some assumptions are needed:</p>
 <ul class="simple">
 <li>I'm using CentOS 6.4 / MySQL for the examples</li>
 <li>I'm using the <a class="reference external" href="http://openstack.redhat.com">RDO</a> repository to install the packages</li>
