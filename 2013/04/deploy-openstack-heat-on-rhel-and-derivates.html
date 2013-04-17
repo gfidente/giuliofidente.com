@@ -72,7 +72,7 @@ Heat is a service to orchestrate multiple composite cloud applications using the
 </ul>
 <div class="section" id="installation">
 <h2>Installation</h2>
-<p>If you don't have a working <a class="reference external" href="http://www.openstack.org">OpenStack</a> deployment yet, I recommend you to simply follow the instructions on the <a class="reference external" href="http://openstack.redhat.com">RDO</a> site. You'll get one up and running in minutes using <a class="reference external" href="http://wiki.openstack.org/Packstack">Packstack</a>. When that is done, start by installing the required packages for <a class="reference external" href="http://wiki.openstack.org/wiki/Heat">Heat</a> to work:</p>
+<p>If you don't have a working <a class="reference external" href="http://www.openstack.org">OpenStack</a> deployment yet, I recommend you to follow the instructions on the <a class="reference external" href="http://openstack.redhat.com">RDO</a> site, you'll get one up and running in minutes by using <a class="reference external" href="http://wiki.openstack.org/Packstack">Packstack</a>. When that is finished, start by installing the required packages for <a class="reference external" href="http://wiki.openstack.org/wiki/Heat">Heat</a> to work:</p>
 <pre class="literal-block">
 # yum install openstack-heat-*
 </pre>
@@ -80,7 +80,7 @@ Heat is a service to orchestrate multiple composite cloud applications using the
 </div>
 <div class="section" id="configuration">
 <h2>Configuration</h2>
-<p><a class="reference external" href="http://wiki.openstack.org/wiki/Heat">Heat</a> comes with a script which creates (and populates) the needed database for it to work. You'll need to know the MySQL's <code>root</code> account password. If you've used <a class="reference external" href="http://wiki.openstack.org/Packstack">Packstack</a> that is stored as <code>CONFIG_MYSQL_PW</code> in the answers file at <code>/root/packstack-answers*</code> file. When you've collected it, run the prepare script:</p>
+<p><a class="reference external" href="http://wiki.openstack.org/wiki/Heat">Heat</a> comes with a script which creates (and populates) the needed database for it to work but you need to know your MySQL's <code>root</code> account password. If you've used <a class="reference external" href="http://wiki.openstack.org/Packstack">Packstack</a>, than that is saved as <code>CONFIG_MYSQL_PW</code> in the answers file (<code>/root/packstack-answers*</code> by default). Now run the prepare script:</p>
 <pre class="literal-block">
 # heat-db-setup rpm -y -r ${MYSQL_ROOT_PASSWORD} -p ${HEAT_DB_PASSWORD_OF_CHOICE}
 </pre>
@@ -99,7 +99,7 @@ sql_connection = mysql://heat:${HEAT_DB_PASSWORD}&#64;localhost/heat
 </pre>
 <p>Update the paste files at <code>/etc/heat/heat-api{,-cfn,-cloudwatch}-paste.ini</code> with the credentials just created:</p>
 <pre class="literal-block">
-admin_tenant_name = services
+admin_tenant_name = ${SERVICES_TENANT_NAME}
 admin_user = heat
 admin_password = ${HEAT_USER_PASSWORD}
 </pre>
@@ -110,13 +110,13 @@ auth_host = ${KEYSTONE-HOSTNAME}
 auth_uri = http://${KEYSTONE-HOSTNAME}:35357/v2.0
 keystone_ec2_uri = http://${KEYSTONE-HOSTNAME}:5000/v2.0/ec2tokens
 </pre>
-<p>In <code>/etc/heat/heat-engine.conf</code> you've to make sure that all the following variables <strong>do not</strong> point to 127.0.0.1 even though the services are actually hosted on the same system; these will be passed to the VMs which don't have them available locally:</p>
+<p>In <code>/etc/heat/heat-engine.conf</code> you've to make instead sure that the following variables <strong>do not</strong> point to 127.0.0.1 even though the services are actually hosted on the same system because URLs will be passed over to the VMs, which don't have them available locally:</p>
 <pre class="literal-block">
 heat_metadata_server_url = http://${HEAT-CFN-HOSTNAME}:8000
 heat_waitcondition_server_url = http://${HEAT-CFN-HOSTNAME}:8000/v1/waitcondition
 heat_watch_server_url = http://${HEAT-CLOUDWATCH-HOSTNAME}:8003
 </pre>
-<p>You'll discover that <a class="reference external" href="http://wiki.openstack.org/wiki/Heat">Heat</a> application templates allow for users creation in <a class="reference external" href="http://www.openstack.org">OpenStack</a> and these users are, by default, given the role <code>heat_stack_user</code>. You can configure the role name in <code>heat-engine.conf</code> or just create a so called role:</p>
+<p>The application templates can use wait conditions and signaling for the orchestration, <a class="reference external" href="http://wiki.openstack.org/wiki/Heat">Heat</a> needs to create special users to receive the progress data and these users are, by default, given the role of <code>heat_stack_user</code>. You can configure the role name in <code>heat-engine.conf</code> or just create a so called role:</p>
 <pre class="literal-block">
 # keystone role-create --name heat_stack_user
 </pre>
@@ -128,16 +128,16 @@ heat_watch_server_url = http://${HEAT-CLOUDWATCH-HOSTNAME}:8003
 </div>
 <div class="section" id="get-the-demo-files">
 <h2>Get the demo files</h2>
-<p>It is now time to launch our first multi-instance cloud application! There are a number of templates available in the <a class="reference external" href="https://github.com/openstack/heat">github repo</a>, download the Wordpress example by doing so:</p>
+<p>It is time now to launch your first multi-instance cloud application! There are a number of sample templates available in the <a class="reference external" href="https://github.com/openstack/heat">github repo</a>, download the composed Wordpress example with:</p>
 <pre class="literal-block">
 # wget https://raw.github.com/openstack/heat/master/templates/WordPress_Composed_Instances.template
 </pre>
-<p>With <a class="reference external" href="http://wiki.openstack.org/wiki/Heat">Heat</a> you can use the same templates also distributed for <a class="reference external" href="http://aws.amazon.com/cloudformation/">AWS CloudFormation</a>. These expect you to have a well known set of flavor types defined but the default types available in <a class="reference external" href="http://www.openstack.org">OpenStack</a> don't strictly match the AWS collection. To avoid the need of hack the templates, there is an helpful script which you can use to re-create in <a class="reference external" href="http://www.openstack.org">OpenStack</a> the AWS flavors:</p>
+<p><a class="reference external" href="http://wiki.openstack.org/wiki/Heat">Heat</a> can use the templates distributed for <a class="reference external" href="http://aws.amazon.com/cloudformation/">AWS CloudFormation</a>. These expect you to have a well known set of flavor types defined while the default flavors available in <a class="reference external" href="http://www.openstack.org">OpenStack</a> don't match strictly such a collection. To avoid the need of hack the templates, you can use an helpful script which recreates in <a class="reference external" href="http://www.openstack.org">OpenStack</a> the same flavors from AWS:</p>
 <pre class="literal-block">
 # curl https://raw.github.com/openstack/heat/master/tools/nova_create_flavors.sh | bash
 </pre>
 <p>Every template also provides you with a list of usable distros and map these into an AMI string, for each arch. You will have to populate Glance with an image matching the AMI string that the template file is expecting to find.</p>
-<p>There is a tool, called <a class="reference external" href="https://github.com/sdake/heat-jeos">heat-jeos</a>, which can be used to create the JEOS images and upload them to Glance but there is also a collection of prebuilt images at: <a class="reference external" href="http://fedorapeople.org/groups/heat/prebuilt-jeos-images/">http://fedorapeople.org/groups/heat/prebuilt-jeos-images/</a> so I suggest you to just download one of <code>F17-x86_64-cfntools.qcow2</code> or <code>U10-x86_64-cfntools.qcow2</code> (which are referred by many if not all the templates available in the Heat's repo). To upload the F17 x86_64 image in Glance:</p>
+<p>There is a tool, called <a class="reference external" href="https://github.com/sdake/heat-jeos">heat-jeos</a>, which can be used to create the JEOS images and upload them to Glance but there is also a collection of prebuilt images at: <a class="reference external" href="http://fedorapeople.org/groups/heat/prebuilt-jeos-images/">http://fedorapeople.org/groups/heat/prebuilt-jeos-images/</a> so I suggest you to just download one from <code>F17-x86_64-cfntools.qcow2</code> or <code>U10-x86_64-cfntools.qcow2</code> (which are referred by many if not all the templates available in the Heat's repo). To upload the F17 x86_64 image in Glance:</p>
 <pre class="literal-block">
 # glance image-create --name F17-x86_64-cfntools --disk-format qcow2 --container-format bare --is-public True --copy-from http://fedorapeople.org/groups/heat/prebuilt-jeos-images/F17-x86_64-cfntools.qcow2
 </pre>
@@ -152,17 +152,17 @@ heat_watch_server_url = http://${HEAT-CLOUDWATCH-HOSTNAME}:8003
 <pre class="literal-block">
 # heat-cfn create wordpress --template-file=WordPress_Composed_Instances.template --parameters=&quot;DBUsername=wp;DBPassword=wp;KeyName=userkey;LinuxDistribution=F17&quot;
 </pre>
-<p>More parameters could have pass, note for instance the LinuxDistribution parameter discussed above. Now the interesting stuff:</p>
+<p>More parameters could have passed, note for instance the LinuxDistribution parameter discussed above. Now the interesting stuff:</p>
 <pre class="literal-block">
 # heat-cfn list
 # heat-cfn event-list wordpress
 </pre>
-<p>After the VMs are launched, the mysql/httpd/wordpress packages are installed, services enabled, database created and so on. This is a process driven by the <code>cfntools</code> installed in the images and it will take quite some time, despite the <code>event-list</code> reporting completion for the WordPress install too early (there is signaling, via <code>cfn-signal</code> only in the MySQL template). You login on any of the instances and check the logs or use <code>ps</code> to see how things are moving on. After some minutes the setup should be finished:</p>
+<p>After the VMs are launched, the mysql/httpd/wordpress installation and configuration begins, the process is driven by the <code>cfntools</code>, installed in the VMs images. It will take quite some time, despite the <code>event-list</code> reporting completion for the WordPress install too early (there is signaling, via <code>cfn-signal</code>, only in the MySQL template). You can login on the instances and check the logs or just use <code>ps</code> to see how things are going. After some minutes the setup should be finished:</p>
 <pre class="literal-block">
 # heat-cfn describe wordpress
-# wget ${WebsiteURL} // from the previous command!
+# wget ${WebsiteURL} // that is an URL from the previous command!
 </pre>
-<p>If anything goes wrong, you may want to look at the <code>/var/log/heat/engine.log</code> file on the <a class="reference external" href="http://wiki.openstack.org/wiki/Heat">Heat</a> host or at the scripts passed as <code>UserData</code> to the instances, stored in <code>/var/lib/cloud/data/</code>. Time to hack your very own template and delete the test deployment! :)</p>
+<p>If anything goes wrong, check the logs at <code>/var/log/heat/engine.log</code> or look at the scripts passed as <code>UserData</code> to the instances, these should be found in <code>/var/lib/cloud/data/</code>. Time to hack your very own template and delete the test deployment! :)</p>
 </div>
 
   </div>

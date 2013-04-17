@@ -12,7 +12,7 @@ Heat is a service to orchestrate multiple composite cloud applications using the
 &lt;/ul&gt;
 &lt;div class="section" id="installation"&gt;
 &lt;h2&gt;Installation&lt;/h2&gt;
-&lt;p&gt;If you don't have a working &lt;a class="reference external" href="http://www.openstack.org"&gt;OpenStack&lt;/a&gt; deployment yet, I recommend you to simply follow the instructions on the &lt;a class="reference external" href="http://openstack.redhat.com"&gt;RDO&lt;/a&gt; site. You'll get one up and running in minutes using &lt;a class="reference external" href="http://wiki.openstack.org/Packstack"&gt;Packstack&lt;/a&gt;. When that is done, start by installing the required packages for &lt;a class="reference external" href="http://wiki.openstack.org/wiki/Heat"&gt;Heat&lt;/a&gt; to work:&lt;/p&gt;
+&lt;p&gt;If you don't have a working &lt;a class="reference external" href="http://www.openstack.org"&gt;OpenStack&lt;/a&gt; deployment yet, I recommend you to follow the instructions on the &lt;a class="reference external" href="http://openstack.redhat.com"&gt;RDO&lt;/a&gt; site, you'll get one up and running in minutes by using &lt;a class="reference external" href="http://wiki.openstack.org/Packstack"&gt;Packstack&lt;/a&gt;. When that is finished, start by installing the required packages for &lt;a class="reference external" href="http://wiki.openstack.org/wiki/Heat"&gt;Heat&lt;/a&gt; to work:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 # yum install openstack-heat-*
 &lt;/pre&gt;
@@ -20,7 +20,7 @@ Heat is a service to orchestrate multiple composite cloud applications using the
 &lt;/div&gt;
 &lt;div class="section" id="configuration"&gt;
 &lt;h2&gt;Configuration&lt;/h2&gt;
-&lt;p&gt;&lt;a class="reference external" href="http://wiki.openstack.org/wiki/Heat"&gt;Heat&lt;/a&gt; comes with a script which creates (and populates) the needed database for it to work. You'll need to know the MySQL's &lt;code&gt;root&lt;/code&gt; account password. If you've used &lt;a class="reference external" href="http://wiki.openstack.org/Packstack"&gt;Packstack&lt;/a&gt; that is stored as &lt;code&gt;CONFIG_MYSQL_PW&lt;/code&gt; in the answers file at &lt;code&gt;/root/packstack-answers*&lt;/code&gt; file. When you've collected it, run the prepare script:&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://wiki.openstack.org/wiki/Heat"&gt;Heat&lt;/a&gt; comes with a script which creates (and populates) the needed database for it to work but you need to know your MySQL's &lt;code&gt;root&lt;/code&gt; account password. If you've used &lt;a class="reference external" href="http://wiki.openstack.org/Packstack"&gt;Packstack&lt;/a&gt;, than that is saved as &lt;code&gt;CONFIG_MYSQL_PW&lt;/code&gt; in the answers file (&lt;code&gt;/root/packstack-answers*&lt;/code&gt; by default). Now run the prepare script:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 # heat-db-setup rpm -y -r ${MYSQL_ROOT_PASSWORD} -p ${HEAT_DB_PASSWORD_OF_CHOICE}
 &lt;/pre&gt;
@@ -39,7 +39,7 @@ sql_connection = mysql://heat:${HEAT_DB_PASSWORD}&amp;#64;localhost/heat
 &lt;/pre&gt;
 &lt;p&gt;Update the paste files at &lt;code&gt;/etc/heat/heat-api{,-cfn,-cloudwatch}-paste.ini&lt;/code&gt; with the credentials just created:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
-admin_tenant_name = services
+admin_tenant_name = ${SERVICES_TENANT_NAME}
 admin_user = heat
 admin_password = ${HEAT_USER_PASSWORD}
 &lt;/pre&gt;
@@ -50,13 +50,13 @@ auth_host = ${KEYSTONE-HOSTNAME}
 auth_uri = http://${KEYSTONE-HOSTNAME}:35357/v2.0
 keystone_ec2_uri = http://${KEYSTONE-HOSTNAME}:5000/v2.0/ec2tokens
 &lt;/pre&gt;
-&lt;p&gt;In &lt;code&gt;/etc/heat/heat-engine.conf&lt;/code&gt; you've to make sure that all the following variables &lt;strong&gt;do not&lt;/strong&gt; point to 127.0.0.1 even though the services are actually hosted on the same system; these will be passed to the VMs which don't have them available locally:&lt;/p&gt;
+&lt;p&gt;In &lt;code&gt;/etc/heat/heat-engine.conf&lt;/code&gt; you've to make instead sure that the following variables &lt;strong&gt;do not&lt;/strong&gt; point to 127.0.0.1 even though the services are actually hosted on the same system because URLs will be passed over to the VMs, which don't have them available locally:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 heat_metadata_server_url = http://${HEAT-CFN-HOSTNAME}:8000
 heat_waitcondition_server_url = http://${HEAT-CFN-HOSTNAME}:8000/v1/waitcondition
 heat_watch_server_url = http://${HEAT-CLOUDWATCH-HOSTNAME}:8003
 &lt;/pre&gt;
-&lt;p&gt;You'll discover that &lt;a class="reference external" href="http://wiki.openstack.org/wiki/Heat"&gt;Heat&lt;/a&gt; application templates allow for users creation in &lt;a class="reference external" href="http://www.openstack.org"&gt;OpenStack&lt;/a&gt; and these users are, by default, given the role &lt;code&gt;heat_stack_user&lt;/code&gt;. You can configure the role name in &lt;code&gt;heat-engine.conf&lt;/code&gt; or just create a so called role:&lt;/p&gt;
+&lt;p&gt;The application templates can use wait conditions and signaling for the orchestration, &lt;a class="reference external" href="http://wiki.openstack.org/wiki/Heat"&gt;Heat&lt;/a&gt; needs to create special users to receive the progress data and these users are, by default, given the role of &lt;code&gt;heat_stack_user&lt;/code&gt;. You can configure the role name in &lt;code&gt;heat-engine.conf&lt;/code&gt; or just create a so called role:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 # keystone role-create --name heat_stack_user
 &lt;/pre&gt;
@@ -68,16 +68,16 @@ heat_watch_server_url = http://${HEAT-CLOUDWATCH-HOSTNAME}:8003
 &lt;/div&gt;
 &lt;div class="section" id="get-the-demo-files"&gt;
 &lt;h2&gt;Get the demo files&lt;/h2&gt;
-&lt;p&gt;It is now time to launch our first multi-instance cloud application! There are a number of templates available in the &lt;a class="reference external" href="https://github.com/openstack/heat"&gt;github repo&lt;/a&gt;, download the Wordpress example by doing so:&lt;/p&gt;
+&lt;p&gt;It is time now to launch your first multi-instance cloud application! There are a number of sample templates available in the &lt;a class="reference external" href="https://github.com/openstack/heat"&gt;github repo&lt;/a&gt;, download the composed Wordpress example with:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 # wget https://raw.github.com/openstack/heat/master/templates/WordPress_Composed_Instances.template
 &lt;/pre&gt;
-&lt;p&gt;With &lt;a class="reference external" href="http://wiki.openstack.org/wiki/Heat"&gt;Heat&lt;/a&gt; you can use the same templates also distributed for &lt;a class="reference external" href="http://aws.amazon.com/cloudformation/"&gt;AWS CloudFormation&lt;/a&gt;. These expect you to have a well known set of flavor types defined but the default types available in &lt;a class="reference external" href="http://www.openstack.org"&gt;OpenStack&lt;/a&gt; don't strictly match the AWS collection. To avoid the need of hack the templates, there is an helpful script which you can use to re-create in &lt;a class="reference external" href="http://www.openstack.org"&gt;OpenStack&lt;/a&gt; the AWS flavors:&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://wiki.openstack.org/wiki/Heat"&gt;Heat&lt;/a&gt; can use the templates distributed for &lt;a class="reference external" href="http://aws.amazon.com/cloudformation/"&gt;AWS CloudFormation&lt;/a&gt;. These expect you to have a well known set of flavor types defined while the default flavors available in &lt;a class="reference external" href="http://www.openstack.org"&gt;OpenStack&lt;/a&gt; don't match strictly such a collection. To avoid the need of hack the templates, you can use an helpful script which recreates in &lt;a class="reference external" href="http://www.openstack.org"&gt;OpenStack&lt;/a&gt; the same flavors from AWS:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 # curl https://raw.github.com/openstack/heat/master/tools/nova_create_flavors.sh | bash
 &lt;/pre&gt;
 &lt;p&gt;Every template also provides you with a list of usable distros and map these into an AMI string, for each arch. You will have to populate Glance with an image matching the AMI string that the template file is expecting to find.&lt;/p&gt;
-&lt;p&gt;There is a tool, called &lt;a class="reference external" href="https://github.com/sdake/heat-jeos"&gt;heat-jeos&lt;/a&gt;, which can be used to create the JEOS images and upload them to Glance but there is also a collection of prebuilt images at: &lt;a class="reference external" href="http://fedorapeople.org/groups/heat/prebuilt-jeos-images/"&gt;http://fedorapeople.org/groups/heat/prebuilt-jeos-images/&lt;/a&gt; so I suggest you to just download one of &lt;code&gt;F17-x86_64-cfntools.qcow2&lt;/code&gt; or &lt;code&gt;U10-x86_64-cfntools.qcow2&lt;/code&gt; (which are referred by many if not all the templates available in the Heat's repo). To upload the F17 x86_64 image in Glance:&lt;/p&gt;
+&lt;p&gt;There is a tool, called &lt;a class="reference external" href="https://github.com/sdake/heat-jeos"&gt;heat-jeos&lt;/a&gt;, which can be used to create the JEOS images and upload them to Glance but there is also a collection of prebuilt images at: &lt;a class="reference external" href="http://fedorapeople.org/groups/heat/prebuilt-jeos-images/"&gt;http://fedorapeople.org/groups/heat/prebuilt-jeos-images/&lt;/a&gt; so I suggest you to just download one from &lt;code&gt;F17-x86_64-cfntools.qcow2&lt;/code&gt; or &lt;code&gt;U10-x86_64-cfntools.qcow2&lt;/code&gt; (which are referred by many if not all the templates available in the Heat's repo). To upload the F17 x86_64 image in Glance:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 # glance image-create --name F17-x86_64-cfntools --disk-format qcow2 --container-format bare --is-public True --copy-from http://fedorapeople.org/groups/heat/prebuilt-jeos-images/F17-x86_64-cfntools.qcow2
 &lt;/pre&gt;
@@ -92,17 +92,17 @@ heat_watch_server_url = http://${HEAT-CLOUDWATCH-HOSTNAME}:8003
 &lt;pre class="literal-block"&gt;
 # heat-cfn create wordpress --template-file=WordPress_Composed_Instances.template --parameters=&amp;quot;DBUsername=wp;DBPassword=wp;KeyName=userkey;LinuxDistribution=F17&amp;quot;
 &lt;/pre&gt;
-&lt;p&gt;More parameters could have pass, note for instance the LinuxDistribution parameter discussed above. Now the interesting stuff:&lt;/p&gt;
+&lt;p&gt;More parameters could have passed, note for instance the LinuxDistribution parameter discussed above. Now the interesting stuff:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 # heat-cfn list
 # heat-cfn event-list wordpress
 &lt;/pre&gt;
-&lt;p&gt;After the VMs are launched, the mysql/httpd/wordpress packages are installed, services enabled, database created and so on. This is a process driven by the &lt;code&gt;cfntools&lt;/code&gt; installed in the images and it will take quite some time, despite the &lt;code&gt;event-list&lt;/code&gt; reporting completion for the WordPress install too early (there is signaling, via &lt;code&gt;cfn-signal&lt;/code&gt; only in the MySQL template). You login on any of the instances and check the logs or use &lt;code&gt;ps&lt;/code&gt; to see how things are moving on. After some minutes the setup should be finished:&lt;/p&gt;
+&lt;p&gt;After the VMs are launched, the mysql/httpd/wordpress installation and configuration begins, the process is driven by the &lt;code&gt;cfntools&lt;/code&gt;, installed in the VMs images. It will take quite some time, despite the &lt;code&gt;event-list&lt;/code&gt; reporting completion for the WordPress install too early (there is signaling, via &lt;code&gt;cfn-signal&lt;/code&gt;, only in the MySQL template). You can login on the instances and check the logs or just use &lt;code&gt;ps&lt;/code&gt; to see how things are going. After some minutes the setup should be finished:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 # heat-cfn describe wordpress
-# wget ${WebsiteURL} // from the previous command!
+# wget ${WebsiteURL} // that is an URL from the previous command!
 &lt;/pre&gt;
-&lt;p&gt;If anything goes wrong, you may want to look at the &lt;code&gt;/var/log/heat/engine.log&lt;/code&gt; file on the &lt;a class="reference external" href="http://wiki.openstack.org/wiki/Heat"&gt;Heat&lt;/a&gt; host or at the scripts passed as &lt;code&gt;UserData&lt;/code&gt; to the instances, stored in &lt;code&gt;/var/lib/cloud/data/&lt;/code&gt;. Time to hack your very own template and delete the test deployment! :)&lt;/p&gt;
+&lt;p&gt;If anything goes wrong, check the logs at &lt;code&gt;/var/log/heat/engine.log&lt;/code&gt; or look at the scripts passed as &lt;code&gt;UserData&lt;/code&gt; to the instances, these should be found in &lt;code&gt;/var/lib/cloud/data/&lt;/code&gt;. Time to hack your very own template and delete the test deployment! :)&lt;/p&gt;
 &lt;/div&gt;
 </summary><category term="openstack"></category><category term="heat"></category><category term="fedoraplanet"></category><category term="rhel"></category><category term="centos"></category></entry><entry><title>My responsive Svbtle inspired Pelican theme</title><link href="http://www.giuliofidente.com/2013/03/my-responsive-svbtle-inspired-pelican-theme.html" rel="alternate"></link><updated>2013-03-27T00:00:00+01:00</updated><author><name>Giulio Fidente</name></author><id>tag:www.giuliofidente.com,2013-03-27:2013/03/my-responsive-svbtle-inspired-pelican-theme.html</id><summary type="html">&lt;p&gt;I've just pushed on github &lt;a class="reference external" href="http://github.com/giulivo/pelican-svbhack"&gt;my Svbtle inspired theme&lt;/a&gt; for &lt;a class="reference external" href="http://getpelican.com"&gt;Pelican&lt;/a&gt;. I've called it &lt;code&gt;svbhack&lt;/code&gt; and it is the theme that this blog uses.&lt;/p&gt;
 &lt;p&gt;As you may notice, this is not (and does not want to be) a close copy of the original &lt;a class="reference external" href="http://www.svbtle.com"&gt;Svbtle&lt;/a&gt; theme; I've taken some ideas from its layout and mixed those with my preferences. Also the CSS is completely rewritten.&lt;/p&gt;
