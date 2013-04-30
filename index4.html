@@ -59,6 +59,25 @@
 
     <article>
   <div id="article_title">
+    <h3><a href="http://giuliofidente.com/2012/04/jenkins-on-openshift.html">Jenkins on OpenShift</a></h3>
+  </div>
+  <div id="article_text">
+    <p>How about <a class="reference external" href="http://jenkins-ci.org/">Jenkins</a> on <a class="reference external" href="http://openshift.redhat.com/">OpenShift</a>? Let's give this a try. Keep in mind that by default you've got only 3 gears on OpenShift and we'll need to use all of them for this tutorial:</p>
+<ul class="simple">
+<li>1 will be used by the live app</li>
+<li>1 will be used by the jenkins deployment</li>
+<li>1 will be used by the jenkins builds</li>
+</ul>
+<p>First, create your jenkins deployment:</p>
+<pre class="literal-block">
+$ rhc app create -a jenkins -t jenkins-1.4
+</pre>
+<p>Then ...</p>
+  </div>
+</article>
+<hr />
+<article>
+  <div id="article_title">
     <h3><a href="http://giuliofidente.com/2012/04/napoli-silicon-dust.html">Napoli (Silicon Dust)</a></h3>
   </div>
   <div id="article_text">
@@ -93,16 +112,6 @@ To succeed on the desktop, Linux needs to penetrate the office. Unfortunately, t
   </div>
   <div id="article_text">
     <p>I've prepared a quick HOWTO on how to migrate a legacy NIS environment to FreeIPA (ldap/kerberos). I hope it will be useful to some: <a class="reference external" href="http://freeipa.org/page/NIS_accounts_migration_preserving_Passwords">http://freeipa.org/page/NIS_accounts_migration_preserving_Passwords</a></p>
-
-  </div>
-</article>
-<hr />
-<article>
-  <div id="article_title">
-    <h3><a href="http://giuliofidente.com/2012/02/a-quickstart-guide-to-the-command-line-openshift-client.html">A quickstart guide to the command line OpenShift client</a></h3>
-  </div>
-  <div id="article_text">
-    <p>I've published a little guide to the rhc command line tool, that is the command line tool (ruby gem) needed to deploy your apps on <a class="reference external" href="http://openshift.redhat.com">OpenShift</a>. You can find it here: <a class="reference external" href="https://github.com/giulivo/openshift-rhc-quickstart">https://github.com/giulivo/openshift-rhc-quickstart</a></p>
 
   </div>
 </article>
