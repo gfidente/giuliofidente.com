@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Giulio Fidente (aka Giulivo Navigante)</title><link href="http://giuliofidente.com/" rel="alternate"></link><link href="http://giuliofidente.com/feeds/tag/todoist.atom.xml" rel="self"></link><id>http://giuliofidente.com/</id><updated>2013-05-14T16:00:00+02:00</updated><entry><title>ToDoist TIPS</title><link href="http://giuliofidente.com/2013/05/todoist-tips.html" rel="alternate"></link><updated>2013-05-14T16:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:giuliofidente.com,2013-05-14:2013/05/todoist-tips.html</id><summary type="html">&lt;p&gt;Recently I was on the look out for some web (and portable) todo management application. I tried many as many are free.&lt;/p&gt;
+&lt;p&gt;At some point I was forced to re-evaluate and re-define my own needs, there are indeed at least two different kinds of tracking applications. Some are like &lt;a class="reference external" href="http://idonethis.com"&gt;iDoneThis&lt;/a&gt;, some sort of reporting tool, others are more like &lt;a class="reference external" href="http://dontforgetthemilk.com"&gt;Don't Forget The Milk&lt;/a&gt;, a pure todo managing application. What I needed was more something from the second group and my preference went to &lt;a class="reference external" href="http://todoist.com"&gt;ToDoist&lt;/a&gt;, it's got the features I want, especially the time-setting thing.&lt;/p&gt;
+&lt;p&gt;A couple of days after my sign up, they sent me an (automated) email listing a few &amp;quot;tips&amp;quot;. Well, I was going to consider that email as spam but after a quick read I realized the &amp;quot;tips&amp;quot; really were well picked up and had a much broader scope. I was somewhat already familiar with the principles but the list reinforced the concepts. I thought it was worth sharing, see for yourself, some extracts:&lt;/p&gt;
+&lt;blockquote&gt;
+Many of the emails you receive contain action items, but without a way to set due dates, priorities, and reminders, those emails often get forgotten.&lt;/blockquote&gt;
+&lt;p&gt;The same can be said for the other action items you put in the list!&lt;/p&gt;
+&lt;blockquote&gt;
+If possible don’t try to do several things at once. Use your to-do list to keep you focused and on track. By working systematically to complete each task on your list, you’ll get more done.&lt;/blockquote&gt;
+&lt;p&gt;I read that as a suggestion to prioritize the list and work on the one (or a few) item from the top.&lt;/p&gt;
+&lt;blockquote&gt;
+Break big tasks into a number of smaller sub-tasks that can be completed in 1 hour or less.&lt;/blockquote&gt;
+&lt;p&gt;I wouldn't enforce the 1 hour timeline, but the concept of splitting the bigger tasks into a number of smaller and &lt;em&gt;easier to track&lt;/em&gt; items remains valid.&lt;/p&gt;
+&lt;blockquote&gt;
+If your tasks aren’t accessible at all times, you’ll start to forget about them and miss opportunities to get things done.&lt;/blockquote&gt;
+&lt;p&gt;I used to have separate lists for different purposes. Read, I don't mix work items with personal tasks, but I make sure my work todo list is easy to reach from any of the devices I use when working.&lt;/p&gt;
+&lt;blockquote&gt;
+To improve your productivity, you need to be able to see how productive you are now and how your productivity levels change over time. Once you can see how your productive you are, you can work on figuring out which productivity tactics are working for you and improve your output.&lt;/blockquote&gt;
+&lt;p&gt;Indeed.&lt;/p&gt;
+</summary><category term="todo"></category><category term="todoist"></category></entry></feed>
