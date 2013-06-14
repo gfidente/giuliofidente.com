@@ -38,7 +38,7 @@
   <aside>
     <div id="user_meta">
       <a href="http://giuliofidente.com">
-                <img src="http://giuliofidente.com/static/images/gravatar_to140.png" alt="logo">
+                <img src="http://localhost:8000/static/images/gravatar_to140.png" alt="logo">
               </a>
       <h2><a href="http://giuliofidente.com">Giulio Fidente</a></h2>
       <p>Systems engineer devoted to automation. Enjoy web programming. Work @Red Hat.</p>
@@ -85,8 +85,19 @@ Heat is a service to ...</blockquote>
     </footer>
 
     <div id="ending_message">
-      <p>&copy Giulio Fidente. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. You can fork the theme on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>.</p>
+      <p>&copy Giulio Fidente. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. You can fork the theme on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>. Join the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
     </div>
   </main>
+  <script type="text/javascript">
+  window._idl = {};
+  _idl.variant = "banner";
+  (function() {
+    var idl = document.createElement('script');
+    idl.type = 'text/javascript';
+    idl.async = true;
+    idl.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'members.internetdefenseleague.org/include/?url=' + (_idl.url || '') + '&campaign=' + (_idl.campaign || '') + '&variant=' + (_idl.variant || 'banner');
+    document.getElementsByTagName('body')[0].appendChild(idl);
+  })();
+</script>
 </body>
 </html>
