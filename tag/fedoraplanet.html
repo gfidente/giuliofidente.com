@@ -59,6 +59,16 @@
 
     <article>
   <div id="article_title">
+    <h3><a href="http://giuliofidente.com/2013/06/openstack-cinder-configure-multiple-backends.html">OpenStack Cinder - Configure multiple backends</a></h3>
+  </div>
+  <div id="article_text">
+    <p>Following <a class="reference external" href="http://giuliofidente.com/2013/04/openstack-cinder-add-more-volume-nodes.html">my first post of the series</a> discussing how to scale <a class="reference external" href="http://www.openstack.org">OpenStack</a> <a class="reference external" href="https://wiki.openstack.org/wiki/Cinder">Cinder</a> to multiple nodes, with this I want to approach the configuration and usage of the multibackend feature landed in Cinder with the Grizzly release.</p>
+<p>This feature allows you to configure a single volume node for use with more than a single backend driver. You can find all about the few configuration bits neede also in the <a class="reference external" href="http://docs.openstack.org/trunk/openstack-block-storage/admin/content/multi_backend.html">OpenStack block storage documentation</a>, that makes ...</p>
+  </div>
+</article>
+<hr />
+<article>
+  <div id="article_title">
     <h3><a href="http://giuliofidente.com/2013/04/openstack-cinder-add-more-volume-nodes.html">OpenStack Cinder - Add more volume nodes</a></h3>
   </div>
   <div id="article_text">
@@ -97,24 +107,6 @@ Heat is a service to ...</blockquote>
 <p>You need a custom <a class="reference external" href="http://en.wikipedia.org/wiki/XFree86_Modeline">modeline in your xorg.conf ...</a></p>
   </div>
 </article>
-<hr />
-<article>
-  <div id="article_title">
-    <h3><a href="http://giuliofidente.com/2012/06/my-attempts-at-mapreduce-using-mongodb.html">My attempts at MapReduce using MongoDB</a></h3>
-  </div>
-  <div id="article_text">
-    <p>I was sorting a tree in my (python) webapp instead of having the database to do it for me. This is how I moved it back to the database by using a <a class="reference external" href="http://en.wikipedia.org/wiki/MapReduce">MapReduce</a> job. I had a collection structured like the following:</p>
-<div class="highlight"><pre><span class="p">{</span>
-  <span class="nt">&quot;_id&quot;</span> <span class="p">:</span> <span class="err">...</span><span class="p">,</span>
-  <span class="nt">&quot;feed_oid&quot;</span> <span class="p">:</span> <span class="s2">&quot;4fd268d2ab87b2d8927d7eee&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;title&quot;</span> <span class="p">:</span> <span class="s2">&quot;blah blah&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;updated&quot;</span> <span class="p">:</span> <span class="mi">1339702524</span><span class="p">,</span>
-  <span class="nt">&quot;watchers&quot;</span> <span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;4fd276fc66224c1ee8000006&quot;</span> <span class="p">]</span>
-<span class="p">}</span>
-</pre></div>
-<p>Such a collection is called <code>articles</code> and in there I get a document for every article published by an rss feed. <code>feed_oid</code> is ...</p>
-  </div>
-</article>
 
     <footer>
       <p id="paginator">
@@ -124,7 +116,7 @@ Heat is a service to ...</blockquote>
     </footer>
 
     <div id="ending_message">
-      <p>&copy Giulio Fidente. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. You can fork the theme on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>. Join the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
+      <p>&copy Giulio Fidente. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. You can fork the theme on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>. Member of the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
     </div>
   </main>
   <script type="text/javascript">

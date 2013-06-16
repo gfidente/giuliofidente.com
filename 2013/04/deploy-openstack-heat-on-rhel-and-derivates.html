@@ -63,6 +63,7 @@
     <p><a class="reference external" href="http://wiki.openstack.org/wiki/Heat">Heat</a> provides orchestration of composite cloud applications using the CloudFormation API and templates; it is an incubated project of <a class="reference external" href="http://www.openstack.org">OpenStack</a>. Its development cycle has been integrated with <a class="reference external" href="http://www.openstack.org">OpenStack</a> from the H release and, with the recent G release, it's got more mature. I want to go trough the steps needed to install and configure it as the <a class="reference external" href="http://docs.openstack.org">official documentation</a> is still scarce on the matter. Firstly, what it does?</p>
 <blockquote>
 Heat is a service to orchestrate multiple composite cloud applications using the AWS CloudFormation template format, through both an OpenStack-native ReST API and a CloudFormation-compatible Query API.</blockquote>
+<p><strong>UPDATE (June 2013):</strong> this post has been <a class="reference external" href="http://openstack.redhat.com/Deploy_Heat_and_launch_your_first_Application">published on the RDO site</a> and is maintained there with up-to-date informations</p>
 <p>So you're going to deploy a composite application (made up of more than a single instance) on the cloud infrastructure, this also involves launchtime customizations of the VMs but before start, some assumptions are needed:</p>
 <ul class="simple">
 <li>I'm using CentOS 6.4 / MySQL for the examples</li>
@@ -129,7 +130,7 @@ heat_watch_server_url = http://${HEAT-CLOUDWATCH-HOSTNAME}:8003
 <h2>Get the demo files</h2>
 <p>It is time now to launch your first multi-instance cloud application! There are a number of sample templates available in the <a class="reference external" href="https://github.com/openstack/heat">github repo</a>, download the composed Wordpress example with:</p>
 <pre class="literal-block">
-# wget https://raw.github.com/openstack/heat/master/templates/WordPress_Composed_Instances.template
+# wget https://raw.github.com/openstack/heat-templates/master/cfn/WordPress_Composed_Instances.template
 </pre>
 <p><a class="reference external" href="http://wiki.openstack.org/wiki/Heat">Heat</a> can use the templates distributed for <a class="reference external" href="http://aws.amazon.com/cloudformation/">AWS CloudFormation</a>. These expect you to have a well known set of flavor types defined while the default flavors available in <a class="reference external" href="http://www.openstack.org">OpenStack</a> don't match strictly such a collection. To avoid the need of hack the templates, you can use an helpful script which recreates in <a class="reference external" href="http://www.openstack.org">OpenStack</a> the same flavors from AWS:</p>
 <pre class="literal-block">
@@ -177,7 +178,7 @@ heat_watch_server_url = http://${HEAT-CLOUDWATCH-HOSTNAME}:8003
     </footer>
 
     <div id="ending_message">
-      <p>&copy Giulio Fidente. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. You can fork the theme on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>. Join the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
+      <p>&copy Giulio Fidente. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. You can fork the theme on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>. Member of the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
     </div>
   </main>
   <script type="text/javascript">

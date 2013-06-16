@@ -16,10 +16,10 @@
 
     <link href="http://giuliofidente.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Giulio Fidente (aka Giulivo Navigante) Full Atom Feed" />
     
-  <link href="http://giuliofidente.com/feeds/tag/cinder.atom.xml" type="application/atom+xml" rel="alternate" title="Giulio Fidente (aka Giulivo Navigante) cinder Tag Atom Feed" />
+  <meta name="keywords" content="openstack, cinder, fedoraplanet">
 
   <title>
-    Tag: cinder  </title>
+    OpenStack Cinder - Configure multiple backends  </title>
 
   <script type="text/javascript">
   var _gaq = _gaq || [];
@@ -52,9 +52,7 @@
 
   <main>
     <header>
-      <p>Tag: cinder
-&#124; <a href="http://giuliofidente.com/feeds/tag/cinder.atom.xml">Atom Feed</a>
-</p>
+      <p>Posted on Sun 16 June 2013</p>
     </header>
 
     <article>
@@ -63,24 +61,56 @@
   </div>
   <div id="article_text">
     <p>Following <a class="reference external" href="http://giuliofidente.com/2013/04/openstack-cinder-add-more-volume-nodes.html">my first post of the series</a> discussing how to scale <a class="reference external" href="http://www.openstack.org">OpenStack</a> <a class="reference external" href="https://wiki.openstack.org/wiki/Cinder">Cinder</a> to multiple nodes, with this I want to approach the configuration and usage of the multibackend feature landed in Cinder with the Grizzly release.</p>
-<p>This feature allows you to configure a single volume node for use with more than a single backend driver. You can find all about the few configuration bits neede also in the <a class="reference external" href="http://docs.openstack.org/trunk/openstack-block-storage/admin/content/multi_backend.html">OpenStack block storage documentation</a>, that makes ...</p>
+<p>This feature allows you to configure a single volume node for use with more than a single backend driver. You can find all about the few configuration bits neede also in the <a class="reference external" href="http://docs.openstack.org/trunk/openstack-block-storage/admin/content/multi_backend.html">OpenStack block storage documentation</a>, that makes this post redundant for the most part.</p>
+<p>Some assumptions before we start though:</p>
+<ul class="simple">
+<li>you're familiar with the general OpenStack architecture</li>
+<li>you have already some Cinder volume node configured and working as expected</li>
+</ul>
+<p>Assuming we want our node, currently using LVM, configured with an additional NFS backend, this is what we would need:</p>
+<pre class="literal-block">
+enabled_backends=lvm1,nfs1
+[lvm1]
+volume_driver=cinder.volume.drivers.lvm.LVMISCSIDriver
+volume_backend_name=LVM_iSCSI
+[nfs1]
+nfs_shares_config=${PATH_TO_YOUR_SHARES_FILE}
+volume_driver=cinder.volume.drivers.nfs.NfsDriver
+volume_backend_name=NFS
+</pre>
+<p>The enabled_backends value defines the names (separated by a comma) of the config groups and those do not have to match the driver name nor the backend name. You'll have to restart the volume service.</p>
+<p>When that is done, to use a particular backend when allocating new volumes you'll have to pass a <code>volume_type</code> parameter to the creation command. Such a type has to be created beforehand and the backends assigned to it:</p>
+<pre class="literal-block">
+# cinder type-create lvm
+# cinder type-create nfs
+# cinder type-key lvm1 set volume_backend_name=LVM_iSCSI
+# cinder type-key nfs1 set volume_backend_name=NFS
+</pre>
+<p>Finally, to create your volumes:</p>
+<pre class="literal-block">
+# cinder create --volume_type lvm --display_name inlvm 1
+</pre>
+<p>An addition for people using the REST interface, to set any <code>type-key</code> property, including <code>volume_backend_name</code> you pass that in the request as some <a class="reference external" href="https://github.com/openstack/cinder/blob/master/cinder/api/contrib/types_extra_specs.py">extra specs</a> and you can list those indeed to make sure the configuration is successful:</p>
+<pre class="literal-block">
+#  cinder extra-specs-list
+</pre>
+<p>You can have backends of the same type (driver) using different names (say two LVM based backends allocating volumes in different volume groups) or you can also have backends of the same type using the same name! The scheduler will make a decision on how to pickup the correct backend at creation time. Here are a few notes borrowed from the documentation  regarding the filter scheduler (enabled by default in Grizzly):</p>
+<ul class="simple">
+<li>filters the available backends (by default, AvailabilityZoneFilter, CapacityFilter and CapabilitiesFilter are enabled)</li>
+<li>weights the previously filtered backends (by default, CapacityWeigher is enabled).</li>
+</ul>
+<p>The CapacityWeigher attributes high score to backends with the most available space.</p>
+
   </div>
-</article>
-<hr />
-<article>
-  <div id="article_title">
-    <h3><a href="http://giuliofidente.com/2013/04/openstack-cinder-add-more-volume-nodes.html">OpenStack Cinder - Add more volume nodes</a></h3>
-  </div>
-  <div id="article_text">
-    <p>With this being the first of a short series, I'd like to publish some articles intendend to cover the required steps to configure <a class="reference external" href="https://wiki.openstack.org/wiki/Cinder">Cinder</a> (<a class="reference external" href="http://www.openstack.org">OpenStack</a> block storage service) in a mid/large deployment scenario. The idea is to discuss at least three topics: how to scale the service by adding more volume nodes; how to ensure high-availablity for the API and Scheduler sub-services; leverage the multi-backend feature landed in Grizzly.</p>
-<p>I'm starting with ...</p>
-  </div>
+  <div id="article_meta">
+    <p>Category: <a href="http://giuliofidente.com/category/techie.html">techie</a></p>
+        <p>Tags:
+            <a href="http://giuliofidente.com/tag/openstack.html">openstack</a>,            <a href="http://giuliofidente.com/tag/cinder.html">cinder</a>,            <a href="http://giuliofidente.com/tag/fedoraplanet.html">fedoraplanet</a>          </p>
+      </div>
 </article>
 
     <footer>
-      <p id="paginator">
-
-</p>
+      <p><a href="http://giuliofidente.com/" class="button_accent">&larr; Back to Index</a></p>
     </footer>
 
     <div id="ending_message">

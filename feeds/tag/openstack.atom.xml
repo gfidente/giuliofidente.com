@@ -1,5 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Giulio Fidente (aka Giulivo Navigante)</title><link href="http://giuliofidente.com/" rel="alternate"></link><link href="http://giuliofidente.com/feeds/tag/openstack.atom.xml" rel="self"></link><id>http://giuliofidente.com/</id><updated>2013-04-30T02:00:00+02:00</updated><entry><title>OpenStack Cinder - Add more volume nodes</title><link href="http://giuliofidente.com/2013/04/openstack-cinder-add-more-volume-nodes.html" rel="alternate"></link><updated>2013-04-30T02:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:giuliofidente.com,2013-04-30:2013/04/openstack-cinder-add-more-volume-nodes.html</id><summary type="html">&lt;p&gt;With this being the first of a short series, I'd like to publish some articles intendend to cover the required steps to configure &lt;a class="reference external" href="https://wiki.openstack.org/wiki/Cinder"&gt;Cinder&lt;/a&gt; (&lt;a class="reference external" href="http://www.openstack.org"&gt;OpenStack&lt;/a&gt; block storage service) in a mid/large deployment scenario. The idea is to discuss at least three topics: how to scale the service by adding more volume nodes; how to ensure high-availablity for the API and Scheduler sub-services; leverage the multi-backend feature landed in Grizzly.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Giulio Fidente (aka Giulivo Navigante)</title><link href="http://giuliofidente.com/" rel="alternate"></link><link href="http://giuliofidente.com/feeds/tag/openstack.atom.xml" rel="self"></link><id>http://giuliofidente.com/</id><updated>2013-06-16T16:00:00+02:00</updated><entry><title>OpenStack Cinder - Configure multiple backends</title><link href="http://giuliofidente.com/2013/06/openstack-cinder-configure-multiple-backends.html" rel="alternate"></link><updated>2013-06-16T16:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:giuliofidente.com,2013-06-16:2013/06/openstack-cinder-configure-multiple-backends.html</id><summary type="html">&lt;p&gt;Following &lt;a class="reference external" href="http://giuliofidente.com/2013/04/openstack-cinder-add-more-volume-nodes.html"&gt;my first post of the series&lt;/a&gt; discussing how to scale &lt;a class="reference external" href="http://www.openstack.org"&gt;OpenStack&lt;/a&gt; &lt;a class="reference external" href="https://wiki.openstack.org/wiki/Cinder"&gt;Cinder&lt;/a&gt; to multiple nodes, with this I want to approach the configuration and usage of the multibackend feature landed in Cinder with the Grizzly release.&lt;/p&gt;
+&lt;p&gt;This feature allows you to configure a single volume node for use with more than a single backend driver. You can find all about the few configuration bits neede also in the &lt;a class="reference external" href="http://docs.openstack.org/trunk/openstack-block-storage/admin/content/multi_backend.html"&gt;OpenStack block storage documentation&lt;/a&gt;, that makes this post redundant for the most part.&lt;/p&gt;
+&lt;p&gt;Some assumptions before we start though:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;you're familiar with the general OpenStack architecture&lt;/li&gt;
+&lt;li&gt;you have already some Cinder volume node configured and working as expected&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Assuming we want our node, currently using LVM, configured with an additional NFS backend, this is what we would need:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+enabled_backends=lvm1,nfs1
+[lvm1]
+volume_driver=cinder.volume.drivers.lvm.LVMISCSIDriver
+volume_backend_name=LVM_iSCSI
+[nfs1]
+nfs_shares_config=${PATH_TO_YOUR_SHARES_FILE}
+volume_driver=cinder.volume.drivers.nfs.NfsDriver
+volume_backend_name=NFS
+&lt;/pre&gt;
+&lt;p&gt;The enabled_backends value defines the names (separated by a comma) of the config groups and those do not have to match the driver name nor the backend name. You'll have to restart the volume service.&lt;/p&gt;
+&lt;p&gt;When that is done, to use a particular backend when allocating new volumes you'll have to pass a &lt;code&gt;volume_type&lt;/code&gt; parameter to the creation command. Such a type has to be created beforehand and the backends assigned to it:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+# cinder type-create lvm
+# cinder type-create nfs
+# cinder type-key lvm1 set volume_backend_name=LVM_iSCSI
+# cinder type-key nfs1 set volume_backend_name=NFS
+&lt;/pre&gt;
+&lt;p&gt;Finally, to create your volumes:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+# cinder create --volume_type lvm --display_name inlvm 1
+&lt;/pre&gt;
+&lt;p&gt;An addition for people using the REST interface, to set any &lt;code&gt;type-key&lt;/code&gt; property, including &lt;code&gt;volume_backend_name&lt;/code&gt; you pass that in the request as some &lt;a class="reference external" href="https://github.com/openstack/cinder/blob/master/cinder/api/contrib/types_extra_specs.py"&gt;extra specs&lt;/a&gt; and you can list those indeed to make sure the configuration is successful:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+#  cinder extra-specs-list
+&lt;/pre&gt;
+&lt;p&gt;You can have backends of the same type (driver) using different names (say two LVM based backends allocating volumes in different volume groups) or you can also have backends of the same type using the same name! The scheduler will make a decision on how to pickup the correct backend at creation time. Here are a few notes borrowed from the documentation  regarding the filter scheduler (enabled by default in Grizzly):&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;filters the available backends (by default, AvailabilityZoneFilter, CapacityFilter and CapabilitiesFilter are enabled)&lt;/li&gt;
+&lt;li&gt;weights the previously filtered backends (by default, CapacityWeigher is enabled).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The CapacityWeigher attributes high score to backends with the most available space.&lt;/p&gt;
+</summary><category term="openstack"></category><category term="cinder"></category><category term="fedoraplanet"></category></entry><entry><title>OpenStack Cinder - Add more volume nodes</title><link href="http://giuliofidente.com/2013/04/openstack-cinder-add-more-volume-nodes.html" rel="alternate"></link><updated>2013-04-30T02:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:giuliofidente.com,2013-04-30:2013/04/openstack-cinder-add-more-volume-nodes.html</id><summary type="html">&lt;p&gt;With this being the first of a short series, I'd like to publish some articles intendend to cover the required steps to configure &lt;a class="reference external" href="https://wiki.openstack.org/wiki/Cinder"&gt;Cinder&lt;/a&gt; (&lt;a class="reference external" href="http://www.openstack.org"&gt;OpenStack&lt;/a&gt; block storage service) in a mid/large deployment scenario. The idea is to discuss at least three topics: how to scale the service by adding more volume nodes; how to ensure high-availablity for the API and Scheduler sub-services; leverage the multi-backend feature landed in Grizzly.&lt;/p&gt;
 &lt;p&gt;I'm starting with this post on the scaling issue first. &lt;a class="reference external" href="https://wiki.openstack.org/wiki/Cinder"&gt;Cinder&lt;/a&gt; is composed of three main parts, the API server, the scheduler and the volume service. The volume service is some sort of abstraction layer between the API and the actual resources provider.&lt;/p&gt;
 &lt;p&gt;By adding more volume nodes into the environment you will be able to increase the total offering of block storage to the tenants. Each volume node can either provide volumes by allocating them locally or on a remote container like an NFS or GlusterFS share.&lt;/p&gt;
 &lt;p&gt;Some assumptions before getting into the practice:&lt;/p&gt;
@@ -42,6 +82,7 @@ iscsi_ip_address=${TGTD_IP_ADDRESS}
 </summary><category term="openstack"></category><category term="cinder"></category><category term="fedoraplanet"></category></entry><entry><title>Deploy OpenStack Heat on RHEL (and derivates)</title><link href="http://giuliofidente.com/2013/04/deploy-openstack-heat-on-rhel-and-derivates.html" rel="alternate"></link><updated>2013-04-16T11:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:giuliofidente.com,2013-04-16:2013/04/deploy-openstack-heat-on-rhel-and-derivates.html</id><summary type="html">&lt;p&gt;&lt;a class="reference external" href="http://wiki.openstack.org/wiki/Heat"&gt;Heat&lt;/a&gt; provides orchestration of composite cloud applications using the CloudFormation API and templates; it is an incubated project of &lt;a class="reference external" href="http://www.openstack.org"&gt;OpenStack&lt;/a&gt;. Its development cycle has been integrated with &lt;a class="reference external" href="http://www.openstack.org"&gt;OpenStack&lt;/a&gt; from the H release and, with the recent G release, it's got more mature. I want to go trough the steps needed to install and configure it as the &lt;a class="reference external" href="http://docs.openstack.org"&gt;official documentation&lt;/a&gt; is still scarce on the matter. Firstly, what it does?&lt;/p&gt;
 &lt;blockquote&gt;
 Heat is a service to orchestrate multiple composite cloud applications using the AWS CloudFormation template format, through both an OpenStack-native ReST API and a CloudFormation-compatible Query API.&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;UPDATE (June 2013):&lt;/strong&gt; this post has been &lt;a class="reference external" href="http://openstack.redhat.com/Deploy_Heat_and_launch_your_first_Application"&gt;published on the RDO site&lt;/a&gt; and is maintained there with up-to-date informations&lt;/p&gt;
 &lt;p&gt;So you're going to deploy a composite application (made up of more than a single instance) on the cloud infrastructure, this also involves launchtime customizations of the VMs but before start, some assumptions are needed:&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;I'm using CentOS 6.4 / MySQL for the examples&lt;/li&gt;
@@ -108,7 +149,7 @@ heat_watch_server_url = http://${HEAT-CLOUDWATCH-HOSTNAME}:8003
 &lt;h2&gt;Get the demo files&lt;/h2&gt;
 &lt;p&gt;It is time now to launch your first multi-instance cloud application! There are a number of sample templates available in the &lt;a class="reference external" href="https://github.com/openstack/heat"&gt;github repo&lt;/a&gt;, download the composed Wordpress example with:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
-# wget https://raw.github.com/openstack/heat/master/templates/WordPress_Composed_Instances.template
+# wget https://raw.github.com/openstack/heat-templates/master/cfn/WordPress_Composed_Instances.template
 &lt;/pre&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://wiki.openstack.org/wiki/Heat"&gt;Heat&lt;/a&gt; can use the templates distributed for &lt;a class="reference external" href="http://aws.amazon.com/cloudformation/"&gt;AWS CloudFormation&lt;/a&gt;. These expect you to have a well known set of flavor types defined while the default flavors available in &lt;a class="reference external" href="http://www.openstack.org"&gt;OpenStack&lt;/a&gt; don't match strictly such a collection. To avoid the need of hack the templates, you can use an helpful script which recreates in &lt;a class="reference external" href="http://www.openstack.org"&gt;OpenStack&lt;/a&gt; the same flavors from AWS:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;

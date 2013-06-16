@@ -59,6 +59,16 @@
 
     <article>
   <div id="article_title">
+    <h3><a href="http://giuliofidente.com/2012/04/tornadoweb-on-openshift-updates.html">TornadoWeb on OpenShift (updates)</a></h3>
+  </div>
+  <div id="article_text">
+    <p><a class="reference external" href="http://openshift.redhat.com">OpenShift</a> recently introduced a new <a class="reference external" href="https://www.redhat.com/openshift/community/blogs/new-openshift-release-march-22-2012-nodejs-diy-cartridge-new-website-and-more">DIY cartridge</a> which allows for execution of any HTTP server.  Some nice features of <a class="reference external" href="http://www.tornadoweb.org">TornadoWeb</a> (like the auth modules) are not available when running as WSGI, as that doesn't permit ASYNC requests so I decided to <a class="reference external" href="https://github.com/giulivo/openshift-hellotornado">update the past HOWTO</a> documenting how to deploy it using the new DIY cartridge. Enjoy!</p>
+
+  </div>
+</article>
+<hr />
+<article>
+  <div id="article_title">
     <h3><a href="http://giuliofidente.com/2012/03/migrate-nis-to-freeipa.html">Migrate NIS to FreeIPA</a></h3>
   </div>
   <div id="article_text">
@@ -97,19 +107,6 @@
 
   </div>
 </article>
-<hr />
-<article>
-  <div id="article_title">
-    <h3><a href="http://giuliofidente.com/2012/01/dns-classless-in-addrarpa-delegation.html">DNS Classless IN-ADDR.ARPA delegation</a></h3>
-  </div>
-  <div id="article_text">
-    <p>The following is mostly taken from <a class="reference external" href="http://tools.ietf.org/html/rfc2317">http://tools.ietf.org/html/rfc2317</a> but it is so good I wanted to share it here. Basically this allows for DNS delegation of the reverse zone for address spaces covering fewer than 256 addresses. Let us assume we have assigned the address spaces to three different parties as follows:</p>
-<pre class="literal-block">
-192.0.2.0/25 to organization A
-192.0.2.128/26 to organization B
-192.0.2 ...</pre>
-  </div>
-</article>
 
     <footer>
       <p id="paginator">
@@ -120,7 +117,7 @@
     </footer>
 
     <div id="ending_message">
-      <p>&copy Giulio Fidente. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. You can fork the theme on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>. Join the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
+      <p>&copy Giulio Fidente. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. You can fork the theme on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>. Member of the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
     </div>
   </main>
   <script type="text/javascript">
