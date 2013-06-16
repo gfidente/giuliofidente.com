@@ -60,14 +60,14 @@
     <h3><a href="http://giuliofidente.com/2013/06/openstack-cinder-configure-multiple-backends.html">OpenStack Cinder - Configure multiple backends</a></h3>
   </div>
   <div id="article_text">
-    <p>Following <a class="reference external" href="http://giuliofidente.com/2013/04/openstack-cinder-add-more-volume-nodes.html">my first post of the series</a> discussing how to scale <a class="reference external" href="http://www.openstack.org">OpenStack</a> <a class="reference external" href="https://wiki.openstack.org/wiki/Cinder">Cinder</a> to multiple nodes, with this I want to approach the configuration and usage of the multibackend feature landed in Cinder with the Grizzly release.</p>
-<p>This feature allows you to configure a single volume node for use with more than a single backend driver. You can find all about the few configuration bits neede also in the <a class="reference external" href="http://docs.openstack.org/trunk/openstack-block-storage/admin/content/multi_backend.html">OpenStack block storage documentation</a>, that makes this post redundant for the most part.</p>
-<p>Some assumptions before we start though:</p>
+    <p>Following <a class="reference external" href="http://giuliofidente.com/2013/04/openstack-cinder-add-more-volume-nodes.html">my first post of the series</a> discussing how to scale <a class="reference external" href="http://www.openstack.org">OpenStack</a> <a class="reference external" href="https://wiki.openstack.org/wiki/Cinder">Cinder</a> to multiple nodes, with this I want to approach the configuration and usage of the multibackend feature landed in <a class="reference external" href="https://wiki.openstack.org/wiki/Cinder">Cinder</a> with the Grizzly release.</p>
+<p>This feature allows you to configure a single volume node for use with more than a single backend driver. You can find all about the few configuration bits needed also in the <a class="reference external" href="http://docs.openstack.org/trunk/openstack-block-storage/admin/content/multi_backend.html">OpenStack block storage documentation</a>. That makes this post somehow redundant but I wanted to keep up with the series and the topic is well worth to be kept also here.</p>
+<p>As usual, some assumptions before we start:</p>
 <ul class="simple">
-<li>you're familiar with the general OpenStack architecture</li>
-<li>you have already some Cinder volume node configured and working as expected</li>
+<li>you're familiar with the general <a class="reference external" href="http://www.openstack.org">OpenStack</a> architecture</li>
+<li>you have already some <a class="reference external" href="https://wiki.openstack.org/wiki/Cinder">Cinder</a> volume node configured and working as expected</li>
 </ul>
-<p>Assuming we want our node, currently using LVM, configured with an additional NFS backend, this is what we would need:</p>
+<p>Assuming we want our node, configured with some LVM based and an additional NFS based backend, this is what we would need to add into <code>cinder.conf</code>:</p>
 <pre class="literal-block">
 enabled_backends=lvm1,nfs1
 [lvm1]
@@ -78,28 +78,28 @@ nfs_shares_config=${PATH_TO_YOUR_SHARES_FILE}
 volume_driver=cinder.volume.drivers.nfs.NfsDriver
 volume_backend_name=NFS
 </pre>
-<p>The enabled_backends value defines the names (separated by a comma) of the config groups and those do not have to match the driver name nor the backend name. You'll have to restart the volume service.</p>
-<p>When that is done, to use a particular backend when allocating new volumes you'll have to pass a <code>volume_type</code> parameter to the creation command. Such a type has to be created beforehand and the backends assigned to it:</p>
+<p>The <code>enabled_backends</code> value defines some names (separated by a comma) for the config groups. These do not have to match the driver name nor the backend name.</p>
+<p>When the configuration is complete, to use a particular backend when allocating new volumes, you'll have to pass a <code>volume_type</code> parameter to the creation command. Such a type has to be created beforehand and to have some backends assigned to it:</p>
 <pre class="literal-block">
 # cinder type-create lvm
+# cinder type-key lvm set volume_backend_name=LVM_iSCSI
 # cinder type-create nfs
-# cinder type-key lvm1 set volume_backend_name=LVM_iSCSI
-# cinder type-key nfs1 set volume_backend_name=NFS
+# cinder type-key nfs set volume_backend_name=NFS
 </pre>
 <p>Finally, to create your volumes:</p>
 <pre class="literal-block">
 # cinder create --volume_type lvm --display_name inlvm 1
 </pre>
-<p>An addition for people using the REST interface, to set any <code>type-key</code> property, including <code>volume_backend_name</code> you pass that in the request as some <a class="reference external" href="https://github.com/openstack/cinder/blob/master/cinder/api/contrib/types_extra_specs.py">extra specs</a> and you can list those indeed to make sure the configuration is successful:</p>
+<p>For people using the REST interface, to set any <code>type-key</code> property, including <code>volume_backend_name</code>, you pass that information along with the request as <a class="reference external" href="https://github.com/openstack/cinder/blob/master/cinder/api/contrib/types_extra_specs.py">extra specs</a>. You can list those indeed to make sure the configuration is working as expected:</p>
 <pre class="literal-block">
 #  cinder extra-specs-list
 </pre>
-<p>You can have backends of the same type (driver) using different names (say two LVM based backends allocating volumes in different volume groups) or you can also have backends of the same type using the same name! The scheduler will make a decision on how to pickup the correct backend at creation time. Here are a few notes borrowed from the documentation  regarding the filter scheduler (enabled by default in Grizzly):</p>
+<p>Note that you can have backends of the same type (driver) using different names (say two LVM based backends allocating volumes in different volume groups) or you can also have backends of the same type using the same name! The scheduler is in charge of making the proper decision on how to pickup the correct backend at creation time so a few notes on the filter scheduler (enabled by default in Grizzly):</p>
 <ul class="simple">
-<li>filters the available backends (by default, AvailabilityZoneFilter, CapacityFilter and CapabilitiesFilter are enabled)</li>
-<li>weights the previously filtered backends (by default, CapacityWeigher is enabled).</li>
+<li>firstly it filters the available backends (AvailabilityZoneFilter, CapacityFilter and CapabilitiesFilter are enabled by default and the backend name is matched against the capabilities)</li>
+<li>secondly weights the previously filtered backends (CapacityWeigher is the only one enabled by default)</li>
 </ul>
-<p>The CapacityWeigher attributes high score to backends with the most available space.</p>
+<p>The CapacityWeigher attributes high score to backends with the most available space, so new volumes are allocated within the backend with more space available matching the particular name in the request.</p>
 
   </div>
   <div id="article_meta">
