@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Giulio Fidente (aka Giulivo Navigante)</title><link href="http://giuliofidente.com/" rel="alternate"></link><link href="http://giuliofidente.com/feeds/tag/heat.atom.xml" rel="self"></link><id>http://giuliofidente.com/</id><updated>2013-04-16T11:00:00+02:00</updated><entry><title>Deploy OpenStack Heat on RHEL (and derivates)</title><link href="http://giuliofidente.com/2013/04/deploy-openstack-heat-on-rhel-and-derivates.html" rel="alternate"></link><updated>2013-04-16T11:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:giuliofidente.com,2013-04-16:2013/04/deploy-openstack-heat-on-rhel-and-derivates.html</id><summary type="html">&lt;p&gt;&lt;a class="reference external" href="http://wiki.openstack.org/wiki/Heat"&gt;Heat&lt;/a&gt; provides orchestration of composite cloud applications using the CloudFormation API and templates; it is an incubated project of &lt;a class="reference external" href="http://www.openstack.org"&gt;OpenStack&lt;/a&gt;. Its development cycle has been integrated with &lt;a class="reference external" href="http://www.openstack.org"&gt;OpenStack&lt;/a&gt; from the H release and, with the recent G release, it's got more mature. I want to go trough the steps needed to install and configure it as the &lt;a class="reference external" href="http://docs.openstack.org"&gt;official documentation&lt;/a&gt; is still scarce on the matter. Firstly, what it does?&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Giulio Fidente (aka Giulivo Navigante)</title><link href="http://giuliofidente.com/" rel="alternate"></link><link href="http://giuliofidente.com/feeds/tag/heat.atom.xml" rel="self"></link><id>http://giuliofidente.com/</id><updated>2013-04-16T11:00:00+02:00</updated><entry><title>Deploy OpenStack Heat on RHEL (and derivates)</title><link href="http://giuliofidente.com/2013/04/deploy-openstack-heat-on-rhel-and-derivates.html" rel="alternate"></link><updated>2013-04-16T11:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:giuliofidente.com,2013-04-16:2013/04/deploy-openstack-heat-on-rhel-and-derivates.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;UPDATE (June 2013):&lt;/strong&gt; this post has been &lt;a class="reference external" href="http://openstack.redhat.com/Deploy_Heat_and_launch_your_first_Application"&gt;published on the RDO site&lt;/a&gt; and is now maintained there.&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://wiki.openstack.org/wiki/Heat"&gt;Heat&lt;/a&gt; provides orchestration of composite cloud applications using the CloudFormation API and templates; it is an incubated project of OpenStack. Its development cycle is to be Integrated in Havana and follow the full OpenStack release process. I want to go trough the steps needed to install and configure it as the &lt;a class="reference external" href="http://docs.openstack.org"&gt;official documentation&lt;/a&gt; is still scarce on the matter. Firstly, what it does?&lt;/p&gt;
 &lt;blockquote&gt;
 Heat is a service to orchestrate multiple composite cloud applications using the AWS CloudFormation template format, through both an OpenStack-native ReST API and a CloudFormation-compatible Query API.&lt;/blockquote&gt;
-&lt;p&gt;&lt;strong&gt;UPDATE (June 2013):&lt;/strong&gt; this post has been &lt;a class="reference external" href="http://openstack.redhat.com/Deploy_Heat_and_launch_your_first_Application"&gt;published on the RDO site&lt;/a&gt; and is maintained there with up-to-date informations&lt;/p&gt;
-&lt;p&gt;So you're going to deploy a composite application (made up of more than a single instance) on the cloud infrastructure, this also involves launchtime customizations of the VMs but before start, some assumptions are needed:&lt;/p&gt;
+&lt;p&gt;So you're going to deploy a composite application (made up of more than a single instance) on the cloud infrastructure, this also involves launchtime customizations of the VMs but, before start, some assumptions:&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;I'm using CentOS 6.4 / MySQL for the examples&lt;/li&gt;
+&lt;li&gt;I'm using CentOS 6.4 / MySQL&lt;/li&gt;
 &lt;li&gt;I'm using the &lt;a class="reference external" href="http://openstack.redhat.com"&gt;RDO&lt;/a&gt; repository to install the packages&lt;/li&gt;
 &lt;li&gt;The core &lt;a class="reference external" href="http://www.openstack.org"&gt;OpenStack&lt;/a&gt; infrastructure is already configured and in good shape&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class="section" id="installation"&gt;
 &lt;h2&gt;Installation&lt;/h2&gt;
-&lt;p&gt;If you don't have a working &lt;a class="reference external" href="http://www.openstack.org"&gt;OpenStack&lt;/a&gt; deployment yet, I recommend you to follow the instructions on the &lt;a class="reference external" href="http://openstack.redhat.com"&gt;RDO&lt;/a&gt; site, you'll get one up and running in minutes by using &lt;a class="reference external" href="http://wiki.openstack.org/Packstack"&gt;Packstack&lt;/a&gt;. When that is finished, start by installing the required packages for &lt;a class="reference external" href="http://wiki.openstack.org/wiki/Heat"&gt;Heat&lt;/a&gt; to work:&lt;/p&gt;
+&lt;p&gt;If you don't have a working &lt;a class="reference external" href="http://www.openstack.org"&gt;OpenStack&lt;/a&gt; deployment yet, I recommend you to follow the instructions on the &lt;a class="reference external" href="http://openstack.redhat.com"&gt;RDO&lt;/a&gt; site, you'll get one up and running in minutes by using &lt;a class="reference external" href="http://wiki.openstack.org/Packstack"&gt;PackStack&lt;/a&gt;. When that is finished, start by installing the required packages for &lt;a class="reference external" href="http://wiki.openstack.org/wiki/Heat"&gt;Heat&lt;/a&gt; to work:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 # yum install openstack-heat-*
 &lt;/pre&gt;
@@ -19,7 +19,7 @@ Heat is a service to orchestrate multiple composite cloud applications using the
 &lt;/div&gt;
 &lt;div class="section" id="configuration"&gt;
 &lt;h2&gt;Configuration&lt;/h2&gt;
-&lt;p&gt;&lt;a class="reference external" href="http://wiki.openstack.org/wiki/Heat"&gt;Heat&lt;/a&gt; comes with a script which creates (and populates) the needed database for it to work but you need to know your MySQL's &lt;code&gt;root&lt;/code&gt; account password. If you've used &lt;a class="reference external" href="http://wiki.openstack.org/Packstack"&gt;Packstack&lt;/a&gt;, than that is saved as &lt;code&gt;CONFIG_MYSQL_PW&lt;/code&gt; in the answers file (&lt;code&gt;/root/packstack-answers*&lt;/code&gt; by default). Now run the prepare script:&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://wiki.openstack.org/wiki/Heat"&gt;Heat&lt;/a&gt; comes with a script which creates (and populates) the needed database for it to work but you need to know your MySQL's &lt;code&gt;root&lt;/code&gt; account password. If you've used &lt;a class="reference external" href="http://wiki.openstack.org/Packstack"&gt;PackStack&lt;/a&gt;, than that is saved as &lt;code&gt;CONFIG_MYSQL_PW&lt;/code&gt; in the answers file (&lt;code&gt;/root/packstack-answers*&lt;/code&gt; by default). Now run the prepare script:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 # heat-db-setup rpm -y -r ${MYSQL_ROOT_PASSWORD} -p ${HEAT_DB_PASSWORD_OF_CHOICE}
 &lt;/pre&gt;
@@ -27,14 +27,14 @@ Heat is a service to orchestrate multiple composite cloud applications using the
 &lt;pre class="literal-block"&gt;
 sql_connection = mysql://heat:${HEAT_DB_PASSWORD}&amp;#64;localhost/heat
 &lt;/pre&gt;
-&lt;p&gt;Now go trough the &lt;em&gt;usual&lt;/em&gt; steps needed to create a new user, service and endpoint with Keystone and don't forget to source the admin credentials before starting (which are in &lt;code&gt;/root/keystonerc_admin&lt;/code&gt; if you've used &lt;a class="reference external" href="http://wiki.openstack.org/Packstack"&gt;Packstack&lt;/a&gt;):&lt;/p&gt;
+&lt;p&gt;Now go trough the &lt;em&gt;usual&lt;/em&gt; steps needed to create a new user, service and endpoint with Keystone and don't forget to source the admin credentials before starting (which are in &lt;code&gt;/root/keystonerc_admin&lt;/code&gt; if you've used &lt;a class="reference external" href="http://wiki.openstack.org/Packstack"&gt;PackStack&lt;/a&gt;):&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 # keystone user-create --name heat --pass ${HEAT_USER_PASSWORD_OF_CHOICE}
 # keystone user-role-add --user heat --role admin --tenant ${SERVICES_TENANT_NAME}
 # keystone service-create --name heat --type orchestration
 # keystone service-create --name heat-cfn --type cloudformation
-# keystone endpoint-create --region RegionOne --service-id ${HEAT-CFN-SERVICE-ID} --publicurl &amp;quot;http://${HEAT-CFN-HOSTNAME}:8000/v1&amp;quot; --adminurl &amp;quot;http://${HEAT-CFN-HOSTNAME}:8000/v1&amp;quot; --internalurl &amp;quot;http://${HEAT-CFN-HOSTNAME}:8000/v1&amp;quot;
-# keystone endpoint-create --region RegionOne --service-id ${HEAT-SERVICE-ID} --publicurl &amp;quot;http://${HEAT-HOSTNAME}:8004/v1/%(tenant_id)s&amp;quot; --adminurl &amp;quot;http://${HEAT-HOSTNAME}:8004/v1/%(tenant_id)s --internalurl &amp;quot;http://${HEAT-HOSTNAME}:8004/v1/%(tenant_id)s&amp;quot;
+# keystone endpoint-create --region RegionOne --service-id ${HEAT_CFN_SERVICE_ID} --publicurl &amp;quot;http://${HEAT_CFN_HOSTNAME}:8000/v1&amp;quot; --adminurl &amp;quot;http://${HEAT_CFN_HOSTNAME}:8000/v1&amp;quot; --internalurl &amp;quot;http://${HEAT_CFN_HOSTNAME}:8000/v1&amp;quot;
+# keystone endpoint-create --region RegionOne --service-id ${HEAT_SERVICE_ID} --publicurl &amp;quot;http://${HEAT_HOSTNAME}:8004/v1/%(tenant_id)s&amp;quot; --adminurl &amp;quot;http://${HEAT_HOSTNAME}:8004/v1/%(tenant_id)s --internalurl &amp;quot;http://${HEAT_HOSTNAME}:8004/v1/%(tenant_id)s&amp;quot;
 &lt;/pre&gt;
 &lt;p&gt;Update the paste files at &lt;code&gt;/etc/heat/heat-api{,-cfn,-cloudwatch}-paste.ini&lt;/code&gt; with the credentials just created:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
@@ -42,18 +42,18 @@ admin_tenant_name = ${SERVICES_TENANT_NAME}
 admin_user = heat
 admin_password = ${HEAT_USER_PASSWORD}
 &lt;/pre&gt;
-&lt;p&gt;In there you also need to make sure that the following variables are pointing to your Keystone host (127.0.0.1 should just work if you've used &lt;a class="reference external" href="http://wiki.openstack.org/Packstack"&gt;Packstack&lt;/a&gt; as Keystone is probably installed on the same host):&lt;/p&gt;
+&lt;p&gt;In there you also need to make sure that the following variables are pointing to your Keystone host (127.0.0.1 should just work if you've used &lt;a class="reference external" href="http://wiki.openstack.org/Packstack"&gt;PackStack&lt;/a&gt; as Keystone is probably installed on the same host):&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
-service_host = ${KEYSTONE-HOSTNAME}
-auth_host = ${KEYSTONE-HOSTNAME}
-auth_uri = http://${KEYSTONE-HOSTNAME}:35357/v2.0
-keystone_ec2_uri = http://${KEYSTONE-HOSTNAME}:5000/v2.0/ec2tokens
+service_host = ${KEYSTONE_HOSTNAME}
+auth_host = ${KEYSTONE_HOSTNAME}
+auth_uri = http://${KEYSTONE_HOSTNAME}:35357/v2.0
+keystone_ec2_uri = http://${KEYSTONE_HOSTNAME}:5000/v2.0/ec2tokens
 &lt;/pre&gt;
 &lt;p&gt;In &lt;code&gt;/etc/heat/heat-engine.conf&lt;/code&gt; you've to make instead sure that the following variables &lt;strong&gt;do not&lt;/strong&gt; point to 127.0.0.1 even though the services are actually hosted on the same system because URLs will be passed over to the VMs, which don't have them available locally:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
-heat_metadata_server_url = http://${HEAT-CFN-HOSTNAME}:8000
-heat_waitcondition_server_url = http://${HEAT-CFN-HOSTNAME}:8000/v1/waitcondition
-heat_watch_server_url = http://${HEAT-CLOUDWATCH-HOSTNAME}:8003
+heat_metadata_server_url = http://${HEAT_CFN_HOSTNAME}:8000
+heat_waitcondition_server_url = http://${HEAT_CFN_HOSTNAME}:8000/v1/waitcondition
+heat_watch_server_url = http://${HEAT_CLOUDWATCH_HOSTNAME}:8003
 &lt;/pre&gt;
 &lt;p&gt;The application templates can use wait conditions and signaling for the orchestration, &lt;a class="reference external" href="http://wiki.openstack.org/wiki/Heat"&gt;Heat&lt;/a&gt; needs to create special users to receive the progress data and these users are, by default, given the role of &lt;code&gt;heat_stack_user&lt;/code&gt;. You can configure the role name in &lt;code&gt;heat-engine.conf&lt;/code&gt; or just create a so called role:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
