@@ -16,10 +16,10 @@
 
     <link href="http://giuliofidente.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Giulio Fidente (aka Giulivo Navigante) Full Atom Feed" />
     
-  <link href="http://giuliofidente.com/feeds/tag/openstack.atom.xml" type="application/atom+xml" rel="alternate" title="Giulio Fidente (aka Giulivo Navigante) openstack Tag Atom Feed" />
+  <meta name="keywords" content="openstack, glance, fedoraplanet">
 
   <title>
-    Tag: openstack  </title>
+    OpenStack Glance - Use Swift as backend  </title>
 
   <script type="text/javascript">
   var _gaq = _gaq || [];
@@ -52,9 +52,7 @@
 
   <main>
     <header>
-      <p>Tag: openstack
-&#124; <a href="http://giuliofidente.com/feeds/tag/openstack.atom.xml">Atom Feed</a>
-</p>
+      <p>Posted on Thu 27 June 2013</p>
     </header>
 
     <article>
@@ -63,44 +61,33 @@
   </div>
   <div id="article_text">
     <p>On <a class="reference external" href="http://www.openstack.org">OpenStack</a> again but this time it is about <a class="reference external" href="https://wiki.openstack.org/wiki/Glance">Glance</a>. <a class="reference external" href="https://wiki.openstack.org/wiki/Glance">Glance</a> is the component in charge of hosting the images (and image snapshots) to be used as source for the ephemeral storage. Images usually are just some random big files and it makes perfect sense to use <a class="reference external" href="https://wiki.openstack.org/wiki/Swift">Swift</a> for such a target (a File Object storage)!</p>
-<p>By default <a class="reference external" href="https://wiki.openstack.org/wiki/Glance">Glance</a> is configured to use the local filesystem as backend so this will mostly about which config ...</p>
+<p>By default <a class="reference external" href="https://wiki.openstack.org/wiki/Glance">Glance</a> is configured to use the local filesystem as backend so this will mostly about which config options you've to change to make it save the images in <a class="reference external" href="https://wiki.openstack.org/wiki/Swift">Swift</a>.</p>
+<p>As usual, some assumptions before we start:</p>
+<ul class="simple">
+<li>you're familiar with the general <a class="reference external" href="http://www.openstack.org">OpenStack</a> architecture</li>
+<li>you have already some <a class="reference external" href="https://wiki.openstack.org/wiki/Glance">Glance</a> image node configured and working as expected</li>
+</ul>
+<p>Only few changes have to be made in <code>glance-api.conf</code>):</p>
+<pre class="literal-block">
+default_store = swift
+swift_store_auth_address = $KEYSTONE_SERVICE_PROTOCOL://$KEYSTONE_SERVICE_HOST:$KEYSTONE_SERVICE_PORT/v2.0/
+swift_store_user = $SERVICE_TENANT_NAME:glance
+swift_store_key = $SERVICE_PASSWORD
+swift_store_create_container_on_put = True
+</pre>
+<p>These are probably self-explanatory but have a few tips to spare! If you decide to go via https for the keystone service, make sure you can validate locally (on <a class="reference external" href="https://wiki.openstack.org/wiki/Glance">Glance</a>) the certificate. If unsure about the values for the $SERVICE_* variables, those should have been set already in the <code>keystone_authtoken</code> section.</p>
+<p>Short and straight to the point!</p>
+
   </div>
-</article>
-<hr />
-<article>
-  <div id="article_title">
-    <h3><a href="http://giuliofidente.com/2013/06/openstack-cinder-configure-multiple-backends.html">OpenStack Cinder - Configure multiple backends</a></h3>
-  </div>
-  <div id="article_text">
-    <p>Following <a class="reference external" href="http://giuliofidente.com/2013/04/openstack-cinder-add-more-volume-nodes.html">my first post of the series</a> discussing how to scale <a class="reference external" href="http://www.openstack.org">OpenStack</a> <a class="reference external" href="https://wiki.openstack.org/wiki/Cinder">Cinder</a> to multiple nodes, with this I want to approach the configuration and usage of the multibackend feature landed in <a class="reference external" href="https://wiki.openstack.org/wiki/Cinder">Cinder</a> with the Grizzly release.</p>
-<p>This feature allows you to configure a single volume node for use with more than a single backend driver. You can find all about the few configuration bits needed also in the <a class="reference external" href="http://docs.openstack.org/trunk/openstack-block-storage/admin/content/multi_backend.html">OpenStack block storage documentation</a>. That makes ...</p>
-  </div>
-</article>
-<hr />
-<article>
-  <div id="article_title">
-    <h3><a href="http://giuliofidente.com/2013/04/openstack-cinder-add-more-volume-nodes.html">OpenStack Cinder - Add more volume nodes</a></h3>
-  </div>
-  <div id="article_text">
-    <p>With this being the first of a short series, I'd like to publish some articles intendend to cover the required steps to configure <a class="reference external" href="https://wiki.openstack.org/wiki/Cinder">Cinder</a> (<a class="reference external" href="http://www.openstack.org">OpenStack</a> block storage service) in a mid/large deployment scenario. The idea is to discuss at least three topics: how to scale the service by adding more volume nodes; how to ensure high-availablity for the API and Scheduler sub-services; leverage the multi-backend feature landed in Grizzly.</p>
-<p>I'm starting with ...</p>
-  </div>
-</article>
-<hr />
-<article>
-  <div id="article_title">
-    <h3><a href="http://giuliofidente.com/2013/04/deploy-openstack-heat-on-rhel-and-derivates.html">Deploy OpenStack Heat on RHEL (and derivates)</a></h3>
-  </div>
-  <div id="article_text">
-    <p><strong>UPDATE (June 2013):</strong> this post has been <a class="reference external" href="http://openstack.redhat.com/Deploy_Heat_and_launch_your_first_Application">published on the RDO site</a> and is now maintained there.</p>
-<p><a class="reference external" href="http://wiki.openstack.org/wiki/Heat">Heat</a> provides orchestration of composite cloud applications using the CloudFormation API and templates; it is an incubated project of OpenStack. Its development cycle is to be Integrated in Havana and follow the full OpenStack release process. I want to go trough the steps needed to install and configure it as the <a class="reference external" href="http://docs.openstack.org">official documentation</a> is still scarce on the ...</p>
-  </div>
+  <div id="article_meta">
+    <p>Category: <a href="http://giuliofidente.com/category/techie.html">techie</a></p>
+        <p>Tags:
+            <a href="http://giuliofidente.com/tag/openstack.html">openstack</a>,            <a href="http://giuliofidente.com/tag/glance.html">glance</a>,            <a href="http://giuliofidente.com/tag/fedoraplanet.html">fedoraplanet</a>          </p>
+      </div>
 </article>
 
     <footer>
-      <p id="paginator">
-
-</p>
+      <p><a href="http://giuliofidente.com/" class="button_accent">&larr; Back to Index</a></p>
     </footer>
 
     <div id="ending_message">

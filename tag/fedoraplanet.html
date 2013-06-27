@@ -59,6 +59,16 @@
 
     <article>
   <div id="article_title">
+    <h3><a href="http://giuliofidente.com/2013/06/openstack-glance-use-swift-as-backend.html">OpenStack Glance - Use Swift as backend</a></h3>
+  </div>
+  <div id="article_text">
+    <p>On <a class="reference external" href="http://www.openstack.org">OpenStack</a> again but this time it is about <a class="reference external" href="https://wiki.openstack.org/wiki/Glance">Glance</a>. <a class="reference external" href="https://wiki.openstack.org/wiki/Glance">Glance</a> is the component in charge of hosting the images (and image snapshots) to be used as source for the ephemeral storage. Images usually are just some random big files and it makes perfect sense to use <a class="reference external" href="https://wiki.openstack.org/wiki/Swift">Swift</a> for such a target (a File Object storage)!</p>
+<p>By default <a class="reference external" href="https://wiki.openstack.org/wiki/Glance">Glance</a> is configured to use the local filesystem as backend so this will mostly about which config ...</p>
+  </div>
+</article>
+<hr />
+<article>
+  <div id="article_title">
     <h3><a href="http://giuliofidente.com/2013/06/openstack-cinder-configure-multiple-backends.html">OpenStack Cinder - Configure multiple backends</a></h3>
   </div>
   <div id="article_text">
@@ -94,16 +104,6 @@
   <div id="article_text">
     <p><strong>UPDATE (June 2013):</strong> this post has been <a class="reference external" href="http://openstack.redhat.com/Deploy_Heat_and_launch_your_first_Application">published on the RDO site</a> and is now maintained there.</p>
 <p><a class="reference external" href="http://wiki.openstack.org/wiki/Heat">Heat</a> provides orchestration of composite cloud applications using the CloudFormation API and templates; it is an incubated project of OpenStack. Its development cycle is to be Integrated in Havana and follow the full OpenStack release process. I want to go trough the steps needed to install and configure it as the <a class="reference external" href="http://docs.openstack.org">official documentation</a> is still scarce on the ...</p>
-  </div>
-</article>
-<hr />
-<article>
-  <div id="article_title">
-    <h3><a href="http://giuliofidente.com/2012/10/1366x768-is-not-allowed-in-the-edid-block-heres-how-to-write-your-xorg-modeline.html">1366x768 is not allowed in the EDID block. Here's how to write your XOrg modeline.</a></h3>
-  </div>
-  <div id="article_text">
-    <p>Looks like there are many LCD panels/TVs out there with a native resolution of 1366x768. That is indeed a very close approximation to the expected 16:9 rectangle, except XOrg keeps showing you a resolution of 1360x768 (or 1368x768) instead of the native 1366x768. Why? Because 1366 is not divisible by 8 and that's not valid in an EDID block. <a class="reference external" href="http://en.wikipedia.org/wiki/Extended_display_identification_data#Limitations">Learn more on wikipedia</a>.</p>
-<p>You need a custom <a class="reference external" href="http://en.wikipedia.org/wiki/XFree86_Modeline">modeline in your xorg.conf ...</a></p>
   </div>
 </article>
 
