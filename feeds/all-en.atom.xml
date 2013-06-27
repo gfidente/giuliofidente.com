@@ -5,7 +5,7 @@
 &lt;li&gt;you're familiar with the general &lt;a class="reference external" href="http://www.openstack.org"&gt;OpenStack&lt;/a&gt; architecture&lt;/li&gt;
 &lt;li&gt;you have already some &lt;a class="reference external" href="https://wiki.openstack.org/wiki/Glance"&gt;Glance&lt;/a&gt; image node configured and working as expected&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;This said, only few changes are needed to swap from local filesystem storage to &lt;a class="reference external" href="https://wiki.openstack.org/wiki/Swift"&gt;Swift&lt;/a&gt;. Edit the &lt;code&gt;glance-api.conf&lt;/code&gt;) as follows:&lt;/p&gt;
+&lt;p&gt;This said, only few changes are needed to swap from local filesystem storage to &lt;a class="reference external" href="https://wiki.openstack.org/wiki/Swift"&gt;Swift&lt;/a&gt;. Edit the &lt;code&gt;glance-api.conf&lt;/code&gt; as follows:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 default_store = swift
 swift_store_auth_address = $KEYSTONE_SERVICE_PROTOCOL://$KEYSTONE_SERVICE_HOST:$KEYSTONE_SERVICE_PORT/v2.0/
