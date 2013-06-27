@@ -92,8 +92,11 @@ it's always fun to see what technology can do, and if we don't tinker we'll neve
     <h3><a href="http://giuliofidente.com/2013/06/openstack-glance-use-swift-as-backend.html">OpenStack Glance - Use Swift as backend</a></h3>
   </div>
   <div id="article_text">
-    <p>On <a class="reference external" href="http://www.openstack.org">OpenStack</a> again but this time it is about <a class="reference external" href="https://wiki.openstack.org/wiki/Glance">Glance</a>. <a class="reference external" href="https://wiki.openstack.org/wiki/Glance">Glance</a> is the component in charge of hosting the images (and image snapshots) to be used as source for the ephemeral storage. Images usually are just some random big files and it makes perfect sense to use <a class="reference external" href="https://wiki.openstack.org/wiki/Swift">Swift</a> for such a target (a File Object storage)!</p>
-<p>By default <a class="reference external" href="https://wiki.openstack.org/wiki/Glance">Glance</a> is configured to use the local filesystem as backend so this will mostly about which config ...</p>
+    <p>On <a class="reference external" href="http://www.openstack.org">OpenStack</a> again but about <a class="reference external" href="https://wiki.openstack.org/wiki/Glance">Glance</a> this time. <a class="reference external" href="https://wiki.openstack.org/wiki/Glance">Glance</a> is the component in charge of hosting the images (and image snapshots) to be cloned for the ephemeral instances. Images usually are just some random big files so it makes perfect sense to use <a class="reference external" href="https://wiki.openstack.org/wiki/Swift">Swift</a> for such an object (a File Object storage)!</p>
+<p>As usual, some assumptions before we start:</p>
+<ul class="simple">
+<li>you're familiar with the general <a class="reference external" href="http://www.openstack.org">OpenStack</a> architecture</li>
+<li>you have already some <a class="reference external" href="https://wiki.openstack.org/wiki/Glance">Glance</a> image node configured ...</li></ul>
   </div>
 </article>
 <hr />
