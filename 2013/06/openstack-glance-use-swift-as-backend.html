@@ -69,7 +69,7 @@
 <p>This said, only few changes are needed to swap from local filesystem storage to <a class="reference external" href="https://wiki.openstack.org/wiki/Swift">Swift</a>. Edit the <code>glance-api.conf</code> as follows:</p>
 <pre class="literal-block">
 default_store = swift
-swift_store_auth_address = $KEYSTONE_SERVICE_PROTOCOL://$KEYSTONE_SERVICE_HOST:$KEYSTONE_SERVICE_PORT/v2.0/
+swift_store_auth_address = $KEYSTONE_PROTOCOL://$KEYSTONE_HOST:$KEYSTONE_PORT/v2.0/
 swift_store_user = $SERVICE_TENANT_NAME:glance
 swift_store_key = $SERVICE_PASSWORD
 swift_store_create_container_on_put = True
