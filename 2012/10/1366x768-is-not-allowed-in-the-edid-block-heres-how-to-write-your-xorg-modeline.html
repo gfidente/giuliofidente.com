@@ -56,10 +56,10 @@
     </header>
 
     <article>
-  <div id="article_title">
+  <div class="article_title">
     <h3><a href="http://giuliofidente.com/2012/10/1366x768-is-not-allowed-in-the-edid-block-heres-how-to-write-your-xorg-modeline.html">1366x768 is not allowed in the EDID block. Here's how to write your XOrg modeline.</a></h3>
   </div>
-  <div id="article_text">
+  <div class="article_text">
     <p>Looks like there are many LCD panels/TVs out there with a native resolution of 1366x768. That is indeed a very close approximation to the expected 16:9 rectangle, except XOrg keeps showing you a resolution of 1360x768 (or 1368x768) instead of the native 1366x768. Why? Because 1366 is not divisible by 8 and that's not valid in an EDID block. <a class="reference external" href="http://en.wikipedia.org/wiki/Extended_display_identification_data#Limitations">Learn more on wikipedia</a>.</p>
 <p>You need a custom <a class="reference external" href="http://en.wikipedia.org/wiki/XFree86_Modeline">modeline in your xorg.conf</a> file for that. The NVIDIA drivers also have some <a class="reference external" href="http://us.download.nvidia.com/XFree86/Linux-x86_64/304.43/README/xconfigoptions.html">ModeValidation</a> setting which needs some attention. Let's start with the last one, you need to add the following (in the Screen section):</p>
 <pre class="literal-block">
@@ -110,7 +110,7 @@ $ xvidtune -show
 <p>Finally, for this blog post all the values I'm using refer to the LG 37LG3000. Enjoy!</p>
 
   </div>
-  <div id="article_meta">
+  <div class="article_meta">
     <p>Category: <a href="http://giuliofidente.com/category/techie.html">techie</a></p>
         <p>Tags:
             <a href="http://giuliofidente.com/tag/1366x768.html">1366x768</a>,            <a href="http://giuliofidente.com/tag/xorg-modeline.html">xorg modeline</a>,            <a href="http://giuliofidente.com/tag/linux.html">linux</a>,            <a href="http://giuliofidente.com/tag/fedoraplanet.html">fedoraplanet</a>,            <a href="http://giuliofidente.com/tag/nvidia.html">nvidia</a>          </p>
@@ -131,7 +131,7 @@ $ xvidtune -show
     </footer>
 
     <div id="ending_message">
-      <p>&copy Giulio Fidente. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>. Member of the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
+      <p>&copy; Giulio Fidente. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>. Member of the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
     </div>
   </main>
   <script type="text/javascript">

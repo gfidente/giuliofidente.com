@@ -58,10 +58,10 @@
     </header>
 
     <article>
-  <div id="article_title">
+  <div class="article_title">
     <h3><a href="http://giuliofidente.com/2013/06/openstack-glance-use-swift-as-backend.html">OpenStack Glance - Use Swift as backend</a></h3>
   </div>
-  <div id="article_text">
+  <div class="article_text">
     <p>On <a class="reference external" href="http://www.openstack.org">OpenStack</a> again but about <a class="reference external" href="https://wiki.openstack.org/wiki/Glance">Glance</a> this time. <a class="reference external" href="https://wiki.openstack.org/wiki/Glance">Glance</a> is the component in charge of hosting the images (and image snapshots) to be cloned for the ephemeral instances. Images usually are just some random big files so it makes perfect sense to use <a class="reference external" href="https://wiki.openstack.org/wiki/Swift">Swift</a> for such an object (a File Object storage)!</p>
 <p>As usual, some assumptions before we start:</p>
 <ul class="simple">
@@ -71,43 +71,43 @@
 </article>
 <hr />
 <article>
-  <div id="article_title">
+  <div class="article_title">
     <h3><a href="http://giuliofidente.com/2013/06/openstack-cinder-configure-multiple-backends.html">OpenStack Cinder - Configure multiple backends</a></h3>
   </div>
-  <div id="article_text">
+  <div class="article_text">
     <p>Following <a class="reference external" href="http://giuliofidente.com/2013/04/openstack-cinder-add-more-volume-nodes.html">my first post of the series</a> discussing how to scale <a class="reference external" href="http://www.openstack.org">OpenStack</a> <a class="reference external" href="https://wiki.openstack.org/wiki/Cinder">Cinder</a> to multiple nodes, with this I want to approach the configuration and usage of the multibackend feature landed in <a class="reference external" href="https://wiki.openstack.org/wiki/Cinder">Cinder</a> with the Grizzly release.</p>
 <p>This feature allows you to configure a single volume node for use with more than a single backend driver. You can find all about the few configuration bits needed also in the <a class="reference external" href="http://docs.openstack.org/trunk/openstack-block-storage/admin/content/multi_backend.html">OpenStack block storage documentation</a>. That makes ...</p>
   </div>
 </article>
 <hr />
 <article>
-  <div id="article_title">
+  <div class="article_title">
     <h3><a href="http://giuliofidente.com/2013/04/openstack-cinder-add-more-volume-nodes.html">OpenStack Cinder - Add more volume nodes</a></h3>
   </div>
-  <div id="article_text">
+  <div class="article_text">
     <p>With this being the first of a short series, I'd like to publish some articles intendend to cover the required steps to configure <a class="reference external" href="https://wiki.openstack.org/wiki/Cinder">Cinder</a> (<a class="reference external" href="http://www.openstack.org">OpenStack</a> block storage service) in a mid/large deployment scenario. The idea is to discuss at least three topics: how to scale the service by adding more volume nodes; how to ensure high-availablity for the API and Scheduler sub-services; leverage the multi-backend feature landed in Grizzly.</p>
 <p>I'm starting with ...</p>
   </div>
 </article>
 <hr />
 <article>
-  <div id="article_title">
+  <div class="article_title">
     <h3><a href="http://giuliofidente.com/2013/04/deploy-openstack-heat-on-rhel-and-derivates.html">Deploy OpenStack Heat on RHEL (and derivates)</a></h3>
   </div>
-  <div id="article_text">
+  <div class="article_text">
     <p><strong>UPDATE (June 2013):</strong> this post has been <a class="reference external" href="http://openstack.redhat.com/Deploy_Heat_and_launch_your_first_Application">published on the RDO site</a> and is now maintained there.</p>
 <p><a class="reference external" href="http://wiki.openstack.org/wiki/Heat">Heat</a> provides orchestration of composite cloud applications using the CloudFormation API and templates; it is an incubated project of OpenStack. Its development cycle is to be Integrated in Havana and follow the full OpenStack release process. I want to go trough the steps needed to install and configure it as the <a class="reference external" href="http://docs.openstack.org">official documentation</a> is still scarce on the ...</p>
   </div>
 </article>
 
     <footer>
-      <p id="paginator">
+      <div id="paginator">
 
-</p>
+</div>
     </footer>
 
     <div id="ending_message">
-      <p>&copy Giulio Fidente. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>. Member of the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
+      <p>&copy; Giulio Fidente. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>. Member of the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
     </div>
   </main>
   <script type="text/javascript">

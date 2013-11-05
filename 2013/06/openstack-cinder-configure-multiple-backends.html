@@ -56,10 +56,10 @@
     </header>
 
     <article>
-  <div id="article_title">
+  <div class="article_title">
     <h3><a href="http://giuliofidente.com/2013/06/openstack-cinder-configure-multiple-backends.html">OpenStack Cinder - Configure multiple backends</a></h3>
   </div>
-  <div id="article_text">
+  <div class="article_text">
     <p>Following <a class="reference external" href="http://giuliofidente.com/2013/04/openstack-cinder-add-more-volume-nodes.html">my first post of the series</a> discussing how to scale <a class="reference external" href="http://www.openstack.org">OpenStack</a> <a class="reference external" href="https://wiki.openstack.org/wiki/Cinder">Cinder</a> to multiple nodes, with this I want to approach the configuration and usage of the multibackend feature landed in <a class="reference external" href="https://wiki.openstack.org/wiki/Cinder">Cinder</a> with the Grizzly release.</p>
 <p>This feature allows you to configure a single volume node for use with more than a single backend driver. You can find all about the few configuration bits needed also in the <a class="reference external" href="http://docs.openstack.org/trunk/openstack-block-storage/admin/content/multi_backend.html">OpenStack block storage documentation</a>. That makes this post somehow redundant but I wanted to keep up with the series and the topic is well worth to be kept also here.</p>
 <p>As usual, some assumptions before we start:</p>
@@ -102,7 +102,7 @@ volume_backend_name=NFS
 <p>The CapacityWeigher attributes high score to backends with the most available space, so new volumes are allocated within the backend with the more space available matching the particular name in the request.</p>
 
   </div>
-  <div id="article_meta">
+  <div class="article_meta">
     <p>Category: <a href="http://giuliofidente.com/category/techie.html">techie</a></p>
         <p>Tags:
             <a href="http://giuliofidente.com/tag/openstack.html">openstack</a>,            <a href="http://giuliofidente.com/tag/cinder.html">cinder</a>,            <a href="http://giuliofidente.com/tag/fedoraplanet.html">fedoraplanet</a>          </p>
@@ -123,7 +123,7 @@ volume_backend_name=NFS
     </footer>
 
     <div id="ending_message">
-      <p>&copy Giulio Fidente. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>. Member of the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
+      <p>&copy; Giulio Fidente. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>. Member of the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
     </div>
   </main>
   <script type="text/javascript">

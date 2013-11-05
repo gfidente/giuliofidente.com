@@ -56,10 +56,10 @@
     </header>
 
     <article>
-  <div id="article_title">
+  <div class="article_title">
     <h3><a href="http://giuliofidente.com/2013/04/openstack-cinder-add-more-volume-nodes.html">OpenStack Cinder - Add more volume nodes</a></h3>
   </div>
-  <div id="article_text">
+  <div class="article_text">
     <p>With this being the first of a short series, I'd like to publish some articles intendend to cover the required steps to configure <a class="reference external" href="https://wiki.openstack.org/wiki/Cinder">Cinder</a> (<a class="reference external" href="http://www.openstack.org">OpenStack</a> block storage service) in a mid/large deployment scenario. The idea is to discuss at least three topics: how to scale the service by adding more volume nodes; how to ensure high-availablity for the API and Scheduler sub-services; leverage the multi-backend feature landed in Grizzly.</p>
 <p>I'm starting with this post on the scaling issue first. <a class="reference external" href="https://wiki.openstack.org/wiki/Cinder">Cinder</a> is composed of three main parts, the API server, the scheduler and the volume service. The volume service is some sort of abstraction layer between the API and the actual resources provider.</p>
 <p>By adding more volume nodes into the environment you will be able to increase the total offering of block storage to the tenants. Each volume node can either provide volumes by allocating them locally or on a remote container like an NFS or GlusterFS share.</p>
@@ -102,7 +102,7 @@ iscsi_ip_address=${TGTD_IP_ADDRESS}
 <p>you should see all of your volume nodes listed. From now on you can create new volumes as usual and they will be allocated on any of the volume nodes, keep in mind that the scheduler will default to the node with the most space available.</p>
 
   </div>
-  <div id="article_meta">
+  <div class="article_meta">
     <p>Category: <a href="http://giuliofidente.com/category/techie.html">techie</a></p>
         <p>Tags:
             <a href="http://giuliofidente.com/tag/openstack.html">openstack</a>,            <a href="http://giuliofidente.com/tag/cinder.html">cinder</a>,            <a href="http://giuliofidente.com/tag/fedoraplanet.html">fedoraplanet</a>          </p>
@@ -123,7 +123,7 @@ iscsi_ip_address=${TGTD_IP_ADDRESS}
     </footer>
 
     <div id="ending_message">
-      <p>&copy Giulio Fidente. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>. Member of the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
+      <p>&copy; Giulio Fidente. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>. Member of the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
     </div>
   </main>
   <script type="text/javascript">
