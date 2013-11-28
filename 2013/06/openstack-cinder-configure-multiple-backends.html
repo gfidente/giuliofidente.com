@@ -14,14 +14,14 @@
   <meta name="author" content="Giulio Fidente">
   <meta name="description" content="Posts and writings by Giulio Fidente">
 
-    <link href="http://giuliofidente.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Giulio Fidente (aka Giulivo Navigante) Full Atom Feed" />
-    
-  <meta name="keywords" content="openstack, cinder, fedoraplanet">
+  <link href="http://giuliofidente.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Giulio Fidente (aka Giulivo Navigante) Full Atom Feed" />
+
+<meta name="keywords" content="openstack, cinder, fedoraplanet">
 
   <title>
-    OpenStack Cinder - Configure multiple backends  </title>
+OpenStack Cinder - Configure multiple backends  </title>
 
-  <script type="text/javascript">
+<script type="text/javascript">
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-39216528-1']);
   _gaq.push(['_trackPageview']);
@@ -38,24 +38,24 @@
   <aside>
     <div id="user_meta">
       <a href="http://giuliofidente.com">
-                <img src="http://giuliofidente.com/static/images/gravatar_to140.png" alt="logo">
-              </a>
+        <img src="http://giuliofidente.com/static/images/gravatar_to140.png" alt="logo">
+      </a>
       <h2><a href="http://giuliofidente.com">Giulio Fidente</a></h2>
       <p>Systems engineer devoted to automation. Enjoy web programming. Work @Red Hat.</p>
       <ul>
-                        <li><a href="http://giuliofidente.com/pages/about.html">About</a></li>
-                <li><a href="http://giuliofidente.com/pages/projects.html">Projects</a></li>
-                                <li><a href="mailto:giulioATgiuliofidenteDOTcom" target="_blank">Email</a></li>
-              </ul>
+        <li><a href="http://giuliofidente.com/pages/about.html">About</a></li>
+        <li><a href="http://giuliofidente.com/pages/projects.html">Projects</a></li>
+        <li><a href="mailto:giulioATgiuliofidenteDOTcom" target="_blank">Email</a></li>
+      </ul>
     </div>
   </aside>
 
   <main>
     <header>
-      <p>Posted on Sun 16 June 2013</p>
+<p>Posted on Sun 16 June 2013</p>
     </header>
 
-    <article>
+<article>
   <div class="article_title">
     <h3><a href="http://giuliofidente.com/2013/06/openstack-cinder-configure-multiple-backends.html">OpenStack Cinder - Configure multiple backends</a></h3>
   </div>
@@ -100,19 +100,20 @@ volume_backend_name=NFS
 <li>secondly weights the previously filtered backends (CapacityWeigher is the only one enabled by default)</li>
 </ul>
 <p>The CapacityWeigher attributes high score to backends with the most available space, so new volumes are allocated within the backend with the more space available matching the particular name in the request.</p>
+<p><strong>UPDATE (Nov 2013):</strong> As reported by Yogev <a class="reference external" href="https://bugzilla.redhat.com/show_bug.cgi?id=1031010">in this bug</a>, misplacing the settings can have dangerous side effects. All settings below the <code>enabled_backends</code> parameter are actually in some section (eg. [lvm1]) of the ini file rather than [DEFAULT]. Make sure to move the [lvm1] and [nfs1] settings to the bottom of the file and so that all other settings are in the [DEFAULT] section.</p>
 
   </div>
   <div class="article_meta">
     <p>Category: <a href="http://giuliofidente.com/category/techie.html">techie</a></p>
-        <p>Tags:
-            <a href="http://giuliofidente.com/tag/openstack.html">openstack</a>,            <a href="http://giuliofidente.com/tag/cinder.html">cinder</a>,            <a href="http://giuliofidente.com/tag/fedoraplanet.html">fedoraplanet</a>          </p>
-          </div>
+    <p>Tags:
+      <a href="http://giuliofidente.com/tag/openstack.html">openstack</a>,      <a href="http://giuliofidente.com/tag/cinder.html">cinder</a>,      <a href="http://giuliofidente.com/tag/fedoraplanet.html">fedoraplanet</a>    </p>
+  </div>
 
-  
+
 </article>
 
     <footer>
-      <p><a href="http://giuliofidente.com/" class="button_accent">&larr; Back to Index</a></p>
+<p><a href="http://giuliofidente.com/" class="button_accent">&larr; Back to Index</a></p>
 <script language="javascript">
     function toggleComments() {
         var commentDiv = document.getElementById("article_comments");
@@ -126,7 +127,7 @@ volume_backend_name=NFS
       <p>&copy; Giulio Fidente. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>. Member of the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
     </div>
   </main>
-  <script type="text/javascript">
+<script type="text/javascript">
   window._idl = {};
   _idl.variant = "banner";
   (function() {

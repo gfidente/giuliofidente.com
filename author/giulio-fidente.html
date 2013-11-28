@@ -14,13 +14,13 @@
   <meta name="author" content="Giulio Fidente">
   <meta name="description" content="Posts and writings by Giulio Fidente">
 
-    <link href="http://giuliofidente.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Giulio Fidente (aka Giulivo Navigante) Full Atom Feed" />
-    
-    
-  <title>
-    Author: Giulio Fidente  </title>
+  <link href="http://giuliofidente.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Giulio Fidente (aka Giulivo Navigante) Full Atom Feed" />
 
-  <script type="text/javascript">
+
+  <title>
+Author: Giulio Fidente  </title>
+
+<script type="text/javascript">
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-39216528-1']);
   _gaq.push(['_trackPageview']);
@@ -37,75 +37,78 @@
   <aside>
     <div id="user_meta">
       <a href="http://giuliofidente.com">
-                <img src="http://giuliofidente.com/static/images/gravatar_to140.png" alt="logo">
-              </a>
+        <img src="http://giuliofidente.com/static/images/gravatar_to140.png" alt="logo">
+      </a>
       <h2><a href="http://giuliofidente.com">Giulio Fidente</a></h2>
       <p>Systems engineer devoted to automation. Enjoy web programming. Work @Red Hat.</p>
       <ul>
-                        <li><a href="http://giuliofidente.com/pages/about.html">About</a></li>
-                <li><a href="http://giuliofidente.com/pages/projects.html">Projects</a></li>
-                                <li><a href="mailto:giulioATgiuliofidenteDOTcom" target="_blank">Email</a></li>
-              </ul>
+        <li><a href="http://giuliofidente.com/pages/about.html">About</a></li>
+        <li><a href="http://giuliofidente.com/pages/projects.html">Projects</a></li>
+        <li><a href="mailto:giulioATgiuliofidenteDOTcom" target="_blank">Email</a></li>
+      </ul>
     </div>
   </aside>
 
   <main>
     <header>
-      <p>Author: Giulio Fidente</p>
+<p>Author: Giulio Fidente</p>
     </header>
 
-    <article>
+<article>
   <div class="article_title">
-    <h3><a href="http://giuliofidente.com/2012/10/1366x768-is-not-allowed-in-the-edid-block-heres-how-to-write-your-xorg-modeline.html">1366x768 is not allowed in the EDID block. Here's how to write your XOrg modeline.</a></h3>
+    <h3><a href="http://giuliofidente.com/2013/07/my-takeaways-from-europython-2013.html">My takeaways from EuroPython 2013</a></h3>
   </div>
   <div class="article_text">
-    <p>Looks like there are many LCD panels/TVs out there with a native resolution of 1366x768. That is indeed a very close approximation to the expected 16:9 rectangle, except XOrg keeps showing you a resolution of 1360x768 (or 1368x768) instead of the native 1366x768. Why? Because 1366 is not divisible by 8 and that's not valid in an EDID block. <a class="reference external" href="http://en.wikipedia.org/wiki/Extended_display_identification_data#Limitations">Learn more on wikipedia</a>.</p>
-<p>You need a custom <a class="reference external" href="http://en.wikipedia.org/wiki/XFree86_Modeline">modeline in your xorg.conf ...</a></p>
+    <p>Been there! The event was very well organized and even the food was good. The following are the talks I attended with some comments and my takeaways.</p>
+<p>Despite the <a class="reference external" href="http://europython.eu">EuroPython</a> 2013 lasting a full week, including the weekend with some code sprints, I could only join the event for three days, from Tuesday to Thursday. Still it was a great experience and a good chance to learn about new things while also meet people who ...</p>
   </div>
 </article>
 <hr />
 <article>
   <div class="article_title">
-    <h3><a href="http://giuliofidente.com/2012/02/a-quickstart-guide-to-the-command-line-openshift-client.html">A quickstart guide to the command line OpenShift client</a></h3>
+    <h3><a href="http://giuliofidente.com/2013/06/openstack-glance-use-swift-as-backend.html">OpenStack Glance - Use Swift as backend</a></h3>
   </div>
   <div class="article_text">
-    <p>I've published a little guide to the rhc command line tool, that is the command line tool (ruby gem) needed to deploy your apps on <a class="reference external" href="http://openshift.redhat.com">OpenShift</a>. You can find it here: <a class="reference external" href="https://github.com/giulivo/openshift-rhc-quickstart">https://github.com/giulivo/openshift-rhc-quickstart</a></p>
-
+    <p>On <a class="reference external" href="http://www.openstack.org">OpenStack</a> again but about <a class="reference external" href="https://wiki.openstack.org/wiki/Glance">Glance</a> this time. <a class="reference external" href="https://wiki.openstack.org/wiki/Glance">Glance</a> is the component in charge of hosting the images (and image snapshots) to be cloned for the ephemeral instances. Images usually are just some random big files so it makes perfect sense to use <a class="reference external" href="https://wiki.openstack.org/wiki/Swift">Swift</a> for such an object (a File Object storage)!</p>
+<p>As usual, some assumptions before we start:</p>
+<ul class="simple">
+<li>you're familiar with the general <a class="reference external" href="http://www.openstack.org">OpenStack</a> architecture</li>
+<li>you have already some <a class="reference external" href="https://wiki.openstack.org/wiki/Glance">Glance</a> image node configured ...</li></ul>
   </div>
 </article>
 <hr />
 <article>
   <div class="article_title">
-    <h3><a href="http://giuliofidente.com/2008/12/a-small-portion-of-extra-time.html">A small portion of extra time</a></h3>
+    <h3><a href="http://giuliofidente.com/2013/06/openstack-cinder-configure-multiple-backends.html">OpenStack Cinder - Configure multiple backends</a></h3>
   </div>
   <div class="article_text">
-    <p>For three years it was possible to do without it. But now it's become necessary again. This coming New Year's Eve, the radio controlled clocks will, after 0:59:59, instead of jumping to 1 o'clock at the next tick of the second, pause shortly in order to insert a small portion of extra time: a leap second.</p>
-<p>The International Earth Rotation Service (IERS) in Paris has prescribed this addition to coordinated ...</p>
+    <p>Following <a class="reference external" href="http://giuliofidente.com/2013/04/openstack-cinder-add-more-volume-nodes.html">my first post of the series</a> discussing how to scale <a class="reference external" href="http://www.openstack.org">OpenStack</a> <a class="reference external" href="https://wiki.openstack.org/wiki/Cinder">Cinder</a> to multiple nodes, with this I want to approach the configuration and usage of the multibackend feature landed in <a class="reference external" href="https://wiki.openstack.org/wiki/Cinder">Cinder</a> with the Grizzly release.</p>
+<p>This feature allows you to configure a single volume node for use with more than a single backend driver. You can find all about the few configuration bits needed also in the <a class="reference external" href="http://docs.openstack.org/trunk/openstack-block-storage/admin/content/multi_backend.html">OpenStack block storage documentation</a>. That makes ...</p>
   </div>
 </article>
 <hr />
 <article>
   <div class="article_title">
-    <h3><a href="http://giuliofidente.com/2012/06/aeolus.html">Aeolus</a></h3>
+    <h3><a href="http://giuliofidente.com/2013/05/todoist-tips.html">ToDoist TIPS</a></h3>
   </div>
   <div class="article_text">
-    <p>This isn't going to be a real presentation of the <cite>aeolus project</cite> but I'm currently QAing it and I'd like to to discuss some use cases as there seems to be a lot of confusion around the cloud term these days. Firstly, what is aeolus? It is a collection of tools, you have the full listing at <a class="reference external" href="http://www.aeolusproject.org/projects.html">http://www.aeolusproject.org/projects.html</a></p>
-<p>Basically it allows you to automate the build of ...</p>
+    <p>I was recently on the look out for some web (and portable) ToDo management application. I tried many, as many are free.</p>
+<p>At some point I was even forced to re-define my own needs as I got confused. There are indeed at least two different kinds of tracking applications. Some are like <a class="reference external" href="http://idonethis.com">iDoneThis</a>, which is a sort of reporting tool. Some are more like <a class="reference external" href="http://dontforgetthemilk.com">Don't Forget The Milk</a>, which seems more a pure ToDo ...</p>
   </div>
 </article>
 <hr />
 <article>
   <div class="article_title">
-    <h3><a href="http://giuliofidente.com/2009/08/audio-extraction-from-dvds.html">Audio extraction from DVDs</a></h3>
+    <h3><a href="http://giuliofidente.com/2013/04/openstack-cinder-add-more-volume-nodes.html">OpenStack Cinder - Add more volume nodes</a></h3>
   </div>
   <div class="article_text">
-    <p>I recently bought some dvds and they don't contain films but concerts so after the few plays I decided to extract the audio tracks, possibly keeping the highest audio quality permitted, to convert them later into mp3, ogg or flac as needed. I want to discuss the process.</p>
-<p>The first tool I found useful was <a class="reference external" href="http://untrepid.com/acidrip/lsdvd.html">lsdvd</a>, it tells you the number and length of titles, chapters and angles available on the dvd, which is ...</p>
+    <p>With this being the first of a short series, I'd like to publish some articles intendend to cover the required steps to configure <a class="reference external" href="https://wiki.openstack.org/wiki/Cinder">Cinder</a> (<a class="reference external" href="http://www.openstack.org">OpenStack</a> block storage service) in a mid/large deployment scenario. The idea is to discuss at least three topics: how to scale the service by adding more volume nodes; how to ensure high-availablity for the API and Scheduler sub-services; leverage the multi-backend feature landed in Grizzly.</p>
+<p>I'm starting with ...</p>
   </div>
 </article>
 
     <footer>
-      <div id="paginator">
+<div id="paginator">
 <a href="http://giuliofidente.com/author/giulio-fidente2.html" class="button_accent">&larr; Older Posts</a>
 
 </div>
@@ -115,7 +118,7 @@
       <p>&copy; Giulio Fidente. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>. Member of the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
     </div>
   </main>
-  <script type="text/javascript">
+<script type="text/javascript">
   window._idl = {};
   _idl.variant = "banner";
   (function() {

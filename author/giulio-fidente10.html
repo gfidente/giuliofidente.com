@@ -14,13 +14,13 @@
   <meta name="author" content="Giulio Fidente">
   <meta name="description" content="Posts and writings by Giulio Fidente">
 
-    <link href="http://giuliofidente.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Giulio Fidente (aka Giulivo Navigante) Full Atom Feed" />
-    
-    
-  <title>
-    Author: Giulio Fidente  </title>
+  <link href="http://giuliofidente.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Giulio Fidente (aka Giulivo Navigante) Full Atom Feed" />
 
-  <script type="text/javascript">
+
+  <title>
+Author: Giulio Fidente  </title>
+
+<script type="text/javascript">
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-39216528-1']);
   _gaq.push(['_trackPageview']);
@@ -37,84 +37,81 @@
   <aside>
     <div id="user_meta">
       <a href="http://giuliofidente.com">
-                <img src="http://giuliofidente.com/static/images/gravatar_to140.png" alt="logo">
-              </a>
+        <img src="http://giuliofidente.com/static/images/gravatar_to140.png" alt="logo">
+      </a>
       <h2><a href="http://giuliofidente.com">Giulio Fidente</a></h2>
       <p>Systems engineer devoted to automation. Enjoy web programming. Work @Red Hat.</p>
       <ul>
-                        <li><a href="http://giuliofidente.com/pages/about.html">About</a></li>
-                <li><a href="http://giuliofidente.com/pages/projects.html">Projects</a></li>
-                                <li><a href="mailto:giulioATgiuliofidenteDOTcom" target="_blank">Email</a></li>
-              </ul>
+        <li><a href="http://giuliofidente.com/pages/about.html">About</a></li>
+        <li><a href="http://giuliofidente.com/pages/projects.html">Projects</a></li>
+        <li><a href="mailto:giulioATgiuliofidenteDOTcom" target="_blank">Email</a></li>
+      </ul>
     </div>
   </aside>
 
   <main>
     <header>
-      <p>Author: Giulio Fidente</p>
+<p>Author: Giulio Fidente</p>
     </header>
 
-    <article>
+<article>
   <div class="article_title">
-    <h3><a href="http://giuliofidente.com/2012/08/unix-style-or-cat-v-considered-harmful.html">UNIX Style, or cat -v Considered Harmful</a></h3>
+    <h3><a href="http://giuliofidente.com/2008/12/a-small-portion-of-extra-time.html">A small portion of extra time</a></h3>
   </div>
   <div class="article_text">
-    <p>After I got to know <a class="reference external" href="http://harmful.cat-v.org/cat-v/">cat-v.org</a>, I read <a class="reference external" href="http://harmful.cat-v.org/cat-v/unix_prog_design.pdf">Program Design in the UNIX Environment</a>. A refreshing reading, despite its age.</p>
+    <p>For three years it was possible to do without it. But now it's become necessary again. This coming New Year's Eve, the radio controlled clocks will, after 0:59:59, instead of jumping to 1 o'clock at the next tick of the second, pause shortly in order to insert a small portion of extra time: a leap second.</p>
+<p>The International Earth Rotation Service (IERS) in Paris has prescribed this addition to coordinated ...</p>
+  </div>
+</article>
+<hr />
+<article>
+  <div class="article_title">
+    <h3><a href="http://giuliofidente.com/2008/10/telnet-star-wars.html">Telnet Star Wars</a></h3>
+  </div>
+  <div class="article_text">
+    <p>Now just open a terminal and enter this:</p>
 <blockquote>
-cat isn't for printing files with line numbers, it isn't for compressing multiple blank lines, it's not for looking at non-printing ASCII characters, it's for concatenating files</blockquote>
+telnet 193.202.115.241</blockquote>
+<p>enjoy!</p>
 
   </div>
 </article>
 <hr />
 <article>
   <div class="article_title">
-    <h3><a href="http://giuliofidente.com/2012/05/what-every-programmer-should-know-about-memory.html">What every programmer should know about memory</a></h3>
+    <h3><a href="http://giuliofidente.com/2007/04/rhel5-gfs2-and-drbd8.html">RHEL5, GFS2 and DRBD8</a></h3>
   </div>
   <div class="article_text">
-    <p>This was a series of posts appeared on LWN, a while ago. A precious document from <a class="reference external" href="http://udrepper.livejournal.com/">Ulrich Drepper</a> which have been brought back recently to great attention to me from a post on HN. Thanks Ulrich, LWN and HN:</p>
-<ul class="simple">
-<li><a class="reference external" href="http://lwn.net/Articles/250967/">Part 1</a> (Introduction)</li>
-<li><a class="reference external" href="http://lwn.net/Articles/252125/">Part 2</a> (CPU caches)</li>
-<li><a class="reference external" href="http://lwn.net/Articles/253361/">Part 3</a> (Virtual memory)</li>
-<li><a class="reference external" href="http://lwn.net/Articles/254445/">Part 4</a> (NUMA systems)</li>
-<li><a class="reference external" href="http://lwn.net/Articles/255364/">Part 5</a> (What programmers can do - cache optimization)</li>
-<li><a class="reference external" href="http://lwn.net/Articles/256433/">Part 6</a> (What programmers can do - multi-threaded optimizations)</li>
-<li><a class="reference external" href="http://lwn.net/Articles/257209/">Part 7</a> (Memory performance tools ...</li></ul>
+    <p>I've finally built my first <a class="reference external" href="http://sourceware.org/cluster/">cluster</a> on <a class="reference external" href="http://www.redhat.com/rhel/">rhel5</a> using <a class="reference external" href="http://sourceware.org/cluster/">gfs2</a> and <a class="reference external" href="http://www.drbd.org/">drbd8</a> :-D</p>
+<p>drbd makes a network raid1 between two physical distinguished block devices (eg. internal disks of two servers) and from the release 8.0 it supports the active/active configuration.</p>
+<p>gfs2 permits to the two server machines a concurrent mount of the network replicated drbd device.</p>
+<p>rhel5 is the OS I've installed on the two machines.</p>
+<p>Practically with this stuff the ...</p>
   </div>
 </article>
 <hr />
 <article>
   <div class="article_title">
-    <h3><a href="http://giuliofidente.com/2011/05/wojtyla-beatificato.html">Wojtyla beatificato (!?)</a></h3>
+    <h3><a href="http://giuliofidente.com/2006/11/fluendo-on-ppc.html">Fluendo on PPC</a></h3>
   </div>
   <div class="article_text">
-    <p>Wojtyla, beatificato prima di Maria Teresa di Calcutta, ha dato copertura al dittatore Augusto Pinochet, cui ha stretto la mano durante il viaggio nel martoriato paese sudamericano, nelle cui carceri venivano straziati migliaia di oppositori politici; sostenne e giustifico' le guerre che hanno insanguinato la ex Jugoslavia; ha fatto santo Stepinac, il cardinale che a fianco dei fascisti croati si schiero' con Hitler, &quot;inviato da Dio&quot; e benedisse le innumerevoli atrocita' perpetrate dagli ustascia con ...</p>
+    <p>Unfortunately my GNU/Linux box is a PowerPC and I had the privilege of finding all sort of strange Fluendo bugs... but apart from bugs, the gstreamer0.10-fluendo-mp3 plugin consumes much more CPU (about 22% against 7%) than the standard mad plugin for gstreamer (found in gstreamer0.10-plugins-ugly collection) and fluendo-mp3 is licensed under the MIT license while the mad library is instead GPL. Last but not least, I've no data to show that ...</p>
   </div>
 </article>
 <hr />
 <article>
   <div class="article_title">
-    <h3><a href="http://giuliofidente.com/2010/03/world-brewing-convention.html">World brewing convention</a></h3>
+    <h3><a href="http://giuliofidente.com/2006/11/os-x-network-install-using-linux.html">OS X Network Install using Linux</a></h3>
   </div>
   <div class="article_text">
-    <p>After the first day of a world brewing convention in the states, the CEO's of various brewing organisations retire to the bar.</p>
-<p>Bruce, the CEO of Fosters, shouts to the barman: &quot;In 'Straiyla, we make the best beer in the world, so pour me a Fosters mate.&quot;</p>
-<p>Bob, CEO of Budweiser calls out next: &quot;In the States we brew the finest beer known to mankind and i make the king of them all. Gimme ...</p>
-  </div>
-</article>
-<hr />
-<article>
-  <div class="article_title">
-    <h3><a href="http://giuliofidente.com/2012/04/yum-history.html">YUM history (!)</a></h3>
-  </div>
-  <div class="article_text">
-    <p>While browsing the <a class="reference external" href="http://yum.baseurl.org/">YUM</a> man page for some details about the query command I happened to find one of my most wanted feature in a package manager! YUM has some <a class="reference external" href="http://docs.fedoraproject.org/en-US/Fedora/16/html/System_Administrators_Guide/sec-Yum-Transaction_History.html">history</a> command which allows for investigation of past transactions and even <strong>undo</strong> or <strong>rollback</strong> actions. Epic. I frequently find myself going through install/uninstall steps which not only mess around but I tend to forget about the installed and now unneeded deps.</p>
-<p>I'll go ...</p>
+    <p>The title says it all. We're going to install an OS X client via network using a GNU/Linux box as DHCP/TFTP/NFS server.</p>
+<p>First you'll want to setup your DHCP, TFTP and NFS server.</p>
+<p>The default location for the TFTP server root on my system was <code>/tftpboot</code>. It may be different on other distro so change at will. This directory is where we're going to put all the important files ...</p>
   </div>
 </article>
 
     <footer>
-      <div id="paginator">
+<div id="paginator">
 
 <a href="http://giuliofidente.com/author/giulio-fidente9.html" class="button_accent">Newer Posts &rarr;</a>
 </div>
@@ -124,7 +121,7 @@ cat isn't for printing files with line numbers, it isn't for compressing multipl
       <p>&copy; Giulio Fidente. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>. Member of the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
     </div>
   </main>
-  <script type="text/javascript">
+<script type="text/javascript">
   window._idl = {};
   _idl.variant = "banner";
   (function() {

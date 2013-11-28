@@ -14,13 +14,13 @@
   <meta name="author" content="Giulio Fidente">
   <meta name="description" content="Posts and writings by Giulio Fidente">
 
-    <link href="http://giuliofidente.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Giulio Fidente (aka Giulivo Navigante) Full Atom Feed" />
-    
-    
-  <title>
-    Author: Giulio Fidente  </title>
+  <link href="http://giuliofidente.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Giulio Fidente (aka Giulivo Navigante) Full Atom Feed" />
 
-  <script type="text/javascript">
+
+  <title>
+Author: Giulio Fidente  </title>
+
+<script type="text/javascript">
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-39216528-1']);
   _gaq.push(['_trackPageview']);
@@ -37,30 +37,75 @@
   <aside>
     <div id="user_meta">
       <a href="http://giuliofidente.com">
-                <img src="http://giuliofidente.com/static/images/gravatar_to140.png" alt="logo">
-              </a>
+        <img src="http://giuliofidente.com/static/images/gravatar_to140.png" alt="logo">
+      </a>
       <h2><a href="http://giuliofidente.com">Giulio Fidente</a></h2>
       <p>Systems engineer devoted to automation. Enjoy web programming. Work @Red Hat.</p>
       <ul>
-                        <li><a href="http://giuliofidente.com/pages/about.html">About</a></li>
-                <li><a href="http://giuliofidente.com/pages/projects.html">Projects</a></li>
-                                <li><a href="mailto:giulioATgiuliofidenteDOTcom" target="_blank">Email</a></li>
-              </ul>
+        <li><a href="http://giuliofidente.com/pages/about.html">About</a></li>
+        <li><a href="http://giuliofidente.com/pages/projects.html">Projects</a></li>
+        <li><a href="mailto:giulioATgiuliofidenteDOTcom" target="_blank">Email</a></li>
+      </ul>
     </div>
   </aside>
 
   <main>
     <header>
-      <p>Author: Giulio Fidente</p>
+<p>Author: Giulio Fidente</p>
     </header>
 
-    <article>
+<article>
   <div class="article_title">
-    <h3><a href="http://giuliofidente.com/2011/12/instant-css-js-html-or-dom-documentation.html">Instant CSS, JS, HTML or DOM documentation</a></h3>
+    <h3><a href="http://giuliofidente.com/2012/06/my-attempts-at-mapreduce-using-mongodb.html">My attempts at MapReduce using MongoDB</a></h3>
   </div>
   <div class="article_text">
-    <p>Worth sharing: <a class="reference external" href="http://dochub.io/">http://dochub.io/</a></p>
-
+    <p>I was sorting a tree in my (python) webapp instead of having the database to do it for me. This is how I moved it back to the database by using a <a class="reference external" href="http://en.wikipedia.org/wiki/MapReduce">MapReduce</a> job. I had a collection structured like the following:</p>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="nt">&quot;_id&quot;</span> <span class="p">:</span> <span class="err">...</span><span class="p">,</span>
+  <span class="nt">&quot;feed_oid&quot;</span> <span class="p">:</span> <span class="s2">&quot;4fd268d2ab87b2d8927d7eee&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;title&quot;</span> <span class="p">:</span> <span class="s2">&quot;blah blah&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;updated&quot;</span> <span class="p">:</span> <span class="mi">1339702524</span><span class="p">,</span>
+  <span class="nt">&quot;watchers&quot;</span> <span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;4fd276fc66224c1ee8000006&quot;</span> <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+<p>Such a collection is called <code>articles</code> and in there I get a document for every article published by an rss feed. <code>feed_oid</code> is ...</p>
+  </div>
+</article>
+<hr />
+<article>
+  <div class="article_title">
+    <h3><a href="http://giuliofidente.com/2012/06/aeolus.html">Aeolus</a></h3>
+  </div>
+  <div class="article_text">
+    <p>This isn't going to be a real presentation of the <cite>aeolus project</cite> but I'm currently QAing it and I'd like to to discuss some use cases as there seems to be a lot of confusion around the cloud term these days. Firstly, what is aeolus? It is a collection of tools, you have the full listing at <a class="reference external" href="http://www.aeolusproject.org/projects.html">http://www.aeolusproject.org/projects.html</a></p>
+<p>Basically it allows you to automate the build of ...</p>
+  </div>
+</article>
+<hr />
+<article>
+  <div class="article_title">
+    <h3><a href="http://giuliofidente.com/2012/05/what-every-programmer-should-know-about-memory.html">What every programmer should know about memory</a></h3>
+  </div>
+  <div class="article_text">
+    <p>This was a series of posts appeared on LWN, a while ago. A precious document from <a class="reference external" href="http://udrepper.livejournal.com/">Ulrich Drepper</a> which have been brought back recently to great attention to me from a post on HN. Thanks Ulrich, LWN and HN:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://lwn.net/Articles/250967/">Part 1</a> (Introduction)</li>
+<li><a class="reference external" href="http://lwn.net/Articles/252125/">Part 2</a> (CPU caches)</li>
+<li><a class="reference external" href="http://lwn.net/Articles/253361/">Part 3</a> (Virtual memory)</li>
+<li><a class="reference external" href="http://lwn.net/Articles/254445/">Part 4</a> (NUMA systems)</li>
+<li><a class="reference external" href="http://lwn.net/Articles/255364/">Part 5</a> (What programmers can do - cache optimization)</li>
+<li><a class="reference external" href="http://lwn.net/Articles/256433/">Part 6</a> (What programmers can do - multi-threaded optimizations)</li>
+<li><a class="reference external" href="http://lwn.net/Articles/257209/">Part 7</a> (Memory performance tools ...</li></ul>
+  </div>
+</article>
+<hr />
+<article>
+  <div class="article_title">
+    <h3><a href="http://giuliofidente.com/2012/04/yum-history.html">YUM history (!)</a></h3>
+  </div>
+  <div class="article_text">
+    <p>While browsing the <a class="reference external" href="http://yum.baseurl.org/">YUM</a> man page for some details about the query command I happened to find one of my most wanted feature in a package manager! YUM has some <a class="reference external" href="http://docs.fedoraproject.org/en-US/Fedora/16/html/System_Administrators_Guide/sec-Yum-Transaction_History.html">history</a> command which allows for investigation of past transactions and even <strong>undo</strong> or <strong>rollback</strong> actions. Epic. I frequently find myself going through install/uninstall steps which not only mess around but I tend to forget about the installed and now unneeded deps.</p>
+<p>I'll go ...</p>
   </div>
 </article>
 <hr />
@@ -82,41 +127,9 @@ $ rhc app create -a jenkins -t jenkins-1.4
 <p>Then ...</p>
   </div>
 </article>
-<hr />
-<article>
-  <div class="article_title">
-    <h3><a href="http://giuliofidente.com/2009/02/learned-helplessness.html">Learned helplessness</a></h3>
-  </div>
-  <div class="article_text">
-    <p>Learned helplessness is a psychological condition in which a human being or an animal has learned to act or behave helpless in a particular situation, even when it has the power to change its unpleasant or even harmful circumstance.</p>
-<p>Learned helplessness theory is the view that clinical depression and related mental illnesses result from a perceived absence of control over the outcome of a situation (Seligman, 1975).</p>
-<p>Interesting? Continue on <a class="reference external" href="http://en.wikipedia.org/wiki/Learned_helplessness">wikipedia</a></p>
-
-  </div>
-</article>
-<hr />
-<article>
-  <div class="article_title">
-    <h3><a href="http://giuliofidente.com/2012/09/long-life-to-red-hat.html">Long Life to Red Hat</a></h3>
-  </div>
-  <div class="article_text">
-    <p>Sometimes a job is just a way to earn some money. Rarely it is also fun. Sometimes it is fun instead but not suiting very well your principles and culture.</p>
-<p>But I'm a very lucky guy as I've got them all. And no it is not of Google that I'm talking about, this is <strong>better!</strong>. It's <strong>better</strong> because I've got many of the same benefits, including a thriving tech culture ...</p>
-  </div>
-</article>
-<hr />
-<article>
-  <div class="article_title">
-    <h3><a href="http://giuliofidente.com/2012/03/migrate-nis-to-freeipa.html">Migrate NIS to FreeIPA</a></h3>
-  </div>
-  <div class="article_text">
-    <p>I've prepared a quick HOWTO on how to migrate a legacy NIS environment to FreeIPA (ldap/kerberos). I hope it will be useful to some: <a class="reference external" href="http://freeipa.org/page/NIS_accounts_migration_preserving_Passwords">http://freeipa.org/page/NIS_accounts_migration_preserving_Passwords</a></p>
-
-  </div>
-</article>
 
     <footer>
-      <div id="paginator">
+<div id="paginator">
 <a href="http://giuliofidente.com/author/giulio-fidente5.html" class="button_accent">&larr; Older Posts</a>
 
 <a href="http://giuliofidente.com/author/giulio-fidente3.html" class="button_accent">Newer Posts &rarr;</a>
@@ -127,7 +140,7 @@ $ rhc app create -a jenkins -t jenkins-1.4
       <p>&copy; Giulio Fidente. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/giulivo/pelican-svbhack" target="_blank">github</a>. Member of the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
     </div>
   </main>
-  <script type="text/javascript">
+<script type="text/javascript">
   window._idl = {};
   _idl.variant = "banner";
   (function() {
