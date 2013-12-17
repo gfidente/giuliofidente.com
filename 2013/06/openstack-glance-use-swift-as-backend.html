@@ -60,7 +60,7 @@ OpenStack Glance - Use Swift as backend  </title>
     <h3><a href="http://giuliofidente.com/2013/06/openstack-glance-use-swift-as-backend.html">OpenStack Glance - Use Swift as backend</a></h3>
   </div>
   <div class="article_text">
-    <p>On <a class="reference external" href="http://www.openstack.org">OpenStack</a> again but about <a class="reference external" href="https://wiki.openstack.org/wiki/Glance">Glance</a> this time. <a class="reference external" href="https://wiki.openstack.org/wiki/Glance">Glance</a> is the component in charge of hosting the images (and image snapshots) to be cloned for the ephemeral instances. Images usually are just some random big files so it makes perfect sense to use <a class="reference external" href="https://wiki.openstack.org/wiki/Swift">Swift</a> for such an object (a File Object storage)!</p>
+    <p>On <a class="reference external" href="http://www.openstack.org">OpenStack</a> again. <a class="reference external" href="https://wiki.openstack.org/wiki/Glance">Glance</a> is the component in charge of hosting the images (and image snapshots) to be cloned for the ephemeral instances. Images usually are just some random big files so it makes perfect sense to use <a class="reference external" href="https://wiki.openstack.org/wiki/Swift">Swift</a> for such an object (a File Object storage)!</p>
 <p>As usual, some assumptions before we start:</p>
 <ul class="simple">
 <li>you're familiar with the general <a class="reference external" href="http://www.openstack.org">OpenStack</a> architecture</li>
@@ -74,7 +74,9 @@ swift_store_user = $SERVICE_TENANT_NAME:glance
 swift_store_key = $SERVICE_PASSWORD
 swift_store_create_container_on_put = True
 </pre>
-<p>These are probably self-explanatory but I have a few tips to spare! If you decide to go via https for the keystone service, make sure you can validate locally (on <a class="reference external" href="https://wiki.openstack.org/wiki/Glance">Glance</a>) the certificate. If unsure about the values for the $SERVICE_* variables, those should have been set already in the <code>keystone_authtoken</code> section.</p>
+<p>These are probably self-explanatory but I have a few tips to spare! If you decide to go via https for the keystone service, make sure you can validate locally (on <a class="reference external" href="https://wiki.openstack.org/wiki/Glance">Glance</a>) the https certificate. If unsure about the values to be used for the $SERVICE_* variables, these are the same set in the same config file in section <code>keystone_authtoken</code>.</p>
+<p><strong>Update (Dec 2013):</strong> The user you will set as <code>swift_store_user</code> must have rights to create new containers in <a class="reference external" href="https://wiki.openstack.org/wiki/Swift">Swift</a>, to have that you can assign it the <code>ResellerAdmin</code> role.</p>
+<p>Also, while not needed, you should consider using port 35357 rather than 5000 for the KEYSTONE_PORT as it is the port where administrative commands can be given.</p>
 <p>Short and straight to the point!</p>
 
   </div>
