@@ -17,11 +17,11 @@
 
   <link href="http://giuliofidente.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Giulio Fidente Atom" />
 
-<link href="http://giuliofidente.com/feeds/tag/cinder.atom.xml" type="application/atom+xml" rel="alternate" title="Giulio Fidente cinder Tag Atom" />
+<meta name="keywords" content="openstack, cinder, tripleo, ceph, high availability, fedoraplanet">
 
   <title>
     Giulio Fidente
-&ndash; Tag: cinder  </title>
+&ndash; Ceph for Cinder in TripleO  </title>
 
 <script type="text/javascript">
   var _gaq = _gaq || [];
@@ -57,8 +57,6 @@
       <p>
       <a href="http://giuliofidente.com">Index</a> &brvbar; <a href="http://giuliofidente.com/archives.html">Archives</a>
       &brvbar; <a href="http://giuliofidente.com/feeds/all.atom.xml">Atom</a>
-&gt; Tag: cinder
-&brvbar; <a href="http://giuliofidente.com/feeds/tag/cinder.atom.xml">Atom</a>
       </p>
     </header>
 
@@ -68,35 +66,22 @@
   </div>
   <div class="article_text">
     <p>A wrap up on the status of TripleO's Cinder HA spec. First, a link to the <a class="reference external" href="https://blueprints.launchpad.net/tripleo/+spec/tripleo-kilo-cinder-ha">cinder-ha blueprint</a>, where you can find even more links, to the actual spec (under review) and the code changes (again, still under review). Intent of the blueprint is for the <a class="reference external" href="https://wiki.openstack.org/wiki/TripleO">TripleO</a> deployments to keep Cinder volumes available and Cinder operational in case of failures of any node.</p>
-<p>This said, should $subject sound interesting to you, beware the code ...</p>
+<p>This said, should $subject sound interesting to you, beware the code still needs reviews, probably polishing and surely more features ... so take this post as a call for help as well! Now some details.</p>
+<p>For Cinder to remain operational, in <a class="reference external" href="https://wiki.openstack.org/wiki/TripleO">TripleO</a> we deploy the <code>cinder-{api,schduler,volume}</code> services on all controller nodes (as it was even before the proposed spec) but we also customize the <code>host</code> setting so that all instances of <code>cinder-volume</code> will share an identical identifier. This is so that all instances can perform operations on all volumes, otherwise, the particular host which created a volume would be the only one capable of performing further operations on it. This exposed some potential issues with Cinder due to concurrent mutation of same resource from multiple nodes and they already are taken care of, in Cinder, with the <a class="reference external" href="https://blueprints.launchpad.net/cinder/+spec/cinder-state-enforcer">state-enforcer blueprint</a>.</p>
+<p>Then, for the volumes to remain available, <a class="reference external" href="https://wiki.openstack.org/wiki/TripleO">TripleO</a> will deploy a Ceph cluster together with the OpenStack components, to be used as a backend for Cinder. Each and every controller will host a Ceph monitor while an arbitrary number of additional nodes can be configured as Ceph OSDs. The basic idea is that by doing so people will be able to scale out the number of controllers and/or data nodes independently, in an attempt to suit the needs for more space or more CPU resources depending on the use case. In addition to that, network partitioning should also be easy to achieve as traffic from Nova nodes will be directed to the OSDs nodes only for volumes I/O, not to the controllers. Note though that the existing implementation <strong>does not yet</strong> implement support for the network partitioning but, on a good note, <strong>it does</strong> use cephx already to secure access to data.</p>
+<p>As of today, assuming you checkout by yourself, as linked from the <a class="reference external" href="https://blueprints.launchpad.net/tripleo/+spec/tripleo-kilo-cinder-ha">cinder-ha blueprint</a>, the needed <a class="reference external" href="https://wiki.openstack.org/wiki/TripleO">TripleO</a> changes, everything should <em>just work</em> by setting some value &gt; 0 for the <code>CEPHSTORAGESCALE</code> env variable, which represents the number of OSD nodes you want to deploy. Should you need it, in the Heat templates it is possible to customize a number of useful Ceph settings, like the number of replicas for the data (needs to be lower than the number of OSD nodes). Now go try it out and come back with some feedback! :)</p>
+
   </div>
-</article>
-<hr />
-<article>
-  <div class="article_title">
-    <h3><a href="http://giuliofidente.com/2013/06/openstack-cinder-configure-multiple-backends.html">OpenStack Cinder - Configure multiple backends</a></h3>
+  <div class="article_meta">
+    <p>Posted on: Tue 06 January 2015</p>
+    <p>Category: <a href="http://giuliofidente.com/category/techie.html">techie</a>
+ &ndash; Tags:
+      <a href="http://giuliofidente.com/tag/openstack.html">openstack</a>,      <a href="http://giuliofidente.com/tag/cinder.html">cinder</a>,      <a href="http://giuliofidente.com/tag/tripleo.html">tripleo</a>,      <a href="http://giuliofidente.com/tag/ceph.html">ceph</a>,      <a href="http://giuliofidente.com/tag/high-availability.html">high availability</a>,      <a href="http://giuliofidente.com/tag/fedoraplanet.html">fedoraplanet</a>    </p>
   </div>
-  <div class="article_text">
-    <p>Following <a class="reference external" href="http://giuliofidente.com/2013/04/openstack-cinder-add-more-volume-nodes.html">my first post of the series</a> discussing how to scale <a class="reference external" href="http://www.openstack.org">OpenStack</a> <a class="reference external" href="https://wiki.openstack.org/wiki/Cinder">Cinder</a> to multiple nodes, with this I want to approach the configuration and usage of the multibackend feature landed in <a class="reference external" href="https://wiki.openstack.org/wiki/Cinder">Cinder</a> with the Grizzly release.</p>
-<p>This feature allows you to configure a single volume node for use with more than a single backend driver. You can find all about the few configuration bits needed also in the <a class="reference external" href="http://docs.openstack.org/trunk/openstack-block-storage/admin/content/multi_backend.html">OpenStack block storage documentation</a>. That makes ...</p>
-  </div>
-</article>
-<hr />
-<article>
-  <div class="article_title">
-    <h3><a href="http://giuliofidente.com/2013/04/openstack-cinder-add-more-volume-nodes.html">OpenStack Cinder - Add more volume nodes</a></h3>
-  </div>
-  <div class="article_text">
-    <p>With this being the first of a short series, I'd like to publish some articles intendend to cover the required steps to configure <a class="reference external" href="https://wiki.openstack.org/wiki/Cinder">Cinder</a> (<a class="reference external" href="http://www.openstack.org">OpenStack</a> block storage service) in a mid/large deployment scenario. The idea is to discuss at least three topics: how to scale the service by adding more volume nodes; how to ensure high-availablity for the API and Scheduler sub-services; leverage the multi-backend feature landed in Grizzly.</p>
-<p>I'm starting with ...</p>
-  </div>
+
+
 </article>
 
-<footer>
-<div id="paginator">
-
-</div>
-</footer>
 
     <div id="ending_message">
       <p>&copy; Giulio Fidente. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. Member of the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
