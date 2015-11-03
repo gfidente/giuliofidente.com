@@ -40,7 +40,7 @@
   <aside>
     <div id="user_meta">
       <a href="http://giuliofidente.com">
-        <img src="http://giuliofidente.com/static/images/gravatar_to140.png" alt="logo">
+        <img src="http://giuliofidente.com/images/gravatar_to140.png" alt="logo">
       </a>
       <h2><a href="http://giuliofidente.com">Giulio Fidente</a></h2>
       <p>Software engineer devoted to Automation. Work @Red Hat.</p>
@@ -62,6 +62,16 @@
       </p>
     </header>
 
+<article>
+  <div class="article_title">
+    <h3><a href="http://giuliofidente.com/2013/06/openstack-cinder-configure-multiple-backends.html">OpenStack Cinder - Configure multiple backends</a></h3>
+  </div>
+  <div class="article_text">
+    <p>Following <a class="reference external" href="http://giuliofidente.com/2013/04/openstack-cinder-add-more-volume-nodes.html">my first post of the series</a> discussing how to scale <a class="reference external" href="http://www.openstack.org">OpenStack</a> <a class="reference external" href="https://wiki.openstack.org/wiki/Cinder">Cinder</a> to multiple nodes, with this I want to approach the configuration and usage of the multibackend feature landed in <a class="reference external" href="https://wiki.openstack.org/wiki/Cinder">Cinder</a> with the Grizzly release.</p>
+<p>This feature allows you to configure a single volume node for use with more than a single backend driver. You can find all about the few configuration bits needed also in the <a class="reference external" href="http://docs.openstack.org/trunk/openstack-block-storage/admin/content/multi_backend.html">OpenStack block storage documentation</a>. That makes ...</p>
+  </div>
+</article>
+<hr />
 <article>
   <div class="article_title">
     <h3><a href="http://giuliofidente.com/2013/04/openstack-cinder-add-more-volume-nodes.html">OpenStack Cinder - Add more volume nodes</a></h3>
@@ -99,24 +109,6 @@
   <div class="article_text">
     <p>Looks like there are many LCD panels/TVs out there with a native resolution of 1366x768. That is indeed a very close approximation to the expected 16:9 rectangle, except XOrg keeps showing you a resolution of 1360x768 (or 1368x768) instead of the native 1366x768. Why? Because 1366 is not divisible by 8 and that's not valid in an EDID block. <a class="reference external" href="http://en.wikipedia.org/wiki/Extended_display_identification_data#Limitations">Learn more on wikipedia</a>.</p>
 <p>You need a custom <a class="reference external" href="http://en.wikipedia.org/wiki/XFree86_Modeline">modeline in your xorg.conf ...</a></p>
-  </div>
-</article>
-<hr />
-<article>
-  <div class="article_title">
-    <h3><a href="http://giuliofidente.com/2012/06/my-attempts-at-mapreduce-using-mongodb.html">My attempts at MapReduce using MongoDB</a></h3>
-  </div>
-  <div class="article_text">
-    <p>I was sorting a tree in my (python) webapp instead of having the database to do it for me. This is how I moved it back to the database by using a <a class="reference external" href="http://en.wikipedia.org/wiki/MapReduce">MapReduce</a> job. I had a collection structured like the following:</p>
-<div class="highlight"><pre><span class="p">{</span>
-  <span class="nt">&quot;_id&quot;</span> <span class="p">:</span> <span class="err">...</span><span class="p">,</span>
-  <span class="nt">&quot;feed_oid&quot;</span> <span class="p">:</span> <span class="s2">&quot;4fd268d2ab87b2d8927d7eee&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;title&quot;</span> <span class="p">:</span> <span class="s2">&quot;blah blah&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;updated&quot;</span> <span class="p">:</span> <span class="mi">1339702524</span><span class="p">,</span>
-  <span class="nt">&quot;watchers&quot;</span> <span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;4fd276fc66224c1ee8000006&quot;</span> <span class="p">]</span>
-<span class="p">}</span>
-</pre></div>
-<p>Such a collection is called <code>articles</code> and in there I get a document for every article published by an rss feed. <code>feed_oid</code> is ...</p>
   </div>
 </article>
 
