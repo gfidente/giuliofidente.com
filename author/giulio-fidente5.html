@@ -62,7 +62,35 @@
 
 <article>
   <div class="article_title">
-    <h3><a href="http://giuliofidente.com/2012/05/what-every-programmer-should-know-about-memory.html">What every programmer should know about memory</a></h3>
+    <h1><a href="http://giuliofidente.com/2012/06/my-attempts-at-mapreduce-using-mongodb.html">My attempts at MapReduce using MongoDB</a></h1>
+  </div>
+  <div class="article_text">
+    <p>I was sorting a tree in my (python) webapp instead of having the database to do it for me. This is how I moved it back to the database by using a <a class="reference external" href="http://en.wikipedia.org/wiki/MapReduce">MapReduce</a> job. I had a collection structured like the following:</p>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="nt">&quot;_id&quot;</span> <span class="p">:</span> <span class="err">...</span><span class="p">,</span>
+  <span class="nt">&quot;feed_oid&quot;</span> <span class="p">:</span> <span class="s2">&quot;4fd268d2ab87b2d8927d7eee&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;title&quot;</span> <span class="p">:</span> <span class="s2">&quot;blah blah&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;updated&quot;</span> <span class="p">:</span> <span class="mi">1339702524</span><span class="p">,</span>
+  <span class="nt">&quot;watchers&quot;</span> <span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;4fd276fc66224c1ee8000006&quot;</span> <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+<p>Such a collection is called <code>articles</code> and in there I get a document for every article published by an rss feed. <code>feed_oid</code> is ...</p>
+  </div>
+</article>
+<hr />
+<article>
+  <div class="article_title">
+    <h1><a href="http://giuliofidente.com/2012/06/aeolus.html">Aeolus</a></h1>
+  </div>
+  <div class="article_text">
+    <p>This isn't going to be a real presentation of the <cite>aeolus project</cite> but I'm currently QAing it and I'd like to to discuss some use cases as there seems to be a lot of confusion around the cloud term these days. Firstly, what is aeolus? It is a collection of tools, you have the full listing at <a class="reference external" href="http://www.aeolusproject.org/projects.html">http://www.aeolusproject.org/projects.html</a></p>
+<p>Basically it allows you to automate the build of ...</p>
+  </div>
+</article>
+<hr />
+<article>
+  <div class="article_title">
+    <h1><a href="http://giuliofidente.com/2012/05/what-every-programmer-should-know-about-memory.html">What every programmer should know about memory</a></h1>
   </div>
   <div class="article_text">
     <p>This was a series of posts appeared on LWN, a while ago. A precious document from <a class="reference external" href="http://udrepper.livejournal.com/">Ulrich Drepper</a> which have been brought back recently to great attention to me from a post on HN. Thanks Ulrich, LWN and HN:</p>
@@ -79,7 +107,7 @@
 <hr />
 <article>
   <div class="article_title">
-    <h3><a href="http://giuliofidente.com/2012/04/yum-history.html">YUM history (!)</a></h3>
+    <h1><a href="http://giuliofidente.com/2012/04/yum-history.html">YUM history (!)</a></h1>
   </div>
   <div class="article_text">
     <p>While browsing the <a class="reference external" href="http://yum.baseurl.org/">YUM</a> man page for some details about the query command I happened to find one of my most wanted feature in a package manager! YUM has some <a class="reference external" href="http://docs.fedoraproject.org/en-US/Fedora/16/html/System_Administrators_Guide/sec-Yum-Transaction_History.html">history</a> command which allows for investigation of past transactions and even <strong>undo</strong> or <strong>rollback</strong> actions. Epic. I frequently find myself going through install/uninstall steps which not only mess around but I tend to forget about the installed and now unneeded deps.</p>
@@ -89,7 +117,7 @@
 <hr />
 <article>
   <div class="article_title">
-    <h3><a href="http://giuliofidente.com/2012/04/jenkins-on-openshift.html">Jenkins on OpenShift</a></h3>
+    <h1><a href="http://giuliofidente.com/2012/04/jenkins-on-openshift.html">Jenkins on OpenShift</a></h1>
   </div>
   <div class="article_text">
     <p>How about <a class="reference external" href="http://jenkins-ci.org/">Jenkins</a> on <a class="reference external" href="http://openshift.redhat.com/">OpenShift</a>? Let's give this a try. Keep in mind that by default you've got only 3 gears on OpenShift and we'll need to use all of them for this tutorial:</p>
@@ -103,26 +131,6 @@
 $ rhc app create -a jenkins -t jenkins-1.4
 </pre>
 <p>Then ...</p>
-  </div>
-</article>
-<hr />
-<article>
-  <div class="article_title">
-    <h3><a href="http://giuliofidente.com/2012/04/napoli-silicon-dust.html">Napoli (Silicon Dust)</a></h3>
-  </div>
-  <div class="article_text">
-    <iframe width="640" height="360" src="http://www.youtube.com/embed/LemIPWHMbxc?rel=0" frameborder="0" allowfullscreen></iframe>
-  </div>
-</article>
-<hr />
-<article>
-  <div class="article_title">
-    <h3><a href="http://giuliofidente.com/2012/04/free-is-too-expensive-says-the-economist.html">Free is too expensive, says The Economist</a></h3>
-  </div>
-  <div class="article_text">
-    <p>The Economist on the Desktop Linux: <a class="reference external" href="http://www.economist.com/blogs/babbage/2012/03/desktop-linux">Free is too expensive</a>. An interesting reading.</p>
-<blockquote>
-To succeed on the desktop, Linux needs to penetrate the office. Unfortunately, there is no such thing as a single Linux to go up against Windows 7. What there is instead is a fragmented field of hundreds of different Linuxes, each with its own learning curve, skill set and maintenance needs. Even the top five distributions (Linux Mint, Ubuntu, Fedora, openSuSE and ...</blockquote>
   </div>
 </article>
 

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="http://giuliofidente.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="http://giuliofidente.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="http://giuliofidente.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Giulio Fidente">
+  <meta name="description" content="Posts and writings by Giulio Fidente">
+
+  <link href="http://giuliofidente.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Giulio Fidente Atom" />
+
+<meta name="keywords" content="openstack, tripleo, high availability, pacemaker, fedoraplanet">
+
+  <title>
+    Giulio Fidente
+&ndash; On TripleO and the EnablePacemaker bool  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-39216528-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="http://giuliofidente.com">
+        <img src="http://giuliofidente.com/images/gravatar_to140.png" alt="logo">
+      </a>
+      <h2><a href="http://giuliofidente.com">Giulio Fidente</a></h2>
+      <p>Software engineer devoted to Automation. Work @Red Hat.</p>
+      <ul>
+        <li><a href="http://giuliofidente.com/pages/about.html">About</a></li>
+        <li><a href="http://giuliofidente.com/pages/projects.html">Projects</a></li>
+        <li><a href="mailto:giulioATgiuliofidenteDOTcom" target="_blank">Email</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      <a href="http://giuliofidente.com">Index</a> &brvbar; <a href="http://giuliofidente.com/archives.html">Archives</a>
+      &brvbar; <a href="http://giuliofidente.com/feeds/all.atom.xml">Atom</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="http://giuliofidente.com/2015/05/on-tripleo-and-the-enablepacemaker-bool.html">On TripleO and the EnablePacemaker bool</a></h1>
+  </div>
+  <div class="article_text">
+    <p>Yes, EnablePacemaker! A little old fashioned and not very well suited for OpenStack you say heh? Let's try to talk a bit about this then. News is that we're adding into TripleO/Puppet an option to deploy Pacemaker on the Overcloud nodes. Puppet you said? Sure TripleO can use Puppet now for the configuration of the Overcloud nodes, ask Dan Prince :) Actually usage of Puppet is nowdays the preferred approach and many features are available only in the Puppet scenario ... amongst which the EnablePacemaker bool in subject.</p>
+<p>To go back to Pacemaker, no this won't be the Active/Passive implementation described in the OpenStack HA docs. Not at all, there are no special resource agents for the OpenStack services and more importantly, there is no Active/Passive, when not needed. Instead, the architecture looks a lot more like the Active/Active scenario described in tha doc, except there is Pacemaker coping with a few uncovered bits.</p>
+<p>Whoever tried to setup a RabbitMQ cluster from scratch</p>
+<ol class="arabic simple">
+<li>dan prince</li>
+<li>ha docs</li>
+</ol>
+<p>####### OLD STUFF #######</p>
+<p>One of the topics discussed during the <a class="reference external" href="https://wiki.openstack.org/wiki/TripleO">TripleO</a> mid-cycle meetup in RDU was our status in relation to deploying OpenStack in a highly available manner. This had been worked on for some time and recently reached a usable state.</p>
+<p>Majority of complications seem to come from two factors: 1) we need to guarantee availability of external services too, like the database and the message broker, which aren't exactly designed for a scale-out scenario, 2) despite the OpenStack services being designed around a scale-out concept, while attempting to achieve that in <a class="reference external" href="https://wiki.openstack.org/wiki/TripleO">TripleO</a> we spotted a number of weak angles, some of which could be worked around, others instead still need some changes in the core service. You're encouraged to try what we have available today and help with the rest.</p>
+<p>So to try out OpenStack HA with <a class="reference external" href="https://wiki.openstack.org/wiki/TripleO">TripleO</a> you just set a number &gt;= 3 for <code>OVERCLOUD_CONTROLSCALE</code> and continue with <a class="reference external" href="http://docs.openstack.org/developer/tripleo-incubator/devtest.html">devtest</a> as usual. Nodes will be configured appropriately:</p>
+<pre class="literal-block">
+export OVERCLOUD_CONTROLSCALE=3
+source scripts/devtest_variables.sh
+...
+</pre>
+<p>Don't forget this is only tested on a few distros for now, I'd pick some Fedora 20.</p>
+<p>On the controller nodes, MariaDB with Galera (for Fedora) is going to provide for a reliable SQL. There is still some work in progress to make sure the Galera cluster can be restarted correctly should all the controllers go down at the same time but, for single node failures, this should be safe to use.</p>
+<p>RabbitMQ nodes are clustered and balanced (via HAProxy), queues replicated.</p>
+<p>And with regards to the OpenStack services, these are configured in a balancing manner (again, using HAProxy) except for those cases where this wouldn't have worked, notably the Neutron L3 agent and the Ceilometer Central agent, yet these are under control via Pacemaker and a single instance is expected to be running at all times. Cinder instead remains uncovered as volumes would require a shared storage for proper HA. A spec has been proposed for this though.</p>
+<p>Also, behind the scenes, the <a class="reference external" href="https://wiki.openstack.org/wiki/Heat">Heat</a> template language addon shipped as <em>merge.py</em> and included in <a class="reference external" href="https://github.com/openstack/tripleo-heat-templates">tripleo-heat-templates</a>, which allows for example for scaling of the resources definition, is currently going to be removed and replaced with code living entirely in <a class="reference external" href="https://wiki.openstack.org/wiki/Heat">Heat</a>.</p>
+<p>And there is more so once you tried, join us on #tripleo &#64; freenode for the real fun!</p>
+
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Fri 01 May 2015</p>
+    <p>Category: <a href="http://giuliofidente.com/category/techie.html">techie</a>
+ &ndash; Tags:
+      <a href="http://giuliofidente.com/tag/openstack.html">openstack</a>,      <a href="http://giuliofidente.com/tag/tripleo.html">tripleo</a>,      <a href="http://giuliofidente.com/tag/high-availability.html">high availability</a>,      <a href="http://giuliofidente.com/tag/pacemaker.html">pacemaker</a>,      <a href="http://giuliofidente.com/tag/fedoraplanet.html">fedoraplanet</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; Giulio Fidente. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. Member of the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
+    </div>
+  </main>
+<script type="text/javascript">
+  window._idl = {};
+  _idl.variant = "banner";
+  (function() {
+    var idl = document.createElement('script');
+    idl.type = 'text/javascript';
+    idl.async = true;
+    idl.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'members.internetdefenseleague.org/include/?url=' + (_idl.url || '') + '&campaign=' + (_idl.campaign || '') + '&variant=' + (_idl.variant || 'banner');
+    document.getElementsByTagName('body')[0].appendChild(idl);
+  })();
+</script>
+</body>
+</html>
