@@ -64,6 +64,27 @@
 
 <article>
   <div class="article_title">
+    <h1><a href="http://giuliofidente.com/2016/12/tripleo-to-deploy-ceph-standlone.html">TripleO to deploy Ceph standlone</a></h1>
+  </div>
+  <div class="article_text">
+    <p>Here is a nice Christmas present: you can use TripleO for a standalone Ceph deployment, with just a few lines of YAML. Assuming you have an undercloud ready for a new overcloud, create an environment file like the following:</p>
+<pre class="literal-block">
+resource_registry:
+  OS::TripleO::Services::CephMon: /usr/share/openstack-tripleo-heat-templates/puppet/services/ceph-mon.yaml
+  OS::TripleO::Services::CephOSD: /usr/share/openstack-tripleo-heat-templates/puppet/services/ceph-osd.yaml
+
+parameters:
+  ControllerServices:
+    - OS::TripleO::Services::CephMon
+  CephStorageServices:
+    - OS::TripleO::Services::CephOSD
+</pre>
+<p>and launch …</p>
+  </div>
+</article>
+<hr />
+<article>
+  <div class="article_title">
     <h1><a href="http://giuliofidente.com/2016/08/ceph-tripleo-and-the-newton-release.html">Ceph, TripleO and the Newton release</a></h1>
   </div>
   <div class="article_text">
@@ -72,7 +93,7 @@
 <h2>The TripleO default configuration</h2>
 <p>No default is going to fit everybody, but we want to know what the default is to improve from there. So let's try and see:</p>
 <pre class="literal-block">
-uc$ openstack ...</pre></div>
+uc$ openstack overcloud …</pre></div>
   </div>
 </article>
 <hr />
@@ -82,7 +103,7 @@ uc$ openstack ...</pre></div>
   </div>
   <div class="article_text">
     <p>A wrap up on the status of TripleO's Cinder HA spec. First, a link to the <a class="reference external" href="https://blueprints.launchpad.net/tripleo/+spec/tripleo-kilo-cinder-ha">cinder-ha blueprint</a>, where you can find even more links, to the actual spec (under review) and the code changes (again, still under review). Intent of the blueprint is for the <a class="reference external" href="https://wiki.openstack.org/wiki/TripleO">TripleO</a> deployments to keep Cinder volumes available and Cinder operational in case of failures of any node.</p>
-<p>This said, should $subject sound interesting to you, beware the code ...</p>
+<p>This said, should $subject sound interesting to you, beware the code still …</p>
   </div>
 </article>
 

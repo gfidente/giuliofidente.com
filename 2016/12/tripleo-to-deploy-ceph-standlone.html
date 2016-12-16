@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="http://giuliofidente.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="http://giuliofidente.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="http://giuliofidente.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Giulio Fidente">
+  <meta name="description" content="Posts and writings by Giulio Fidente">
+
+  <link href="http://giuliofidente.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Giulio Fidente Atom" />
+
+<meta name="keywords" content="openstack, ceph, tripleo">
+
+  <title>
+    Giulio Fidente
+&ndash; TripleO to deploy Ceph standlone  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-39216528-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="http://giuliofidente.com">
+        <img src="http://giuliofidente.com/images/gravatar_to140.png" alt="logo">
+      </a>
+      <h2><a href="http://giuliofidente.com">Giulio Fidente</a></h2>
+      <p>Software engineer devoted to Automation. Work @Red Hat.</p>
+      <ul>
+        <li><a href="http://giuliofidente.com/pages/about.html">About</a></li>
+        <li><a href="http://giuliofidente.com/pages/projects.html">Projects</a></li>
+        <li><a href="mailto:giulioATgiuliofidenteDOTcom" target="_blank">Email</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      <a href="http://giuliofidente.com">Index</a> &brvbar; <a href="http://giuliofidente.com/archives.html">Archives</a>
+      &brvbar; <a href="http://giuliofidente.com/feeds/all.atom.xml">Atom</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="http://giuliofidente.com/2016/12/tripleo-to-deploy-ceph-standlone.html">TripleO to deploy Ceph standlone</a></h1>
+  </div>
+  <div class="article_text">
+    <p>Here is a nice Christmas present: you can use TripleO for a standalone Ceph deployment, with just a few lines of YAML. Assuming you have an undercloud ready for a new overcloud, create an environment file like the following:</p>
+<pre class="literal-block">
+resource_registry:
+  OS::TripleO::Services::CephMon: /usr/share/openstack-tripleo-heat-templates/puppet/services/ceph-mon.yaml
+  OS::TripleO::Services::CephOSD: /usr/share/openstack-tripleo-heat-templates/puppet/services/ceph-osd.yaml
+
+parameters:
+  ControllerServices:
+    - OS::TripleO::Services::CephMon
+  CephStorageServices:
+    - OS::TripleO::Services::CephOSD
+</pre>
+<p>and launch a deployment with:</p>
+<pre class="literal-block">
+openstack overcloud deploy --compute-scale 0 --ceph-storage-scale 1 -e the_above_env_file.yaml
+</pre>
+<p>The two lines from the environment file in <code>resource_registry</code> are mapping (and enabling) the CephMon and CephOSD services in TripleO while the lines in <code>parameters</code> are defining which services should be deployed on the <em>controller</em> and <em>cephstorage</em> roles.</p>
+<p>This will bring up a two nodes overcloud with one node running ceph-mon and the other ceph-osd but the actual Christmas gift is that it implicitly provides and allows usage of all the features we already know about TripleO, like:</p>
+<blockquote>
+<ul class="simple">
+<li>baremetal provisioning</li>
+<li>network isolation</li>
+<li>a web GUI</li>
+<li>lifecycle management</li>
+<li>... <a class="reference external" href="https://review.openstack.org/#/c/223182/">containers</a></li>
+<li>... <a class="reference external" href="https://review.openstack.org/#/c/392116/">upgrades</a></li>
+</ul>
+</blockquote>
+<p>For example, you can scale up the Ceph cluster with:</p>
+<pre class="literal-block">
+openstack overcloud deploy --compute-scale 0 --ceph-storage-scale 2 -e the_above_env_file.yaml
+</pre>
+<p>and this will provision a new Ironic node with the <em>cephstorage</em> role, configuring the required networks on it and updating the cluster config for the new OSDs. (Note the <code>--ceph-storage-scale</code> parameter going from 1 to 2 in the second example).</p>
+<p>Even more interestingly is that the above will work for any service, not just Ceph, and new services can be added to TripleO with just some YAML and puppet, letting TripleO take care of a number of common issues in any deployment tool, for example:</p>
+<blockquote>
+<ul class="simple">
+<li>supports multinode deployments</li>
+<li>synchronizes and orders the deployment steps across different nodes</li>
+<li>supports propagation of config data across different services</li>
+</ul>
+</blockquote>
+<p>Time to try it and join the fun in #tripleo :)</p>
+
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Fri 16 December 2016</p>
+    <p>Category: <a href="http://giuliofidente.com/category/techie.html">techie</a>
+ &ndash; Tags:
+      <a href="http://giuliofidente.com/tag/openstack.html">openstack</a>,      <a href="http://giuliofidente.com/tag/ceph.html">ceph</a>,      <a href="http://giuliofidente.com/tag/tripleo.html">tripleo</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; Giulio Fidente. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. Member of the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
+    </div>
+  </main>
+<script type="text/javascript">
+  window._idl = {};
+  _idl.variant = "banner";
+  (function() {
+    var idl = document.createElement('script');
+    idl.type = 'text/javascript';
+    idl.async = true;
+    idl.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'members.internetdefenseleague.org/include/?url=' + (_idl.url || '') + '&campaign=' + (_idl.campaign || '') + '&variant=' + (_idl.variant || 'banner');
+    document.getElementsByTagName('body')[0].appendChild(idl);
+  })();
+</script>
+</body>
+</html>

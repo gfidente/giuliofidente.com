@@ -62,6 +62,27 @@
 
 <article>
   <div class="article_title">
+    <h1><a href="http://giuliofidente.com/2016/12/tripleo-to-deploy-ceph-standlone.html">TripleO to deploy Ceph standlone</a></h1>
+  </div>
+  <div class="article_text">
+    <p>Here is a nice Christmas present: you can use TripleO for a standalone Ceph deployment, with just a few lines of YAML. Assuming you have an undercloud ready for a new overcloud, create an environment file like the following:</p>
+<pre class="literal-block">
+resource_registry:
+  OS::TripleO::Services::CephMon: /usr/share/openstack-tripleo-heat-templates/puppet/services/ceph-mon.yaml
+  OS::TripleO::Services::CephOSD: /usr/share/openstack-tripleo-heat-templates/puppet/services/ceph-osd.yaml
+
+parameters:
+  ControllerServices:
+    - OS::TripleO::Services::CephMon
+  CephStorageServices:
+    - OS::TripleO::Services::CephOSD
+</pre>
+<p>and launch …</p>
+  </div>
+</article>
+<hr />
+<article>
+  <div class="article_title">
     <h1><a href="http://giuliofidente.com/2016/08/ceph-tripleo-and-the-newton-release.html">Ceph, TripleO and the Newton release</a></h1>
   </div>
   <div class="article_text">
@@ -70,7 +91,7 @@
 <h2>The TripleO default configuration</h2>
 <p>No default is going to fit everybody, but we want to know what the default is to improve from there. So let's try and see:</p>
 <pre class="literal-block">
-uc$ openstack ...</pre></div>
+uc$ openstack overcloud …</pre></div>
   </div>
 </article>
 <hr />
@@ -82,7 +103,7 @@ uc$ openstack ...</pre></div>
     <p><a class="reference external" href="https://www.openstack.org/summit/tokyo-2015/">OpenStack summit Tokyo</a> anyone? I've been there and thought it was a very well organized event, in a nice location. Every minute together with peers seemed worth it to me. This said, let's talk about the actual sessions. I spent most of my time at the TripleO and Heat sessions, with a little detour on Magnum. Plus some booth crawling.</p>
 <dl class="docutils">
 <dt><strong>TripleO</strong></dt>
-<dd><p class="first">We had three sessions and a full day meetup. The first discussed ...</p></dd></dl>
+<dd><p class="first">We had three sessions and a full day meetup. The first discussed the recent …</p></dd></dl>
   </div>
 </article>
 <hr />
@@ -91,7 +112,7 @@ uc$ openstack ...</pre></div>
     <h1><a href="http://giuliofidente.com/2015/05/on-tripleo-and-the-enablepacemaker-bool.html">On TripleO and the EnablePacemaker bool</a></h1>
   </div>
   <div class="article_text">
-    <p>Yes, EnablePacemaker! A little old fashioned and not very well suited for OpenStack you say heh? Let's try to talk a bit about this then. News is that we're adding into TripleO/Puppet an option to deploy Pacemaker on the Overcloud nodes. Puppet you said? Sure TripleO can use Puppet now for the configuration of the Overcloud nodes, ask Dan Prince :) Actually usage of Puppet is nowdays the preferred approach and many features ...</p>
+    <p>Yes, EnablePacemaker! A little old fashioned and not very well suited for OpenStack you say heh? Let's try to talk a bit about this then. News is that we're adding into TripleO/Puppet an option to deploy Pacemaker on the Overcloud nodes. Puppet you said? Sure TripleO can use Puppet now for the configuration of the Overcloud nodes, ask Dan Prince :) Actually usage of Puppet is nowdays the preferred approach and many features are available …</p>
   </div>
 </article>
 <hr />
@@ -101,17 +122,7 @@ uc$ openstack ...</pre></div>
   </div>
   <div class="article_text">
     <p>A wrap up on the status of TripleO's Cinder HA spec. First, a link to the <a class="reference external" href="https://blueprints.launchpad.net/tripleo/+spec/tripleo-kilo-cinder-ha">cinder-ha blueprint</a>, where you can find even more links, to the actual spec (under review) and the code changes (again, still under review). Intent of the blueprint is for the <a class="reference external" href="https://wiki.openstack.org/wiki/TripleO">TripleO</a> deployments to keep Cinder volumes available and Cinder operational in case of failures of any node.</p>
-<p>This said, should $subject sound interesting to you, beware the code ...</p>
-  </div>
-</article>
-<hr />
-<article>
-  <div class="article_title">
-    <h1><a href="http://giuliofidente.com/2014/08/tripleo-vs-openstack-ha.html">TripleO vs OpenStack HA</a></h1>
-  </div>
-  <div class="article_text">
-    <p>One of the topics discussed during the <a class="reference external" href="https://wiki.openstack.org/wiki/TripleO">TripleO</a> mid-cycle meetup in RDU was our status in relation to deploying OpenStack in a highly available manner. This had been worked on for some time and recently reached a usable state.</p>
-<p>Majority of complications seem to come from two factors: 1) we need to guarantee availability of external services too, like the database and the message broker, which aren't exactly designed for a scale-out scenario, 2 ...</p>
+<p>This said, should $subject sound interesting to you, beware the code still …</p>
   </div>
 </article>
 

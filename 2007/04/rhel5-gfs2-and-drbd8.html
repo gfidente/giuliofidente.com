@@ -70,7 +70,7 @@
 <p>gfs2 permits to the two server machines a concurrent mount of the network replicated drbd device.</p>
 <p>rhel5 is the OS I've installed on the two machines.</p>
 <p>Practically with this stuff the servers share the same &quot;storage&quot;. Here is a sample config file for drbd:</p>
-<div class="highlight"><pre><span class="err">common</span> <span class="p">{</span> <span class="err">syncer</span> <span class="err">{</span> <span class="err">rate</span> <span class="err">100M;</span> <span class="p">}</span> <span class="err">}</span>
+<div class="highlight"><pre><span></span><span class="err">common</span> <span class="p">{</span> <span class="err">syncer</span> <span class="err">{</span> <span class="err">rate</span> <span class="err">100M;</span> <span class="p">}</span> <span class="err">}</span>
 <span class="err">resource</span> <span class="err">r</span><span class="mi">0</span> <span class="p">{</span>
   <span class="err">protocol</span> <span class="err">C;</span>
   <span class="err">disk</span> <span class="err">{</span> <span class="err">on-io-error</span> <span class="err">pass_on;</span> <span class="p">}</span>
