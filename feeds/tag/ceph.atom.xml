@@ -1,5 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Giulio Fidente - ceph</title><link href="http://giuliofidente.com/" rel="alternate"></link><link href="http://giuliofidente.com/feeds/tag/ceph.atom.xml" rel="self"></link><id>http://giuliofidente.com/</id><updated>2016-12-16T23:00:00+01:00</updated><entry><title>TripleO to deploy Ceph standlone</title><link href="http://giuliofidente.com/2016/12/tripleo-to-deploy-ceph-standlone.html" rel="alternate"></link><published>2016-12-16T23:00:00+01:00</published><updated>2016-12-16T23:00:00+01:00</updated><author><name>Giulio Fidente</name></author><id>tag:giuliofidente.com,2016-12-16:/2016/12/tripleo-to-deploy-ceph-standlone.html</id><summary type="html">&lt;p&gt;Here is a nice Christmas present: you can use TripleO for a standalone Ceph deployment, with just a few lines of YAML. Assuming you have an undercloud ready for a new overcloud, create an environment file like the following:&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Giulio Fidente - ceph</title><link href="http://giuliofidente.com/" rel="alternate"></link><link href="http://giuliofidente.com/feeds/tag/ceph.atom.xml" rel="self"></link><id>http://giuliofidente.com/</id><updated>2017-07-19T11:00:00+02:00</updated><entry><title>Understanding ceph-ansible in TripleO</title><link href="http://giuliofidente.com/2017/07/understanding-ceph-ansible-in-tripleo.html" rel="alternate"></link><published>2017-07-19T11:00:00+02:00</published><updated>2017-07-19T11:00:00+02:00</updated><author><name>Giulio Fidente</name></author><id>tag:giuliofidente.com,2017-07-19:/2017/07/understanding-ceph-ansible-in-tripleo.html</id><summary type="html">&lt;p&gt;One of the goals for the TripleO Pike release was to introduce ceph-ansible as an alternative to puppet-ceph for the deployment of Ceph.&lt;/p&gt;
+&lt;p&gt;More specifically, to put operators in control of the playbook execution as if they were launching ceph-ansible from the commandline, except it would be Heat starting ceph-ansible at the right time during the overcloud deployment.&lt;/p&gt;
+&lt;p&gt;This demanded for &lt;a class="reference external" href="https://blueprints.launchpad.net/tripleo/+spec/tripleo-ceph-ansible"&gt;some changes&lt;/a&gt; in different tools used by TripleO and went through a pretty long …&lt;/p&gt;</summary><content type="html">&lt;p&gt;One of the goals for the TripleO Pike release was to introduce ceph-ansible as an alternative to puppet-ceph for the deployment of Ceph.&lt;/p&gt;
+&lt;p&gt;More specifically, to put operators in control of the playbook execution as if they were launching ceph-ansible from the commandline, except it would be Heat starting ceph-ansible at the right time during the overcloud deployment.&lt;/p&gt;
+&lt;p&gt;This demanded for &lt;a class="reference external" href="https://blueprints.launchpad.net/tripleo/+spec/tripleo-ceph-ansible"&gt;some changes&lt;/a&gt; in different tools used by TripleO and went through a pretty long review process, eventually putting in place some useful bits for the future &lt;a class="reference external" href="https://review.openstack.org/471759"&gt;integration of Kubernetes&lt;/a&gt; and migration to an &lt;a class="reference external" href="https://review.openstack.org/483929"&gt;ansible driven deployment&lt;/a&gt; of the overcloud configuration steps in TripleO.&lt;/p&gt;
+&lt;p&gt;The idea was to add a generic functionality allowing triggering of a given Mistral workflow during the deployment of a service. Mistral could have then executed any action, including for example an ansible playbook, provided it was given all the necessay input data for the playbook to run and the roles list to build the hosts inventory.&lt;/p&gt;
+&lt;p&gt;This is how we did it.&lt;/p&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;Run ansible-playbook from Mistral (1)&lt;/dt&gt;
+&lt;dd&gt;An initial submission added support for the execution of ansible playbooks as workflow tasks in Mistral &lt;a class="reference external" href="https://github.com/openstack/tripleo-common/commit/e6c8a46f00436edfa5de92e97c3a390d90c3ce54"&gt;https://github.com/openstack/tripleo-common/commit/e6c8a46f00436edfa5de92e97c3a390d90c3ce54&lt;/a&gt;&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;A generic action for Mistral which workflows can use to run an ansible playbook. +2 to &lt;a class="reference external" href="http://www.dougalmatthews.com/"&gt;Dougal&lt;/a&gt; and &lt;a class="reference external" href="https://twitter.com/rjbrady"&gt;Ryan&lt;/a&gt;.&lt;/p&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;Deploy external resources from Heat (2)&lt;/dt&gt;
+&lt;dd&gt;We also needed a new resource in Heat to be able to drive Mistral workflow executions &lt;a class="reference external" href="https://github.com/openstack/heat/commit/725b404468bdd2c1bdbaf16e594515475da7bace"&gt;https://github.com/openstack/heat/commit/725b404468bdd2c1bdbaf16e594515475da7bace&lt;/a&gt; so that we could orchestrate the executions like any other Heat resource. This is described much in detail in a &lt;a class="reference external" href="https://specs.openstack.org/openstack/heat-specs/specs/liberty/external_resource.html"&gt;Heat spec&lt;/a&gt;.&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;With these two, we could run an ansible playbook from a Heat resource, via Mistral. +2 to &lt;a class="reference external" href="http://www.zerobanana.com/"&gt;Zane&lt;/a&gt; and &lt;a class="reference external" href="https://twitter.com/therve"&gt;Thomas&lt;/a&gt; for the help! Enough to start messing in TripleO and glue things together.&lt;/p&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;Describe what/when to run in TripleO (3)&lt;/dt&gt;
+&lt;dd&gt;We added a mechanim in the TripleO templates to make it possible to describe, from within a service, a list of tasks or workflows to be executed at any given deployment step &lt;a class="reference external" href="https://github.com/openstack/tripleo-heat-templates/commit/71f13388161cbab12fe284f7b251ca8d36f7635c"&gt;https://github.com/openstack/tripleo-heat-templates/commit/71f13388161cbab12fe284f7b251ca8d36f7635c&lt;/a&gt;&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;There aren't restrictions on what the tasks or workflows in the new section should do. These might deploy the service or prepare the environment for it or execute code (eg. build Swift rings). The commit message explains how to use it:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+service_workflow_tasks:
+  step2:
+    - name: my_action_name
+      action: std.echo
+      input:
+        output: 'hello world'
+&lt;/pre&gt;
+&lt;p&gt;The above snippet would make TripleO to run the Mistral &lt;code&gt;std.echo&lt;/code&gt; action during the overcloud deployment, precisely at step 2, assuming you create a new service with the code above and enable it on a role.&lt;/p&gt;
+&lt;p&gt;For Ceph we wanted to run the new Mistral action (1) and needed to provide it with the config settings for the service, normally described within the &lt;code&gt;config_settings&lt;/code&gt; structure of the service template.&lt;/p&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;Provide config_settings to the workflows (4)&lt;/dt&gt;
+&lt;dd&gt;The decision was to make available all config settings into the Mistral execution environment so that ansible actions could, for example, use them as &lt;code&gt;extra_vars&lt;/code&gt; &lt;a class="reference external" href="https://github.com/openstack/tripleo-heat-templates/commit/8b81b363fd48b0080b963fd2b1ab6bfe97b0c204"&gt;https://github.com/openstack/tripleo-heat-templates/commit/8b81b363fd48b0080b963fd2b1ab6bfe97b0c204&lt;/a&gt;&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;Now all config settings normally consumed by puppet were available to the Mistral action and playbook settings could be added too, +2 &lt;a class="reference external" href="http://hardysteven.blogspot.it/"&gt;Steven&lt;/a&gt;.&lt;/p&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;Build the data for the hosts inventory (5)&lt;/dt&gt;
+&lt;dd&gt;Together with the above, another small change provided into the execution environment a dictionary mapping every enabled service to the list of IP address of the nodes where the service is deployed &lt;a class="reference external" href="https://github.com/openstack/tripleo-heat-templates/commit/9c1940e461867f2ce986a81fa313d7995592f0c5"&gt;https://github.com/openstack/tripleo-heat-templates/commit/9c1940e461867f2ce986a81fa313d7995592f0c5&lt;/a&gt;&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;This was necessary to be able to build the ansible hosts inventory.&lt;/p&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;Create a workflow for ceph-ansible (6)&lt;/dt&gt;
+&lt;dd&gt;Having all pieces available to trigger the workflow and pass to it the service config settings, we needed the workflow which would run ceph-ansible &lt;a class="reference external" href="https://github.com/openstack/tripleo-common/commit/fa0b9f52080580b7408dc6f5f2da6fc1dc07d500"&gt;https://github.com/openstack/tripleo-common/commit/fa0b9f52080580b7408dc6f5f2da6fc1dc07d500&lt;/a&gt; plus some new, generic Mistral actions, to run smoothly multiple times (eg. stack updates) &lt;a class="reference external" href="https://github.com/openstack/tripleo-common/commit/f81372d85a0a92de455eeaa93162faf09be670cf"&gt;https://github.com/openstack/tripleo-common/commit/f81372d85a0a92de455eeaa93162faf09be670cf&lt;/a&gt;&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;This is the glue which runs a ceph-ansible playbook with the given set of parameters. +2 &lt;a class="reference external" href="http://johnlikesopenstack.com"&gt;John&lt;/a&gt;.&lt;/p&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;Deploy Ceph via ceph-ansible (7)&lt;/dt&gt;
+&lt;dd&gt;Finally, the new services definition for Tripleo &lt;a class="reference external" href="https://review.openstack.org/#/c/465066/"&gt;https://review.openstack.org/#/c/465066/&lt;/a&gt; to deploy Ceph in containers via ceph-ansible, including a couple of params operators can use to push into the Mistral environment arbitrary &lt;code&gt;extra_vars&lt;/code&gt; for ceph-ansible.&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;The deployment with ceph-ansible is activated with the ceph-ansible.yaml environment file.&lt;/p&gt;
+&lt;p&gt;Interestingly the templates to deploy Ceph using puppet-ceph are unchanged and continue to work as they used to so that for new deployments it is possible to use alternatively the new implementation with ceph-ansible or the pre-existing implementation using puppet-ceph. Only ceph-ansible allows for the deployment of Ceph in containers.&lt;/p&gt;
+&lt;p&gt;Big +2 also to &lt;a class="reference external" href="https://github.com/jistr"&gt;Jiri&lt;/a&gt; (who doesn't even need a blog or twitter) and all the people who helped during the development process with feedback, commits and reviews.&lt;/p&gt;
+&lt;p&gt;Soon another article with some usage examples and debugging instructions!&lt;/p&gt;
+</content><category term="openstack"></category><category term="ceph"></category><category term="tripleo"></category><category term="heat"></category><category term="mistral"></category><category term="ceph-ansible"></category></entry><entry><title>TripleO to deploy Ceph standlone</title><link href="http://giuliofidente.com/2016/12/tripleo-to-deploy-ceph-standlone.html" rel="alternate"></link><published>2016-12-16T23:00:00+01:00</published><updated>2016-12-16T23:00:00+01:00</updated><author><name>Giulio Fidente</name></author><id>tag:giuliofidente.com,2016-12-16:/2016/12/tripleo-to-deploy-ceph-standlone.html</id><summary type="html">&lt;p&gt;Here is a nice Christmas present: you can use TripleO for a standalone Ceph deployment, with just a few lines of YAML. Assuming you have an undercloud ready for a new overcloud, create an environment file like the following:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 resource_registry:
   OS::TripleO::Services::CephMon: /usr/share/openstack-tripleo-heat-templates/puppet/services/ceph-mon.yaml

@@ -61,6 +61,17 @@
 
 <article>
   <div class="article_title">
+    <h1><a href="http://giuliofidente.com/2017/07/understanding-ceph-ansible-in-tripleo.html">Understanding ceph-ansible in TripleO</a></h1>
+  </div>
+  <div class="article_text">
+    <p>One of the goals for the TripleO Pike release was to introduce ceph-ansible as an alternative to puppet-ceph for the deployment of Ceph.</p>
+<p>More specifically, to put operators in control of the playbook execution as if they were launching ceph-ansible from the commandline, except it would be Heat starting ceph-ansible at the right time during the overcloud deployment.</p>
+<p>This demanded for <a class="reference external" href="https://blueprints.launchpad.net/tripleo/+spec/tripleo-ceph-ansible">some changes</a> in different tools used by TripleO and went through a pretty long …</p>
+  </div>
+</article>
+<hr />
+<article>
+  <div class="article_title">
     <h1><a href="http://giuliofidente.com/2016/12/tripleo-to-deploy-ceph-standlone.html">TripleO to deploy Ceph standlone</a></h1>
   </div>
   <div class="article_text">
@@ -112,16 +123,6 @@ uc$ openstack overcloud …</pre></div>
   </div>
   <div class="article_text">
     <p>Yes, EnablePacemaker! A little old fashioned and not very well suited for OpenStack you say heh? Let's try to talk a bit about this then. News is that we're adding into TripleO/Puppet an option to deploy Pacemaker on the Overcloud nodes. Puppet you said? Sure TripleO can use Puppet now for the configuration of the Overcloud nodes, ask Dan Prince :) Actually usage of Puppet is nowdays the preferred approach and many features are available …</p>
-  </div>
-</article>
-<hr />
-<article>
-  <div class="article_title">
-    <h1><a href="http://giuliofidente.com/2015/01/ceph-for-cinder-in-tripleo.html">Ceph for Cinder in TripleO</a></h1>
-  </div>
-  <div class="article_text">
-    <p>A wrap up on the status of TripleO's Cinder HA spec. First, a link to the <a class="reference external" href="https://blueprints.launchpad.net/tripleo/+spec/tripleo-kilo-cinder-ha">cinder-ha blueprint</a>, where you can find even more links, to the actual spec (under review) and the code changes (again, still under review). Intent of the blueprint is for the <a class="reference external" href="https://wiki.openstack.org/wiki/TripleO">TripleO</a> deployments to keep Cinder volumes available and Cinder operational in case of failures of any node.</p>
-<p>This said, should $subject sound interesting to you, beware the code still …</p>
   </div>
 </article>
 

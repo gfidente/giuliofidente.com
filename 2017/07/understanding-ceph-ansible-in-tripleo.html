@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="http://giuliofidente.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="http://giuliofidente.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="http://giuliofidente.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Giulio Fidente">
+  <meta name="description" content="Posts and writings by Giulio Fidente">
+
+  <link href="http://giuliofidente.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Giulio Fidente Atom" />
+
+<meta name="keywords" content="openstack, ceph, tripleo, heat, mistral, ceph-ansible">
+
+  <title>
+    Giulio Fidente
+&ndash; Understanding ceph-ansible in TripleO  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-39216528-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="http://giuliofidente.com">
+        <img src="http://giuliofidente.com/images/gravatar_to140.png" alt="logo">
+      </a>
+      <h2><a href="http://giuliofidente.com">Giulio Fidente</a></h2>
+      <p>Software engineer devoted to Automation. Work @Red Hat.</p>
+      <ul>
+        <li><a href="http://giuliofidente.com/pages/about.html">About</a></li>
+        <li><a href="http://giuliofidente.com/pages/projects.html">Projects</a></li>
+        <li><a href="mailto:giulioATgiuliofidenteDOTcom" target="_blank">Email</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      <a href="http://giuliofidente.com">Index</a> &brvbar; <a href="http://giuliofidente.com/archives.html">Archives</a>
+      &brvbar; <a href="http://giuliofidente.com/feeds/all.atom.xml">Atom</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="http://giuliofidente.com/2017/07/understanding-ceph-ansible-in-tripleo.html">Understanding ceph-ansible in TripleO</a></h1>
+  </div>
+  <div class="article_text">
+    <p>One of the goals for the TripleO Pike release was to introduce ceph-ansible as an alternative to puppet-ceph for the deployment of Ceph.</p>
+<p>More specifically, to put operators in control of the playbook execution as if they were launching ceph-ansible from the commandline, except it would be Heat starting ceph-ansible at the right time during the overcloud deployment.</p>
+<p>This demanded for <a class="reference external" href="https://blueprints.launchpad.net/tripleo/+spec/tripleo-ceph-ansible">some changes</a> in different tools used by TripleO and went through a pretty long review process, eventually putting in place some useful bits for the future <a class="reference external" href="https://review.openstack.org/471759">integration of Kubernetes</a> and migration to an <a class="reference external" href="https://review.openstack.org/483929">ansible driven deployment</a> of the overcloud configuration steps in TripleO.</p>
+<p>The idea was to add a generic functionality allowing triggering of a given Mistral workflow during the deployment of a service. Mistral could have then executed any action, including for example an ansible playbook, provided it was given all the necessay input data for the playbook to run and the roles list to build the hosts inventory.</p>
+<p>This is how we did it.</p>
+<dl class="docutils">
+<dt>Run ansible-playbook from Mistral (1)</dt>
+<dd>An initial submission added support for the execution of ansible playbooks as workflow tasks in Mistral <a class="reference external" href="https://github.com/openstack/tripleo-common/commit/e6c8a46f00436edfa5de92e97c3a390d90c3ce54">https://github.com/openstack/tripleo-common/commit/e6c8a46f00436edfa5de92e97c3a390d90c3ce54</a></dd>
+</dl>
+<p>A generic action for Mistral which workflows can use to run an ansible playbook. +2 to <a class="reference external" href="http://www.dougalmatthews.com/">Dougal</a> and <a class="reference external" href="https://twitter.com/rjbrady">Ryan</a>.</p>
+<dl class="docutils">
+<dt>Deploy external resources from Heat (2)</dt>
+<dd>We also needed a new resource in Heat to be able to drive Mistral workflow executions <a class="reference external" href="https://github.com/openstack/heat/commit/725b404468bdd2c1bdbaf16e594515475da7bace">https://github.com/openstack/heat/commit/725b404468bdd2c1bdbaf16e594515475da7bace</a> so that we could orchestrate the executions like any other Heat resource. This is described much in detail in a <a class="reference external" href="https://specs.openstack.org/openstack/heat-specs/specs/liberty/external_resource.html">Heat spec</a>.</dd>
+</dl>
+<p>With these two, we could run an ansible playbook from a Heat resource, via Mistral. +2 to <a class="reference external" href="http://www.zerobanana.com/">Zane</a> and <a class="reference external" href="https://twitter.com/therve">Thomas</a> for the help! Enough to start messing in TripleO and glue things together.</p>
+<dl class="docutils">
+<dt>Describe what/when to run in TripleO (3)</dt>
+<dd>We added a mechanim in the TripleO templates to make it possible to describe, from within a service, a list of tasks or workflows to be executed at any given deployment step <a class="reference external" href="https://github.com/openstack/tripleo-heat-templates/commit/71f13388161cbab12fe284f7b251ca8d36f7635c">https://github.com/openstack/tripleo-heat-templates/commit/71f13388161cbab12fe284f7b251ca8d36f7635c</a></dd>
+</dl>
+<p>There aren't restrictions on what the tasks or workflows in the new section should do. These might deploy the service or prepare the environment for it or execute code (eg. build Swift rings). The commit message explains how to use it:</p>
+<pre class="literal-block">
+service_workflow_tasks:
+  step2:
+    - name: my_action_name
+      action: std.echo
+      input:
+        output: 'hello world'
+</pre>
+<p>The above snippet would make TripleO to run the Mistral <code>std.echo</code> action during the overcloud deployment, precisely at step 2, assuming you create a new service with the code above and enable it on a role.</p>
+<p>For Ceph we wanted to run the new Mistral action (1) and needed to provide it with the config settings for the service, normally described within the <code>config_settings</code> structure of the service template.</p>
+<dl class="docutils">
+<dt>Provide config_settings to the workflows (4)</dt>
+<dd>The decision was to make available all config settings into the Mistral execution environment so that ansible actions could, for example, use them as <code>extra_vars</code> <a class="reference external" href="https://github.com/openstack/tripleo-heat-templates/commit/8b81b363fd48b0080b963fd2b1ab6bfe97b0c204">https://github.com/openstack/tripleo-heat-templates/commit/8b81b363fd48b0080b963fd2b1ab6bfe97b0c204</a></dd>
+</dl>
+<p>Now all config settings normally consumed by puppet were available to the Mistral action and playbook settings could be added too, +2 <a class="reference external" href="http://hardysteven.blogspot.it/">Steven</a>.</p>
+<dl class="docutils">
+<dt>Build the data for the hosts inventory (5)</dt>
+<dd>Together with the above, another small change provided into the execution environment a dictionary mapping every enabled service to the list of IP address of the nodes where the service is deployed <a class="reference external" href="https://github.com/openstack/tripleo-heat-templates/commit/9c1940e461867f2ce986a81fa313d7995592f0c5">https://github.com/openstack/tripleo-heat-templates/commit/9c1940e461867f2ce986a81fa313d7995592f0c5</a></dd>
+</dl>
+<p>This was necessary to be able to build the ansible hosts inventory.</p>
+<dl class="docutils">
+<dt>Create a workflow for ceph-ansible (6)</dt>
+<dd>Having all pieces available to trigger the workflow and pass to it the service config settings, we needed the workflow which would run ceph-ansible <a class="reference external" href="https://github.com/openstack/tripleo-common/commit/fa0b9f52080580b7408dc6f5f2da6fc1dc07d500">https://github.com/openstack/tripleo-common/commit/fa0b9f52080580b7408dc6f5f2da6fc1dc07d500</a> plus some new, generic Mistral actions, to run smoothly multiple times (eg. stack updates) <a class="reference external" href="https://github.com/openstack/tripleo-common/commit/f81372d85a0a92de455eeaa93162faf09be670cf">https://github.com/openstack/tripleo-common/commit/f81372d85a0a92de455eeaa93162faf09be670cf</a></dd>
+</dl>
+<p>This is the glue which runs a ceph-ansible playbook with the given set of parameters. +2 <a class="reference external" href="http://johnlikesopenstack.com">John</a>.</p>
+<dl class="docutils">
+<dt>Deploy Ceph via ceph-ansible (7)</dt>
+<dd>Finally, the new services definition for Tripleo <a class="reference external" href="https://review.openstack.org/#/c/465066/">https://review.openstack.org/#/c/465066/</a> to deploy Ceph in containers via ceph-ansible, including a couple of params operators can use to push into the Mistral environment arbitrary <code>extra_vars</code> for ceph-ansible.</dd>
+</dl>
+<p>The deployment with ceph-ansible is activated with the ceph-ansible.yaml environment file.</p>
+<p>Interestingly the templates to deploy Ceph using puppet-ceph are unchanged and continue to work as they used to so that for new deployments it is possible to use alternatively the new implementation with ceph-ansible or the pre-existing implementation using puppet-ceph. Only ceph-ansible allows for the deployment of Ceph in containers.</p>
+<p>Big +2 also to <a class="reference external" href="https://github.com/jistr">Jiri</a> (who doesn't even need a blog or twitter) and all the people who helped during the development process with feedback, commits and reviews.</p>
+<p>Soon another article with some usage examples and debugging instructions!</p>
+
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Wed 19 July 2017</p>
+    <p>Category: <a href="http://giuliofidente.com/category/techie.html">techie</a>
+ &ndash; Tags:
+      <a href="http://giuliofidente.com/tag/openstack.html">openstack</a>,      <a href="http://giuliofidente.com/tag/ceph.html">ceph</a>,      <a href="http://giuliofidente.com/tag/tripleo.html">tripleo</a>,      <a href="http://giuliofidente.com/tag/heat.html">heat</a>,      <a href="http://giuliofidente.com/tag/mistral.html">mistral</a>,      <a href="http://giuliofidente.com/tag/ceph-ansible.html">ceph-ansible</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; Giulio Fidente. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. Member of the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
+    </div>
+  </main>
+<script type="text/javascript">
+  window._idl = {};
+  _idl.variant = "banner";
+  (function() {
+    var idl = document.createElement('script');
+    idl.type = 'text/javascript';
+    idl.async = true;
+    idl.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'members.internetdefenseleague.org/include/?url=' + (_idl.url || '') + '&campaign=' + (_idl.campaign || '') + '&variant=' + (_idl.variant || 'banner');
+    document.getElementsByTagName('body')[0].appendChild(idl);
+  })();
+</script>
+</body>
+</html>

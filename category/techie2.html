@@ -64,6 +64,16 @@
 
 <article>
   <div class="article_title">
+    <h1><a href="http://giuliofidente.com/2015/01/ceph-for-cinder-in-tripleo.html">Ceph for Cinder in TripleO</a></h1>
+  </div>
+  <div class="article_text">
+    <p>A wrap up on the status of TripleO's Cinder HA spec. First, a link to the <a class="reference external" href="https://blueprints.launchpad.net/tripleo/+spec/tripleo-kilo-cinder-ha">cinder-ha blueprint</a>, where you can find even more links, to the actual spec (under review) and the code changes (again, still under review). Intent of the blueprint is for the <a class="reference external" href="https://wiki.openstack.org/wiki/TripleO">TripleO</a> deployments to keep Cinder volumes available and Cinder operational in case of failures of any node.</p>
+<p>This said, should $subject sound interesting to you, beware the code still …</p>
+  </div>
+</article>
+<hr />
+<article>
+  <div class="article_title">
     <h1><a href="http://giuliofidente.com/2014/08/tripleo-vs-openstack-ha.html">TripleO vs OpenStack HA</a></h1>
   </div>
   <div class="article_text">
@@ -104,16 +114,6 @@
   <div class="article_text">
     <p>Following <a class="reference external" href="http://giuliofidente.com/2013/04/openstack-cinder-add-more-volume-nodes.html">my first post of the series</a> discussing how to scale <a class="reference external" href="http://www.openstack.org">OpenStack</a> <a class="reference external" href="https://wiki.openstack.org/wiki/Cinder">Cinder</a> to multiple nodes, with this I want to approach the configuration and usage of the multibackend feature landed in <a class="reference external" href="https://wiki.openstack.org/wiki/Cinder">Cinder</a> with the Grizzly release.</p>
 <p>This feature allows you to configure a single volume node for use with more than a single backend driver. You can find all about the few configuration bits needed also in the <a class="reference external" href="http://docs.openstack.org/trunk/openstack-block-storage/admin/content/multi_backend.html">OpenStack block storage documentation</a>. That makes …</p>
-  </div>
-</article>
-<hr />
-<article>
-  <div class="article_title">
-    <h1><a href="http://giuliofidente.com/2013/04/openstack-cinder-add-more-volume-nodes.html">OpenStack Cinder - Add more volume nodes</a></h1>
-  </div>
-  <div class="article_text">
-    <p>With this being the first of a short series, I'd like to publish some articles intendend to cover the required steps to configure <a class="reference external" href="https://wiki.openstack.org/wiki/Cinder">Cinder</a> (<a class="reference external" href="http://www.openstack.org">OpenStack</a> block storage service) in a mid/large deployment scenario. The idea is to discuss at least three topics: how to scale the service by adding more volume nodes; how to ensure high-availablity for the API and Scheduler sub-services; leverage the multi-backend feature landed in Grizzly.</p>
-<p>I'm starting with this post …</p>
   </div>
 </article>
 
