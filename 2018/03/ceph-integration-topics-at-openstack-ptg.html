@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="http://giuliofidente.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="http://giuliofidente.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="http://giuliofidente.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Giulio Fidente">
+  <meta name="description" content="Posts and writings by Giulio Fidente">
+
+  <link href="http://giuliofidente.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Giulio Fidente Atom" />
+
+<meta name="keywords" content="openstack, ceph, ceph-ansible, tripleo">
+
+  <title>
+    Giulio Fidente
+&ndash; Ceph integration topics at OpenStack PTG  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-39216528-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="http://giuliofidente.com">
+        <img src="http://giuliofidente.com/images/gravatar_to140.png" alt="logo">
+      </a>
+      <h2><a href="http://giuliofidente.com">Giulio Fidente</a></h2>
+      <p>Software engineer devoted to Automation. Work @Red Hat.</p>
+      <ul>
+        <li><a href="http://giuliofidente.com/pages/about.html">About</a></li>
+        <li><a href="http://giuliofidente.com/pages/projects.html">Projects</a></li>
+        <li><a href="mailto:giulioATgiuliofidenteDOTcom" target="_blank">Email</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      <a href="http://giuliofidente.com">Index</a> &brvbar; <a href="http://giuliofidente.com/archives.html">Archives</a>
+      &brvbar; <a href="http://giuliofidente.com/feeds/all.atom.xml">Atom</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="http://giuliofidente.com/2018/03/ceph-integration-topics-at-openstack-ptg.html">Ceph integration topics at OpenStack PTG</a></h1>
+  </div>
+  <div class="article_text">
+    <p>I wanted to share a short summary of the discussions happened around the Ceph integration (in TripleO) at the <a class="reference external" href="https://www.openstack.org/ptg/">OpenStack PTG</a>.</p>
+<div class="section" id="ceph-container-ansible-branching">
+<h2>ceph-{container,ansible} branching</h2>
+<p>Together with <a class="reference external" href="http://blog.johnlikesopenstack.com/">John Fulton</a> and <a class="reference external" href="https://github.com/guits">Guillaume Abrioux</a> (and after PTG, <a class="reference external" href="http://www.sebastien-han.fr/">Sebastien Han</a>) we put some thought into how to make the Ceph container images and ceph-ansible releases fit better the OpenStack model; the container images and ceph-ansible are in fact loosely coupled (not all versions of the container images work with all versions of ceph-ansible) and we wanted to move from a &quot;rolling release&quot; into a &quot;point release&quot; approach, mainly to permit regular maintenance of the previous versions known to work with the previous OpenStack versions. The plan goes more or less as follows:</p>
+<blockquote>
+<ul class="simple">
+<li>ceph-{container,ansible} should be released together with the regular ceph updates</li>
+<li>ceph-container will start using tags and stable branches like ceph-ansible does</li>
+</ul>
+</blockquote>
+<p>The changes for the ceph/daemon docker images are visible already:
+<a class="reference external" href="https://hub.docker.com/r/ceph/daemon/tags/">https://hub.docker.com/r/ceph/daemon/tags/</a></p>
+</div>
+<div class="section" id="multiple-ceph-clusters">
+<h2>Multiple Ceph clusters</h2>
+<p>In the attempt to support better the &quot;edge computing&quot; use case, we discussed adding support for the deployment of multiple Ceph clusters in the overcloud.</p>
+<p>Together with <a class="reference external" href="http://blog.johnlikesopenstack.com/">John Fulton</a> and <a class="reference external" href="http://hardysteven.blogspot.com/">Steven Hardy</a> (and after PTG, Gregory Charot) we realized this could be done using multiple stacks and by doing so, hopefully simplify managament of the &quot;cells&quot; and avoid potential issues due to orchestration of large clusters.</p>
+<p>Much of this will build on Shardy's blueprint to split the control plane, see spec at: <a class="reference external" href="https://review.openstack.org/#/c/523459/">https://review.openstack.org/#/c/523459/</a></p>
+<p>The multiple Ceph clusters specifics will be tracked via another blueprint: <a class="reference external" href="https://blueprints.launchpad.net/tripleo/+spec/deploy-multiple-ceph-clusters">https://blueprints.launchpad.net/tripleo/+spec/deploy-multiple-ceph-clusters</a></p>
+</div>
+<div class="section" id="ceph-ansible-testing-with-tripleo">
+<h2>ceph-ansible testing with TripleO</h2>
+<p>We had a very good chat with <a class="reference external" href="http://blog.johnlikesopenstack.com/">John Fulton</a>, <a class="reference external" href="https://github.com/guits">Guillaume Abrioux</a>, <a class="reference external" href="https://github.com/weshayutin">Wesley Hayutin</a> and <a class="reference external" href="https://jpenatech.wordpress.com/">Javier Pena</a> on how to get tested new pull requests for ceph-ansible with TripleO; basically trigger an existing TripleO scenario on changes proposed to ceph-ansible.</p>
+<p>Given ceph-ansible is hosted on github, Wesley's and Javier suggested this should be possible with Zuul v3 and volunteered to help; some of the complications are about building an RPM from uncommitted changes for testing.</p>
+</div>
+<div class="section" id="move-ceph-ansible-triggering-from-workflow-tasks-to-external-deploy-tasks">
+<h2>Move ceph-ansible triggering from workflow_tasks to external_deploy_tasks</h2>
+<p>This is a requirement for the Rocky release; we want to migrate away from using workflow_tasks and use external_deploy_tasks instead, to integrate into the &quot;config-download&quot; mechanism.</p>
+<p>This work is tracked via a blueprint and we have a WIP submission on review: <a class="reference external" href="https://blueprints.launchpad.net/tripleo/+spec/ceph-ansible-external-deploy-tasks">https://blueprints.launchpad.net/tripleo/+spec/ceph-ansible-external-deploy-tasks</a></p>
+<p>We're also working with Sofer Athlan-Guyot on the enablement of Ceph in the upgrade CI jobs and with Tom Barron on scenario004 to deploy Manila with Ganesha (and CephFS) instead of the CephFS native backend.</p>
+<p>Hopefully I didn't forget much; to stay updated on the progress join <code>#tripleo</code> on freenode or check our integration squad status at: <a class="reference external" href="https://etherpad.openstack.org/p/tripleo-integration-squad-status">https://etherpad.openstack.org/p/tripleo-integration-squad-status</a></p>
+</div>
+
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Mon 19 March 2018</p>
+    <p>Category: <a href="http://giuliofidente.com/category/techie.html">techie</a>
+ &ndash; Tags:
+      <a href="http://giuliofidente.com/tag/openstack.html">openstack</a>,      <a href="http://giuliofidente.com/tag/ceph.html">ceph</a>,      <a href="http://giuliofidente.com/tag/ceph-ansible.html">ceph-ansible</a>,      <a href="http://giuliofidente.com/tag/tripleo.html">tripleo</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; Giulio Fidente. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. Member of the <a href="http://internetdefenseleague.org">Internet Defense League</a>.</p>
+    </div>
+  </main>
+<script type="text/javascript">
+  window._idl = {};
+  _idl.variant = "banner";
+  (function() {
+    var idl = document.createElement('script');
+    idl.type = 'text/javascript';
+    idl.async = true;
+    idl.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'members.internetdefenseleague.org/include/?url=' + (_idl.url || '') + '&campaign=' + (_idl.campaign || '') + '&variant=' + (_idl.variant || 'banner');
+    document.getElementsByTagName('body')[0].appendChild(idl);
+  })();
+</script>
+</body>
+</html>

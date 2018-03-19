@@ -64,6 +64,24 @@
 
 <article>
   <div class="article_title">
+    <h1><a href="http://giuliofidente.com/2012/06/my-attempts-at-mapreduce-using-mongodb.html">My attempts at MapReduce using MongoDB</a></h1>
+  </div>
+  <div class="article_text">
+    <p>I was sorting a tree in my (python) webapp instead of having the database to do it for me. This is how I moved it back to the database by using a <a class="reference external" href="http://en.wikipedia.org/wiki/MapReduce">MapReduce</a> job. I had a collection structured like the following:</p>
+<div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;_id&quot;</span> <span class="p">:</span> <span class="err">...</span><span class="p">,</span>
+  <span class="nt">&quot;feed_oid&quot;</span> <span class="p">:</span> <span class="s2">&quot;4fd268d2ab87b2d8927d7eee&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;title&quot;</span> <span class="p">:</span> <span class="s2">&quot;blah blah&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;updated&quot;</span> <span class="p">:</span> <span class="mi">1339702524</span><span class="p">,</span>
+  <span class="nt">&quot;watchers&quot;</span> <span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;4fd276fc66224c1ee8000006&quot;</span> <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+<p>Such a collection is called <code>articles</code> and in there I get a document for every article published by an rss feed. <code>feed_oid</code> is …</p>
+  </div>
+</article>
+<hr />
+<article>
+  <div class="article_title">
     <h1><a href="http://giuliofidente.com/2012/06/aeolus.html">Aeolus</a></h1>
   </div>
   <div class="article_text">
@@ -115,16 +133,6 @@
 $ rhc app create -a jenkins -t jenkins-1.4
 </pre>
 <p>Then create your app …</p>
-  </div>
-</article>
-<hr />
-<article>
-  <div class="article_title">
-    <h1><a href="http://giuliofidente.com/2012/04/tornadoweb-on-openshift-updates.html">TornadoWeb on OpenShift (updates)</a></h1>
-  </div>
-  <div class="article_text">
-    <p><a class="reference external" href="http://openshift.redhat.com">OpenShift</a> recently introduced a new <a class="reference external" href="https://www.redhat.com/openshift/community/blogs/new-openshift-release-march-22-2012-nodejs-diy-cartridge-new-website-and-more">DIY cartridge</a> which allows for execution of any HTTP server.  Some nice features of <a class="reference external" href="http://www.tornadoweb.org">TornadoWeb</a> (like the auth modules) are not available when running as WSGI, as that doesn't permit ASYNC requests so I decided to <a class="reference external" href="https://github.com/gfidente/openshift-hellotornado">update the past HOWTO</a> documenting how to deploy it using the new DIY cartridge. Enjoy!</p>
-
   </div>
 </article>
 
