@@ -36,4 +36,4 @@ $ git push
 &lt;/pre&gt;
 &lt;p&gt;Hurry up checking your build on jenkins: &lt;a class="reference external" href="https://jenkins-$USERNAME.rhcloud.com/job/hellojenkins-build/"&gt;https://jenkins-$USERNAME.rhcloud.com/job/hellojenkins-build/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Wow. That was easy! Now imagine what you could do in your pre_build/build/post_deploy scripts with jenkins.&lt;/p&gt;
-</content><category term="jenkins"></category><category term="openshift"></category></entry></feed>
+</content><category term="techie"></category><category term="jenkins"></category><category term="openshift"></category></entry></feed>

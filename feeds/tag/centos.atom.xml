@@ -104,4 +104,4 @@ heat_watch_server_url = http://${HEAT_CLOUDWATCH_HOSTNAME}:8003
 &lt;/pre&gt;
 &lt;p&gt;If anything goes wrong, check the logs at &lt;code&gt;/var/log/heat/engine.log&lt;/code&gt; or look at the scripts passed as &lt;code&gt;UserData&lt;/code&gt; to the instances, these should be found in &lt;code&gt;/var/lib/cloud/data/&lt;/code&gt;. Time to hack your very own template and delete the test deployment! :)&lt;/p&gt;
 &lt;/div&gt;
-</content><category term="openstack"></category><category term="heat"></category><category term="fedoraplanet"></category><category term="rhel"></category><category term="centos"></category></entry></feed>
+</content><category term="techie"></category><category term="openstack"></category><category term="heat"></category><category term="fedoraplanet"></category><category term="rhel"></category><category term="centos"></category></entry></feed>

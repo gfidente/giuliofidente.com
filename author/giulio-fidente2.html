@@ -46,6 +46,10 @@
       <ul>
         <li><a href="http://giuliofidente.com/pages/about.html">About</a></li>
         <li><a href="http://giuliofidente.com/pages/projects.html">Projects</a></li>
+        <li><a href="http://giuliofidente.com/category/fun.html">fun</a></li>
+        <li><a href="http://giuliofidente.com/category/misc.html">misc</a></li>
+        <li><a href="http://giuliofidente.com/category/politics.html">politics</a></li>
+        <li><a href="http://giuliofidente.com/category/techie.html">techie</a></li>
         <li><a href="mailto:giulioATgiuliofidenteDOTcom" target="_blank">Email</a></li>
       </ul>
     </div>
@@ -62,7 +66,25 @@
 
 <article>
   <div class="article_title">
+    <h1><a href="http://giuliofidente.com/2015/11/openstack-summit-in-tokyo-and-tripleo.html">OpenStack summit in Tokyo and TripleO</a></h1>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Tue 03 November 2015</p>
+  </div>
+  <div class="article_text">
+    <p><a class="reference external" href="https://www.openstack.org/summit/tokyo-2015/">OpenStack summit Tokyo</a> anyone? I've been there and thought it was a very well organized event, in a nice location. Every minute together with peers seemed worth it to me. This said, let's talk about the actual sessions. I spent most of my time at the TripleO and Heat sessions, with a little detour on Magnum. Plus some booth crawling.</p>
+<dl class="docutils">
+<dt><strong>TripleO</strong></dt>
+<dd><p class="first">We had three sessions and a full day meetup. The first discussed the recent …</p></dd></dl>
+  </div>
+</article>
+<hr />
+<article>
+  <div class="article_title">
     <h1><a href="http://giuliofidente.com/2015/05/on-tripleo-and-the-enablepacemaker-bool.html">On TripleO and the EnablePacemaker bool</a></h1>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Fri 01 May 2015</p>
   </div>
   <div class="article_text">
     <p>Yes, EnablePacemaker! A little old fashioned and not very well suited for OpenStack you say heh? Let's try to talk a bit about this then. News is that we're adding into TripleO/Puppet an option to deploy Pacemaker on the Overcloud nodes. Puppet you said? Sure TripleO can use Puppet now for the configuration of the Overcloud nodes, ask Dan Prince :) Actually usage of Puppet is nowdays the preferred approach and many features are available …</p>
@@ -72,6 +94,9 @@
 <article>
   <div class="article_title">
     <h1><a href="http://giuliofidente.com/2015/01/ceph-for-cinder-in-tripleo.html">Ceph for Cinder in TripleO</a></h1>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Tue 06 January 2015</p>
   </div>
   <div class="article_text">
     <p>A wrap up on the status of TripleO's Cinder HA spec. First, a link to the <a class="reference external" href="https://blueprints.launchpad.net/tripleo/+spec/tripleo-kilo-cinder-ha">cinder-ha blueprint</a>, where you can find even more links, to the actual spec (under review) and the code changes (again, still under review). Intent of the blueprint is for the <a class="reference external" href="https://wiki.openstack.org/wiki/TripleO">TripleO</a> deployments to keep Cinder volumes available and Cinder operational in case of failures of any node.</p>
@@ -83,6 +108,9 @@
   <div class="article_title">
     <h1><a href="http://giuliofidente.com/2014/08/tripleo-vs-openstack-ha.html">TripleO vs OpenStack HA</a></h1>
   </div>
+  <div class="article_meta">
+    <p>Posted on: Thu 21 August 2014</p>
+  </div>
   <div class="article_text">
     <p>One of the topics discussed during the <a class="reference external" href="https://wiki.openstack.org/wiki/TripleO">TripleO</a> mid-cycle meetup in RDU was our status in relation to deploying OpenStack in a highly available manner. This had been worked on for some time and recently reached a usable state.</p>
 <p>Majority of complications seem to come from two factors: 1) we need to guarantee availability of external services too, like the database and the message broker, which aren't exactly designed for a scale-out scenario, 2) despite …</p>
@@ -93,24 +121,12 @@
   <div class="article_title">
     <h1><a href="http://giuliofidente.com/2013/07/my-takeaways-from-europython-2013.html">My takeaways from EuroPython 2013</a></h1>
   </div>
+  <div class="article_meta">
+    <p>Posted on: Sat 06 July 2013</p>
+  </div>
   <div class="article_text">
     <p>Been there! The event was very well organized and even the food was good. The following are the talks I attended with some comments and my takeaways.</p>
 <p>Despite the <a class="reference external" href="http://europython.eu">EuroPython</a> 2013 lasting a full week, including the weekend with some code sprints, I could only join the event for three days, from Tuesday to Thursday. Still it was a great experience and a good chance to learn about new things while also meet people who …</p>
-  </div>
-</article>
-<hr />
-<article>
-  <div class="article_title">
-    <h1><a href="http://giuliofidente.com/2013/06/openstack-glance-use-swift-as-backend.html">OpenStack Glance - Use Swift as backend</a></h1>
-  </div>
-  <div class="article_text">
-    <p>On <a class="reference external" href="http://www.openstack.org">OpenStack</a> again. <a class="reference external" href="https://wiki.openstack.org/wiki/Glance">Glance</a> is the component in charge of hosting the images (and image snapshots) to be cloned for the ephemeral instances. Images usually are just some random big files so it makes perfect sense to use <a class="reference external" href="https://wiki.openstack.org/wiki/Swift">Swift</a> for such an object (a File Object storage)!</p>
-<p>As usual, some assumptions before we start:</p>
-<ul class="simple">
-<li>you're familiar with the general <a class="reference external" href="http://www.openstack.org">OpenStack</a> architecture</li>
-<li>you have already some <a class="reference external" href="https://wiki.openstack.org/wiki/Glance">Glance</a> image node configured and working as expected</li>
-</ul>
-<p>This said …</p>
   </div>
 </article>
 

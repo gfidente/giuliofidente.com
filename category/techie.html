@@ -47,6 +47,10 @@
       <ul>
         <li><a href="http://giuliofidente.com/pages/about.html">About</a></li>
         <li><a href="http://giuliofidente.com/pages/projects.html">Projects</a></li>
+        <li><a href="http://giuliofidente.com/category/fun.html">fun</a></li>
+        <li><a href="http://giuliofidente.com/category/misc.html">misc</a></li>
+        <li><a href="http://giuliofidente.com/category/politics.html">politics</a></li>
+        <li><a href="http://giuliofidente.com/category/techie.html">techie</a></li>
         <li><a href="mailto:giulioATgiuliofidenteDOTcom" target="_blank">Email</a></li>
       </ul>
     </div>
@@ -64,7 +68,24 @@
 
 <article>
   <div class="article_title">
+    <h1><a href="http://giuliofidente.com/2019/01/pushing-openstack-and-ceph-to-the-edge-at-openstack-summit-berlin-2018.html">Pushing Openstack and Ceph to the Edge at OpenStack summit Berlin 2018</a></h1>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Wed 02 January 2019</p>
+  </div>
+  <div class="article_text">
+    <p>We presented at the latest OpenStack (Open Infrastructure ?) summit, held in Berlin after te Rocky release, together with <a class="reference external" href="http://www.sebastien-han.fr/">Sebastien Han</a> and <a class="reference external" href="https://twitter.com/seancohen_rh">Sean Cohen</a>, a session discussing how <a class="reference external" href="http://tripleo.org/">TripleO</a> will support &quot;Edge&quot; deployments with storage at the edge; colocating Ceph with the OpenStack services in the edge zone yet keeping a small hardware footprint.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/A4l3vPMaJew?start=1428" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>Thanks to the OpenStack Foundation for giving us the chance.</p>
+
+  </div>
+</article>
+<hr />
+<article>
+  <div class="article_title">
     <h1><a href="http://giuliofidente.com/2018/03/ceph-integration-topics-at-openstack-ptg.html">Ceph integration topics at OpenStack PTG</a></h1>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Mon 19 March 2018</p>
   </div>
   <div class="article_text">
     <p>I wanted to share a short summary of the discussions happened around the Ceph integration (in TripleO) at the <a class="reference external" href="https://www.openstack.org/ptg/">OpenStack PTG</a>.</p>
@@ -78,6 +99,9 @@
   <div class="article_title">
     <h1><a href="http://giuliofidente.com/2017/07/understanding-ceph-ansible-in-tripleo.html">Understanding ceph-ansible in TripleO</a></h1>
   </div>
+  <div class="article_meta">
+    <p>Posted on: Wed 19 July 2017</p>
+  </div>
   <div class="article_text">
     <p>One of the goals for the TripleO Pike release was to introduce ceph-ansible as an alternative to puppet-ceph for the deployment of Ceph.</p>
 <p>More specifically, to put operators in control of the playbook execution as if they were launching ceph-ansible from the commandline, except it would be Heat starting ceph-ansible at the right time during the overcloud deployment.</p>
@@ -88,6 +112,9 @@
 <article>
   <div class="article_title">
     <h1><a href="http://giuliofidente.com/2016/12/tripleo-to-deploy-ceph-standlone.html">TripleO to deploy Ceph standlone</a></h1>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Fri 16 December 2016</p>
   </div>
   <div class="article_text">
     <p>Here is a nice Christmas present: you can use TripleO for a standalone Ceph deployment, with just a few lines of YAML. Assuming you have an undercloud ready for a new overcloud, create an environment file like the following:</p>
@@ -110,6 +137,9 @@ parameters:
   <div class="article_title">
     <h1><a href="http://giuliofidente.com/2016/08/ceph-tripleo-and-the-newton-release.html">Ceph, TripleO and the Newton release</a></h1>
   </div>
+  <div class="article_meta">
+    <p>Posted on: Fri 26 August 2016</p>
+  </div>
   <div class="article_text">
     <p>Time to roll up some notes on the status of Ceph in TripleO. The majority of these functionalities were available in the Mitaka release too but the examples work with code from the Newton release so they might not apply identical to Mitaka.</p>
 <div class="section" id="the-tripleo-default-configuration">
@@ -117,18 +147,6 @@ parameters:
 <p>No default is going to fit everybody, but we want to know what the default is to improve from there. So let's try and see:</p>
 <pre class="literal-block">
 uc$ openstack overcloud …</pre></div>
-  </div>
-</article>
-<hr />
-<article>
-  <div class="article_title">
-    <h1><a href="http://giuliofidente.com/2015/11/openstack-summit-in-tokyo-and-tripleo.html">OpenStack summit in Tokyo and TripleO</a></h1>
-  </div>
-  <div class="article_text">
-    <p><a class="reference external" href="https://www.openstack.org/summit/tokyo-2015/">OpenStack summit Tokyo</a> anyone? I've been there and thought it was a very well organized event, in a nice location. Every minute together with peers seemed worth it to me. This said, let's talk about the actual sessions. I spent most of my time at the TripleO and Heat sessions, with a little detour on Magnum. Plus some booth crawling.</p>
-<dl class="docutils">
-<dt><strong>TripleO</strong></dt>
-<dd><p class="first">We had three sessions and a full day meetup. The first discussed the recent …</p></dd></dl>
   </div>
 </article>
 

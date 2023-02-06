@@ -47,6 +47,10 @@
       <ul>
         <li><a href="http://giuliofidente.com/pages/about.html">About</a></li>
         <li><a href="http://giuliofidente.com/pages/projects.html">Projects</a></li>
+        <li><a href="http://giuliofidente.com/category/fun.html">fun</a></li>
+        <li><a href="http://giuliofidente.com/category/misc.html">misc</a></li>
+        <li><a href="http://giuliofidente.com/category/politics.html">politics</a></li>
+        <li><a href="http://giuliofidente.com/category/techie.html">techie</a></li>
         <li><a href="mailto:giulioATgiuliofidenteDOTcom" target="_blank">Email</a></li>
       </ul>
     </div>
@@ -64,6 +68,9 @@
   <div class="article_title">
     <h1><a href="http://giuliofidente.com/2009/01/os-x-network-install-using-linux-updates.html">OS X Network Install using Linux (updates)</a></h1>
   </div>
+  <div class="article_meta">
+    <p>Posted on: Tue 06 January 2009</p>
+  </div>
   <div class="article_text">
     <p>Do you still remember <a class="reference external" href="http://giuliofidente.com/2006/11/os-x-network-install-using-linux.html">this</a>? It was a good post about the OS X install via the network using a GNU/Linux install server. I went back to read and use it after a few days to install the version 10.5 (leopard) of OS X and it worked well but there's a couple of things missing in that post which I'd like to share here.</p>
 <p>The problems were mainly in mounting the leopard disc. If you try to do that on a GNU/Linux system you should only see some files about bootcamp, it is indeed a double format dvd which includes two sections, one is iso9660 formatted and another is hfs+ formatted. To find the files I mentioned, you'll have to mount the hfs+ formatted section ... which is hidden but you can find it using this very helpful link: <a class="reference external" href="http://www.64lines.com/mounting-hfs-plus">Mounting HFS+ Hybrid Disks on Linux</a>.</p>
@@ -75,7 +82,6 @@ dd if=/dev/hdc of=/tftpboot/macosx.img
 
   </div>
   <div class="article_meta">
-    <p>Posted on: Tue 06 January 2009</p>
     <p>Category: <a href="http://giuliofidente.com/category/techie.html">techie</a>
  &ndash; Tags:
       <a href="http://giuliofidente.com/tag/osx-network-install.html">osx network install</a>,      <a href="http://giuliofidente.com/tag/linux-network-install.html">linux network install</a>,      <a href="http://giuliofidente.com/tag/leopard-network-install.html">leopard network install</a>,      <a href="http://giuliofidente.com/tag/fedoraplanet.html">fedoraplanet</a>    </p>

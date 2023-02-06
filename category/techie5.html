@@ -47,6 +47,10 @@
       <ul>
         <li><a href="http://giuliofidente.com/pages/about.html">About</a></li>
         <li><a href="http://giuliofidente.com/pages/projects.html">Projects</a></li>
+        <li><a href="http://giuliofidente.com/category/fun.html">fun</a></li>
+        <li><a href="http://giuliofidente.com/category/misc.html">misc</a></li>
+        <li><a href="http://giuliofidente.com/category/politics.html">politics</a></li>
+        <li><a href="http://giuliofidente.com/category/techie.html">techie</a></li>
         <li><a href="mailto:giulioATgiuliofidenteDOTcom" target="_blank">Email</a></li>
       </ul>
     </div>
@@ -64,16 +68,33 @@
 
 <article>
   <div class="article_title">
+    <h1><a href="http://giuliofidente.com/2012/08/computer-science-at-khan-academy.html">Computer Science at Khan Academy</a></h1>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Mon 20 August 2012</p>
+  </div>
+  <div class="article_text">
+    <p>Introduction to programming and computer science from <a class="reference external" href="http://www.khanacademy.com">Khan Academy</a> at <a class="reference external" href="http://www.khanacademy.org/science/computer-science">http://www.khanacademy.org/science/computer-science</a>.</p>
+<p>The best thing about it is that on Khan you get the tools to coach, not only the chance to learn. Empowers communities.</p>
+
+  </div>
+</article>
+<hr />
+<article>
+  <div class="article_title">
     <h1><a href="http://giuliofidente.com/2012/06/my-attempts-at-mapreduce-using-mongodb.html">My attempts at MapReduce using MongoDB</a></h1>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Thu 14 June 2012</p>
   </div>
   <div class="article_text">
     <p>I was sorting a tree in my (python) webapp instead of having the database to do it for me. This is how I moved it back to the database by using a <a class="reference external" href="http://en.wikipedia.org/wiki/MapReduce">MapReduce</a> job. I had a collection structured like the following:</p>
 <div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;_id&quot;</span> <span class="p">:</span> <span class="err">...</span><span class="p">,</span>
-  <span class="nt">&quot;feed_oid&quot;</span> <span class="p">:</span> <span class="s2">&quot;4fd268d2ab87b2d8927d7eee&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;title&quot;</span> <span class="p">:</span> <span class="s2">&quot;blah blah&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;updated&quot;</span> <span class="p">:</span> <span class="mi">1339702524</span><span class="p">,</span>
-  <span class="nt">&quot;watchers&quot;</span> <span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;4fd276fc66224c1ee8000006&quot;</span> <span class="p">]</span>
+<span class="w">  </span><span class="nt">&quot;_id&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;feed_oid&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4fd268d2ab87b2d8927d7eee&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;blah blah&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;updated&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1339702524</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;watchers&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;4fd276fc66224c1ee8000006&quot;</span><span class="w"> </span><span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 <p>Such a collection is called <code>articles</code> and in there I get a document for every article published by an rss feed. <code>feed_oid</code> is …</p>
@@ -84,6 +105,9 @@
   <div class="article_title">
     <h1><a href="http://giuliofidente.com/2012/06/aeolus.html">Aeolus</a></h1>
   </div>
+  <div class="article_meta">
+    <p>Posted on: Fri 08 June 2012</p>
+  </div>
   <div class="article_text">
     <p>This isn't going to be a real presentation of the <cite>aeolus project</cite> but I'm currently QAing it and I'd like to to discuss some use cases as there seems to be a lot of confusion around the cloud term these days. Firstly, what is aeolus? It is a collection of tools, you have the full listing at <a class="reference external" href="http://www.aeolusproject.org/projects.html">http://www.aeolusproject.org/projects.html</a></p>
 <p>Basically it allows you to automate the build of your 'template' images …</p>
@@ -93,6 +117,9 @@
 <article>
   <div class="article_title">
     <h1><a href="http://giuliofidente.com/2012/05/what-every-programmer-should-know-about-memory.html">What every programmer should know about memory</a></h1>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Wed 02 May 2012</p>
   </div>
   <div class="article_text">
     <p>This was a series of posts appeared on LWN, a while ago. A precious document from <a class="reference external" href="http://udrepper.livejournal.com/">Ulrich Drepper</a> which have been brought back recently to great attention to me from a post on HN. Thanks Ulrich, LWN and HN:</p>
@@ -111,28 +138,12 @@
   <div class="article_title">
     <h1><a href="http://giuliofidente.com/2012/04/yum-history.html">YUM history (!)</a></h1>
   </div>
+  <div class="article_meta">
+    <p>Posted on: Thu 26 April 2012</p>
+  </div>
   <div class="article_text">
     <p>While browsing the <a class="reference external" href="http://yum.baseurl.org/">YUM</a> man page for some details about the query command I happened to find one of my most wanted feature in a package manager! YUM has some <a class="reference external" href="http://docs.fedoraproject.org/en-US/Fedora/16/html/System_Administrators_Guide/sec-Yum-Transaction_History.html">history</a> command which allows for investigation of past transactions and even <strong>undo</strong> or <strong>rollback</strong> actions. Epic. I frequently find myself going through install/uninstall steps which not only mess around but I tend to forget about the installed and now unneeded deps.</p>
 <p>I'll go through …</p>
-  </div>
-</article>
-<hr />
-<article>
-  <div class="article_title">
-    <h1><a href="http://giuliofidente.com/2012/04/jenkins-on-openshift.html">Jenkins on OpenShift</a></h1>
-  </div>
-  <div class="article_text">
-    <p>How about <a class="reference external" href="http://jenkins-ci.org/">Jenkins</a> on <a class="reference external" href="http://openshift.redhat.com/">OpenShift</a>? Let's give this a try. Keep in mind that by default you've got only 3 gears on OpenShift and we'll need to use all of them for this tutorial:</p>
-<ul class="simple">
-<li>1 will be used by the live app</li>
-<li>1 will be used by the jenkins deployment</li>
-<li>1 will be used by the jenkins builds</li>
-</ul>
-<p>First, create your jenkins deployment:</p>
-<pre class="literal-block">
-$ rhc app create -a jenkins -t jenkins-1.4
-</pre>
-<p>Then create your app …</p>
   </div>
 </article>
 

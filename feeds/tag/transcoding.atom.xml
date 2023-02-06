@@ -19,4 +19,4 @@ $ oggenc -r -R 48000 -q 8 track1.pcm -o track1.pcm.ogg
 $ transcode -i /dev/dvd -x dvd -T 1,1,1 -a 0 -y null,tcaud --lame_preset extreme -m track1.mp3
 &lt;/pre&gt;
 &lt;p&gt;Enjoy :)&lt;/p&gt;
-</content><category term="transcoding"></category><category term="dvd audio extraction"></category></entry></feed>
+</content><category term="techie"></category><category term="transcoding"></category><category term="dvd audio extraction"></category></entry></feed>

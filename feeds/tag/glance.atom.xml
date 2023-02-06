@@ -23,4 +23,4 @@ swift_store_create_container_on_put = True
 &lt;p&gt;&lt;strong&gt;Update (Dec 2013):&lt;/strong&gt; The user you will set as &lt;code&gt;swift_store_user&lt;/code&gt; must have rights to create new containers in &lt;a class="reference external" href="https://wiki.openstack.org/wiki/Swift"&gt;Swift&lt;/a&gt;, to have that you can assign it the &lt;code&gt;ResellerAdmin&lt;/code&gt; role.&lt;/p&gt;
 &lt;p&gt;Also, while not needed, you should consider using port 35357 rather than 5000 for the KEYSTONE_PORT as it is the port where administrative commands can be given.&lt;/p&gt;
 &lt;p&gt;Short and straight to the point!&lt;/p&gt;
-</content><category term="openstack"></category><category term="glance"></category><category term="fedoraplanet"></category></entry></feed>
+</content><category term="techie"></category><category term="openstack"></category><category term="glance"></category><category term="fedoraplanet"></category></entry></feed>

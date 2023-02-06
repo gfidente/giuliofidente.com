@@ -47,6 +47,10 @@
       <ul>
         <li><a href="http://giuliofidente.com/pages/about.html">About</a></li>
         <li><a href="http://giuliofidente.com/pages/projects.html">Projects</a></li>
+        <li><a href="http://giuliofidente.com/category/fun.html">fun</a></li>
+        <li><a href="http://giuliofidente.com/category/misc.html">misc</a></li>
+        <li><a href="http://giuliofidente.com/category/politics.html">politics</a></li>
+        <li><a href="http://giuliofidente.com/category/techie.html">techie</a></li>
         <li><a href="mailto:giulioATgiuliofidenteDOTcom" target="_blank">Email</a></li>
       </ul>
     </div>
@@ -66,6 +70,9 @@
   <div class="article_title">
     <h1><a href="http://giuliofidente.com/2013/06/openstack-glance-use-swift-as-backend.html">OpenStack Glance - Use Swift as backend</a></h1>
   </div>
+  <div class="article_meta">
+    <p>Posted on: Thu 27 June 2013</p>
+  </div>
   <div class="article_text">
     <p>On <a class="reference external" href="http://www.openstack.org">OpenStack</a> again. <a class="reference external" href="https://wiki.openstack.org/wiki/Glance">Glance</a> is the component in charge of hosting the images (and image snapshots) to be cloned for the ephemeral instances. Images usually are just some random big files so it makes perfect sense to use <a class="reference external" href="https://wiki.openstack.org/wiki/Swift">Swift</a> for such an object (a File Object storage)!</p>
 <p>As usual, some assumptions before we start:</p>
@@ -81,6 +88,9 @@
   <div class="article_title">
     <h1><a href="http://giuliofidente.com/2013/06/openstack-cinder-configure-multiple-backends.html">OpenStack Cinder - Configure multiple backends</a></h1>
   </div>
+  <div class="article_meta">
+    <p>Posted on: Sun 16 June 2013</p>
+  </div>
   <div class="article_text">
     <p>Following <a class="reference external" href="http://giuliofidente.com/2013/04/openstack-cinder-add-more-volume-nodes.html">my first post of the series</a> discussing how to scale <a class="reference external" href="http://www.openstack.org">OpenStack</a> <a class="reference external" href="https://wiki.openstack.org/wiki/Cinder">Cinder</a> to multiple nodes, with this I want to approach the configuration and usage of the multibackend feature landed in <a class="reference external" href="https://wiki.openstack.org/wiki/Cinder">Cinder</a> with the Grizzly release.</p>
 <p>This feature allows you to configure a single volume node for use with more than a single backend driver. You can find all about the few configuration bits needed also in the <a class="reference external" href="http://docs.openstack.org/trunk/openstack-block-storage/admin/content/multi_backend.html">OpenStack block storage documentation</a>. That makes …</p>
@@ -90,6 +100,9 @@
 <article>
   <div class="article_title">
     <h1><a href="http://giuliofidente.com/2013/04/openstack-cinder-add-more-volume-nodes.html">OpenStack Cinder - Add more volume nodes</a></h1>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Tue 30 April 2013</p>
   </div>
   <div class="article_text">
     <p>With this being the first of a short series, I'd like to publish some articles intendend to cover the required steps to configure <a class="reference external" href="https://wiki.openstack.org/wiki/Cinder">Cinder</a> (<a class="reference external" href="http://www.openstack.org">OpenStack</a> block storage service) in a mid/large deployment scenario. The idea is to discuss at least three topics: how to scale the service by adding more volume nodes; how to ensure high-availablity for the API and Scheduler sub-services; leverage the multi-backend feature landed in Grizzly.</p>
@@ -101,6 +114,9 @@
   <div class="article_title">
     <h1><a href="http://giuliofidente.com/2013/04/getting-to-know-and-use-emacs-better.html">Getting to know and use Emacs better</a></h1>
   </div>
+  <div class="article_meta">
+    <p>Posted on: Tue 16 April 2013</p>
+  </div>
   <div class="article_text">
     <p>I know there are plenty of <a class="reference external" href="http://emacsblog.org">Emacs related blogs</a> discussing every single trick (<a class="reference external" href="http://emacsredux.com/">including the easter eggs</a>) so this won't be another. I don't have the skills for that either but I got to know Emacs better recently and decided to share my (hopefully nicely) commented <code>init.el</code> file.</p>
 <p>Why? Because it took me some time to find in the Emacs docs what I wanted. A readable, well commented config file would have helped so …</p>
@@ -110,6 +126,9 @@
 <article>
   <div class="article_title">
     <h1><a href="http://giuliofidente.com/2013/04/deploy-openstack-heat-on-rhel-and-derivates.html">Deploy OpenStack Heat on RHEL (and derivates)</a></h1>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Tue 16 April 2013</p>
   </div>
   <div class="article_text">
     <p><strong>UPDATE (June 2013):</strong> this post has been <a class="reference external" href="http://openstack.redhat.com/Deploy_Heat_and_launch_your_first_Application">published on the RDO site</a> and is now maintained there.</p>

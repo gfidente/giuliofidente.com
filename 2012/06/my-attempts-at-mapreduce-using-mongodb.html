@@ -47,6 +47,10 @@
       <ul>
         <li><a href="http://giuliofidente.com/pages/about.html">About</a></li>
         <li><a href="http://giuliofidente.com/pages/projects.html">Projects</a></li>
+        <li><a href="http://giuliofidente.com/category/fun.html">fun</a></li>
+        <li><a href="http://giuliofidente.com/category/misc.html">misc</a></li>
+        <li><a href="http://giuliofidente.com/category/politics.html">politics</a></li>
+        <li><a href="http://giuliofidente.com/category/techie.html">techie</a></li>
         <li><a href="mailto:giulioATgiuliofidenteDOTcom" target="_blank">Email</a></li>
       </ul>
     </div>
@@ -64,48 +68,50 @@
   <div class="article_title">
     <h1><a href="http://giuliofidente.com/2012/06/my-attempts-at-mapreduce-using-mongodb.html">My attempts at MapReduce using MongoDB</a></h1>
   </div>
+  <div class="article_meta">
+    <p>Posted on: Thu 14 June 2012</p>
+  </div>
   <div class="article_text">
     <p>I was sorting a tree in my (python) webapp instead of having the database to do it for me. This is how I moved it back to the database by using a <a class="reference external" href="http://en.wikipedia.org/wiki/MapReduce">MapReduce</a> job. I had a collection structured like the following:</p>
 <div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;_id&quot;</span> <span class="p">:</span> <span class="err">...</span><span class="p">,</span>
-  <span class="nt">&quot;feed_oid&quot;</span> <span class="p">:</span> <span class="s2">&quot;4fd268d2ab87b2d8927d7eee&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;title&quot;</span> <span class="p">:</span> <span class="s2">&quot;blah blah&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;updated&quot;</span> <span class="p">:</span> <span class="mi">1339702524</span><span class="p">,</span>
-  <span class="nt">&quot;watchers&quot;</span> <span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;4fd276fc66224c1ee8000006&quot;</span> <span class="p">]</span>
+<span class="w">  </span><span class="nt">&quot;_id&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;feed_oid&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4fd268d2ab87b2d8927d7eee&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;blah blah&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;updated&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1339702524</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;watchers&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;4fd276fc66224c1ee8000006&quot;</span><span class="w"> </span><span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 <p>Such a collection is called <code>articles</code> and in there I get a document for every article published by an rss feed. <code>feed_oid</code> is an identifier I assign to every rss feed that I'm crawling and <code>watchers</code> contains a list of identifiers assigned to the people voting on such an article.</p>
 <p>I wanted to find out the number of times a particular watcher appeared in the full list of articles and than, group that by the rss feed, so that I could end up with the number of times a person voted on articles published by the same feed.</p>
 <p>The following are my map and reduce functions:</p>
-<div class="highlight"><pre><span></span><span class="nx">m</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">emit</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">feed_oid</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><span class="nx">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">emit</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">feed_oid</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
-<div class="highlight"><pre><span></span><span class="nx">r</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">oids</span><span class="p">,</span> <span class="nx">vals</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">v</span> <span class="k">in</span> <span class="nx">vals</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">sum</span> <span class="o">+=</span> <span class="nx">vals</span><span class="p">[</span><span class="nx">v</span><span class="p">];</span>
-  <span class="p">}</span>
-  <span class="k">return</span> <span class="nx">sum</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><span class="nx">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">oids</span><span class="p">,</span><span class="w"> </span><span class="nx">vals</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="nx">v</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">vals</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">vals</span><span class="p">[</span><span class="nx">v</span><span class="p">];</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">sum</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 <p>The map function is called for every object matching the query filter, so it gets access to 'this'. The reduce function receives an array of values (all set to 1, by my map function) for every feed_oid emitted.</p>
 <p>Here is how I spawn the MapReduce job (querying by the watcher id):</p>
-<div class="highlight"><pre><span></span><span class="nx">res</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">articles</span><span class="p">.</span><span class="nx">mapReduce</span><span class="p">(</span><span class="nx">m</span><span class="p">,</span> <span class="nx">r</span><span class="p">,</span> <span class="p">{</span>
-  <span class="nx">query</span><span class="o">:</span> <span class="p">{</span><span class="nx">watchers</span><span class="o">:</span> <span class="s2">&quot;4fd276fc66224c1ee8000006&quot;</span><span class="p">},</span>
-  <span class="nx">out</span><span class="o">:</span> <span class="s2">&quot;mapreduceout&quot;</span>
+<div class="highlight"><pre><span></span><span class="nx">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">articles</span><span class="p">.</span><span class="nx">mapReduce</span><span class="p">(</span><span class="nx">m</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">query</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">watchers</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;4fd276fc66224c1ee8000006&quot;</span><span class="p">},</span>
+<span class="w">  </span><span class="nx">out</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;mapreduceout&quot;</span>
 <span class="p">});</span>
 </pre></div>
 <p>The results:</p>
 <div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">mapreduceout</span><span class="p">.</span><span class="nx">find</span><span class="p">()</span>
-<span class="p">{</span> <span class="s2">&quot;_id&quot;</span> <span class="o">:</span> <span class="s2">&quot;4fd268d2ab87b2d8927d7eea&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span> <span class="o">:</span> <span class="mi">1</span> <span class="p">}</span>
-<span class="p">{</span> <span class="s2">&quot;_id&quot;</span> <span class="o">:</span> <span class="s2">&quot;4fd268d2ab87b2d8927d7eee&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span> <span class="o">:</span> <span class="mi">4</span> <span class="p">}</span>
+<span class="p">{</span><span class="w"> </span><span class="s2">&quot;_id&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;4fd268d2ab87b2d8927d7eea&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;value&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">}</span>
+<span class="p">{</span><span class="w"> </span><span class="s2">&quot;_id&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;4fd268d2ab87b2d8927d7eee&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;value&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="p">}</span>
 </pre></div>
 <p>Looks like this guy voted 4 times on articles appeared on the feed 4fd268d2ab87b2d8927d7eee and 1 4fd268d2ab87b2d8927d7eea :P</p>
 
   </div>
   <div class="article_meta">
-    <p>Posted on: Thu 14 June 2012</p>
     <p>Category: <a href="http://giuliofidente.com/category/techie.html">techie</a>
  &ndash; Tags:
       <a href="http://giuliofidente.com/tag/mapreduce.html">mapreduce</a>,      <a href="http://giuliofidente.com/tag/fedoraplanet.html">fedoraplanet</a>,      <a href="http://giuliofidente.com/tag/mongodb.html">mongodb</a>    </p>
